@@ -1,0 +1,36 @@
+.box {
+    background-color: #d9d9d9;
+    border-radius: 6px;
+    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+    color: #4a4a4a;
+    display: block;
+    padding: 1.25rem;
+} 
+
+.link-class:hover {
+    background-color: #d9d9d9;
+}
+
+#result {
+    position: absolute;
+    width: 100%;
+    max-width: 645px;
+    cursor: pointer;
+    overflow-y: auto;
+    max-height: 400px;
+    box-sizing: border-box;
+    z-index: 1001;
+  }
+
+.glyphicon {
+    padding-right: 6px !important;
+  }
+
+.policy-list-padding {
+    padding-top: 120px;
+}
+
+.badge {
+    cursor: pointer;
+}
+ 

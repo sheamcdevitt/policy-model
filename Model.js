@@ -184,11 +184,12 @@ $(document).ready(function(){
        console.log($('#search').val());
    
        var clickedId = $('#search').val();
-       
-   
-       
+
        for (var i = 0; i < data.length; i++) {
-           if (data[i]['id']== clickedId && !jsonToPass.nodes.some(item => item.id === clickedId)) {jsonToPass.nodes.push(data[i]);}
+           if (data[i]['id']== clickedId && !jsonToPass.nodes.some(item => item.id === clickedId)) {
+             jsonToPass.nodes.push(data[i]);
+             $("#add").append('<li class="list-group-item list-group-item-success">' + clickedId + ' added!<span class="badge">X</span></li>');
+            }
           
        }
       

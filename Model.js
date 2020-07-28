@@ -514,16 +514,16 @@ function getColour(d, a){
 
 function positionPrimaryNodes(d){
   var obj = Object.keys(countGroupsArray(d)).sort();
-  console.log(obj);
+  console.log(countGroups(d));
   var overlapping = true;
   var w = width, h = height, Ox = 100, Oy = 100;
   var regionArray;
-  if (countGroups(d) == 1){regionArray = [[Ox,Oy,w-100,h-100]];}
-  else if (countGroups(d) == 2){regionArray = [[Ox,Oy,(w/2)-50,h-100],[(w/2)+50,Oy,w-100, h-100]];}
-  else if (countGroups(d) == 3){regionArray = [[Ox,Oy,(w/2)-50,((2*h)/3)-50],[(w/2)+50,Oy,w-100,((2*h)/3)-50],[Ox,((2*h)/3)+50,w-100,h-100]];}
-  else if (countGroups(d) == 4){regionArray = [[Ox,Oy,(w/2)-50,(h/2)-50],[(w/2)+50,Oy,w-100,(h/2)-50],[Ox,(h/2)+50,(w/2)-50,h-100],[(w/2)+50,(h/2)+50,w-100,h-100]];}
-  else if (countGroups(d) == 5){regionArray = [[Ox,Oy,(w/2)-50,((2*h)/5)-50],[(w/2)+50,Oy,w-100,((2*h)/5) -50],[Ox,((2*h)/5)+50,(w/2)-50, ((4*h)/5) -50],[(w/2)-50,((2*h)/5)+50,,w-100,((4*h)/5) -50],[Ox,((4*h)/5) +50,w-100,h-100]];}
-  else if (countGroups(d) == 6){regionArray = [[Ox,Oy,(w/2)-50,(h/3)-50],[(w/2)+50,Oy,w-50,(h/3)-50],[Ox,(h/3)+50,(w/2)-50,((2*h)/3)-50],[(w/2)+50,(h/3)+50,w-50,((2*h)/3)-50],[Ox,((2*h)/3)+50,(w/2)-50, h-50],[(w/2)+50,((2*h)/3)+50,w-50,h-50]]}
+  if (countParentGroups(d) == 1){regionArray = [[Ox,Oy,w-100,h-100]];}
+  else if (countParentGroups(d) == 2){regionArray = [[Ox,Oy,(w/2)-50,h-100],[(w/2)+50,Oy,w-100, h-100]];}
+  else if (countParentGroups(d) == 3){regionArray = [[Ox,Oy,(w/2)-50,((2*h)/3)-50],[(w/2)+50,Oy,w-100,((2*h)/3)-50],[Ox,((2*h)/3)+50,w-100,h-100]];}
+  else if (countParentGroups(d) == 4){regionArray = [[Ox,Oy,(w/2)-50,(h/2)-50],[(w/2)+50,Oy,w-100,(h/2)-50],[Ox,(h/2)+50,(w/2)-50,h-100],[(w/2)+50,(h/2)+50,w-100,h-100]];}
+  else if (countParentGroups(d) == 5){regionArray = [[Ox,Oy,(w/2)-50,((2*h)/5)-50],[(w/2)+50,Oy,w-100,((2*h)/5) -50],[Ox,((2*h)/5)+50,(w/2)-50, ((4*h)/5) -50],[(w/2)-50,((2*h)/5)+50,w-100,((4*h)/5) -50],[Ox,((4*h)/5) +50,w-100,h-100]];}
+  else if (countParentGroups(d) == 6){regionArray = [[Ox,Oy,(w/2)-50,(h/3)-50],[(w/2)+50,Oy,w-50,(h/3)-50],[Ox,(h/3)+50,(w/2)-50,((2*h)/3)-50],[(w/2)+50,(h/3)+50,w-50,((2*h)/3)-50],[Ox,((2*h)/3)+50,(w/2)-50, h-50],[(w/2)+50,((2*h)/3)+50,w-50,h-50]]}
   //something in here defining what region it should go in but dont need that for now
   //var region = [100,100,width-100,height-100];
   if (d.length <= 1){
@@ -535,41 +535,41 @@ function positionPrimaryNodes(d){
 
   for (var i = 0, len = d.length; i < len; i++) {
     var currentNode = d[i];
+    console.log(regionArray);
     
-    
-    if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d)]){
+    if(currentNode['parentGroup'] == obj[countParentGroups(d)-countParentGroups(d)]){
       
-    currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)][0],regionArray[countGroups(d)-countGroups(d)][2]);
-    currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)][1],regionArray[countGroups(d)-countGroups(d)][3]);
+    currentNode['fx'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)][0],regionArray[countParentGroups(d)-countParentGroups(d)][2]);
+    currentNode['fy'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)][1],regionArray[countParentGroups(d)-countParentGroups(d)][3]);
     } 
-    else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +1]){
-      currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+1][0],regionArray[countGroups(d)-countGroups(d)+1][2]);
-      currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+1][1],regionArray[countGroups(d)-countGroups(d)+1][3]);
+    else if(currentNode['parentGroup'] == obj[countParentGroups(d)-countParentGroups(d) +1]){
+      currentNode['fx'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+1][0],regionArray[countParentGroups(d)-countParentGroups(d)+1][2]);
+      currentNode['fy'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+1][1],regionArray[countParentGroups(d)-countParentGroups(d)+1][3]);
     }
-    else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +2]){
+    else if(currentNode['parentGroup'] == obj[countParentGroups(d)-countParentGroups(d) +2]){
      
-      currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+2][0],regionArray[countGroups(d)-countGroups(d)+2][2]);
-      currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+2][1],regionArray[countGroups(d)-countGroups(d)+2][3]);
+      currentNode['fx'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+2][0],regionArray[countParentGroups(d)-countParentGroups(d)+2][2]);
+      currentNode['fy'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+2][1],regionArray[countParentGroups(d)-countParentGroups(d)+2][3]);
      }
-     else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +3]){
+     else if(currentNode['parentGroup'] == obj[countParentGroups(d)-countParentGroups(d) +3]){
      
-      currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+3][0],regionArray[countGroups(d)-countGroups(d)+3][2]);
-      currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+3][1],regionArray[countGroups(d)-countGroups(d)+3][3]);
+      currentNode['fx'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+3][0],regionArray[countParentGroups(d)-countParentGroups(d)+3][2]);
+      currentNode['fy'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+3][1],regionArray[countParentGroups(d)-countParentGroups(d)+3][3]);
      }
-     else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +4]){
+     else if(currentNode['parentGroup'] == obj[countParentGroups(d)-countParentGroups(d) +4]){
      
-      currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+4][0],regionArray[countGroups(d)-countGroups(d)+4][2]);
-      currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+4][1],regionArray[countGroups(d)-countGroups(d)+4][3]);
+      currentNode['fx'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+4][0],regionArray[countParentGroups(d)-countParentGroups(d)+4][2]);
+      currentNode['fy'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+4][1],regionArray[countParentGroups(d)-countParentGroups(d)+4][3]);
      }
-     else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +5]){
+     else if(currentNode['parentGroup'] == obj[countParentGroups(d)-countParentGroups(d) +5]){
      
-      currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+5][0],regionArray[countGroups(d)-countGroups(d)+5][2]);
-      currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+5][1],regionArray[countGroups(d)-countGroups(d)+5][3]);
+      currentNode['fx'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+5][0],regionArray[countParentGroups(d)-countParentGroups(d)+5][2]);
+      currentNode['fy'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+5][1],regionArray[countParentGroups(d)-countParentGroups(d)+5][3]);
      }
-     else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +6]){
+     else if(currentNode['parentGroup'] == obj[countParentGroups(d)-countParentGroups(d) +6]){
      
-      currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+6][0],regionArray[countGroups(d)-countGroups(d)+6][2]);
-      currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+6][1],regionArray[countGroups(d)-countGroups(d)+6][3]);
+      currentNode['fx'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+6][0],regionArray[countParentGroups(d)-countParentGroups(d)+6][2]);
+      currentNode['fy'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+6][1],regionArray[countParentGroups(d)-countParentGroups(d)+6][3]);
      }
     
     for (var j =0; j < d.length; j++){
@@ -593,49 +593,49 @@ function positionPrimaryNodes(d){
           var iterator = 0;
           while(overlapping){
             //console.log(distance);
-            //console.log( obj[countGroups(d)-countGroups(d)]);
-            if(currentNode['parentGroup'] = obj[countGroups(d)-countGroups(d)]){
+            //console.log( obj[countParentGroups(d)-countParentGroups(d)]);
+            if(currentNode['parentGroup'] = obj[countParentGroups(d)-countParentGroups(d)]){
              
-              currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)][0],regionArray[countGroups(d)-countGroups(d)][2]);
-              currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)][1],regionArray[countGroups(d)-countGroups(d)][3]);
+              currentNode['fx'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)][0],regionArray[countParentGroups(d)-countParentGroups(d)][2]);
+              currentNode['fy'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)][1],regionArray[countParentGroups(d)-countParentGroups(d)][3]);
               
               } 
-              else if(currentNode['parentGroup'] = obj[countGroups(d)-countGroups(d) +1]){
+              else if(currentNode['parentGroup'] = obj[countParentGroups(d)-countParentGroups(d) +1]){
                 
-                currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+1][0],regionArray[countGroups(d)-countGroups(d)+1][2]);
-                currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+1][1],regionArray[countGroups(d)-countGroups(d)+1][3]);
+                currentNode['fx'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+1][0],regionArray[countParentGroups(d)-countParentGroups(d)+1][2]);
+                currentNode['fy'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+1][1],regionArray[countParentGroups(d)-countParentGroups(d)+1][3]);
                 }
-                else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +2]){
+                else if(currentNode['parentGroup'] == obj[countParentGroups(d)-countParentGroups(d) +2]){
      
-                  currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+2][0],regionArray[countGroups(d)-countGroups(d)+2][2]);
-                  currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+2][1],regionArray[countGroups(d)-countGroups(d)+2][3]);
+                  currentNode['fx'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+2][0],regionArray[countParentGroups(d)-countParentGroups(d)+2][2]);
+                  currentNode['fy'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+2][1],regionArray[countParentGroups(d)-countParentGroups(d)+2][3]);
                  }
-                 else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +3]){
+                 else if(currentNode['parentGroup'] == obj[countParentGroups(d)-countParentGroups(d) +3]){
                  
-                  currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+3][0],regionArray[countGroups(d)-countGroups(d)+3][2]);
-                  currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+3][1],regionArray[countGroups(d)-countGroups(d)+3][3]);
+                  currentNode['fx'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+3][0],regionArray[countParentGroups(d)-countParentGroups(d)+3][2]);
+                  currentNode['fy'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+3][1],regionArray[countParentGroups(d)-countParentGroups(d)+3][3]);
                  }
-                 else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +4]){
+                 else if(currentNode['parentGroup'] == obj[countParentGroups(d)-countParentGroups(d) +4]){
                  
-                  currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+4][0],regionArray[countGroups(d)-countGroups(d)+4][2]);
-                  currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+4][1],regionArray[countGroups(d)-countGroups(d)+4][3]);
+                  currentNode['fx'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+4][0],regionArray[countParentGroups(d)-countParentGroups(d)+4][2]);
+                  currentNode['fy'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+4][1],regionArray[countParentGroups(d)-countParentGroups(d)+4][3]);
                  }
-                 else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +5]){
+                 else if(currentNode['parentGroup'] == obj[countParentGroups(d)-countParentGroups(d) +5]){
                  
-                  currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+5][0],regionArray[countGroups(d)-countGroups(d)+5][2]);
-                  currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+5][1],regionArray[countGroups(d)-countGroups(d)+5][3]);
+                  currentNode['fx'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+5][0],regionArray[countParentGroups(d)-countParentGroups(d)+5][2]);
+                  currentNode['fy'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+5][1],regionArray[countParentGroups(d)-countParentGroups(d)+5][3]);
                  }
-                 else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +6]){
+                 else if(currentNode['parentGroup'] == obj[countParentGroups(d)-countParentGroups(d) +6]){
                  
-                  currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+6][0],regionArray[countGroups(d)-countGroups(d)+6][2]);
-                  currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+6][1],regionArray[countGroups(d)-countGroups(d)+6][3]);
+                  currentNode['fx'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+6][0],regionArray[countParentGroups(d)-countParentGroups(d)+6][2]);
+                  currentNode['fy'] = getRandomArbitrary(regionArray[countParentGroups(d)-countParentGroups(d)+6][1],regionArray[countParentGroups(d)-countParentGroups(d)+6][3]);
                  }
             if (dist > (currentNode['radius'] + compareNode['radius'])){
               overlapping = false;
               
             }
               iterator++;
-            if (iterator > 10000000) {
+            if (iterator > 1000000) {
               overlapping = false;
               currentNode['fx'] = 0;//getRandomArbitrary(region[0],region[2]);
               currentNode['fy'] = 0;//getRandomArbitrary(region[1],region[3]);
@@ -837,6 +837,14 @@ function countGroups(d) {
         counts[d[i]['group']] = 1 + (counts[d[i]['group']] || 0);
     }
     return countProperties(counts);
+}
+
+function countParentGroups(d) {
+  var counts = {};
+  for (var i = 0; i < d.length; i++) {
+      counts[d[i]['parentGroup']] = 1 + (counts[d[i]['parentGroup']] || 0);
+  }
+  return countProperties(counts);
 }
 
 function countGroupsArray(d) {

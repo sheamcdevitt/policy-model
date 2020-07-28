@@ -231,7 +231,6 @@ var simulation = d3.forceSimulation()
 document.getElementById("CreateModel").onclick = function() {
   create(jsonToPass);
   jsonToPass = {"nodes":[],"links":[]};
-  $("#add").empty();
 };
 function create(d) {
 //function create(jsonToPass) {
@@ -555,7 +554,7 @@ function positionPrimaryNodes(d){
      else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +3]){
      
       currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+3][0],regionArray[countGroups(d)-countGroups(d)+3][2]);
-      currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+2][1],regionArray[countGroups(d)-countGroups(d)+3][3]);
+      currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+3][1],regionArray[countGroups(d)-countGroups(d)+3][3]);
      }
      else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +4]){
      
@@ -589,7 +588,7 @@ function positionPrimaryNodes(d){
       var dist = distance(currentNode, compareNode); // distance function between node and other + wiggle room for other nodes 
       //console.log("Current " + currentNode + "compare ",compareNode);
       //console.log("distance between " + currentNode['id'] + " " + compareNode['id'] + ": ",dist )
-      if (dist < (currentNode['radius'] + compareNode['radius']) +30){ //+determine wiggle room)){
+      if (dist < (currentNode['radius'] + compareNode['radius']) +10){ //+determine wiggle room)){
           overlapping  = true;
           var iterator = 0;
           while(overlapping){
@@ -614,7 +613,7 @@ function positionPrimaryNodes(d){
                  else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +3]){
                  
                   currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+3][0],regionArray[countGroups(d)-countGroups(d)+3][2]);
-                  currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+2][1],regionArray[countGroups(d)-countGroups(d)+3][3]);
+                  currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+3][1],regionArray[countGroups(d)-countGroups(d)+3][3]);
                  }
                  else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +4]){
                  
@@ -636,7 +635,7 @@ function positionPrimaryNodes(d){
               
             }
               iterator++;
-            if (iterator > 1000000) {
+            if (iterator > 10000000) {
               overlapping = false;
               currentNode['fx'] = 0;//getRandomArbitrary(region[0],region[2]);
               currentNode['fy'] = 0;//getRandomArbitrary(region[1],region[3]);

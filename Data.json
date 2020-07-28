@@ -16,7 +16,6 @@
   {"id":"UNSDG15","display":"","parentGroup":"UN Sustainable Development Goals","group":"UN Sustainable Development Goals","description":"Life on Land", "type":"Parent"},
   {"id":"UNSDG16","display":"","parentGroup":"UN Sustainable Development Goals","group":"UN Sustainable Development Goals","description":"Peace and Justice Strong Institutions", "type":"Parent"},
   {"id":"UNSDG17","display":"","parentGroup":"UN Sustainable Development Goals","group":"UN Sustainable Development Goals","description":"Partnerships to achieve the Goal", "type":"Parent"},
-
   {"id":"UNSDT1.1","display":"","parentGroup":"UN Sustainable Development Goals","group":"UN Sustainable Development Targets","description":"By 2030, eradicate extreme poverty for all people everywhere, currently measured as people living on less than $1.25 a day", "type":"Child"},
   {"id":"UNSDT1.2","display":"","parentGroup":"UN Sustainable Development Goals","group":"UN Sustainable Development Targets","description":"By 2030, reduce at least by half the proportion of men, women and children of all ages living in poverty in all its dimensions according to national definitions", "type":"Child"},
   {"id":"UNSDT1.3","display":"","parentGroup":"UN Sustainable Development Goals","group":"UN Sustainable Development Targets","description":"Implement nationally appropriate social protection systems and measures for all, including floors, and by 2030 achieve substantial coverage of the poor and the vulnerable", "type":"Child"},    
@@ -185,12 +184,10 @@
   {"id":"UNSDT17.17","display":"","parentGroup":"UN Sustainable Development Goals","group":"UN Sustainable Development Targets","description":"Encourage and promote effective public, public-private and civil society partnerships, building on the experience and resourcing strategies of partnerships", "type":"Child"},
   {"id":"UNSDT17.18","display":"","parentGroup":"UN Sustainable Development Goals","group":"UN Sustainable Development Targets","description":"By 2020, enhance capacity-building support to developing countries, including for least developed countries and small island developing States, to increase significantly the availability of high-quality, timely and reliable data disaggregated by income, gender, age, race, ethnicity, migratory status, disability, geographic location and other characteristics relevant in national contexts", "type":"Child"},
   {"id":"UNSDT17.19","display":"","parentGroup":"UN Sustainable Development Goals","group":"UN Sustainable Development Targets","description":"By 2030, build on existing initiatives to develop measurements of progress on sustainable development that complement gross domestic product, and support statistical capacity-building in developing countries", "type":"Child"},
-
   {"id":"C2030.1","display":"Environment","secondDisplay":"& Resilience","parentGroup":"Culture 2030 Indicators","group":"Culture 2030 Indicators","description":"Environment & Resilience", "type":"Parent"},
   {"id":"C2030.2","display":"Prosperity","secondDisplay":"& Livelihoods","parentGroup":"Culture 2030 Indicators","group":"Culture 2030 Indicators","description":"Prosperity & Livelihoods", "type":"Parent"},
   {"id":"C2030.3","display":"Knowledge","secondDisplay":"& Skills","parentGroup":"Culture 2030 Indicators","group":"Culture 2030 Indicators","description":"Knowledge & Skills", "type":"Parent"},
   {"id":"C2030.4","display":"Inclusion","secondDisplay":"& Participation","parentGroup":"Culture 2030 Indicators","group":"Culture 2030 Indicators","description":"Inclusion & Participation", "type":"Parent"},
-
   {"id":"PFGOV1","display":"","parentGroup":"Programme for Government","group":"Programme for Government Outcomes","description":"We prosper through a strong, competitive, regionally balanced economy", "type":"Parent"},
   {"id":"PFGOV2","display":"","parentGroup":"Programme for Government","group":"Programme for Government Outcomes","description":"We live and work sustainably – protecting the environment", "type":"Parent"},
   {"id":"PFGOV3","display":"","parentGroup":"Programme for Government","group":"Programme for Government Outcomes","description":"We have a more equal society", "type":"Parent"},
@@ -205,7 +202,6 @@
   {"id":"PFGOV12","display":"","parentGroup":"Programme for Government","group":"Programme for Government Outcomes","description":"We have created a place where people wantto live and work, to visit and invest", "type":"Parent"},
   {"id":"PFGOV13","display":"","parentGroup":"Programme for Government","group":"Programme for Government Outcomes","description":"We connect people and opportunities through our infrastructure", "type":"Parent"},
   {"id":"PFGOV14","display":"","parentGroup":"Programme for Government","group":"Programme for Government Outcomes","description":"We give our children and young people the best start in life", "type":"Parent"},
-
   {"id":"PFGVI1","display":"","parentGroup":"Programme for Government","group":"Programme for Government Indicators","description":"Reduce crime", "type":"Child"},
   {"id":"PFGV2","display":"","parentGroup":"Programme for Government","group":"Programme for Government Indicators","description":"Reduce health inequality", "type":"Child"},
   {"id":"PFGVI3","display":"","parentGroup":"Programme for Government","group":"Programme for Government Indicators","description":"Increase healthy life expectancy", "type":"Child"},
@@ -259,19 +255,16 @@
   {"id":"WHORA.7","display":"Social","secondDisplay":"Interaction","parentGroup":"WHO Arts Components","group":"WHO Arts Components","description":"Social interaction", "type":"Parent"},
   {"id":"WHORA.8","display":"Physical","secondDisplay":"activity","parentGroup":"WHO Arts Components","group":"WHO Arts Components","description":"Physical activity", "type":"Parent"},
   {"id":"WHORA.9","display":"Sensory","secondDisplay":"activation","parentGroup":"WHO Arts Components","group":"WHO Arts Components","description":"Sensory activation", "type":"Parent"},
-
   {"id":"WHOR5.1","display":"Connect","secondDisplay":"","parentGroup":"WHO 5 Ways To Wellbeing","group":"WHO 5 Ways To Wellbeing","description":"Talk and listen, be there, feel connected", "type":"Parent"},
   {"id":"WHOR5.2","display":"Be","secondDisplay":"Active","parentGroup":"WHO 5 Ways To Wellbeing","group":"WHO 5 Ways To Wellbeing","description":"Do what you can, enjoy what you do, move your mood", "type":"Parent"},
   {"id":"WHOR5.3","display":"Take","secondDisplay":"Notice","parentGroup":"WHO 5 Ways To Wellbeing","group":"WHO 5 Ways To Wellbeing","description":"Remember the simple things that give you joy", "type":"Parent"},
   {"id":"WHOR5.4","display":"Keep","secondDisplay":"Learning","parentGroup":"WHO 5 Ways To Wellbeing","group":"WHO 5 Ways To Wellbeing","description":"Embrace new experiences, see opportunities, surprise yourself", "type":"Parent"},
   {"id":"WHOR5.5","display":"Give","secondDisplay":"","parentGroup":"WHO 5 Ways To Wellbeing","group":"WHO 5 Ways To Wellbeing","description":"Your time, your words, your presence", "type":"Parent"},
-
   {"id":"BELAG1","display":"Economy","secondDisplay":"","parentGroup":"Belfast Agenda","group":"Belfast Agenda Outcomes","description":"Everyone in Belfast benefits from a thriving and prosperous economy", "type":"Parent"},
   {"id":"BELAG2","display":"Safe","secondDisplay":"& Inclusive","parentGroup":"Belfast Agenda","group":"Belfast Agenda Outcomes","description":"Belfast is a welcoming, safe, fair and inclusive city for all", "type":"Parent"},
   {"id":"BELAG3","display":"Potential","secondDisplay":"","parentGroup":"Belfast Agenda","group":"Belfast Agenda Outcomes","description":"Everyone in Belfast fulfils their potential", "type":"Parent"},
   {"id":"BELAG4","display":"Health","secondDisplay":"","parentGroup":"Belfast Agenda","group":"Belfast Agenda Outcomes","description":" Everyone in Belfast experiences good health and wellbeing", "type":"Parent"},
   {"id":"BELAG5","display":"Vibrant","secondDisplay":"/Attractive","parentGroup":"Belfast Agenda","group":"Belfast Agenda Outcomes","description":"Belfast is a vibrant, attractive, connected and environmentally sustainable city", "type":"Parent"},
-
   {"id":"BELAI1.1","display":"","secondDisplay":"","parentGroup":"Belfast Agenda","group":"Belfast Agenda Indicators","description":"City productivity levels", "type":"Child"},
   {"id":"BELAI1.2","display":"","secondDisplay":"","parentGroup":"Belfast Agenda","group":"Belfast Agenda Indicators","description":"Investment into Belfast", "type":"Child"},
   {"id":"BELAI1.3","display":"","secondDisplay":"","parentGroup":"Belfast Agenda","group":"Belfast Agenda Indicators","description":"City competitiveness", "type":"Child"},
@@ -330,7 +323,6 @@
   {"id":"BEAIP2","display":"Living","secondDisplay":"Here","parentGroup":"Belfast Agenda Immediate Priorities","group":"Belfast Agenda Immediate Priorities","description":"Living Here", "type":"Parent"},
   {"id":"BEAIP3","display":"City","secondDisplay":"Development","parentGroup":"Belfast Agenda Immediate Priorities","group":"Belfast Agenda Immediate Priorities","description":"City Development", "type":"Parent"},
   {"id":"BEAIP4","display":"Working","secondDisplay":"& Learning","parentGroup":"Belfast Agenda Immediate Priorities","group":"Belfast Agenda Immediate Priorities","description":"Working and Learning", "type":"Parent"},
-
   {"id":"BEAIP1.1","display":"","secondDisplay":"","parentGroup":"Belfast Agenda Immediate Priorities","group":"Belfast Agenda Immediate Priorities","description":"Create employment and opportunity", "type":"Child"},
   {"id":"BEAIP1.2","display":"","secondDisplay":"","parentGroup":"Belfast Agenda Immediate Priorities","group":"Belfast Agenda Immediate Priorities","description":"Attract investment into Belfast", "type":"Child"},
   {"id":"BEAIP1.3","display":"","secondDisplay":"","parentGroup":"Belfast Agenda Immediate Priorities","group":"Belfast Agenda Immediate Priorities","description":"Foster business growth in Belfast", "type":"Child"},
@@ -358,10 +350,9 @@
   {"id":"BEAIP4.4","display":"","secondDisplay":"","parentGroup":"Belfast Agenda Immediate Priorities","group":"Belfast Agenda Immediate Priorities","description":"Match people and skills to opportunities across Belfast", "type":"Child"},
   {"id":"BEAIP4.5","display":"","secondDisplay":"","parentGroup":"Belfast Agenda Immediate Priorities","group":"Belfast Agenda Immediate Priorities","description":"Reduce poverty and economic inactivity", "type":"Child"},
   
-  {"id":"RESIL1","display":"Climate","secondDisplay":"Resilience","parentGroup":"Resilience","group":"Resilience","description":"", "type":"Parent"},
-  {"id":"RESIL2","display":"Connectivity","secondDisplay":"","parentGroup":"Resilience","group":"Resilience","description":"", "type":"Parent"},
-  {"id":"RESIL3","display":"C&Y","secondDisplay":"People","parentGroup":"Resilience","group":"Resilience","description":"", "type":"Parent"},
-
+  {"id":"RESIL1","display":"Climate","secondDisplay":"Resilience","parentGroup":"Resilience","group":"Resilience","description":"Climate resilience", "type":"Parent"},
+  {"id":"RESIL2","display":"Connectivity","secondDisplay":"","parentGroup":"Resilience","group":"Resilience","description":"Connectivity", "type":"Parent"},
+  {"id":"RESIL3","display":"C&Y","secondDisplay":"People","parentGroup":"Resilience","group":"Resilience","description":"Children and young people", "type":"Parent"},
   {"id":"RESIL1.1","display":"","secondDisplay":"","parentGroup":"Resilience","group":"Resilience","description":"Reducing your carbon footprint", "type":"Child"},
   {"id":"RESIL1.2","display":"","secondDisplay":"","parentGroup":"Resilience","group":"Resilience","description":"Better air quality - Risk to health and enjoyment of the city", "type":"Child"},
   {"id":"RESIL1.3","display":"","secondDisplay":"","parentGroup":"Resilience","group":"Resilience","description":"One million trees", "type":"Child"},
@@ -373,9 +364,8 @@
   {"id":"RESIL3.1","display":"","secondDisplay":"","parentGroup":"Resilience","group":"Resilience","description":"Shaping your city", "type":"Child"},
   {"id":"RESIL3.2","display":"","secondDisplay":"","parentGroup":"Resilience","group":"Resilience","description":"Climate Conversation", "type":"Child"},
   
-  {"id":"RESSS1","display":"Shocks","secondDisplay":"","parentGroup":"Resilience - Shocks and Stresses","group":"Resilience - Shocks and Stresses","description":"", "type":"Parent"},
-  {"id":"RESSS2","display":"Stresses","secondDisplay":"","parentGroup":"Resilience - Shocks and Stresses","group":"Resilience - Shocks and Stresses","description":"", "type":"Parent"},
-
+  {"id":"RESSS1","display":"Shocks","secondDisplay":"","parentGroup":"Resilience - Shocks and Stresses","group":"Resilience - Shocks and Stresses","description":"Shocks", "type":"Parent"},
+  {"id":"RESSS2","display":"Stresses","secondDisplay":"","parentGroup":"Resilience - Shocks and Stresses","group":"Resilience - Shocks and Stresses","description":"Stresses", "type":"Parent"},
   {"id":"RESSS1.1","display":"","secondDisplay":"","parentGroup":"Resilience - Shocks and Stresses","group":"Resilience - Shocks and Stresses","description":"Economic recovery capacity: inequality and competitiveness", "type":"Child"},
   {"id":"RESSS1.2","display":"","secondDisplay":"","parentGroup":"Resilience - Shocks and Stresses","group":"Resilience - Shocks and Stresses","description":"Population change", "type":"Child"},
   {"id":"RESSS1.3","display":"","secondDisplay":"","parentGroup":"Resilience - Shocks and Stresses","group":"Resilience - Shocks and Stresses","description":"Dependency on fossil fuels and carbon intensive systems", "type":"Child"},
@@ -390,12 +380,10 @@
   {"id":"RESSS2.4","display":"","secondDisplay":"","parentGroup":"Resilience - Shocks and Stresses","group":"Resilience - Shocks and Stresses","description":"Flooding and extreme weather events", "type":"Child"},
   {"id":"RESSS2.5","display":"","secondDisplay":"","parentGroup":"Resilience - Shocks and Stresses","group":"Resilience - Shocks and Stresses","description":"UK Exit", "type":"Child"},
   {"id":"RESSS2.6","display":"","secondDisplay":"","parentGroup":"Resilience - Shocks and Stresses","group":"Resilience - Shocks and Stresses","description":"Cyber resilience", "type":"Child"},
-
   {"id":"ACIPR1","display":"A City","secondDisplay":"Belonging","parentGroup":"A City Imagining - Priorities","group":"A City Imagining - Priorities","description":"A City Belonging", "type":"Parent"},
   {"id":"ACIPR2","display":"A City","secondDisplay":"Challenging","parentGroup":"A City Imagining - Priorities","group":"A City Imagining - Priorities","description":"A City Challenging", "type":"Parent"},
   {"id":"ACIPR3","display":"A City","secondDisplay":"Creating","parentGroup":"A City Imagining - Priorities","group":"A City Imagining - Priorities","description":"A City Creating", "type":"Parent"},
   {"id":"ACIPR4","display":"A City","secondDisplay":"Exploring","parentGroup":"A City Imagining . Priorities","group":"A City Imagining - Priorities","description":"A City Exploring", "type":"Parent"},
-
   {"id":"ACIPR1.1","display":"1","secondDisplay":"","parentGroup":"A City Imagining - Priorities","group":"A City Imagining - Priorities","description":"Developing a people focussed approach to cultural development by facilitating citizen and sector participation in setting priorities, decision-making and in the evaluation of cultural policies", "type":"Child"},
   {"id":"ACIPR1.2","display":"2","secondDisplay":"","parentGroup":"A City Imagining - Priorities","group":"A City Imagining - Priorities","description":"Building creative capacity of our citizens and cultural sector to allow people to express their own cultural identities and respect and learn about other cultures", "type":"Child"},
   {"id":"ACIPR1.3","display":"3","secondDisplay":"","parentGroup":"A City Imagining - Priorities","group":"A City Imagining - Priorities","description":"Protecting, promoting and using cultural heritagein all its dimensions, both tangible and intangible, including the plurality of the city’s cultural narratives", "type":"Child"},
@@ -412,11 +400,10 @@
   {"id":"ACIPR4.2","display":"14","secondDisplay":"","parentGroup":"A City Imagining - Priorities","group":"A City Imagining - Priorities","description":"Growing our sustainable cultural tourism product through a creative approach that respects the city’s heritage and communities", "type":"Child"},
   {"id":"ACIPR4.3","display":"15","secondDisplay":"","parentGroup":"A City Imagining - Priorities","group":"A City Imagining - Priorities","description":"Encouraging environmental responsibility and resilience by understanding and adapting cultural behaviours", "type":"Child"},
   {"id":"ACIPR4.4","display":"16","secondDisplay":"","parentGroup":"A City Imagining - Priorities","group":"A City Imagining - Priorities","description":"Increasing the contribution of both public and private cultural sectors to inclusive economic growth", "type":"Child"},
-
+ 
   {"id":"BCCPR","display":"Achieving","secondDisplay":"Balance","parentGroup":"Belfast City Council Public Realm","group":"Belfast City Council Public Realm Objectives","description":"Achieving balance in the public realm (in terms of regeneration)", "type":"Parent"},
   {"id":"BCCPR","display":"Create","secondDisplay":"Projects","parentGroup":"Belfast City Council Public Realm","group":"Belfast City Council Public Realm Objectives","description":"To create significant public space projects in areas of the City Centre where they will re-establish a distinct character and a sense of place", "type":"Parent"},
-  {"id":"BCCPR","display":"","secondDisplay":"","parentGroup":"Belfast City Council Public Realm","group":"Belfast City Council Public Realm Objectives","description":"", "type":"Parent"},
-
+  {"id":"BCCPR","display":"Dwell","secondDisplay":"Longer","parentGroup":"Belfast City Council Public Realm","group":"Belfast City Council Public Realm Objectives","description":"Encourage people to dwell longer in the City Centre", "type":"Parent"},
   {"id":"BCPRI","display":"1","secondDisplay":"","parentGroup":"Belfast City Council Public Realm","group":"Belfast City Council Public Realm Indicators","description":"Phase 1: Creating a uniform, joined-up and rejuvenated public environment, responding to the retail core, proposed and recently compelted developments and the highest footfall in the city (COMPLETED).", "type":"Child"},
   {"id":"BCPRI","display":"2","secondDisplay":"","parentGroup":"Belfast City Council Public Realm","group":"Belfast City Council Public Realm Indicators","description":"Phase 2: Focussed around City Hall, creating an iconic new square that links to Phase 1 works, and establishes a world class civic space in the heart of Belfast. It also aims to completed the pedestrianisation of Donegall Place. The phase responds to changes in traffic management in the city centre.", "type":"Child"},
   {"id":"BCPRI","display":"3","secondDisplay":"","parentGroup":"Belfast City Council Public Realm","group":"Belfast City Council Public Realm Indicators","description":"Phase 3: Respond to new City Centre drivers with a new North/South public realm spine on Royal Avenue linking to the Ulster University campus and the rejuvenation of Cathedral Gardens. Phase 3 also begins the transformation of Belfast inner ring road into a tree lined boulevard. To be completed by 2018.", "type":"Child"},
@@ -425,14 +412,12 @@
   {"id":"BCPRI","display":"6","secondDisplay":"","parentGroup":"Belfast City Council Public Realm","group":"Belfast City Council Public Realm Indicators","description":"Phase 6: Focus on regenerating public realm streets and spaces in the business district (South of City Centre) providing a pleasant environment.", "type":"Child"},
   {"id":"BCPRI","display":"C","secondDisplay":"","parentGroup":"Belfast City Council Public Realm","group":"Belfast City Council Public Realm Indicators","description":"Catalyst Projects act as new centres for public realm regeneration linking the city and environment together. Potential to drive regeneration to outlying areas and local centres.", "type":"Child"},
   {"id":"BCPRI","display":"F","secondDisplay":"","parentGroup":"Belfast City Council Public Realm","group":"Belfast City Council Public Realm Indicators","description":"Future Growth: based on catalyst projects and on arterial routes into the City. Includes new pedestrian bridges at the Odyssey and the Gasworks.", "type":"Child"},
-
   {"id":"BCLDP1","display":"Support Economic","secondDisplay":"& Social Needs","parentGroup":"Belfast City Council Local Development Plan","group":"Belfast City Council Local Development Plan Objectives","description":"Provide a 15 year plan framework to support economic and social needs in the city, in line with regional strategies and policies, while providing the delivery of sustainable development", "type":"Parent"},  
   {"id":"BCLDP2","display":"Facilitate","secondDisplay":"Growth","parentGroup":"Belfast City Council Local Development Plan","group":"Belfast City Council Local Development Plan Objectives","description":"Facilitate growth by coordinating public and private investment to encourage development where it can be of most benefit to the wellbeing of the community", "type":"Parent"},
   {"id":"BCLDP3","display":"Allocate","secondDisplay":"Sufficient Land","parentGroup":"Belfast City Council Local Development Plan","group":"Belfast City Council Local Development Plan Objectives","description":"Allocate sufficient land to meet the needs of the city", "type":"Parent"},
   {"id":"BCLDP4","display":"Inclusive","secondDisplay":"Development","parentGroup":"Belfast City Council Local Development Plan","group":"Belfast City Council Local Development Plan Objectives","description":"Provide an opportunity for all stakeholders, including the public, to have a say about where and how development within the local area should take place", "type":"Parent"},
   {"id":"BCLDP5","display":"Provide a","secondDisplay":"Framework","parentGroup":"Belfast City Council Local Development Plan","group":"Belfast City Council Local Development Plan Objectives","description":"Provide a plan-led framework for rational and consistent decision making by the public, private and community sectors and those affected by development proposals", "type":"Parent"},
   {"id":"BCLDP6","display":"Deliver spatial","secondDisplay":"Aspects","parentGroup":"Belfast City Council Local Development Plan","group":"Belfast City Council Local Development Plan Objectives","description":"Deliver the spatial aspects of The Belfast Agenda, the city's Community Plan", "type":"Parent"},
-
   {"id":"BLDPI1.1","display":"","secondDisplay":"","parentGroup":"Belfast City Council Local Development Plan","group":"Belfast City Council Local Development Plan Indicators","description":"(Growing Belfast):Identify land to support the creation of up to 46,000 new jobs", "type":"Child"},
   {"id":"BLDPI1.2","display":"","secondDisplay":"","parentGroup":"Belfast City Council Local Development Plan","group":"Belfast City Council Local Development Plan Indicators","description":"(Growing Belfast):Increase the city's population by 66,000 to over 400,000 by 2035", "type":"Child"},
   {"id":"BLDPI1.3","display":"","secondDisplay":"","parentGroup":"Belfast City Council Local Development Plan","group":"Belfast City Council Local Development Plan Indicators","description":"(Growing Belfast):Allocate land for 37,000 new homes", "type":"Child"},
@@ -485,21 +470,16 @@
   {"id":"BLDPI5.10","display":"","secondDisplay":"","parentGroup":"Belfast City Council Local Development Plan","group":"Belfast City Council Local Development Plan Indicators","description":"(A green and active place - Open space, sport and outdoor recreation):Ensure developers help provide ‘green and blue’ networks close to residential developments", "type":"Child"},
   {"id":"BLDPI5.11","display":"","secondDisplay":"","parentGroup":"Belfast City Council Local Development Plan","group":"Belfast City Council Local Development Plan Indicators","description":"(A green and active place - Natural heritage):Protect and improve natural heritage", "type":"Child"},
   {"id":"BLDPI5.12","display":"","secondDisplay":"","parentGroup":"Belfast City Council Local Development Plan","group":"Belfast City Council Local Development Plan Indicators","description":"(A green and active place - Natural heritage):Protect existing trees and encourage new trees across Belfast", "type":"Child"},
-
   {"id":"BLDPO1","display":"Growing","secondDisplay":"Belfast","parentGroup":"Belfast City Council Local Development Plan","group":"Belfast City Council Local Development Plan Outcomes","description":"Growing Belfast", "type":"Parent"},
   {"id":"BLDPO2","display":"Shaping a","secondDisplay":"Liveable Place","parentGroup":"Belfast City Council Local Development Plan","group":"Belfast City Council Local Development Plan Outcomes","description":"Shaping a liveable place", "type":"Parent"}, 
   {"id":"BLDPO3","display":"Creating a","secondDisplay":"Vibrant Economy","parentGroup":"Belfast City Council Local Development Plan","group":"Belfast City Council Local Development Plan Outcomes","description":"Creating a vibrant economy", "type":"Parent"}, 
   {"id":"BLDPO4","display":"Smart Connected,","secondDisplay":"Resilient Place","parentGroup":"Belfast City Council Local Development Plan","group":"Belfast City Council Local Development Plan Outcomes","description":"A smart connected, resilient place", "type":"Parent"}, 
   {"id":"BLDPO5","display":"Green &","secondDisplay":"Active Place","parentGroup":"Belfast City Council Local Development Plan","group":"Belfast City Council Local Development Plan Outcomes","description":"A green and active place", "type":"Parent"},  
-
-
   {"id":"BCOSS1","display":"Multiple","secondDisplay":"Benefits","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Objectives","description":"Capitalise on the potential for open space to deliver multiple benefits", "type":"Parent"}, 
   {"id":"BCOSS2","display":"Improve Open","secondDisplay":"Space Quality","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Objectives","description":" Planning powers provide us with the opportunity to improve open space quality and provision", "type":"Parent"},
   {"id":"BCOSS3","display":"Protect, Improve","secondDisplay":"Enhance","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Objectives","description":"Our existing open space network needs to be protected, improved and enhanced to meet growing demand", "type":"Parent"},
   {"id":"BCOSS4","display":"Secure Developer","secondDisplay":"Contributions","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Objectives","description":"Planning policy enables us to secure developer contributions where they are necessary to mitigate the impact of new development on open space infrastructure", "type":"Parent"},
   {"id":"BCOSS5","display":"Collaboration","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Objectives","description":"Continue to work with our partners, stakeholders and local communities to improve our open space network", "type":"Parent"},
-
-
   {"id":"BOSSO1","display":"Welcoming","secondDisplay":"Shared Space","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Outcomes","description":"Provide welcoming shared spaces", "type":"Parent"}, 
   {"id":"BOSSO2","display":"Improve","secondDisplay":"Connectivity","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Outcomes","description":"Improve connectivity", "type":"Parent"}, 
   {"id":"BOSSO3","display":"Improve Health","secondDisplay":"& Wellbeing","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Outcomes","description":"Improve health and wellbeing", "type":"Parent"}, 
@@ -529,7 +509,6 @@
   {"id":"BOSSI2.8","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Promote unique landscapes as destination open spaces, for example Belfast Lough, Lagan Valley Regional Park, Belfast and Castlereagh Hills", "type":"Child"},
   {"id":"BOSSI2.9","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Work with partners to improve public access to restricted open spaces (dual usage of playing fields)", "type":"Child"},
   {"id":"BOSSI2.10","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Identify opportunities to work with partners to improve the functionality of amenity open space", "type":"Child"},
-
   {"id":"BOSSI3.1","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Develop an ongoing programme of activity focused on using open spaces to improve health and wellbeing, prioritising efforts in areas of health deprivation with the lowest open space accessibility", "type":"Child"},
   {"id":"BOSSI3.2","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Identify and create opportunities for natural and informal play", "type":"Child"},
   {"id":"BOSSI3.3","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Continue to encourage passive recreation by providing appropriate facilities (such as seating areas and shelters) across the open spaces network", "type":"Child"},
@@ -538,7 +517,6 @@
   {"id":"BOSSI3.6","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Encourage schools to use parks for active recreation and provide greater access to their sports facilities by local communities", "type":"Child"},
   {"id":"BOSSI3.7","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Continue to work with the health and activity sector to develop programmes in our open spaces for at-risk groups", "type":"Child"},
   {"id":"BOSSI3.8","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Target urban greening to help improve air quality in the city", "type":"Child"},
-
   {"id":"BOSSI4.1","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Work with partners to create more green open space in the city centre, for example pocket parks", "type":"Child"},
   {"id":"BOSSI4.2","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Encourage developers and partners to create meanwhile open space for sites awaiting redevelopment", "type":"Child"},
   {"id":"BOSSI4.3","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Work with partners to green derelict land across the city", "type":"Child"},
@@ -559,66 +537,172 @@
   {"id":"BOSSI6.6","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Continue to work with our partners to extend and enhance vegetation along the greenway network", "type":"Child"},
   {"id":"BOSSI6.7","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Manage and control factors affecting habitat management regimes for example invasive alien species, habitat fragmentation, lighting and disturbance", "type":"Child"},
   {"id":"BOSSI6.8","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Educate users about habitats and species that thrive in our open spaces, for example by developing and promoting eco-trails", "type":"Child"},
-
-  {"id":"BOSSI7.1","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"", "type":"Child"},
-  {"id":"BOSSI7.2","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"", "type":"Child"},
-  {"id":"BOSSI7.3","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"", "type":"Child"},
-  {"id":"BOSSI7.4","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"", "type":"Child"},
-  {"id":"BOSSI7.5","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"", "type":"Child"},
-  {"id":"BOSSI7.6","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"", "type":"Child"},
-  {"id":"BOSSI7.7","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"", "type":"Child"},
+  {"id":"BOSSI7.1","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Work with universities and SMEs to develop solutions to explore innovative ways to understand usage and the needs of local people", "type":"Child"},
+  {"id":"BOSSI7.2","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Continue to provide and fund a range of community events and programmes within our open spaces", "type":"Child"},
+  {"id":"BOSSI7.3","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Continue to work with our partners and the education sector to encourage more outdoor learning", "type":"Child"},
+  {"id":"BOSSI7.4","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Actively promote the range of activities, festivals and events taking place in our open spaces", "type":"Child"},
+  {"id":"BOSSI7.5","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Identify opportunities to increase income generation activities and funding that will help sustain our open spaces network", "type":"Child"},
+  {"id":"BOSSI7.6","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Celebrate the heritage value and culture of our open spaces through the delivery of community events, guided heritage walks and talks and civic celebrations", "type":"Child"},
+  {"id":"BOSSI7.7","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Continue to work with partners to develop volunteering and training programmes that promote lifelong learning", "type":"Child"},
+  {"id":"BOSSI7.8","display":"","secondDisplay":"","parentGroup":"Belfast City Council Open Spaces Strategy","group":"Belfast City Council Open Spaces Strategy Indciators","description":"Improve engagement and communications with our open space users and non-users", "type":"Child"},
   
-  {"id":"DSSGP1","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes","description":"(Economic wellbeing):We are better skilled and educated", "type":"Parent"}, 
-  {"id":"DSSGP2","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes","description":"", "type":"Parent"},
-  {"id":"DSSGP3","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes","description":"", "type":"Parent"},
-  {"id":"DSSGP4","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes","description":"", "type":"Parent"},
-  {"id":"DSSGP5","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes","description":"", "type":"Parent"},
-  {"id":"DSSGP6","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes","description":"", "type":"Parent"},
-  {"id":"DSSGP7","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes","description":"", "type":"Parent"},
-  {"id":"DSSGP8","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes","description":"", "type":"Parent"},
+  {"id":"DSSGP1","display":"Better Skilled","secondDisplay":"& Educated","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes","description":"(Economic wellbeing): We are better skilled and educated", "type":"Parent"}, 
+  {"id":"DSSGP2","display":"Strong &","secondDisplay":"Competitive Economy","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes","description":"(Economic wellbeing): We prosper though a strong, sustainable and competitive economy", "type":"Parent"},
+  {"id":"DSSGP3","display":"Cultural","secondDisplay":"Destination","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes","description":"(Economic wellbeing): We live in the cultural destination of choice", "type":"Parent"},
+  {"id":"DSSGP4","display":"Live","secondDisplay":"Sustainably","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes","description":"(Environment and Regeneration): We live sustainably - protecting and enhancing the environment", "type":"Parent"},
+  {"id":"DSSGP5","display":"Connect through","secondDisplay":"Infrastructure","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes","description":"(Environment and Regeneration): We connect people and opportunities through our infrastructure", "type":"Parent"},
+  {"id":"DSSGP6","display":"Long fulfilling","secondDisplay":"Lives","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes","description":"(Community and Social): We live long, healthy and fulfilling lives", "type":"Parent"},
+  {"id":"DSSGP7","display":"Community","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes","description":"(Community and Social): We live in a shared, equal and safe community ", "type":"Parent"},
+  {"id":"DSSGP8","display":"Best start","secondDisplay":"in Life","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes","description":"(Community and Social): Our children and young people have the best start in life", "type":"Parent"},
+  
+  {"id":"DSGPA1.1","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Increase third level student numbers through the significant expansion of the Ulster University at Magee (including establishment of a graduate-entry medical school) and the North West Regional College.", "type":"Child"}, 
+  {"id":"DSGPA1.2","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop and support models of shared education across the Council area – both capital and programme initiatives though a partnership model with a range of sectors.", "type":"Child"}, 
+  {"id":"DSGPA1.3","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Work towards securing UNESCO Learning City and Region status, promote and accelerate the practice of life-long learning, develop an active, creative and inclusive learning culture from early education in families, the workplace and communities.", "type":"Child"}, 
+  {"id":"DSGPA1.4","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Embed entrepreneurialism and creativity within all learning opportunities in collaboration with appropriate agencies", "type":"Child"}, 
+  {"id":"DSGPA1.5","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop local and sub-regional responses to skill needs and implement, review and monitor the Skills Action Plan", "type":"Child"}, 
+  {"id":"DSGPA1.6","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Deliver Pilot projects to include work experience and upskilling opportunities to embed core employability skills for those entering the labour market, the long term unemployed and economically inactive", "type":"Child"}, 
+  {"id":"DSGPA1.7","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Increase industry engagement in careers advice and guidance", "type":"Child"}, 
+  {"id":"DSGPA1.8","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Implement a STEAM action plan. Develop and promote STEAM programmes in primary and post primary schools and deliver pilot projects focusing of STEAM/Career/Industry Engagement", "type":"Child"}, 
+  {"id":"DSGPA1.9","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Promote the importance of educational pathways and promote the apprenticeship framework", "type":"Child"}, 
+  {"id":"DSGPA1.10","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Implement Vocational Educational Programmes for young people aged 14 - 18 at risk of disengaging (schools basedpre-apprenticeship programme)", "type":"Child"}, 
+  {"id":"DSGPA1.11","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop a collaborative and partnership model of working across the education sector with businesses to ensure smarter use of existing estate assets and funding", "type":"Child"}, 
+  {"id":"DSGPA1.12","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Support community and parental engagement projects focusing on numeracy and literacy", "type":"Child"}, 
+  {"id":"DSGPA1.13","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Increase the level of continuous professional development and support available for teachers across a range of areas particularly STEAM.", "type":"Child"}, 
+  {"id":"DSGPA2.1","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Maximise job creation and investment opportunities in our City and Town Centres, regionally significant regeneration sites and rural areas", "type":"Child"},
+  {"id":"DSGPA2.2","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Establish a Development Zone Pilot to mitigate the challenges and explore the opportunities arising from Brexit", "type":"Child"}, 
+  {"id":"DSGPA2.3","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop more Grade A office accommodation", "type":"Child"},  
+  {"id":"DSGPA2.4","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Build and Strengthen clusters of Industry specialism in Advanced Manufacturing, Life and Health Sciences, Digital, Creative and Cultural Industries and Tourism", "type":"Child"}, 
+  {"id":"DSGPA2.5","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop compelling business cases and support packages for Foreign Direct Investment and develop our international connections to drive growth and investment", "type":"Child"}, 
+  {"id":"DSGPA2.6","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Secure investment into Strabane Business Park and ensure its full utilisation", "type":"Child"}, 
+  {"id":"DSGPA2.7","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop a pilot Rural Community Broadband Scheme and roll out in multiple locations", "type":"Child"}, 
+  {"id":"DSGPA2.8","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop incubation space and opportunities for collaborative public sector shared office space", "type":"Child"}, 
+  {"id":"DSGPA2.9","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Provide intensive mentoring support for Entrepreneurs from underrepresented groups", "type":"Child"}, 
+  {"id":"DSGPA2.10","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Deliver business start-up programmes and development support focused on areas of high economic inactivity and rural community hubs", "type":"Child"}, 
+  {"id":"DSGPA2.11","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop vibrant social economy, creative and cultural sectors through targeted support programmes", "type":"Child"}, 
+  {"id":"DSGPA3.1","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop a comprehensive Tourism strategy and action plan and establish a Tourism Delivery Partnership to oversee its implementationDevelop a comprehensive Tourism strategy and action plan and establish a Tourism Delivery Partnership to oversee its implementation and the related Community Planning actions and act as an industr voice and lobby group and the related Community Planning actions and act as an industry voice and lobby group", "type":"Child"}, 
+  {"id":"DSGPA3.2","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop a comprehensive Arts and Culture strategy and action planand establish an Arts and Culture delivery partnership to co-deliver its implementation and the related Community Planning actions and act as an industry voice and lobby group ensuring a focus on growing participation, developing audiences, strengthening the sector, valuing our cultural heritage, supporting our practitioners and improving the economic vitality and health and wellbeing of our citizens", "type":"Child"}, 
+  {"id":"DSGPA3.3","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"In conjunction with the Tourism and Arts & Culture strategies develop an ambitious festival and events strategy, sustain and grow the existing festival and events programme, develop capacity, capability and secure events of international appeal and develop signature events around key themes and designations", "type":"Child"}, 
+  {"id":"DSGPA3.4","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Secure international designations such as European Capital of Culture 2023 and UNESCO Creative Cities Network", "type":"Child"}, 
+  {"id":"DSGPA3.5","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop and promote our heritage assets - in particular managing the Walled City to realise its full potential to the standard of a world heritage site - through capital investment, preservation and a marketing programme. Expand and develop the Walled City Signature Project including Phase 2 of the Lighting Strategy to encompass new attractions", "type":"Child"}, 
+  {"id":"DSGPA3.6","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop and promote the use of the District’s waterways and in particular the River Foyle as a tourism attraction", "type":"Child"}, 
+  {"id":"DSGPA3.7","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Scope the potential of a regional gallery/museum hub being located in the City with relevant partners", "type":"Child"}, 
+  {"id":"DSGPA3.8","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop a maritime museum and archive at Ebrington", "type":"Child"}, 
+  {"id":"DSGPA3.9","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop a regionally significant, family friendly wet weather attraction as part of Council’s new leisure estate", "type":"Child"}, 
+  {"id":"DSGPA3.10","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Support the arts and cultural ecosystem to become sustainable through new revenue opportunities including additional investment and commercial activity", "type":"Child"}, 
+  {"id":"DSGPA3.11","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop and deliver an Access and Inclusion Programme in partnership with the Public Health Agency encouraging participation and engagement, promoting intercultural diversity, wellbeing and promoting accessible cultural experiences", "type":"Child"}, 
+  {"id":"DSGPA4.1","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Deliver a new Local Development Plan and local planning policies to provide a framework to support sustainable social, economic and environmental growth and development of the City and District", "type":"Child"}, 
+  {"id":"DSGPA4.2","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Prepare a development and conservation spatial framework and masterplan for both Derry City Centre and Riverfront and Strabane Town Centre to provide high quality design and regeneration and investment", "type":"Child"}, 
+  {"id":"DSGPA4.3","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop a heritage/conservation-led masterplan and renewal action plan for the village of Sion Mills and other settlements, including Newtownstewart town centre conservation area.", "type":"Child"}, 
+  {"id":"DSGPA4.4","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Protect and promote our natural and built heritage assets through the establishment of multi-sectoral heritage partnerships, heritage education programmes, skills specialisms development and integration with our tourism product offering.", "type":"Child"}, 
+  {"id":"DSGPA4.5","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Progress the development of regionally significant regeneration sites in Ebrington, Fort George, Derry City Centre and Strabane Town Centre in collaboration with government and private sector partners", "type":"Child"}, 
+  {"id":"DSGPA4.6","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Deliver major local area-based regeneration projects and initiatives including the Top of the Hill masterplan and Drumahoe area development plan", "type":"Child"}, 
+  {"id":"DSGPA4.7","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Support the implementation of the Urban Villages Programme in the Bogside, Fountain and Bishop Street areas to foster positive community identities, build community capacity and improve the physical environment of the area.", "type":"Child"}, 
+  {"id":"DSGPA4.8","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Provide quality social and private housing in sustainable urban and rural neighbourhoods to meet the needs of our growing population providing attractive places to live within easy access to local services and amenities", "type":"Child"}, 
+  {"id":"DSGPA4.9","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"To design and deliver high quality public realm schemes in our urban centres using innovative arts and cultural interventions", "type":"Child"}, 
+  {"id":"DSGPA4.10","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Enhancement of the natural environment through biodiversity action planning and landscape scale conservation projects to protect and enhance natural environmental assets", "type":"Child"}, 
+  {"id":"DSGPA5.1","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Delivery of strategic road infrastructure whilst also enhancing greenway provision (or active travel opportunities)", "type":"Child"}, 
+  {"id":"DSGPA5.1a","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"The A5 Western Transport Corridor from Derry to Aughnacloy and N2 improvements beyond enhancing critical and safe connectivity to Dublin", "type":"Child"}, 
+  {"id":"DSGPA5.1b","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"The A6 dualling project from Derry to the M22 providing high quality dual carriageway/motorway connectivity to Belfast", "type":"Child"}, 
+  {"id":"DSGPA5.1c","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"The upgrade of the A2 Buncrana Road cross-border economic corridor to release the potential of Fort George and other development opportunities along its route", "type":"Child"}, 
+  {"id":"DSGPA5.2","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Development and delivery of a sub regional integrated transport strategy and implementation plan for the City and District.", "type":"Child"}, 
+  {"id":"DSGPA5.3","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Provision of enhanced rail services and facilities including more frequent connectivity to Belfast and Dublin and the development of a multimodal transport hub incorporating a new railway station and integrated connectivity to local city and regional public transport services and the greenway network", "type":"Child"}, 
+  {"id":"DSGPA5.4","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Improved connectivity and frequency of flights from City of Derry Airport to major business hubs and the development and sustainability of the Airport", "type":"Child"}, 
+  {"id":"DSGPA5.5","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Enhanced City regional, cross-border and inter-city bus services, timetabling and frequency.", "type":"Child"}, 
+  {"id":"DSGPA5.6","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Scoping, feasibility, design and delivery (subject to funding) of a city orbital route connecting the A5, A6 and a third Road Bridge across the River Foyle at Newbuildings", "type":"Child"}, 
+  {"id":"DSGPA6.1","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"A strong focus on mental health and wellbeing across the lifetime of our people based on models of prevention, pathways to recovery and the Future Foyles research and green prescriptions", "type":"Child"}, 
+  {"id":"DSGPA6.2","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop an alcohol and drug awareness and intervention programme focused on safe drinking levels and working with the police to address illegal alcohol and drugs supply", "type":"Child"}, 
+  {"id":"DSGPA6.3","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop community based support for the delivery of crisis intervention services", "type":"Child"}, 
+  {"id":"DSGPA6.4","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Deliver a health literacy programme focused on developing the capabilities of individuals to take control of their own health", "type":"Child"}, 
+  {"id":"DSGPA6.5","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Deliver programmes which recognise that end of life care is a social as well as medical issue, builds capacity within communities to support those with a life limiting illness to remain living independently in their own homes, makes a reality of a public health approach to end of life care and enables all of our citizens to age well, for example Compassionate Communities", "type":"Child"}, 
+  {"id":"DSGPA6.6","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop new regional sport and leisure facilities at Templemore in Derry City and in Strabane", "type":"Child"}, 
+  {"id":"DSGPA6.7","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop an age friendly City and Region through an integrated programme of action, based on a rights based approach and on the eight World Health Organisations’ key themes", "type":"Child"}, 
+  {"id":"DSGPA6.8","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Support cross-border collaboration in health and social care with a focus on early intervention with vulnerable families; promotion of positive mental health and well-being; supporting independence and inclusion of older people; and citizenship for people with disabilities", "type":"Child"}, 
+  {"id":"DSGPA6.9","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Deliver a programme of sports pitch development, to include an extensively refurbished Brandywell Stadium and Melvin Sports Area", "type":"Child"}, 
+  {"id":"DSGPA6.10","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Deliver an ongoing phased expansion of Altnagelvin Hospital and two new primary health care centres – one in Strabane and one in the westbank of Derry~Londonderr", "type":"Child"}, 
+  {"id":"DSGPA6.11","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Build the capacity of our local sporting and recreational clubs to become more sustainable and encourage higher levels of participation and proficiency in sport and recreational activities", "type":"Child"}, 
+  {"id":"DSGPA6.12","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Deliver a sports and physical activities programme to promote greater activity by people with a disability, women, girls, older people and those living in areas of high social need", "type":"Child"}, 
+  {"id":"DSGPA6.13","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Work with our cultural partners to use engagement with arts and cultural heritage as a means of improving the health and wellbeing of our citizens", "type":"Child"}, 
+  {"id":"DSGPA7.1","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Establish local community planning partnerships and deliver action plans which enable people to become actively involved in the planning and delivery of community services and facilities", "type":"Child"}, 
+  {"id":"DSGPA7.2","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Promote greater integration and inclusion within and between communities through animating shared spaces, services and facilities and the development of rural community clusters", "type":"Child"}, 
+  {"id":"DSGPA7.3","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Foster positive community identities, creativity and build community capacity and resilience through a range of interventions", "type":"Child"}, 
+  {"id":"DSGPA7.4","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Reduce crime, disorder and intercommunity tensions by addressing interface and contested spaces issues and improve safety", "type":"Child"}, 
+  {"id":"DSGPA7.5","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop and animate iconic shared space projects in Strabane/ Lifford, Waterside and Top of the Hill areas", "type":"Child"}, 
+  {"id":"DSGPA7.6","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Design and deliver a programme of improved community centres and facilities", "type":"Child"}, 
+  {"id":"DSGPA7.7","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Empower communities to make the most of their assets through developing a community asset strategy", "type":"Child"}, 
+  {"id":"DSGPA7.8","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Increase volunteering within the community and voluntary sectorby 10% by 2025 and expand on opportunities to recognise their contribution to society", "type":"Child"}, 
+  {"id":"DSGPA7.9","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Develop co-design and co-production ways of working to deliver improved outcomes for our people", "type":"Child"}, 
+  {"id":"DSGPA8.1","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Adopt UNICEF UK’s Child Rights Framework to improve services for children and young people", "type":"Child"}, 
+  {"id":"DSGPA8.2","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Support the implementation of a Pioneering Community pilot project to address child maltreatment reducing levels of disengaged attachment in children", "type":"Child"},
+  {"id":"DSGPA8.3","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Deliver proactive early intervention to improve family support for children falling below the statutory thresholds for intervention", "type":"Child"},
+  {"id":"DSGPA8.4","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Provide positive opportunities for children and young people to take part in play, music, arts, drama, physical activity and sport", "type":"Child"},
+  {"id":"DSGPA8.5","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Engage and empower young people through their participation and involvement in the development and delivery of an inclusive programme of events and initiatives for Year of Youth 2019", "type":"Child"},
+  {"id":"DSGPA8.6","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Establish local structures to allow children and young people to be involved in decisions which affect them and have their voices heard, including establishment of a Youth Council", "type":"Child"},
+  {"id":"DSGPA8.7","display":"","secondDisplay":"","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Actions","description":"Establish Child Poverty Advocacy to facilitate and develop proven   models of good practice that will help reduce the number of children/young people living in poverty", "type":"Child"},
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  {"id":"","display":"","secondDisplay":"","parentGroup":"","group":"","description":"", "type":""}, 
-  {"id":"","display":"","secondDisplay":"","parentGroup":"","group":"","description":"", "type":""}, 
-  {"id":"","display":"","secondDisplay":"","parentGroup":"","group":"","description":"", "type":""}, 
-  {"id":"","display":"","secondDisplay":"","parentGroup":"","group":"","description":"", "type":""}, 
-  {"id":"","display":"","secondDisplay":"","parentGroup":"","group":"","description":"", "type":""}, 
-  {"id":"","display":"","secondDisplay":"","parentGroup":"","group":"","description":"", "type":""}, 
-  {"id":"","display":"","secondDisplay":"","parentGroup":"","group":"","description":"", "type":""}, 
-  {"id":"","display":"","secondDisplay":"","parentGroup":"","group":"","description":"", "type":""}, 
-  {"id":"","display":"","secondDisplay":"","parentGroup":"","group":"","description":"", "type":""}, 
-  {"id":"","display":"","secondDisplay":"","parentGroup":"","group":"","description":"", "type":""}, 
-  {"id":"","display":"","secondDisplay":"","parentGroup":"","group":"","description":"", "type":""}, 
-  {"id":"","display":"","secondDisplay":"","parentGroup":"","group":"","description":"", "type":""}, 
-  {"id":"","display":"","secondDisplay":"","parentGroup":"","group":"","description":"", "type":""}
+  {"id":"DSGPI1","display":"10,000","secondDisplay":"Additional People","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Impacts","description":"(Derry City and Strabane District Council has estimated the expenditure and direct employment impacts of the capital projects set out in this plan - and in partnership with the Ulster University’s Economic Policy Centre, an economic modelling system has been developed to measure the likely economic potential for the Council area, this model forecasts...): an increase of approximately 10,000 additional people living within the City and District ", "type":"Parent"}, 
+  {"id":"DSGPI2","display":"£96m","secondDisplay":"Tax Revenue","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Impacts","description":"(Derry City and Strabane District Council has estimated the expenditure and direct employment impacts of the capital projects set out in this plan - and in partnership with the Ulster University’s Economic Policy Centre, an economic modelling system has been developed to measure the likely economic potential for the Council area, this model forecasts...): the potential to generate nearly £95m in tax revenues", "type":"Parent"}, 
+  {"id":"DSGPI3","display":"£203m","secondDisplay":"Additional Wages","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Impacts","description":"(Derry City and Strabane District Council has estimated the expenditure and direct employment impacts of the capital projects set out in this plan - and in partnership with the Ulster University’s Economic Policy Centre, an economic modelling system has been developed to measure the likely economic potential for the Council area, this model forecasts...): the potential to generate an additional £203m of additional wages into the local economy every year", "type":"Parent"}, 
+  {"id":"DSGPI4","display":"2.6% Unemployment","secondDisplay":"Rate","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Impacts","description":"(Derry City and Strabane District Council has estimated the expenditure and direct employment impacts of the capital projects set out in this plan - and in partnership with the Ulster University’s Economic Policy Centre, an economic modelling system has been developed to measure the likely economic potential for the Council area, this model forecasts...):a decrease in the unemployment rate to 2.6% - slightly below the Northern Ireland average for the first time in the recent history of the City and Region", "type":"Parent"}, 
+  {"id":"DSGPI5","display":"£1.1bn","secondDisplay":"Additional GVA","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Impacts","description":"(Derry City and Strabane District Council has estimated the expenditure and direct employment impacts of the capital projects set out in this plan - and in partnership with the Ulster University’s Economic Policy Centre, an economic modelling system has been developed to measure the likely economic potential for the Council area, this model forecasts...):to increase by approximately £1.1m GVA" , "type":"Parent"}, 
+  {"id":"DSGPI6","display":"15,100","secondDisplay":"Additional Jobs","parentGroup":"Derry City & Strabane District’s Inclusive Strategic Growth Plan","group":"Derry City & Strabane District’s Inclusive Strategic Growth Plan Impacts","description":"(Derry City and Strabane District Council has estimated the expenditure and direct employment impacts of the capital projects set out in this plan - and in partnership with the Ulster University’s Economic Policy Centre, an economic modelling system has been developed to measure the likely economic potential for the Council area, this model forecasts...): the  creation of almost 15,100 new jobs if all of the projects are included and delivered in full and within the plan timeframes ", "type":"Parent"}, 
   
 
+  {"id":"PLSPO1","display":"Right","secondDisplay":"Approach","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Objectives","description":"Ensure a collaborative, coordinated crossdepartmental approach to suicide prevention  ", "type":"Parent"},
+  {"id":"PLSPO2","display":"Improve","secondDisplay":"Awareness","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Objectives","description":"Improve awareness of suicide prevention and associated services  ", "type":"Parent"},
+  {"id":"PLSPO3","display":"Responsible","secondDisplay":"Media","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Objectives","description":"Enhance responsible media reporting on suicide", "type":"Parent"},
+  {"id":"PLSPO4","display":"Community","secondDisplay":"Capacity","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Objectives","description":"Enhance community capacity to prevent and respond to suicidal behaviour within local communities", "type":"Parent"},
+  {"id":"PLSPO5","display":"Mental Health","secondDisplay":"Services","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Objectives","description":"Reduce the incidence of suicide amongst people under the care of mental health services", "type":"Parent"},
+  {"id":"PLSPO6","display":"Restrict","secondDisplay":"Access","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Objectives","description":"Restrict access to the means of suicide", "type":"Parent"},
+  {"id":"PLSPO7","display":"Response","secondDisplay":"& Recovery","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Objectives","description":"Enhance the initial response to, and care and recovery of people who are suicidal", "type":"Parent"},
+  {"id":"PLSPO8","display":"Enhance","secondDisplay":"Services","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Objectives","description":"Enhance services for people who selfharm, particularly for those who do so repeatedly", "type":"Parent"},
+  {"id":"PLSPO9","display":"Effective","secondDisplay":"Support","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Objectives","description":"Ensure the provision of effective support for those who are exposed to suicide or suicidal behaviour", "type":"Parent"},
+  {"id":"PLSPO10","display":"Effective","secondDisplay":"Interventions","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Objectives","description":"Strengthen the local evidence on suicide patterns, trends and risk, and on effective interventions to prevent suicide and self-harm", "type":"Parent"},
+
+  {"id":"PLSPA1.1","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Support the Ministerial Co-ordination Group on Suicide Prevention to link suicide and self-harm risk prevention to strategic activity across Government", "type":"Child"}, 
+  {"id":"PLSPA1.2","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Work with the All Party Group on Suicide Prevention to build further societal commitment to reduce suicide and selfharm", "type":"Child"}, 
+  {"id":"PLSPA1.3","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Promote UK-wide & North / South cooperation on suicide prevention", "type":"Child"},   
+  {"id":"PLSPA1.4","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Develop a joined up framework across government to support the wellbeing of children and young people in educational settings and beyond. This will include the development and implementation of policies and guidance which promote emotional resilience in educational settings", "type":"Child"}, 
+  {"id":"PLSPA1.5","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Promote mental health & wellbeing through arts, culture, leisure, libraries and sport", "type":"Child"}, 
+  {"id":"PLSPA1.6","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Implement suicide prevention and self-harm elements of the Improving Health within Criminal Justice Strategy", "type":"Child"}, 
+  {"id":"PLSPA2.1","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Develop and deliver public education programmes: to increase awareness of the signs and symptoms of emotional distress and of the appropriate response; to reduce stigma around mental illness; and to encourage help-seeking behaviour", "type":"Child"}, 
+  {"id":"PLSPA2.2","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Promote awareness of available support, including de-escalation and bereavement services", "type":"Child"}, 
+  {"id":"PLSPA2.3","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"3 Promote positive use of the internet & social media in relation to suicide prevention & selfharm reduction", "type":"Child"}, 
+  {"id":"PLSPA3.1","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Promote use of, and compliance with, media guidelines on the reporting of suicide; review & update guidelines as necessary", "type":"Child"}, 
+  {"id":"PLSPA3.2","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Monitor media reporting and challenge inappropriate reporting", "type":"Child"}, 
+  {"id":"PLSPA3.3","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Promote best practice guidelines on memorials/ public gatherings/ social media postings", "type":"Child"}, 
+  {"id":"PLSPA3.4","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Ensure that Northern Ireland is part of the UK-wide arrangements to promote & encourage sensitive reporting of suicide online and in social media, and for making the internet safer for those who are vulnerable to suicide", "type":"Child"}, 
+  {"id":"PLSPA4.1","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Support, encourage and procure communitybased suicide prevention services", "type":"Child"}, 
+  {"id":"PLSPA4.2","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Ensure effective co-ordination with Council community planning on suicide prevention by embedding suicide prevention in all District Council “Community Plans”", "type":"Child"}, 
+  {"id":"PLSPA4.3","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Deliver a multi-sectoral training framework in suicide intervention for people working in the community", "type":"Child"}, 
+  {"id":"PLSPA4.4","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Provide practical support to employers on mentally healthy workplaces and supporting employees experiencing emotional crisis", "type":"Child"}, 
+  {"id":"PLSPA4.5","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Encourage universities, colleges, schools and training organisations to promote a culture of help-seeking behaviour and suicide prevention awareness among their students and trainees", "type":"Child"}, 
+  {"id":"PLSPA5.1","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"To establish a regional mental health collaborative across HSC Trusts using a Towards Zero Suicide approach and concepts for adult mental health to improve patient safety and to reduce levels of suicide", "type":"Child"}, 
+  {"id":"PLSPA5.2","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Continue participation in the National Confidential Inquiry on Suicide (NCISH) & support practice improvement in line with NCISH recommendations", "type":"Child"}, 
+  {"id":"PLSPA5.3","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Improve the process for learning from suicide & self-harm related adverse incidents", "type":"Child"}, 
+  {"id":"PLSPA6.1","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Reduce risk of suicide at high risk locations, engaging with local stakeholders and developing plans for enhancing safety at those locations", "type":"Child"}, 
+  {"id":"PLSPA6.2","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Work with professional groups to encourage safer prescribing and develop policy proposals where restricted access to certain medications demonstrates positive outcomes in terms of reductions in this means of suicide", "type":"Child"}, 
+  {"id":"PLSPA6.3","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Ensure safe custody in relation to suicide prevention", "type":"Child"}, 
+  {"id":"PLSPA7.1","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Provide timely, accessible de-escalation services for those in emotional crisis or despair", "type":"Child"}, 
+  {"id":"PLSPA7.2","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Develop and implement a regional training framework which will include suicide awareness and suicide intervention for HSC staff with a view to achieving 50% staff trained (concentrating on those working in primary care, emergency services, & mental health / addiction services) by 2022. (new action)", "type":"Child"}, 
+  {"id":"PLSPA7.3","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Encourage health and social care professionals, & others, who provide services to people at risk of suicide to (as a matter of course) seek patient / client permission to engage trusted family or friends in their safety planning for that person", "type":"Child"}, 
+  {"id":"PLSPA7.4","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Embed suicide prevention in drug and alcohol policy and services", "type":"Child"}, 
+  {"id":"PLSPA8.1","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Improve access to, and uptake of, a range oftherapies and interventions for those who self-harm in line with NICE guidance on the management of self-harm and relevant guidance on other associated conditions", "type":"Child"}, 
+  {"id":"PLSPA8.2","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Maintain the NI Self-harm Registry to determine trends over time, inform service provision, & improve understanding of selfharming behaviour", "type":"Child"}, 
+  {"id":"PLSPA8.3","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Embed psychological support in the new mental health liaison service", "type":"Child"}, 
+  {"id":"PLSPA8.4","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Ensure all people who attend the ED with self-harm are offered a psychosocial assessment by the new mental health liaison service", "type":"Child"}, 
+  {"id":"PLSPA9.1","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Provide a consistent, compassionate approach to supporting those bereaved/affected by suicide, including family and social circle", "type":"Child"}, 
+  {"id":"PLSPA9.2","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Facilitate support networks for people bereaved by suicide and their role in influencing policy and service delivery", "type":"Child"}, 
+  {"id":"PLSPA9.3","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Provide support and reflective practice for professionals who experience loss of patient or client to suicide and their work on suicide prevention", "type":"Child"}, 
+  {"id":"PLSPA9.4","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Support families and other informal carers in caring for suicidal individuals to help them manage suicidal behaviours and emotional distress; and to look after their own mental wellbeing", "type":"Child"}, 
+  {"id":"PLSPA9.5","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Ensure collation of accurate real time information on probable suicides through the Sudden Death Notification process", "type":"Child"}, 
+  {"id":"PLSPA9.6","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Identify emerging suicide clusters and act promptly to reduce the risk of further suicides in the community through proportionate activation of multi-agency Community Response Plans", "type":"Child"}, 
+  {"id":"PLSPA9.7","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Implement recommendations of the PHA review of the Sudden Deaths Notification process and the Community Response Plan process", "type":"Child"}, 
+  {"id":"PLSPA9.8","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Ensure contracted organisations adhere to PHA Quality Standards of Services promoting mental and emotional wellbeing and suicide prevention", "type":"Child"}, 
+  {"id":"PLSPA9.9","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Support for school staff to help them provide effective support to children & young people affected by suicide or suicidal behaviours at home", "type":"Child"}, 
+  {"id":"PLSPA10.1","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Identify priorities for local research into suicide, self-harm & their prevention including data linkage; promote, encourage and commission local research", "type":"Child"}, 
+  {"id":"PLSPA10.2","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Support promotion and delivery of the 2019 International Association for Suicide Prevention Congress", "type":"Child"}, 
+  {"id":"PLSPA10.3","display":"","secondDisplay":"","parentGroup":"Protect Life 2 - Suicide Prevention Strategy","group":"Protect Life 2 - Suicide Prevention Strategy Actions","description":"Conduct ongoing surveillance to monitor changing behaviours or trends in suicide and self-harm means to inform preventative action, particularly where new methods emerge", "type":"Child"}
+  
   ],
   "links":[
     {"source":"C2030.1","target":"UNSDG2"},
@@ -638,7 +722,6 @@
     {"source":"C2030.1","target":"UNSDT14.5"},
     {"source":"C2030.1","target":"UNSDT15.1"},
     {"source":"C2030.1","target":"UNSDT16.4"},
-
     {"source":"C2030.2","target":"UNSDG8"},
     {"source":"C2030.2","target":"UNSDG10"},
     {"source":"C2030.2","target":"UNSDG11"},
@@ -647,7 +730,6 @@
     {"source":"C2030.2","target":"UNSDT8.a"},
     {"source":"C2030.2","target":"UNSDT10.a"},
     {"source":"C2030.2","target":"UNSDT11.4"},
-
     {"source":"C2030.3","target":"UNSDG4"},
     {"source":"C2030.3","target":"UNSDG8"},
     {"source":"C2030.3","target":"UNSDG9"},
@@ -659,7 +741,6 @@
     {"source":"C2030.3","target":"UNSDT9.c"},
     {"source":"C2030.3","target":"UNSDT12.a"},
     {"source":"C2030.3","target":"UNSDT13.3"},
-
     {"source":"C2030.4","target":"UNSDG9"},
     {"source":"C2030.4","target":"UNSDG10"},
     {"source":"C2030.4","target":"UNSDG11"},
@@ -672,9 +753,6 @@
     {"source":"C2030.4","target":"UNSDT16.10"},
     {"source":"C2030.4","target":"UNSDT16.a"},
     {"source":"C2030.4","target":"UNSDT16.b"},
-
-
-
     {"source":"PFGOV1","target":"UNSDG1"},
     {"source":"PFGOV1","target":"UNSDG2"},
     {"source":"PFGOV1","target":"UNSDG3"},
@@ -685,7 +763,6 @@
     {"source":"PFGOV1","target":"UNSDG8"},
     {"source":"PFGOV1","target":"UNSDG9"},
     {"source":"PFGOV1","target":"UNSDG10"},
-
     {"source":"PFGOV2","target":"UNSDG3"},
     {"source":"PFGOV2","target":"UNSDG4"},
     {"source":"PFGOV2","target":"UNSDG6"},
@@ -693,7 +770,6 @@
     {"source":"PFGOV2","target":"UNSDG8"},
     {"source":"PFGOV2","target":"UNSDG9"},
     {"source":"PFGOV2","target":"UNSDG10"},
-
     {"source":"PFGOV3","target":"UNSDG1"},
     {"source":"PFGOV3","target":"UNSDG3"},
     {"source":"PFGOV3","target":"UNSDG4"},
@@ -703,7 +779,6 @@
     {"source":"PFGOV3","target":"UNSDG8"},
     {"source":"PFGOV3","target":"UNSDG9"},
     {"source":"PFGOV3","target":"UNSDG10"},
-
     {"source":"PFGOV4","target":"UNSDG1"},
     {"source":"PFGOV4","target":"UNSDG2"},
     {"source":"PFGOV4","target":"UNSDG3"},
@@ -713,7 +788,6 @@
     {"source":"PFGOV4","target":"UNSDG8"},
     {"source":"PFGOV4","target":"UNSDG9"},
     {"source":"PFGOV4","target":"UNSDG10"},
-
     {"source":"PFGOV5","target":"UNSDG1"},
     {"source":"PFGOV5","target":"UNSDG2"},
     {"source":"PFGOV5","target":"UNSDG3"},
@@ -724,7 +798,6 @@
     {"source":"PFGOV5","target":"UNSDG8"},
     {"source":"PFGOV5","target":"UNSDG9"},
     {"source":"PFGOV5","target":"UNSDG10"},
-
     {"source":"PFGOV6","target":"UNSDG1"},
     {"source":"PFGOV6","target":"UNSDG2"},
     {"source":"PFGOV6","target":"UNSDG3"},
@@ -735,7 +808,6 @@
     {"source":"PFGOV6","target":"UNSDG8"},
     {"source":"PFGOV6","target":"UNSDG9"},
     {"source":"PFGOV6","target":"UNSDG10"},
-
     {"source":"PFGOV7","target":"UNSDG2"},
     {"source":"PFGOV7","target":"UNSDG3"},
     {"source":"PFGOV7","target":"UNSDG4"},
@@ -745,7 +817,6 @@
     {"source":"PFGOV7","target":"UNSDG8"},
     {"source":"PFGOV7","target":"UNSDG9"},
     {"source":"PFGOV7","target":"UNSDG10"},
-
     {"source":"PFGOV8","target":"UNSDG1"},
     {"source":"PFGOV8","target":"UNSDG2"},
     {"source":"PFGOV8","target":"UNSDG3"},
@@ -755,7 +826,6 @@
     {"source":"PFGOV8","target":"UNSDG8"},
     {"source":"PFGOV8","target":"UNSDG9"},
     {"source":"PFGOV8","target":"UNSDG10"},
-
     {"source":"PFGOV9","target":"UNSDG4"},
     {"source":"PFGOV9","target":"UNSDG5"},
     {"source":"PFGOV9","target":"UNSDG6"},
@@ -763,7 +833,6 @@
     {"source":"PFGOV9","target":"UNSDG8"},
     {"source":"PFGOV9","target":"UNSDG9"},
     {"source":"PFGOV9","target":"UNSDG10"},
-
     {"source":"PFGOV10","target":"UNSDG2"},
     {"source":"PFGOV10","target":"UNSDG3"},
     {"source":"PFGOV10","target":"UNSDG4"},
@@ -773,7 +842,6 @@
     {"source":"PFGOV10","target":"UNSDG8"},
     {"source":"PFGOV10","target":"UNSDG9"},
     {"source":"PFGOV10","target":"UNSDG10"},
-
     {"source":"PFGOV11","target":"UNSDG3"},
     {"source":"PFGOV11","target":"UNSDG4"},
     {"source":"PFGOV11","target":"UNSDG5"},
@@ -782,7 +850,6 @@
     {"source":"PFGOV11","target":"UNSDG8"},
     {"source":"PFGOV11","target":"UNSDG9"},
     {"source":"PFGOV11","target":"UNSDG10"},
-
     {"source":"PFGOV12","target":"UNSDG2"},
     {"source":"PFGOV12","target":"UNSDG3"},
     {"source":"PFGOV12","target":"UNSDG4"},
@@ -792,7 +859,6 @@
     {"source":"PFGOV12","target":"UNSDG8"},
     {"source":"PFGOV12","target":"UNSDG9"},
     {"source":"PFGOV12","target":"UNSDG10"},
-
     {"source":"PFGOV13","target":"UNSDG1"},
     {"source":"PFGOV13","target":"UNSDG3"},
     {"source":"PFGOV13","target":"UNSDG4"},
@@ -801,7 +867,6 @@
     {"source":"PFGOV13","target":"UNSDG8"},
     {"source":"PFGOV13","target":"UNSDG9"},
     {"source":"PFGOV13","target":"UNSDG10"},
-
     {"source":"PFGOV14","target":"UNSDG1"},
     {"source":"PFGOV14","target":"UNSDG2"},
     {"source":"PFGOV14","target":"UNSDG3"},
@@ -812,7 +877,6 @@
     {"source":"PFGOV14","target":"UNSDG8"},
     {"source":"PFGOV14","target":"UNSDG9"},
     {"source":"PFGOV14","target":"UNSDG10"},
-
     {"source":"PFGVI1","target":"UNSDG5"},
     {"source":"PFGVI1","target":"UNSDG6"},
     {"source":"PFGVI1","target":"UNSDT5.1"},
@@ -822,7 +886,6 @@
     {"source":"PFGVI1","target":"PFGOV7"},
     {"source":"PFGVI1","target":"PFGOV9"},
     {"source":"PFGVI1","target":"PFGOV12"},
-
     {"source":"PFGVI2","target":"UNSDG3"},
     {"source":"PFGVI2","target":"UNSDT1.2"},
     {"source":"PFGVI2","target":"UNSDT3.1"},
@@ -833,7 +896,6 @@
     {"source":"PFGVI2","target":"PFGOV4"},
     {"source":"PFGVI2","target":"PFGOV8"},
     {"source":"PFGVI2","target":"PFGOV14"},
-
     {"source":"PFGVI3","target":"UNSDG3"},
     {"source":"PFGVI3","target":"UNSDG6"},
     {"source":"PFGVI3","target":"UNSDG9"},
@@ -855,7 +917,6 @@
     {"source":"PFGVI3","target":"PFGOV4"},
     {"source":"PFGVI3","target":"PFGOV8"},
     {"source":"PFGVI3","target":"PFGOV14"},
-
     {"source":"PFGVI4","target":"UNSDG3"},
     {"source":"PFGVI4","target":"UNSDG9"},
     {"source":"PFGVI4","target":"UNSDT1.2"},
@@ -872,7 +933,6 @@
     {"source":"PFGVI4","target":"PFGOV3"},
     {"source":"PFGVI4","target":"PFGOV4"},
     {"source":"PFGVI4","target":"PFGOV8"},
-
     {"source":"PFGVI5","target":"UNSDG3"},
     {"source":"PFGVI5","target":"UNSDT3.1"},
     {"source":"PFGVI5","target":"UNSDT3.2"},
@@ -883,7 +943,6 @@
     {"source":"PFGVI5","target":"PFGOV4"},
     {"source":"PFGVI5","target":"PFGOV8"},
     {"source":"PFGVI5","target":"PFGOV11"},
-
     {"source":"PFGVI6","target":"UNSDG3"},
     {"source":"PFGVI6","target":"UNSDT3.4"},
     {"source":"PFGVI6","target":"UNSDT3.5"},
@@ -891,7 +950,6 @@
     {"source":"PFGVI6","target":"PFGOV6"},
     {"source":"PFGVI6","target":"PFGOV8"},
     {"source":"PFGVI6","target":"PFGOV14"},
-
     {"source":"PFGVI7","target":"UNSDG3"},
     {"source":"PFGVI7","target":"UNSDT3.1"},
     {"source":"PFGVI7","target":"UNSDT3.2"},
@@ -899,25 +957,21 @@
     {"source":"PFGVI7","target":"PFGOV4"},
     {"source":"PFGVI7","target":"PFGOV8"},
     {"source":"PFGVI7","target":"PFGOV14"},
-
     {"source":"PFGVI8","target":"PFGOV4"},
     {"source":"PFGVI8","target":"PFGOV8OV"},
     {"source":"PFGVI8","target":"PFGOV11"},
     {"source":"PFGVI8","target":"PFGOV12"},
     {"source":"PFGVI8","target":"PFGOV13"},
     {"source":"PFGVI8","target":"PFGOV14"},
-
     {"source":"PFGVI9","target":"PFGOV4"},
     {"source":"PFGVI9","target":"PFGOV8"},
     {"source":"PFGVI9","target":"PFGOV11"},
     {"source":"PFGVI9","target":"PFGOV14"},
-
     {"source":"PFGVI10","target":"PFGOV3"},
     {"source":"PFGVI10","target":"PFGOV5"},
     {"source":"PFGVI10","target":"PFGOV6"},
     {"source":"PFGVI10","target":"PFGOV8"},
     {"source":"PFGVI10","target":"PFGOV14"},
-
     {"source":"PFGVI11","target":"UNSDG2"},
     {"source":"PFGVI11","target":"UNSDG3"},
     {"source":"PFGVI11","target":"UNSDG4"},
@@ -966,7 +1020,6 @@
     {"source":"PFGVI11","target":"PFGOV5"},
     {"source":"PFGVI11","target":"PFGOV6"},
     {"source":"PFGVI11","target":"PFGOV14"},
-
     {"source":"PFGVI12","target":"UNSDG3"},
     {"source":"PFGVI12","target":"UNSDG4"},
     {"source":"PFGVI12","target":"UNSDG5"},
@@ -998,7 +1051,6 @@
     {"source":"PFGVI12","target":"PFGOV6"},
     {"source":"PFGVI12","target":"PFGOV8"},
     {"source":"PFGVI12","target":"PFGOV14"},
-
     {"source":"PFGVI13","target":"UNSDG3"},
     {"source":"PFGVI13","target":"UNSDG4"},
     {"source":"PFGVI13","target":"UNSDG5"},
@@ -1046,7 +1098,6 @@
     {"source":"PFGVI13","target":"PFGOV6"},
     {"source":"PFGVI13","target":"PFGOV11"},
     {"source":"PFGVI13","target":"PFGOV14"},
-
     {"source":"PFGVI14","target":"UNSDG2"},
     {"source":"PFGVI14","target":"UNSDG4"},
     {"source":"PFGVI14","target":"UNSDG5"},
@@ -1085,7 +1136,6 @@
     {"source":"PFGVI14","target":"PFGOV5"},
     {"source":"PFGVI14","target":"PFGOV6"},
     {"source":"PFGVI14","target":"PFGOV12"},
-
     {"source":"PFGVI15","target":"UNSDG3"},
     {"source":"PFGVI15","target":"UNSDG4"},
     {"source":"PFGVI15","target":"UNSDG8"},
@@ -1098,7 +1148,6 @@
     {"source":"PFGVI15","target":"PFGOV5"},
     {"source":"PFGVI15","target":"PFGOV6"},
     {"source":"PFGVI15","target":"PFGOV12"},
-
     {"source":"PFGVI16","target":"UNSDG2"},
     {"source":"PFGVI16","target":"UNSDG8"},
     {"source":"PFGVI16","target":"UNSDG9"},
@@ -1115,7 +1164,6 @@
     {"source":"PFGVI16","target":"PFGOV6"},
     {"source":"PFGVI16","target":"PFGOV8"},
     {"source":"PFGVI16","target":"PFGOV12"},
-
     {"source":"PFGVI17","target":"UNSDG2"},
     {"source":"PFGVI17","target":"UNSDG8"},
     {"source":"PFGVI17","target":"UNSDG9"},
@@ -1132,7 +1180,6 @@
     {"source":"PFGVI17","target":"PFGOV6"},
     {"source":"PFGVI17","target":"PFGOV8"},
     {"source":"PFGVI17","target":"PFGOV12"},
-
     {"source":"PFGVI18","target":"UNSDG8"},
     {"source":"PFGVI18","target":"UNSDG9"},
     {"source":"PFGVI18","target":"UNSDG10"},
@@ -1151,7 +1198,6 @@
     {"source":"PFGVI18","target":"PFGOV6"},
     {"source":"PFGVI18","target":"PFGOV8"},
     {"source":"PFGVI18","target":"PFGOV12"},
-
     {"source":"PFGVI19","target":"UNSDG1"},
     {"source":"PFGVI19","target":"UNSDG2"},
     {"source":"PFGVI19","target":"UNSDG10"},
@@ -1171,7 +1217,6 @@
     {"source":"PFGVI19","target":"PFGOV8"},
     {"source":"PFGVI19","target":"PFGOV13"},
     {"source":"PFGVI19","target":"PFGOV14"},
-
     {"source":"PFGVI20","target":"UNSDG2"},
     {"source":"PFGVI20","target":"UNSDG8"},
     {"source":"PFGVI20","target":"UNSDG10"},
@@ -1188,7 +1233,6 @@
     {"source":"PFGVI20","target":"PFGOV8"},
     {"source":"PFGVI20","target":"PFGOV13"},
     {"source":"PFGVI20","target":"PFGOV14"},
-
     {"source":"PFGVI21","target":"UNSDG2"},
     {"source":"PFGVI21","target":"UNSDG8"},
     {"source":"PFGVI21","target":"UNSDG9"},
@@ -1210,7 +1254,6 @@
     {"source":"PFGVI21","target":"PFGOV5"},
     {"source":"PFGVI21","target":"PFGOV6"},
     {"source":"PFGVI21","target":"PFGOV10"},
-
     {"source":"PFGVI22","target":"UNSDG2"},
     {"source":"PFGVI22","target":"UNSDG6"},
     {"source":"PFGVI22","target":"UNSDG7"},
@@ -1243,7 +1286,6 @@
     {"source":"PFGVI22","target":"PFGOV5"},
     {"source":"PFGVI22","target":"PFGOV6"},
     {"source":"PFGVI22","target":"PFGOV12"},
-
     {"source":"PFGVI23","target":"UNSDG3"},
     {"source":"PFGVI23","target":"UNSDG6"},
     {"source":"PFGVI23","target":"UNSDG7"},
@@ -1265,7 +1307,6 @@
     {"source":"PFGVI23","target":"PFGOV11"},
     {"source":"PFGVI23","target":"PFGOV12"},
     {"source":"PFGVI23","target":"PFGOV13"},
-
     {"source":"PFGVI24","target":"UNSDG9"},
     {"source":"PFGVI24","target":"UNSDT9.2"},
     {"source":"PFGVI24","target":"UNSDT9.5"},
@@ -1275,7 +1316,6 @@
     {"source":"PFGVI24","target":"PFGOV6"},
     {"source":"PFGVI24","target":"PFGOV12"},
     {"source":"PFGVI24","target":"PFGOV13"},
-
     {"source":"PFGVI25","target":"UNSDG3"},
     {"source":"PFGVI25","target":"UNSDG9"},
     {"source":"PFGVI25","target":"UNSDT3.6"},
@@ -1288,7 +1328,6 @@
     {"source":"PFGVI25","target":"PFGOV11"},
     {"source":"PFGVI25","target":"PFGOV12"},
     {"source":"PFGVI25","target":"PFGOV13"},
-
     {"source":"PFGVI26","target":"UNSDG4"},
     {"source":"PFGVI26","target":"UNSDG5"},
     {"source":"PFGVI26","target":"UNSDG8"},
@@ -1310,7 +1349,6 @@
     {"source":"PFGVI26","target":"PFGOV8"},
     {"source":"PFGVI26","target":"PFGOV9"},
     {"source":"PFGVI26","target":"PFGOV12"},
-
     {"source":"PFGVI27","target":"UNSDG6"},
     {"source":"PFGVI27","target":"UNSDG8"},
     {"source":"PFGVI27","target":"UNSDG10"},
@@ -1324,7 +1362,6 @@
     {"source":"PFGVI27","target":"PFGOV5"},
     {"source":"PFGVI27","target":"PFGOV9"},
     {"source":"PFGVI27","target":"PFGOV14"},
-
     {"source":"PFGVI28","target":"UNSDG2"},
     {"source":"PFGVI28","target":"UNSDG4"},
     {"source":"PFGVI28","target":"UNSDG5"},
@@ -1360,7 +1397,6 @@
     {"source":"PFGVI28","target":"PFGOV8"},
     {"source":"PFGVI28","target":"PFGOV10"},
     {"source":"PFGVI28","target":"PFGOV14"},
-
     {"source":"PFGVI29","target":"UNSDG2"},
     {"source":"PFGVI29","target":"UNSDG3"},
     {"source":"PFGVI29","target":"UNSDG4"},
@@ -1386,7 +1422,6 @@
     {"source":"PFGVI29","target":"UNSDT8.4"},
     {"source":"PFGVI29","target":"UNSDT9.4"},
     {"source":"PFGVI29","target":"PFGOV2"},
-
     {"source":"PFGVI30","target":"UNSDG6"},
     {"source":"PFGVI30","target":"UNSDG8"},
     {"source":"PFGVI30","target":"UNSDT6.6"},
@@ -1397,7 +1432,6 @@
     {"source":"PFGVI30","target":"PFGOV10"},
     {"source":"PFGVI30","target":"PFGOV12"},
     {"source":"PFGVI30","target":"PFGOV13"},
-
     {"source":"PFGVI31","target":"UNSDG4"},
     {"source":"PFGVI31","target":"UNSDG10"},
     {"source":"PFGVI31","target":"UNSDT4.a"},
@@ -1408,7 +1442,6 @@
     {"source":"PFGVI31","target":"PFGOV12"},
     {"source":"PFGVI31","target":"PFGOV13"},
     {"source":"PFGVI31","target":"PFGOV14"},
-
     {"source":"PFGVI32","target":"UNSDG2"},
     {"source":"PFGVI32","target":"UNSDG5"},
     {"source":"PFGVI32","target":"UNSDG8"},
@@ -1437,7 +1470,6 @@
     {"source":"PFGVI32","target":"PFGOV8"},
     {"source":"PFGVI32","target":"PFGOV12"},
     {"source":"PFGVI32","target":"PFGOV14"},
-
     {"source":"PFGVI33","target":"UNSDG2"},
     {"source":"PFGVI33","target":"UNSDG8"},
     {"source":"PFGVI33","target":"UNSDG10"},
@@ -1453,7 +1485,6 @@
     {"source":"PFGVI33","target":"PFGOV6"},
     {"source":"PFGVI33","target":"PFGOV8"},
     {"source":"PFGVI33","target":"PFGOV13"},
-
     {"source":"PFGVI34","target":"UNSDG8"},
     {"source":"PFGVI34","target":"UNSDG10"},
     {"source":"PFGVI34","target":"UNSDT1.2"},
@@ -1474,7 +1505,6 @@
     {"source":"PFGVI34","target":"PFGOV6"},
     {"source":"PFGVI34","target":"PFGOV12"},
     {"source":"PFGVI34","target":"PFGOV13"},
-
     {"source":"PFGVI35","target":"UNSDG10"},
     {"source":"PFGVI35","target":"UNSDT4.a"},
     {"source":"PFGVI35","target":"UNSDT10.2"},
@@ -1484,14 +1514,12 @@
     {"source":"PFGVI35","target":"PFGOV10"},
     {"source":"PFGVI35","target":"PFGOV12"},
     {"source":"PFGVI35","target":"PFGOV14"},
-
     {"source":"PFGVI36","target":"UNSDG6"},
     {"source":"PFGVI36","target":"UNSDT6.3"},
     {"source":"PFGVI36","target":"UNSDT6.6"},
     {"source":"PFGVI36","target":"PFGOV2"},
     {"source":"PFGVI36","target":"PFGOV11"},
     {"source":"PFGVI36","target":"PFGOV13"},
-
     {"source":"PFGVI37","target":"UNSDG3"},
     {"source":"PFGVI37","target":"UNSDG6"},
     {"source":"PFGVI37","target":"UNSDG7"},
@@ -1503,19 +1531,16 @@
     {"source":"PFGVI37","target":"UNSDT9.4"},
     {"source":"PFGVI37","target":"PFGOV2"},
     {"source":"PFGVI37","target":"PFGOV4"},
-
     {"source":"PFGVI38","target":"UNSDG5"},
     {"source":"PFGVI38","target":"UNSDT5.1"},
     {"source":"PFGVI38","target":"UNSDT5.2"},
     {"source":"PFGVI38","target":"PFGOV7"},
     {"source":"PFGVI38","target":"PFGOV11"},
-
     {"source":"PFGVI39","target":"UNSDG5"},
     {"source":"PFGVI39","target":"UNSDT5.1"},
     {"source":"PFGVI39","target":"UNSDT5.2"},
     {"source":"PFGVI39","target":"PFGOV11"},
     {"source":"PFGVI39","target":"PFGOV14"},
-
     {"source":"PFGVI40","target":"UNSDG7"},
     {"source":"PFGVI40","target":"UNSDG8"},
     {"source":"PFGVI40","target":"UNSDG9"},
@@ -1533,7 +1558,6 @@
     {"source":"PFGVI40","target":"PFGOV9"},
     {"source":"PFGVI40","target":"PFGOV10"},
     {"source":"PFGVI40","target":"PFGOV12"},
-
     {"source":"PFGVI41","target":"UNSDG4"},
     {"source":"PFGVI41","target":"UNSDG8"},
     {"source":"PFGVI41","target":"UNSDG10"},
@@ -1550,7 +1574,6 @@
     {"source":"PFGVI41","target":"PFGOV5"},
     {"source":"PFGVI41","target":"PFGOV6"},
     {"source":"PFGVI41","target":"PFGOV14"},
-
     {"source":"PFGVI42","target":"UNSDG4"},
     {"source":"PFGVI42","target":"UNSDG10"},
     {"source":"PFGVI42","target":"UNSDT1.3"},
@@ -1568,8 +1591,6 @@
     {"source":"PFGVI42","target":"PFGOV13"},
     {"source":"PFGVI42","target":"PFGOV14"},
     
-
-
     {"source":"BELAI1.1","target":"PFGVI20"},
     {"source":"BELAI1.1","target":"PFGVI21"},
     {"source":"BELAI1.1","target":"PFGVI22"},
@@ -1582,7 +1603,6 @@
     {"source":"BELAI1.1","target":"PFGVI34"},
     {"source":"BELAI1.1","target":"PFGVI40"},
     {"source":"BELAI1.1","target":"PFGVI41"},
-
     {"source":"BELAI1.2","target":"PFGVI8"},
     {"source":"BELAI1.2","target":"PFGVI11"},
     {"source":"BELAI1.2","target":"PFGVI13"},
@@ -1595,7 +1615,6 @@
     {"source":"BELAI1.2","target":"PFGVI34"},
     {"source":"BELAI1.2","target":"PFGVI40"},
     {"source":"BELAI1.2","target":"PFGVI41"},
-
     {"source":"BELAI1.3","target":"PFGVI8"},
     {"source":"BELAI1.3","target":"PFGVI13"},
     {"source":"BELAI1.3","target":"PFGVI14"},
@@ -1610,7 +1629,6 @@
     {"source":"BELAI1.3","target":"PFGVI34"},
     {"source":"BELAI1.3","target":"PFGVI40"},
     {"source":"BELAI1.3","target":"PFGVI41"},
-
     {"source":"BELAI1.4","target":"PFGVI20"},
     {"source":"BELAI1.4","target":"PFGVI21"},
     {"source":"BELAI1.4","target":"PFGVI22"},
@@ -1621,7 +1639,6 @@
     {"source":"BELAI1.4","target":"PFGVI33"},
     {"source":"BELAI1.4","target":"PFGVI34"},
     {"source":"BELAI1.4","target":"PFGVI41"},
-
     {"source":"BELAI1.5","target":"PFGVI20"},
     {"source":"BELAI1.5","target":"PFGVI21"},
     {"source":"BELAI1.5","target":"PFGVI22"},
@@ -1632,12 +1649,10 @@
     {"source":"BELAI1.5","target":"PFGVI33"},
     {"source":"BELAI1.5","target":"PFGVI34"},
     {"source":"BELAI1.5","target":"PFGVI41"},
-
     {"source":"BELAI1.6","target":"PFGVI19"},
     {"source":"BELAI1.6","target":"PFGVI29"},
     {"source":"BELAI1.6","target":"PFGVI32"},
     {"source":"BELAI1.6","target":"PFGVI33"},
-
     {"source":"BELAI1.7","target":"PFGVI14"},
     {"source":"BELAI1.7","target":"PFGVI18"},
     {"source":"BELAI1.7","target":"PFGVI19"},
@@ -1652,7 +1667,6 @@
     {"source":"BELAI1.7","target":"PFGVI34"},
     {"source":"BELAI1.7","target":"PFGVI40"},
     {"source":"BELAI1.7","target":"PFGVI41"},
-
     {"source":"BELAI1.8","target":"PFGVI11"},
     {"source":"BELAI1.8","target":"PFGVI12"},
     {"source":"BELAI1.8","target":"PFGVI14"},
@@ -1663,7 +1677,6 @@
     {"source":"BELAI1.8","target":"PFGVI32"},
     {"source":"BELAI1.8","target":"PFGVI33"},
     {"source":"BELAI1.8","target":"PFGVI34"},
-
     {"source":"BELAI1.9","target":"PFGVI11"},
     {"source":"BELAI1.9","target":"PFGVI12"},
     {"source":"BELAI1.9","target":"PFGVI14"},
@@ -1688,7 +1701,6 @@
     {"source":"BELAI1.10","target":"PFGVI32"},
     {"source":"BELAI1.10","target":"PFGVI33"},
     {"source":"BELAI1.10","target":"PFGVI34"},
-
     {"source":"BELAI1.11","target":"PFGVI14"},
     {"source":"BELAI1.11","target":"PFGVI18"},
     {"source":"BELAI1.11","target":"PFGVI19"},
@@ -1702,21 +1714,17 @@
     {"source":"BELAI1.12","target":"PFGVI33"},
     {"source":"BELAI1.12","target":"PFGVI34"},
     {"source":"BELAI1.12","target":"PFGVI40"},
-
     {"source":"BELAI1.13","target":"PFGVI8"},
     {"source":"BELAI1.13","target":"PFGVI30"},
     {"source":"BELAI1.13","target":"PFGVI"},
     {"source":"BELAI1.13","target":"PFGVI"},
     {"source":"BELAI1.13","target":"PFGVI"},
-
     {"source":"BELAI2.1","target":"PFGVI1"},
     {"source":"BELAI2.1","target":"PFGVI38"},
     {"source":"BELAI2.1","target":"PFGVI39"},
-
     {"source":"BELAI2.2","target":"PFGVI1"},
     {"source":"BELAI2.2","target":"PFGVI38"},
     {"source":"BELAI2.2","target":"PFGVI39"},
-
     {"source":"BELAI2.3","target":"PFGVI1"},
     {"source":"BELAI2.3","target":"PFGVI26"},
     {"source":"BELAI2.3","target":"PFGVI28"},
@@ -1724,7 +1732,6 @@
     {"source":"BELAI2.3","target":"PFGVI35"},
     {"source":"BELAI2.3","target":"PFGVI38"},
     {"source":"BELAI2.3","target":"PFGVI39"},
-
     {"source":"BELAI2.4","target":"PFGVI1"},
     {"source":"BELAI2.4","target":"PFGVI26"},
     {"source":"BELAI2.4","target":"PFGVI27"},
@@ -1733,14 +1740,12 @@
     {"source":"BELAI2.4","target":"PFGVI35"},
     {"source":"BELAI2.4","target":"PFGVI38"},
     {"source":"BELAI2.4","target":"PFGVI39"},
-
     {"source":"BELAI2.5","target":"PFGVI1"},
     {"source":"BELAI2.5","target":"PFGVI26"},
     {"source":"BELAI2.5","target":"PFGVI27"},
     {"source":"BELAI2.5","target":"PFGVI28"},
     {"source":"BELAI2.5","target":"PFGVI31"},
     {"source":"BELAI2.5","target":"PFGVI35"},
-
     {"source":"BELAI2.6","target":"PFGVI1"},
     {"source":"BELAI2.6","target":"PFGVI26"},
     {"source":"BELAI2.6","target":"PFGVI27"},
@@ -1752,14 +1757,12 @@
     {"source":"BELAI2.7","target":"PFGVI31"},
     {"source":"BELAI2.7","target":"PFGVI35"},
     {"source":"BELAI2.7","target":"PFGVI42"},
-
     {"source":"BELAI2.8","target":"PFGVI15"},
     {"source":"BELAI2.8","target":"PFGVI26"},
     {"source":"BELAI2.8","target":"PFGVI27"},
     {"source":"BELAI2.8","target":"PFGVI28"},
     {"source":"BELAI2.8","target":"PFGVI31"},
     {"source":"BELAI2.8","target":"PFGVI35"},
-
     {"source":"BELAI3.1","target":"PFGVI11"},
     {"source":"BELAI3.1","target":"PFGVI12"},
     {"source":"BELAI3.1","target":"PFGVI13"},
@@ -1769,7 +1772,6 @@
     {"source":"BELAI3.1","target":"PFGVI20"},
     {"source":"BELAI3.1","target":"PFGVI32"},
     {"source":"BELAI3.1","target":"PFGVI33"},
-
     {"source":"BELAI3.2","target":"PFGVI11"},
     {"source":"BELAI3.2","target":"PFGVI12"},
     {"source":"BELAI3.2","target":"PFGVI13"},
@@ -1779,7 +1781,6 @@
     {"source":"BELAI3.2","target":"PFGVI20"},
     {"source":"BELAI3.2","target":"PFGVI32"},
     {"source":"BELAI3.2","target":"PFGVI33"},
-
     {"source":"BELAI3.3","target":"PFGVI11"},
     {"source":"BELAI3.3","target":"PFGVI12"},
     {"source":"BELAI3.3","target":"PFGVI13"},
@@ -1789,7 +1790,6 @@
     {"source":"BELAI3.3","target":"PFGVI20"},
     {"source":"BELAI3.3","target":"PFGVI32"},
     {"source":"BELAI3.3","target":"PFGVI33"},
-
     {"source":"BELAI3.4","target":"PFGVI11"},
     {"source":"BELAI3.4","target":"PFGVI12"},
     {"source":"BELAI3.4","target":"PFGVI13"},
@@ -1799,46 +1799,37 @@
     {"source":"BELAI3.4","target":"PFGVI20"},
     {"source":"BELAI3.4","target":"PFGVI32"},
     {"source":"BELAI3.4","target":"PFGVI33"},
-
     {"source":"BELAI3.5","target":"PFGVI9"},
     {"source":"BELAI3.5","target":"PFGVI18"},
     {"source":"BELAI3.5","target":"PFGVI32"},
     {"source":"BELAI3.5","target":"PFGVI33"},
-
     {"source":"BELAI3.6","target":"PFGVI11"},
     {"source":"BELAI3.6","target":"PFGVI12"},
     {"source":"BELAI3.6","target":"PFGVI13"},
     {"source":"BELAI3.6","target":"PFGVI14"},
     {"source":"BELAI3.6","target":"PFGVI32"},
     {"source":"BELAI3.6","target":"PFGVI33"},
-
     {"source":"BELAI3.7","target":"PFGVI12"},
     {"source":"BELAI3.7","target":"PFGVI26"},
     {"source":"BELAI3.7","target":"PFGVI27"},
     {"source":"BELAI3.7","target":"PFGVI28"},
     {"source":"BELAI3.7","target":"PFGVI32"},
-
     {"source":"BELAI3.8","target":"PFGVI11"},
     {"source":"BELAI3.8","target":"PFGVI13"},
     {"source":"BELAI3.8","target":"PFGVI14"},
     {"source":"BELAI3.8","target":"PFGVI27"},
     {"source":"BELAI3.8","target":"PFGVI28"},
     {"source":"BELAI3.8","target":"PFGVI31"},
-
     {"source":"BELAI3.9","target":"PFGVI27"},
     {"source":"BELAI3.9","target":"PFGVI28"},
     {"source":"BELAI3.9","target":"PFGVI31"},
-
     {"source":"BELAI3.9","target":"PFGVI27"},
     {"source":"BELAI3.9","target":"PFGVI28"},
     {"source":"BELAI3.9","target":"PFGVI31"},
-
     {"source":"BELAI3.10","target":"PFGVI26"},
     {"source":"BELAI3.10","target":"PFGVI27"},
-
     {"source":"BELAI3.11","target":"PFGVI28"},
     {"source":"BELAI3.11","target":"PFGVI33"},
-
     {"source":"BELAI4.1","target":"PFGVI2"},
     {"source":"BELAI4.1","target":"PFGVI3"},
     {"source":"BELAI4.1","target":"PFGVI4"},
@@ -1846,18 +1837,15 @@
     {"source":"BELAI4.1","target":"PFGVI7"},
     {"source":"BELAI4.1","target":"PFGVI27"},
     {"source":"BELAI4.1","target":"PFGVI37"},
-
     {"source":"BELAI4.2","target":"PFGVI2"},
     {"source":"BELAI4.2","target":"PFGVI4"},
     {"source":"BELAI4.2","target":"PFGVI15"},
     {"source":"BELAI4.2","target":"PFGVI27"},
     {"source":"BELAI4.2","target":"PFGVI42"},
-
     {"source":"BELAI4.3","target":"PFGVI2"},
     {"source":"BELAI4.3","target":"PFGVI4"},
     {"source":"BELAI4.3","target":"PFGVI7"},
     {"source":"BELAI4.3","target":"PFGVI15"},
-
     {"source":"BELAI4.4","target":"PFGVI1"},
     {"source":"BELAI4.4","target":"PFGVI2"},
     {"source":"BELAI4.4","target":"PFGVI3"},
@@ -1868,34 +1856,26 @@
     {"source":"BELAI4.4","target":"PFGVI27"},
     {"source":"BELAI4.4","target":"PFGVI31"},
     {"source":"BELAI4.4","target":"PFGVI37"},
-
     {"source":"BELAI4.5","target":"PFGVI2"},
     {"source":"BELAI4.5","target":"PFGVI3"},
     {"source":"BELAI4.5","target":"PFGVI4"},
     {"source":"BELAI4.5","target":"PFGVI15"},
-
     {"source":"BELAI4.6","target":"PFGVI3"},
     {"source":"BELAI4.6","target":"PFGVI4"},
-
     {"source":"BELAI4.7","target":"PFGVI3"},
     {"source":"BELAI4.7","target":"PFGVI4"},
-
     {"source":"BELAI4.8","target":"PFGVI6"},
     {"source":"BELAI4.8","target":"PFGVI25"},
     {"source":"BELAI4.8","target":"PFGVI37"},
-
     {"source":"BELAI4.9","target":"PFGVI2"},
     {"source":"BELAI4.9","target":"PFGVI3"},
     {"source":"BELAI4.9","target":"PFGVI25"},
     {"source":"BELAI4.9","target":"PFGVI37"},
-
     {"source":"BELAI4.10","target":"PFGVI8"},
-
     {"source":"BELAI4.11","target":"PFGVI2"},
     {"source":"BELAI4.11","target":"PFGVI3"},
     {"source":"BELAI4.11","target":"PFGVI4"},
     {"source":"BELAI4.11","target":"PFGVI8"},
-
     {"source":"BELAI5.1","target":"PFGVI8"},
     {"source":"BELAI5.1","target":"PFGVI15"},
     {"source":"BELAI5.1","target":"PFGVI23"},
@@ -1904,37 +1884,30 @@
     {"source":"BELAI5.1","target":"PFGVI30"},
     {"source":"BELAI5.1","target":"PFGVI37"},
     {"source":"BELAI5.1","target":"PFGVI40"},
-
     {"source":"BELAI5.2","target":"PFGVI8"},
     {"source":"BELAI5.2","target":"PFGVI23"},
     {"source":"BELAI5.2","target":"PFGVI36"},
-
     {"source":"BELAI5.3","target":"PFGVI23"},
     {"source":"BELAI5.3","target":"PFGVI25"},
     {"source":"BELAI5.3","target":"PFGVI27"},
     {"source":"BELAI5.3","target":"PFGVI30"},
     {"source":"BELAI5.3","target":"PFGVI37"},
-
     {"source":"BELAI5.4","target":"PFGVI23"},
     {"source":"BELAI5.4","target":"PFGVI27"},
     {"source":"BELAI5.4","target":"PFGVI30"},
     {"source":"BELAI5.4","target":"PFGVI40"},
-
     {"source":"BELAI5.5","target":"PFGVI15"},
     {"source":"BELAI5.5","target":"PFGVI27"},
     {"source":"BELAI5.5","target":"PFGVI30"},
     {"source":"BELAI5.5","target":"PFGVI40"},
     {"source":"BELAI5.5","target":"PFGVI42"},
-
     {"source":"BELAI5.6","target":"PFGVI23"},
     {"source":"BELAI5.6","target":"PFGVI25"},
     {"source":"BELAI5.6","target":"PFGVI30"},
     {"source":"BELAI5.6","target":"PFGVI37"},
-
     {"source":"BELAI5.7","target":"PFGVI8"},
     {"source":"BELAI5.7","target":"PFGVI29"},
     {"source":"BELAI5.7","target":"PFGVI37"},
-
     {"source":"BELAI5.8","target":"PFGVI2"},
     {"source":"BELAI5.8","target":"PFGVI6"},
     {"source":"BELAI5.8","target":"PFGVI8"},
@@ -1951,7 +1924,6 @@
     {"source":"BELAI5.8","target":"PFGVI37"},
     {"source":"BELAI5.8","target":"PFGVI40"},
     {"source":"BELAI5.8","target":"PFGVI42"},
-
     {"source":"BEAIP1.1","target":"PFGVI11"},
     {"source":"BEAIP1.1","target":"PFGVI12"},
     {"source":"BEAIP1.1","target":"PFGVI13"},
@@ -1968,7 +1940,6 @@
     {"source":"BEAIP1.1","target":"PFGVI40"},
     {"source":"BEAIP1.1","target":"PFGVI41"},
     {"source":"BEAIP1.1","target":"PFGVI42"},
-
     {"source":"BEAIP1.2","target":"PFGVI13"},
     {"source":"BEAIP1.2","target":"PFGVI14"},
     {"source":"BEAIP1.2","target":"PFGVI21"},
@@ -1980,7 +1951,6 @@
     {"source":"BEAIP1.2","target":"PFGVI33"},
     {"source":"BEAIP1.2","target":"PFGVI34"},
     {"source":"BEAIP1.2","target":"PFGVI40"},
-
     {"source":"BEAIP1.3","target":"PFGVI14"},
     {"source":"BEAIP1.3","target":"PFGVI20"},
     {"source":"BEAIP1.3","target":"PFGVI21"},
@@ -1992,13 +1962,11 @@
     {"source":"BEAIP1.3","target":"PFGVI33"},
     {"source":"BEAIP1.3","target":"PFGVI34"},
     {"source":"BEAIP1.3","target":"PFGVI40"},
-
     {"source":"BEAIP1.4","target":"PFGVI23"},
     {"source":"BEAIP1.4","target":"PFGVI30"},
     {"source":"BEAIP1.4","target":"PFGVI33"},
     {"source":"BEAIP1.4","target":"PFGVI34"},
     {"source":"BEAIP1.4","target":"PFGVI40"},
-
     {"source":"BEAIP1.5","target":"PFGVI11"},
     {"source":"BEAIP1.5","target":"PFGVI13"},
     {"source":"BEAIP1.5","target":"PFGVI23"},
@@ -2008,12 +1976,10 @@
     {"source":"BEAIP1.5","target":"PFGVI30"},
     {"source":"BEAIP1.5","target":"PFGVI34"},
     {"source":"BEAIP1.5","target":"PFGVI40"},
-
     {"source":"BEAIP1.6","target":"PFGVI23"},
     {"source":"BEAIP1.6","target":"PFGVI30"},
     {"source":"BEAIP1.6","target":"PFGVI34"},
     {"source":"BEAIP1.6","target":"PFGVI40"},
-
     {"source":"BEAIP1.7","target":"PFGVI15"},
     {"source":"BEAIP1.7","target":"PFGVI18"},
     {"source":"BEAIP1.7","target":"PFGVI19"},
@@ -2021,48 +1987,35 @@
     {"source":"BEAIP1.7","target":"PFGVI28"},
     {"source":"BEAIP1.7","target":"PFGVI33"},
     {"source":"BEAIP1.7","target":"PFGVI42"},
-
     {"source":"BEAIP2.1","target":"PFGVI23"},
     {"source":"BEAIP2.1","target":"PFGVI25"},
     {"source":"BEAIP2.1","target":"PFGVI30"},
     {"source":"BEAIP2.1","target":"PFGVI31"},
     {"source":"BEAIP2.1","target":"PFGVI37"},
     {"source":"BEAIP2.1","target":"PFGVI40"},
-
     {"source":"BEAIP2.2","target":"PFGVI1"},
     {"source":"BEAIP2.2","target":"PFGVI25"},
     {"source":"BEAIP2.2","target":"PFGVI26"},
     {"source":"BEAIP2.2","target":"PFGVI27"},
     
-    
-    
-    
-
-
-
-
-
-    
-
-
-    
-
-
-    {"source":"","target":""},
-    {"source":"","target":""},
-    {"source":"","target":""},
-    {"source":"","target":""},
-    {"source":"","target":""},
-    {"source":"","target":""},
-    {"source":"","target":""},
-    {"source":"","target":""},
-    {"source":"","target":""},
-    {"source":"","target":""},
-    {"source":"","target":""},
-    {"source":"","target":""},
-    {"source":"","target":""},
-    {"source":"","target":""},
-    {"source":"","target":""},
+    {"source":"DSSGP1","target":"PFGOV5"},
+    {"source":"DSSGP1","target":"PFGOV6"},
+    {"source":"DSSGP1","target":"PFGOV10"},
+    {"source":"DSSGP2","target":"PFGOV1"},
+    {"source":"DSSGP2","target":"PFGOV5"},
+    {"source":"DSSGP2","target":"PFGOV6"},
+    {"source":"DSSGP2","target":"PFGOV11"},
+    {"source":"DSSGP3","target":"PFGOV5"},
+    {"source":"DSSGP3","target":"PFGOV10"},
+    {"source":"DSSGP4","target":"PFGOV2"},
+    {"source":"DSSGP5","target":"PFGOV11"},
+    {"source":"DSSGP6","target":"PFGOV4"},
+    {"source":"DSSGP6","target":"PFGOV8"},
+    {"source":"DSSGP7","target":"PFGOV3"},
+    {"source":"DSSGP7","target":"PFGOV7"},
+    {"source":"DSSGP7","target":"PFGOV8"},
+    {"source":"DSSGP7","target":"PFGOV9"},
+    {"source":"DSSGP8","target":"PFGOV12"},
     {"source":"","target":""},
     {"source":"","target":""},
     {"source":"","target":""},

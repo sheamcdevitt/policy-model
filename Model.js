@@ -164,7 +164,7 @@ $(document).ready(function(){
       $.each(data, function(key, value){
        if (value.id.search(expression) != -1 || value.description.search(expression) != -1 || value.group.search(expression) != -1)
        {
-           $('#result').append('<li class="list-group-item link-class">'+value.group+' | '+value.id+' | <span class="text-muted">'+value.description+'</span></li>');
+           $('#result').append('<li class="list-group-item link-class">'+value.group+' | <span class="text-muted">'+value.description+'<style = "visibility:hidden;"> | *'  +value.id+'  ');
            
    }
            
@@ -179,7 +179,8 @@ $(document).ready(function(){
    
    $('#result').on('click', 'li', function() {
        
-       var click_text = $(this).text().split('|');
+       var click_text = $(this).text().split('*');
+       
        $('#search').val($.trim(click_text[1]));
        console.log($('#search').val());
    
@@ -246,6 +247,8 @@ d3.json("Data.json", function(error, json) {
   positionPrimaryNodes(d.nodes);
   positionChildNodes(d.nodes);
   addLinksToDynamicJSON(json, d);
+  smartLink(json,d);
+  legend(d.nodes);
  // console.log(countGroups(d.nodes));
   
   //console.log(countGroups(graph.nodes));
@@ -271,9 +274,9 @@ d3.json("Data.json", function(error, json) {
       var gradient = defs.append("linearGradient")
          .attr("id", "svgGradient")
          .attr("x1", "0%")
-         .attr("x2", "50%")
+         .attr("x2", "0%")
          .attr("y1", "0%")
-         .attr("y2", "100%");
+         .attr("y2", "00%");
       
       gradient.append("stop")
          .attr('class', 'start')
@@ -288,7 +291,7 @@ d3.json("Data.json", function(error, json) {
          .attr('class', 'end')
          .attr("offset", "100%")
          .attr("stop-color",getNodeColour(d.nodes,fn.source))// getColor(d.target,graph.nodes))
-         .attr("stop-opacity", 0.2);
+         .attr("stop-opacity", 0.1);
         return "url(#svgGradient)";
         
 
@@ -325,6 +328,7 @@ d3.json("Data.json", function(error, json) {
       //.attr("dy", "3px")
       .attr("dy", function(d){
           if (d['secondDisplay'] == null){return 4;}
+          if(d['type'] == "Child"){return 7;}
           else{return -10;}
       })
       .attr("text-anchor", "middle")
@@ -338,7 +342,10 @@ d3.json("Data.json", function(error, json) {
          // console.log(arr);
          //console.log(arr2);
           return arr[2];}
-        else { return d.id;}
+        else { 
+          if (d['display'] == ""){return d.id;}
+          else {return d.display;}
+          }
         });
       
   node.append("text")
@@ -455,11 +462,27 @@ function groupToColor(d){
         else if(d[i]['parentGroup']== "A City Imagining - Priorities"){ d[i]['colour'] = "Yellow";}
         else if(d[i]['parentGroup']== "Resilience - Shocks and Stresses"){ d[i]['colour'] = "Green";}
         else if(d[i]['parentGroup']== "Resilience"){ d[i]['colour'] = "Orange";}
+        else if(d[i]['parentGroup']== "Belfast Agenda Immediate Priorities"){ d[i]['colour'] = "Aquamarine";}
+        else if(d[i]['parentGroup']== "Culture 2030 Indicators"){ d[i]['colour'] = "Cornsilk";}
+        else if(d[i]['parentGroup']== "Belfast City Council Public Realm"){ d[i]['colour'] = "DarkSeaGreen";}
+        else if(d[i]['parentGroup']== "Belfast City Council Local Development Plan"){ d[i]['colour'] = "Gold";}
+        else if(d[i]['parentGroup']== "Belfast City Council Open Spaces Strategy"){ d[i]['colour'] = "Indigo";}
+        else if(d[i]['parentGroup']== "Derry City & Strabane District’s Inclusive Strategic Growth Plan"){ d[i]['colour'] = "LightCoral";}
+        else if(d[i]['parentGroup']== "Protect Life 2 - Suicide Prevention Strategy"){ d[i]['colour'] = "LightGreen";}
             //default:   d[i]['colour'] = "Black";
           
     }
 }
-
+function legend(d){
+  var obj = Object.keys(countGroupsArray(d)).sort();
+  console.log(obj);
+  for (var i = 0; i < obj.length; i++){
+    console.log(getColour(d,d[i]['parentGroup']));
+    var y = 2710 + (i*40);
+    svg.append("text").attr("x", 50).attr("y", y).text(obj[i]).style("font-size", "15px").attr("alignment-baseline","middle");
+   svg.append("circle").attr("cx",25).attr("cy",y).attr("r", 15).style("fill", "White").style("stroke-width", 5).style("stroke",getColour(d,d[i]['parentGroup']));
+  }  
+}
 function typeToRadius(d){
     for (var i = 0; i < d.length; i++){
     if (d[i]['type'] == "Parent"){d[i]['radius'] = 55;}
@@ -482,9 +505,16 @@ function getNodeColour(d, a){
   }
 }
 
+function getColour(d, a){
+  for(i = 0; i < d.length; i++){
+    if (d[i]['parentGroup'] == a) {return d[i]['colour'] ;}
+    
+  }
+}
+
 function positionPrimaryNodes(d){
   var obj = Object.keys(countGroupsArray(d)).sort();
-  //console.log(obj[0]);
+  console.log(obj);
   var overlapping = true;
   var w = width, h = height, Ox = 100, Oy = 100;
   var regionArray;
@@ -493,26 +523,54 @@ function positionPrimaryNodes(d){
   else if (countGroups(d) == 3){regionArray = [[Ox,Oy,(w/2)-50,((2*h)/3)-50],[(w/2)+50,Oy,w-100,((2*h)/3)-50],[Ox,((2*h)/3)+50,w-100,h-100]];}
   else if (countGroups(d) == 4){regionArray = [[Ox,Oy,(w/2)-50,(h/2)-50],[(w/2)+50,Oy,w-100,(h/2)-50],[Ox,(h/2)+50,(w/2)-50,h-100],[(w/2)+50,(h/2)+50,w-100,h-100]];}
   else if (countGroups(d) == 5){regionArray = [[Ox,Oy,(w/2)-50,((2*h)/5)-50],[(w/2)+50,Oy,w-100,((2*h)/5) -50],[Ox,((2*h)/5)+50,(w/2)-50, ((4*h)/5) -50],[(w/2)-50,((2*h)/5)+50,,w-100,((4*h)/5) -50],[Ox,((4*h)/5) +50,w-100,h-100]];}
+  else if (countGroups(d) == 6){regionArray = [[Ox,Oy,(w/2)-50,(h/3)-50],[(w/2)+50,Oy,w-50,(h/3)-50],[Ox,(h/3)+50,(w/2)-50,((2*h)/3)-50],[(w/2)+50,(h/3)+50,w-50,((2*h)/3)-50],[Ox,((2*h)/3)+50,(w/2)-50, h-50],[(w/2)+50,((2*h)/3)+50,w-50,h-50]]}
   //something in here defining what region it should go in but dont need that for now
-  var region = [100,100,width-100,height-100];
+  //var region = [100,100,width-100,height-100];
   if (d.length <= 1){
-  // d[0]['fx'] = getRandomArbitrary(regionArray[0][0],regionArray[0][2]);
-  // d[0]['fy'] = getRandomArbitrary(regionArray[0][1],regionArray[0][3]);
+   d[0]['fx'] = getRandomArbitrary(regionArray[0][0],regionArray[0][2]);
+   d[0]['fy'] = getRandomArbitrary(regionArray[0][1],regionArray[0][3]);
   }
 
   else {
 
   for (var i = 0, len = d.length; i < len; i++) {
     var currentNode = d[i];
-    //console.log("why",countGroups(d));
-    if(currentNode['parentGroup'] = obj[countGroups(d)-countGroups(d)]){
+    
+    
+    if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d)]){
+      
     currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)][0],regionArray[countGroups(d)-countGroups(d)][2]);
     currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)][1],regionArray[countGroups(d)-countGroups(d)][3]);
     } 
-    else if(currentNode['parentGroup'] = obj[countGroups(d)-countGroups(d) +1]){
+    else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +1]){
       currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+1][0],regionArray[countGroups(d)-countGroups(d)+1][2]);
       currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+1][1],regionArray[countGroups(d)-countGroups(d)+1][3]);
-      }
+    }
+    else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +2]){
+     
+      currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+2][0],regionArray[countGroups(d)-countGroups(d)+2][2]);
+      currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+2][1],regionArray[countGroups(d)-countGroups(d)+2][3]);
+     }
+     else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +3]){
+     
+      currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+3][0],regionArray[countGroups(d)-countGroups(d)+3][2]);
+      currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+2][1],regionArray[countGroups(d)-countGroups(d)+3][3]);
+     }
+     else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +4]){
+     
+      currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+4][0],regionArray[countGroups(d)-countGroups(d)+4][2]);
+      currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+4][1],regionArray[countGroups(d)-countGroups(d)+4][3]);
+     }
+     else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +5]){
+     
+      currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+5][0],regionArray[countGroups(d)-countGroups(d)+5][2]);
+      currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+5][1],regionArray[countGroups(d)-countGroups(d)+5][3]);
+     }
+     else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +6]){
+     
+      currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+6][0],regionArray[countGroups(d)-countGroups(d)+6][2]);
+      currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+6][1],regionArray[countGroups(d)-countGroups(d)+6][3]);
+     }
     
     for (var j =0; j < d.length; j++){
       if (i > j){
@@ -537,14 +595,41 @@ function positionPrimaryNodes(d){
             //console.log(distance);
             //console.log( obj[countGroups(d)-countGroups(d)]);
             if(currentNode['parentGroup'] = obj[countGroups(d)-countGroups(d)]){
+             
               currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)][0],regionArray[countGroups(d)-countGroups(d)][2]);
               currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)][1],regionArray[countGroups(d)-countGroups(d)][3]);
-              console.log("here");
+              
               } 
               else if(currentNode['parentGroup'] = obj[countGroups(d)-countGroups(d) +1]){
+                
                 currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+1][0],regionArray[countGroups(d)-countGroups(d)+1][2]);
                 currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+1][1],regionArray[countGroups(d)-countGroups(d)+1][3]);
                 }
+                else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +2]){
+     
+                  currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+2][0],regionArray[countGroups(d)-countGroups(d)+2][2]);
+                  currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+2][1],regionArray[countGroups(d)-countGroups(d)+2][3]);
+                 }
+                 else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +3]){
+                 
+                  currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+3][0],regionArray[countGroups(d)-countGroups(d)+3][2]);
+                  currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+2][1],regionArray[countGroups(d)-countGroups(d)+3][3]);
+                 }
+                 else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +4]){
+                 
+                  currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+4][0],regionArray[countGroups(d)-countGroups(d)+4][2]);
+                  currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+4][1],regionArray[countGroups(d)-countGroups(d)+4][3]);
+                 }
+                 else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +5]){
+                 
+                  currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+5][0],regionArray[countGroups(d)-countGroups(d)+5][2]);
+                  currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+5][1],regionArray[countGroups(d)-countGroups(d)+5][3]);
+                 }
+                 else if(currentNode['parentGroup'] == obj[countGroups(d)-countGroups(d) +6]){
+                 
+                  currentNode['fx'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+6][0],regionArray[countGroups(d)-countGroups(d)+6][2]);
+                  currentNode['fy'] = getRandomArbitrary(regionArray[countGroups(d)-countGroups(d)+6][1],regionArray[countGroups(d)-countGroups(d)+6][3]);
+                 }
             if (dist > (currentNode['radius'] + compareNode['radius'])){
               overlapping = false;
               
@@ -757,7 +842,7 @@ function countGroups(d) {
 function countGroupsArray(d) {
   var counts = {};
   for (var i = 0; i < d.length; i++) {
-      counts[d[i]['group']] = 1 + (counts[d[i]['group']] || 0);
+      counts[d[i]['parentGroup']] = 1 + (counts[d[i]['parentGroup']] || 0);
   }
   return counts;
 }
@@ -783,6 +868,7 @@ function getColor(d1,d2){
         if(d1 == d2[i]['id']){return d2[i]['colour'] ;}
     }
 }
+/*
 function smartLink(d) {
     for (var i = 0, len = d.length; i < len; i++) {
       var element = {};
@@ -815,14 +901,122 @@ function smartLink(d) {
         }      
       
     }}
+*/
+/*
+function smartLink(allData, jsonData){
+  // = {"source":"","target":""};
+    console.log(jsonData);
+    for (var i = 0, len = jsonData.nodes.length; i < len; i++) {
+        
+        for (var j = 0; j < allData.links.length; j++){
+          var linkToPush = {};
+          for (var k = 0; k < allData.links.length; k++)
+          {
+            
+            
+            if (allData.links[k]['source'] === jsonData.nodes[i]['id'] && allData.links[j]['source'] === jsonData.nodes[i]['id']  && allData.links[j] != allData.links[k]){
+                  linkToPush['source'] = allData.links[j]['target'];
+                  linkToPush['target'] = allData.links[k]['target'];
+                  if (!jsonData.links.some(item => item === linkToPush)){jsonData.links.push(linkToPush);
+                  console.log("if");}
+
+            }
+           if (allData.links[k]['target'] === jsonData.nodes[i]['id'] && allData.links[j]['target'] === jsonData.nodes[i]['id']  && allData.links[j] != allData.links[k]){
+              if(allData.links[k]['target'] == jsonData.nodes[i]['id']){
+              linkToPush['source'] = allData.links[j]['source'];
+              linkToPush['target'] = allData.links[k]['source'];
+              /*
+              console.log("j source",allData.links[j]['source']);
+              console.log("j target",allData.links[j]['target']);
+              console.log("k source",allData.links[k]['source']);
+              console.log("k target",allData.links[k]['target']);
+              
+              if (!jsonData.links.some(item => item === linkToPush)){jsonData.links.push(linkToPush); console.log("else if");}
+            }
+
+        }
+
+
+          }
+         
+
+            }
+        }
+
+
+}
+*/
+
+function smartLink(allData, jsonData){
+  // = {"source":"","target":""};
+  
+    console.log(dataToIdArray(jsonData.links, 'source'));
+    console.log(dataToIdArray(jsonData.links, 'target'));
+    
+    for (var i = 0; i < allData.links.length; i++) {
+        
+        for (var j = 0; j < allData.links.length; j++){
+
+          for (var k = 0; k < jsonData.nodes.length; k++)
+          {
+            var linkToPush = {};
+            var reverseLink = {};
+            
+            if (allData.links[i]['source'] === jsonData.nodes[k]['id'] && allData.links[j]['source'] === jsonData.nodes[k]['id']  && allData.links[i] != allData.links[k]){
+                  if (dataToIdArray(jsonData.nodes, 'id').some(item => item == allData.links[j]['target']) && dataToIdArray(jsonData.nodes, 'id').some(item => item == allData.links[i]['target']) && (allData.links[j]['target'] != allData.links[i]['target'])&& (getParentGroup(jsonData.nodes,allData.links[j]['target']) != getParentGroup(jsonData.nodes,allData.links[i]['target']))){
+                  linkToPush['source'] = allData.links[j]['target'];
+                  linkToPush['target'] = allData.links[i]['target'];
+                  reverseLink['source'] = linkToPush['target'];
+                  reverseLink['target'] = linkToPush['source'];
+                  //console.log(jsonData.links);
+                  console.log(reverseLink['target']);
+                  console.log("length", dataToIdArray(jsonData.links,'target').length);
+                  //console.log(jsonData.links.some(item => item !=reverseLink));
+                  for (var x = 0; x <dataToIdArray(jsonData.links,'target').length; x++){console.log(dataToIdArray(jsonData.links,'target')[x]);}
+                  console.log(dataToIdArray(jsonData.links,'target').some(item => item !=reverseLink['target']));
+                  if (dataToIdArray(jsonData.links,'source').some(item => item !=reverseLink['source']) && dataToIdArray(jsonData.links,'target').some(item => item !=reverseLink['target']) && dataToIdArray(jsonData.links,'source').some(item => item !=linkToPush['source']) && dataToIdArray(jsonData.links,'target').some(item => item !=linkToPush['target'])){jsonData.links.push(linkToPush);}
+                  }//USE FOR LOOPS INSTEAD TO FIX THISSSSSSS
+
+            }
+           else if (allData.links[i]['target'] === jsonData.nodes[k]['id'] && allData.links[j]['target'] === jsonData.nodes[k]['id']  && allData.links[j] != allData.links[i]){
+            if (dataToIdArray(jsonData.nodes, 'id').some(item => item == allData.links[j]['source']) && dataToIdArray(jsonData.nodes,'id').some(item => item == allData.links[i]['source'])&& (allData.links[j]['source'] != allData.links[i]['source'])&& (getParentGroup(jsonData.nodes,allData.links[j]['source']) != getParentGroup(jsonData.nodes,allData.links[i]['source']))){
+              linkToPush['source'] = allData.links[j]['source'];
+              linkToPush['target'] = allData.links[i]['source'];
+              reverseLink['source'] = linkToPush['target'];
+              reverseLink['target'] = linkToPush['source'];
+              console.log(reverseLink);
+              
+              if (!jsonData.links.some(item => item == linkToPush) && !jsonData.links.some(item => item == reverseLink)){jsonData.links.push(linkToPush);}
+            }
+
+           }
+
+
+          }
+         
+
+            }
+        }
+
+
+}
+
+function dataToIdArray(d, str){
+  var array = [d.length];
+  for (var i = 0; i <d.length;  i++){
+    array[i] = d[i][str];
+  }
+  return array;
+}
 
 
 
-
-
-
-
-
+function getParentGroup(d, a){
+  for(i = 0; i < d.length; i++){
+    if (d[i]['id'] == a) {return d[i]['parentGroup'] ;}
+    
+  }
+}
 
 
 

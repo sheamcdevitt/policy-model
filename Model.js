@@ -231,6 +231,7 @@ var simulation = d3.forceSimulation()
 document.getElementById("CreateModel").onclick = function() {
   create(jsonToPass);
   jsonToPass = {"nodes":[],"links":[]};
+  $("#add").empty();
 };
 function create(d) {
 //function create(jsonToPass) {

@@ -478,7 +478,7 @@ function legend(d){
   console.log(obj);
   for (var i = 0; i < obj.length; i++){
     console.log(getColour(d,d[i]['parentGroup']));
-    var y = 2710 + (i*40);
+    var y = 3710 + (i*40);
     svg.append("text").attr("x", 50).attr("y", y).text(obj[i]).style("font-size", "15px").attr("alignment-baseline","middle");
    svg.append("circle").attr("cx",25).attr("cy",y).attr("r", 15).style("fill", "White").style("stroke-width", 5).style("stroke",getColour(d,d[i]['parentGroup']));
   }  

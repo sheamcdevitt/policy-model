@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="//d3js.org/d3.v4.min.js"></script>
+  <script src="http://underscorejs.org/underscore-min.js"></script>
+  <script src="https://unpkg.com/d3-force-attract@latest"></script>
+    <script src="https://unpkg.com/d3-force-cluster@latest"></script>
   <script src='Model.js'></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -75,7 +78,10 @@
 
     </div>
   </div>
-
+  <button id="UNSDG" class="btn btn-primary">
+    <span class="glyphicon glyphicon-pencil pr-4" aria-hidden="true"></span>UNSDG</button>
+    <button id="SHOWONLYUNSDG" class="btn btn-primary">
+      <span class="glyphicon glyphicon-pencil pr-4" aria-hidden="true"></span>Show only UNSDG</button>
   <section class="jumbotron" style="margin-top: 0;">
     <div class="container"">
       <div class="row">

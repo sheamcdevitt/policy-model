@@ -162,7 +162,7 @@ var colours = [
 
 $(document).ready(function(){
   $.ajaxSetup({ cache: false });
-  $('#search').keyup(function(){
+  $('#search').on( 'change paste keyup', function(){
    $('#result').html('');
    $('#state').val('');
    var searchField = $('#search').val();
@@ -174,6 +174,17 @@ $(document).ready(function(){
          $('#result').append('<li class="list-group-item link-class">'+value.group+' | <span class="text-muted">'+value.description+'<style = "visibility:hidden;"> | *'  +value.id+'  ');
          
  }
+
+
+ 
+//   TODO: ux improvement - remove list when clicked off, when anywhere other than id clicked, remove children - todo: bug fixes
+           
+//    $('html').click(function(e){    
+//     if(!$(e.target).is('#result-list') || (!$(e.target).is('#list-text'))) {
+//         $('#result').empty();
+//     }
+
+// });
          
    
  

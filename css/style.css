@@ -14,7 +14,7 @@
 #result {
     position: absolute;
     width: 100%;
-    max-width: 550px;
+    max-width: 640px;
     cursor: pointer;
     overflow-y: auto;
     max-height: 400px;
@@ -34,4 +34,43 @@
 .badge {
     cursor: pointer;
 }
+
+
+ul.filter-list, .list {
+    list-style: none;
+    clear: both;
+    margin: 20px auto 0;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  
+  .list {
+    padding-top: 30px;
+  }
+  
+  li.list-margin, .no-result {
+    margin: 5px 10px;
+    float: left;
+  }
+  
+  .filter li:not(.active) {
+    opacity: 0.7;
+  }
+  .filter li:not(.active) a {
+    transform: scale(0.9);
+  }
+  
+  .filter-container {
+      padding-bottom: 35px;
+  }
+  
+  
+  a {
+    cursor: pointer;
+  }
+  
+  .jumbotron {
+    margin-bottom: 0;
+  }
+  
  

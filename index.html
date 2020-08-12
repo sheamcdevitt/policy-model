@@ -9,17 +9,20 @@
   <script src="//d3js.org/d3.v4.min.js"></script>
   <script src="js/underscore-min.js"></script>
   <script src="https://unpkg.com/d3-force-attract@latest"></script>
-    <script src="https://unpkg.com/d3-force-cluster@latest"></script>
+  <script src="https://unpkg.com/d3-force-cluster@latest"></script>
+  <script src='Table.js'></script>
   <script src='Model.js'></script>
+  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
   <script src="js/jquery-stack-menu.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-  </script>
-  
+    </script>
+
   <style>
 
 
@@ -31,89 +34,185 @@
   <div class="jumbotron" style="margin-bottom: 0;">
     <div class="container">
       <h1 class="display-3 mb-3">USI Policy Tool</h1>
-      <p class="h5">The aim of the USI Policy Tool is to provide instant and coherent access to multiple outcomes and indicators from international to local level policy to understand how they might link and influence projects.
-        Simply insert keywords or themes that apply to your project and select the relevant objectives you wish to align to or meet.</p>
+      <p class="h5">The aim of the USI Policy Tool is to provide instant and coherent access to multiple outcomes and
+        indicators from international to local level policy to understand how they might link and influence projects.
+        Simply insert keywords or themes that apply to your project and select the relevant objectives you wish to align
+        to or meet.</p>
       <!-- <p><a class="btn btn-primary btn-lg" href="https://getbootstrap.com/docs/4.5/examples/jumbotron/#" role="button">Get Started</a></p> -->
       <hr>
-        <br>
+      <br>
       <ul class="list-unstyled">
         <li class="media">
           <i class="fas fa-sitemap fa-fw fa-3x mr-4"></i>
           <div class="media-body">
             <h5 class="mt-0 mb-1">Mapping</h5>
-            One of the key issues surrounding government departments and city councils is the ability for civil servants to see a co-ordinated approach across strategies and live projects to promote learning and cross-departmental alignment for better collaboration. This tool provides a visual mind map to support that challenge.
+            One of the key issues surrounding government departments and city councils is the ability for civil servants
+            to see a co-ordinated approach across strategies and live projects to promote learning and
+            cross-departmental alignment for better collaboration. This tool provides a visual mind map to support that
+            challenge.
           </div>
         </li>
         <li class="media my-4">
           <i class="fas fa-database fa-fw fa-3x mr-4"></i>
           <div class="media-body">
             <h5 class="mt-0 mb-1">User Input</h5>
-            As well as mapping to other projects and strategies, the user can input their project onto the database for future use; meaning other departments and teams that are using the tool can understand how their project might strategically align to yours.
+            As well as mapping to other projects and strategies, the user can input their project onto the database for
+            future use; meaning other departments and teams that are using the tool can understand how their project
+            might strategically align to yours.
           </div>
         </li>
         <li class="media">
           <i class="fas fa-table fa-fw fa-3x mr-4"></i>
           <div class="media-body">
             <h5 class="mt-0 mb-1">Implementation Table</h5>
-            Beyond the visual map the user can also use the implementation table to identify KPIs alongside the matched outcomes and indicators. The implementation table learns and as such the user has the ability to see how other users are applying measurables for shared learning.
+            Beyond the visual map the user can also use the implementation table to identify KPIs alongside the matched
+            outcomes and indicators. The implementation table learns and as such the user has the ability to see how
+            other users are applying measurables for shared learning.
           </div>
         </li>
         <li class="media mt-4">
           <i class="fas fa-calendar-check fa-fw fa-3x mr-4"></i>
           <div class="media-body">
             <h5 class="mt-0 mb-1">Development Plans</h5>
-            The next stage of the tools' development is for users to input if the KPIs were achieved post completion, building an evidence base into the tool for best practice and rational for future project justification.
-            This tool provides a secure space in which the civil service no longer has to create core components of business cases and strategies in silo, it learns, it builds and it is instant, providing a visual mind map of all polices and strategic projects within the public sector. 
+            The next stage of the tools' development is for users to input if the KPIs were achieved post completion,
+            building an evidence base into the tool for best practice and rational for future project justification.
+            This tool provides a secure space in which the civil service no longer has to create core components of
+            business cases and strategies in silo, it learns, it builds and it is instant, providing a visual mind map
+            of all polices and strategic projects within the public sector.
           </div>
         </li>
       </ul>
-      <h5 class="mt-5 mb-1">As well as seeing what other departments are prioritising to promote cross-departmental collaboration it offers an opportunity to standardise and create living core components required for NIGEIE compliant documents, namely:</h5>
+      <h5 class="mt-5 mb-1">As well as seeing what other departments are prioritising to promote cross-departmental
+        collaboration it offers an opportunity to standardise and create living core components required for NIGEIE
+        compliant documents, namely:</h5>
       <ul class="list-group mt-4">
-        <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4"></i>Intuitive Strategic fit, (need and demand) mapping</li>
+        <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4"></i>Intuitive Strategic fit, (need and
+          demand) mapping</li>
         <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4"></i>Live SMART objectives</li>
-        <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4"></i>A better understanding of potential for displacement (see all projects across departments)</li>
-        <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4"></i>Stronger chance of cross-departmental collaboration, (see what others are trying to achieve through the database)</li>
-        <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4"></i>Provides an intuitive post project monitoring and evaluation database for better practise and rational of KPIs. </li>
+        <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4"></i>A better understanding of potential
+          for displacement (see all projects across departments)</li>
+        <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4"></i>Stronger chance of cross-departmental
+          collaboration, (see what others are trying to achieve through the database)</li>
+        <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4"></i>Provides an intuitive post project
+          monitoring and evaluation database for better practise and rational of KPIs. </li>
       </ul>
 
     </div>
   </div>
   <button id="UNSDG" class="btn btn-primary">
     <span class="glyphicon glyphicon-pencil pr-4" aria-hidden="true"></span>UNSDG</button>
-    <button id="SHOWONLYUNSDG" class="btn btn-primary">
-      <span class="glyphicon glyphicon-pencil pr-4" aria-hidden="true"></span>Show</button>
+  <button id="SHOWONLYUNSDG" class="btn btn-primary">
+    <span class="glyphicon glyphicon-pencil pr-4" aria-hidden="true"></span>Show</button>
   <section class="jumbotron" style="margin-top: 0;">
     <div class="container"">
-      <div class="row">
-        <div class="col-md-8">
-          <h1 style="text-align: left;">Search Policies</h2>
-            <br>
-            <div class="box">
-              <div class="input-group input-group-lg">
-                <input type="text" name="search" id="search" placeholder="Search Policies" class="form-control" />
-                <span class="input-group-append">
-                  <button id="CreateModel" class="btn btn-primary">
-                    <span aria-hidden="true"></span>Create Model</button>
-                </span>
-              </div>
+      <div class=" row">
+      <div class="col-md-8">
+        <h1 style="text-align: left;">Search Policies</h2>
+          <br>
+          <div class="box">
+            <div class="input-group input-group-lg">
+              <input type="text" name="search" id="search" placeholder="Search Policies" class="form-control" />
+              <span class="input-group-append">
+                <button id="CreateModel" class="btn btn-primary">
+                  <span aria-hidden="true"></span>Create Model</button>
+              </span>
             </div>
-            <ul class=" pb-5" id="result"></ul>
-            <br />
-        </div>
+          </div>
+          <ul class=" pb-5" id="result"></ul>
+          <br />
+      </div>
 
 
-    <!-- Added notification -  TODO -->
+      <!-- Added notification -  TODO -->
 
-        <!-- <div class="col-md-3 policy-list-padding">
+      <!-- <div class="col-md-3 policy-list-padding">
           <ul id="add" class="list-group">
           </ul>
         </div> -->
-      </div>
+    </div>
     </div>
     </div>
   </section>
+
+
+
+
+
+
+<!--TABLE CODE-->
+
+  <table id="Table">
+    <thead>
+      <tr>
+        <!--<th onclick="sortColumn('age')">Age</th>-->
+        <th>Policy Indicator</th>
+        <th>Action</th>
+        <th>Measurables</th>
+        <th>Key Partners</th>
+      </tr>
+    </thead>
+
+    <tbody id="tableData"></tbody>
+  </table>
+  <button id="CreateTable" <span aria-hidden="true"></span>Create Table</button>
+  <!--TABLE CODE-->
 </body>
+
+
+
+
+
+
+
+
+<style>
+  table {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td,
+  th {
+    border: 1px solid #cccccc;
+    padding: 8px;
+  }
+
+  th {
+    background-color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  tr:nth-child(even) {
+    background-color: lightblue;
+  }
+
+  tr:nth-child(odd) {
+    background-color: rgb(176, 230, 248);
+  }
+  tr:hover {
+    background-color: black;
+    color: white;
+  }
+
+  th:hover {
+    background-color: black;
+    color: white;
+  }
+</style>
+
+
+
+
+
+
+
+<!--TABLE CODE-->
+
+
+
+
 
 </html>
 <svg width="4000" height="4000"></svg>
-

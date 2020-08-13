@@ -1658,7 +1658,14 @@ $(document).ready(function () {
             "Protect Life 2 - Suicide Prevention Strategy"
           ) {
             d[i]["colour"] = "LightGreen";
+          } else if (d[i]["parentGroup"] == "A Bolder Vision for Belfast") {
+            d[i]["colour"] = "LightGray";
+          } else if (
+            d[i]["parentGroup"] == "Belfast Green and Blue Infrastructure Plan"
+          ) {
+            d[i]["colour"] = "LightOrange";
           }
+
           //default:   d[i]['colour'] = "Black";
         }
       }

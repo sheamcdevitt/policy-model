@@ -104,3 +104,22 @@ svg text {
   background-color: #f44336;
   color: white;
 }
+
+
+.select-checkbox option::before {
+  content: "\2610";
+  width: 1.3em;
+  text-align: center;
+  display: inline-block;
+}
+.select-checkbox option:checked::before {
+  content: "\2611";
+}
+
+.clicked-background {
+  background: #b7e0c1; 
+}
+
+.clicked-background:hover {
+background-color: #87ce99;
+}

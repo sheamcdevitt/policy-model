@@ -166,6 +166,36 @@ var colours = [
 
 //Search box function; searches nodes.json by id, group and description
 $(document).ready(function () {
+
+    //todo configure select box behaviour 
+
+    var groups = [];
+    $.getJSON('nodes.json', function(data) {
+  
+      //for each distinct group, push distinct value to array
+      $.each(data, function(key, value){
+        if ($.inArray(value.group, groups) === -1) {
+          groups.push(value.group);
+        }
+    });
+  
+    //display group values from array
+    $.each(groups, function(key, value){
+      $('#selectStrategy').append('<option>'+value+'</option>');
+    });
+   
+  });
+  
+  //add selected groups to temp array
+  
+  var selectedgroups = [];
+  $('#selectStrategy').on('change',function() {
+    selectedgroups.push($(this).val())
+    console.log(selectedgroups);
+  });
+  
+
+
   $.ajaxSetup({ cache: false });
   $("#search").on("change paste keyup", function () {
     $("#result").html("");
@@ -198,10 +228,22 @@ $(document).ready(function () {
         //     }
 
         // });
+
+      $('#result').on('click', function(e) {
+          e.stopPropagation();
+      });
+      
+      $(document).on('click', function (e) {
+        $('#result').empty();
+      });
+
+
       });
 
       //Adds clicked node value to jsonToPass
       $("#result").on("click", "li", function () {
+        $(this).removeClass("link-class");
+        $(this).addClass("clicked-background");
         var click_text = $(this).text().split("*");
         $("#search").val($.trim(click_text[1]));
         var clickedId = $("#search").val();

@@ -1659,11 +1659,11 @@ $(document).ready(function () {
           ) {
             d[i]["colour"] = "LightGreen";
           } else if (d[i]["parentGroup"] == "A Bolder Vision for Belfast") {
-            d[i]["colour"] = "LightGray";
+            d[i]["colour"] = "Magenta";
           } else if (
             d[i]["parentGroup"] == "Belfast Green and Blue Infrastructure Plan"
           ) {
-            d[i]["colour"] = "LightOrange";
+            d[i]["colour"] = "Maroon";
           }
 
           //default:   d[i]['colour'] = "Black";

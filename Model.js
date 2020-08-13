@@ -1,6 +1,6 @@
 //Empty JSON to populate
 var jsonToPass = { nodes: [], links: [] };
-
+var originalPass;
 //Array for all the policies websites
 //TODO finish inserting rest of the websites
 var websites = [
@@ -166,35 +166,30 @@ var colours = [
 
 //Search box function; searches nodes.json by id, group and description
 $(document).ready(function () {
+  //todo configure select box behaviour
 
-    //todo configure select box behaviour 
-
-    var groups = [];
-    $.getJSON('nodes.json', function(data) {
-  
-      //for each distinct group, push distinct value to array
-      $.each(data, function(key, value){
-        if ($.inArray(value.group, groups) === -1) {
-          groups.push(value.group);
-        }
+  var groups = [];
+  $.getJSON("nodes.json", function (data) {
+    //for each distinct group, push distinct value to array
+    $.each(data, function (key, value) {
+      if ($.inArray(value.group, groups) === -1) {
+        groups.push(value.group);
+      }
     });
-  
+
     //display group values from array
-    $.each(groups, function(key, value){
-      $('#selectStrategy').append('<option>'+value+'</option>');
+    $.each(groups, function (key, value) {
+      $("#selectStrategy").append("<option>" + value + "</option>");
     });
-   
   });
-  
+
   //add selected groups to temp array
-  
+
   var selectedgroups = [];
-  $('#selectStrategy').on('change',function() {
-    selectedgroups.push($(this).val())
+  $("#selectStrategy").on("change", function () {
+    selectedgroups.push($(this).val());
     console.log(selectedgroups);
   });
-  
-
 
   $.ajaxSetup({ cache: false });
   $("#search").on("change paste keyup", function () {
@@ -229,15 +224,13 @@ $(document).ready(function () {
 
         // });
 
-      $('#result').on('click', function(e) {
+        $("#result").on("click", function (e) {
           e.stopPropagation();
-      });
-      
-      $(document).on('click', function (e) {
-        $('#result').empty();
-      });
+        });
 
-
+        $(document).on("click", function (e) {
+          $("#result").empty();
+        });
       });
 
       //Adds clicked node value to jsonToPass
@@ -296,8 +289,90 @@ $(document).ready(function () {
           //onclick function for showOnly function (UNSDG)
           //TODO: write more general for other parentGroups
           document.getElementById("SHOWONLYUNSDG").onclick = function () {
-            create(showOnly(pass, "UN Sustainable Development Goals"));
+            showOnly("UN Sustainable Development Goals");
           };
+          document.getElementById(
+            "SHOWONLYA Bolder Vision for Belfast"
+          ).onclick = function () {
+            showOnly("A Bolder Vision for Belfast");
+          };
+          document.getElementById(
+            "SHOWONLYA City Imagining"
+          ).onclick = function () {
+            showOnly("A City Imagining");
+          };
+          document.getElementById(
+            "SHOWONLYBelfast Agenda"
+          ).onclick = function () {
+            showOnly("Belfast Agenda");
+          };
+          document.getElementById(
+            "SHOWONLYBelfast Agenda Immediate Priorities"
+          ).onclick = function () {
+            showOnly("Belfast Agenda Immediate Priorities");
+          };
+          document.getElementById(
+            "SHOWONLYBelfast City Council Local Development Plan"
+          ).onclick = function () {
+            showOnly("Belfast City Council Local Development Plan");
+          };
+          document.getElementById(
+            "SHOWONLYBelfast City Council Open Spaces Strategy"
+          ).onclick = function () {
+            showOnly("Belfast City Council Open Spaces Strategy");
+          };
+          document.getElementById(
+            "SHOWONLYBelfast City Council Public Realm"
+          ).onclick = function () {
+            showOnly("Belfast City Council Public Realm");
+          };
+          document.getElementById(
+            "SHOWONLYBelfast Green and Blue Infrastructure Plan"
+          ).onclick = function () {
+            showOnly("Belfast Green and Blue Infrastructure Plan");
+          };
+          document.getElementById(
+            "SHOWONLYCulture 2030 Indicators"
+          ).onclick = function () {
+            showOnly("Culture 2030 Indicators");
+          };
+          document.getElementById(
+            "SHOWONLYDerry City & Strabane District’s Inclusive Strategic Growth Plan"
+          ).onclick = function () {
+            showOnly(
+              "Derry City & Strabane District’s Inclusive Strategic Growth Plan"
+            );
+          };
+          document.getElementById(
+            "SHOWONLYProgramme for Government"
+          ).onclick = function () {
+            showOnly("Programme for Government");
+          };
+          document.getElementById(
+            "SHOWONLYProtect Life 2 - Suicide Prevention Strategy"
+          ).onclick = function () {
+            showOnly("Protect Life 2 - Suicide Prevention Strategy");
+          };
+          document.getElementById("SHOWONLY Resilience").onclick = function () {
+            showOnly("Resilience");
+          };
+          document.getElementById(
+            "SHOWONLYResilience - Shocks and Stresses"
+          ).onclick = function () {
+            showOnly("Resilience - Shocks and Stresses");
+          };
+          document.getElementById(
+            "SHOWONLYWHO 5 Ways To Wellbeing"
+          ).onclick = function () {
+            showOnly("WHO 5 Ways To Wellbeing");
+          };
+          document.getElementById(
+            "SHOWONLYWHO Arts Components"
+          ).onclick = function () {
+            showOnly("WHO Arts Components");
+          };
+
+          //! NEEDS A LOOP FUNCTION
           //onclick function for showGroup function
           //TODO: needs to save original model so when clicked again/unclicked it shows original model
           //* Ensure that function uses original model otherwise will connect nodes from nodes that weren't in the original model
@@ -307,12 +382,358 @@ $(document).ready(function () {
               var temp = JSON.parse(JSON.stringify(pass));
               showGroup(json, temp, "UN Sustainable Development Goals");
               create(temp);
+              originalPass = pass;
+              //console.log(originalPass);
             }
+
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
-              console.log(pass);
-              create(pass);
+              originalPass = originalPass;
+              //console.log(originalPass);
+              create(originalPass);
+            }
+
+            UNSDGCLICKS++;
+          };
+          document.getElementById(
+            "A Bolder Vision for Belfast"
+          ).onclick = function () {
+            //Even clicks do...
+            if (UNSDGCLICKS % 2 == 0) {
+              var temp = JSON.parse(JSON.stringify(pass));
+              showGroup(json, temp, "A Bolder Vision for Belfast");
+              create(temp);
+              originalPass = pass;
+              //console.log(originalPass);
+            }
+
+            //Odd clicks do...
+            //TODO: needs to clear the temp nodes and pass in the orignal model
+            else {
+              originalPass = originalPass;
+              //console.log(originalPass);
+              create(originalPass);
+            }
+
+            UNSDGCLICKS++;
+          };
+          document.getElementById("A City Imagining").onclick = function () {
+            //Even clicks do...
+            if (UNSDGCLICKS % 2 == 0) {
+              var temp = JSON.parse(JSON.stringify(pass));
+              showGroup(json, temp, "A City Imagining");
+              create(temp);
+              originalPass = pass;
+              //console.log(originalPass);
+            }
+
+            //Odd clicks do...
+            //TODO: needs to clear the temp nodes and pass in the orignal model
+            else {
+              originalPass = originalPass;
+              //console.log(originalPass);
+              create(originalPass);
+            }
+
+            UNSDGCLICKS++;
+          };
+          document.getElementById("Belfast Agenda").onclick = function () {
+            //Even clicks do...
+            if (UNSDGCLICKS % 2 == 0) {
+              var temp = JSON.parse(JSON.stringify(pass));
+              showGroup(json, temp, "Belfast Agenda");
+              create(temp);
+              originalPass = pass;
+              //console.log(originalPass);
+            }
+
+            //Odd clicks do...
+            //TODO: needs to clear the temp nodes and pass in the orignal model
+            else {
+              originalPass = originalPass;
+              //console.log(originalPass);
+              create(originalPass);
+            }
+
+            UNSDGCLICKS++;
+          };
+          document.getElementById(
+            "Belfast Agenda Immediate Priorities"
+          ).onclick = function () {
+            //Even clicks do...
+            if (UNSDGCLICKS % 2 == 0) {
+              var temp = JSON.parse(JSON.stringify(pass));
+              showGroup(json, temp, "Belfast Agenda Immediate Priorities");
+              create(temp);
+              originalPass = pass;
+              //console.log(originalPass);
+            }
+
+            //Odd clicks do...
+            //TODO: needs to clear the temp nodes and pass in the orignal model
+            else {
+              originalPass = originalPass;
+              //console.log(originalPass);
+              create(originalPass);
+            }
+
+            UNSDGCLICKS++;
+          };
+          document.getElementById(
+            "Belfast City Council Local Development Plan"
+          ).onclick = function () {
+            //Even clicks do...
+            if (UNSDGCLICKS % 2 == 0) {
+              var temp = JSON.parse(JSON.stringify(pass));
+              showGroup(
+                json,
+                temp,
+                "Belfast City Council Local Development Plan"
+              );
+              create(temp);
+              originalPass = pass;
+              //console.log(originalPass);
+            }
+
+            //Odd clicks do...
+            //TODO: needs to clear the temp nodes and pass in the orignal model
+            else {
+              originalPass = originalPass;
+              //console.log(originalPass);
+              create(originalPass);
+            }
+
+            UNSDGCLICKS++;
+          };
+          document.getElementById(
+            "Belfast City Council Open Spaces Strategy"
+          ).onclick = function () {
+            //Even clicks do...
+            if (UNSDGCLICKS % 2 == 0) {
+              var temp = JSON.parse(JSON.stringify(pass));
+              showGroup(
+                json,
+                temp,
+                "Belfast City Council Open Spaces Strategy"
+              );
+              create(temp);
+              originalPass = pass;
+              //console.log(originalPass);
+            }
+
+            //Odd clicks do...
+            //TODO: needs to clear the temp nodes and pass in the orignal model
+            else {
+              originalPass = originalPass;
+              //console.log(originalPass);
+              create(originalPass);
+            }
+
+            UNSDGCLICKS++;
+          };
+          document.getElementById(
+            "Belfast City Council Public Realm"
+          ).onclick = function () {
+            //Even clicks do...
+            if (UNSDGCLICKS % 2 == 0) {
+              var temp = JSON.parse(JSON.stringify(pass));
+              showGroup(json, temp, "Belfast City Council Public Realm");
+              create(temp);
+              originalPass = pass;
+              //console.log(originalPass);
+            }
+
+            //Odd clicks do...
+            //TODO: needs to clear the temp nodes and pass in the orignal model
+            else {
+              originalPass = originalPass;
+              //console.log(originalPass);
+              create(originalPass);
+            }
+
+            UNSDGCLICKS++;
+          };
+          document.getElementById(
+            "Belfast Green and Blue Infrastructure Plan"
+          ).onclick = function () {
+            //Even clicks do...
+            if (UNSDGCLICKS % 2 == 0) {
+              var temp = JSON.parse(JSON.stringify(pass));
+              showGroup(
+                json,
+                temp,
+                "Belfast Green and Blue Infrastructure Plan"
+              );
+              create(temp);
+              originalPass = pass;
+              //console.log(originalPass);
+            }
+
+            //Odd clicks do...
+            //TODO: needs to clear the temp nodes and pass in the orignal model
+            else {
+              originalPass = originalPass;
+              //console.log(originalPass);
+              create(originalPass);
+            }
+
+            UNSDGCLICKS++;
+          };
+          document.getElementById(
+            "Culture 2030 Indicators"
+          ).onclick = function () {
+            //Even clicks do...
+            if (UNSDGCLICKS % 2 == 0) {
+              var temp = JSON.parse(JSON.stringify(pass));
+              showGroup(json, temp, "Culture 2030 Indicators");
+              create(temp);
+              originalPass = pass;
+              //console.log(originalPass);
+            }
+
+            //Odd clicks do...
+            //TODO: needs to clear the temp nodes and pass in the orignal model
+            else {
+              originalPass = originalPass;
+              //console.log(originalPass);
+              create(originalPass);
+            }
+
+            UNSDGCLICKS++;
+          };
+          document.getElementById(
+            "Derry City & Strabane District’s Inclusive Strategic Growth Plan"
+          ).onclick = function () {
+            //Even clicks do...
+            if (UNSDGCLICKS % 2 == 0) {
+              var temp = JSON.parse(JSON.stringify(pass));
+              showGroup(
+                json,
+                temp,
+                "Derry City & Strabane District’s Inclusive Strategic Growth Plan"
+              );
+              create(temp);
+              originalPass = pass;
+              //console.log(originalPass);
+            }
+
+            //Odd clicks do...
+            //TODO: needs to clear the temp nodes and pass in the orignal model
+            else {
+              originalPass = originalPass;
+              //console.log(originalPass);
+              create(originalPass);
+            }
+
+            UNSDGCLICKS++;
+          };
+          document.getElementById(
+            "Programme for Government"
+          ).onclick = function () {
+            //Even clicks do...
+            if (UNSDGCLICKS % 2 == 0) {
+              var temp = JSON.parse(JSON.stringify(pass));
+              showGroup(json, temp, "Programme for Government");
+              create(temp);
+              originalPass = pass;
+              //console.log(originalPass);
+            }
+
+            //Odd clicks do...
+            //TODO: needs to clear the temp nodes and pass in the orignal model
+            else {
+              originalPass = originalPass;
+              //console.log(originalPass);
+              create(originalPass);
+            }
+
+            UNSDGCLICKS++;
+          };
+          document.getElementById(
+            "Protect Life 2 - Suicide Prevention Strategy"
+          ).onclick = function () {
+            //Even clicks do...
+            if (UNSDGCLICKS % 2 == 0) {
+              var temp = JSON.parse(JSON.stringify(pass));
+              showGroup(
+                json,
+                temp,
+                "Protect Life 2 - Suicide Prevention Strategy"
+              );
+              create(temp);
+              originalPass = pass;
+              //console.log(originalPass);
+            }
+
+            //Odd clicks do...
+            //TODO: needs to clear the temp nodes and pass in the orignal model
+            else {
+              originalPass = originalPass;
+              //console.log(originalPass);
+              create(originalPass);
+            }
+
+            UNSDGCLICKS++;
+          };
+          document.getElementById("Resilience").onclick = function () {
+            //Even clicks do...
+            if (UNSDGCLICKS % 2 == 0) {
+              var temp = JSON.parse(JSON.stringify(pass));
+              showGroup(json, temp, "Resilience");
+              create(temp);
+              originalPass = pass;
+              //console.log(originalPass);
+            }
+
+            //Odd clicks do...
+            //TODO: needs to clear the temp nodes and pass in the orignal model
+            else {
+              originalPass = originalPass;
+              //console.log(originalPass);
+              create(originalPass);
+            }
+
+            UNSDGCLICKS++;
+          };
+          document.getElementById(
+            "WHO 5 Ways To Wellbeing"
+          ).onclick = function () {
+            //Even clicks do...
+            if (UNSDGCLICKS % 2 == 0) {
+              var temp = JSON.parse(JSON.stringify(pass));
+              showGroup(json, temp, "WHO 5 Ways To Wellbeing");
+              create(temp);
+              originalPass = pass;
+              //console.log(originalPass);
+            }
+
+            //Odd clicks do...
+            //TODO: needs to clear the temp nodes and pass in the orignal model
+            else {
+              originalPass = originalPass;
+              //console.log(originalPass);
+              create(originalPass);
+            }
+
+            UNSDGCLICKS++;
+          };
+          document.getElementById("WHO Arts Components").onclick = function () {
+            //Even clicks do...
+            if (UNSDGCLICKS % 2 == 0) {
+              var temp = JSON.parse(JSON.stringify(pass));
+              showGroup(json, temp, "WHO Arts Components");
+              create(temp);
+              originalPass = pass;
+              //console.log(originalPass);
+            }
+
+            //Odd clicks do...
+            //TODO: needs to clear the temp nodes and pass in the orignal model
+            else {
+              originalPass = originalPass;
+              //console.log(originalPass);
+              create(originalPass);
             }
 
             UNSDGCLICKS++;
@@ -333,7 +754,7 @@ $(document).ready(function () {
           smartLink(json, pass);
           removeLinksBetweenSameGroup(pass);
           legend(pass.nodes);
-
+          console.log(pass);
           //Physics simualtion using d3 library
           //TODO: play around with values to make best looking model
           var simulation = d3
@@ -729,8 +1150,8 @@ $(document).ready(function () {
                   .attr("offset", 0)
                   .attr("stop-color", getNodeColour(pass.nodes, fn.source)) //getColour(d.source,graph.nodes))
                   .attr("stop-opacity", 0.5);
-                console.log(getNodeColour(pass.nodes, fn.source));
-                console.log(getNodeColour(pass.nodes, fn.target));
+                //console.log(getNodeColour(pass.nodes, fn.source));
+                //console.log(getNodeColour(pass.nodes, fn.target));
                 gradient
                   .append("stop")
                   .attr("class", "end")
@@ -772,10 +1193,10 @@ $(document).ready(function () {
                 .attr("offset", "100%")
                 .attr("stop-color", getColourById(pass.nodes, fn.target)) //getColour(d.source,graph.nodes))
                 .attr("stop-opacity", 0.5);
-              //////console.log(getNodeColour(pass.nodes,fn.source));
-              //////console.log(getNodeColour(pass.nodes,fn.target));
+              ////////console.log(getNodeColour(pass.nodes,fn.source));
+              ////////console.log(getNodeColour(pass.nodes,fn.target));
 
-              // //////console.log(getColour(d.target,graph.nodes));
+              // ////////console.log(getColour(d.target,graph.nodes));
               gradient
                 .append("stop")
                 .attr("class", "end")
@@ -952,17 +1373,17 @@ $(document).ready(function () {
             .data(function (d) {
               output = splitStringWithoutBreakingWords(6, d.display);
               return output;
-              console.log("OUTPUT   ", output);
-              console.log("data", d.display.split(" "));
+              //console.log("OUTPUT   ", output);
+              //console.log("data", d.display.split(" "));
               // return d.display.split(" ")
             })
             .enter()
             .append("tspan")
             .attr("class", "display")
             .text(function (d) {
-              console.log(d);
+              //console.log(d);
               if (d.type == "Child") {
-                console.log("CHILD");
+                //console.log("CHILD");
                 //Split name into number and letter parts: only return number for 'Child' circles
                 var arr = d.id.match(/([a-z]*)([\w.]+)/i);
                 return arr[2];
@@ -1077,31 +1498,37 @@ $(document).ready(function () {
                 );
             };
           }
-        });
 
-        //
-        //Table Function
-        //
-        let tableData = [];
-        for (let node of pass.nodes) {
-          var noArr = node.id.match(/([a-z]*)([\w.]+)/i);
-          var element = {
-            policyIndicator: "",
-            action: "",
-            measurable: "",
-            keyPartners: "",
+          function showOnly(pG) {
+            //TODO: Lots of generalising
+            showOnlyFade(pG);
+          }
+
+          //
+          //Table Function
+          //
+          let tableData = [];
+          for (let node of pass.nodes) {
+            console.log(pass);
+            var noArr = node.id.match(/([a-z]*)([\w.]+)/i);
+            var element = {
+              policyIndicator: "",
+              action: "",
+              measurable: "",
+              keyPartners: "",
+            };
+            //console.log(noArr);
+            element.policyIndicator = node.group.slice(0, -1) + " " + noArr[2];
+            tableData.push(element);
+          }
+
+          //  window.onload = () => {
+          document.getElementById("CreateTable").onclick = function () {
+            //console.log(tableData);
+            loadTableData(tableData);
           };
-          console.log(noArr);
-          element.policyIndicator = node.group.slice(0, -1) + " " + noArr[2];
-          tableData.push(element);
-        }
-
-        //  window.onload = () => {
-        document.getElementById("CreateTable").onclick = function () {
-          console.log(tableData);
-          loadTableData(tableData);
-        };
-        // };
+          // };
+        });
       }
 
       //linkArc - defines curved path that links should take
@@ -1385,29 +1812,64 @@ $(document).ready(function () {
         return myArray;
       }
 
-      //showOnly - looks at current nodes and creates new model with nodes of a certain parentGroup
+      //isolate - looks at current nodes and creates new model with nodes of a certain parentGroup
       //! - changing this completely as per 10/08/20
-      function showOnly(pass, pG) {
+      function isolate(pass, pG) {
         temp = { nodes: [], links: [] };
         for (var i = 0; i < pass.nodes.length; i++) {
           if (pass.nodes[i].parentGroup == pG) {
             temp.nodes.push(pass.nodes[i]);
           }
         }
-        console.log(temp);
+        ////console.log(temp);
         return temp;
+      }
+
+      //showOnlyFade - fade out anything that isn't the pG (parentGroup)
+      var showOnlyFadeClicks;
+      function showOnlyFade(pG) {
+        if (typeof showOnlyFadeClicks == "undefined") {
+          showOnlyFadeClicks = 0;
+        }
+        ////console.log(showOnlyFadeClicks);
+
+        d3.selectAll("circle")
+          .transition()
+          .duration(500)
+          .style("opacity", function (d) {
+            if (showOnlyFadeClicks % 2 == 0) {
+              if (typeof d != "undefined" && d.parentGroup != pG) {
+                return 0.1;
+              }
+            } else {
+              return 1;
+            }
+          });
+        d3.selectAll("text")
+          .transition()
+          .duration(500)
+          .style("opacity", function (d) {
+            if (showOnlyFadeClicks % 2 == 0) {
+              if (typeof d != "undefined" && d.parentGroup != pG) {
+                return 0.2;
+              }
+            } else {
+              return 1;
+            }
+          });
+        showOnlyFadeClicks++;
       }
 
       //removeLinksBetweenSameGroup - if there exists links between nodes of the same parentGroup, remove them
       function removeLinksBetweenSameGroup(pass) {
         for (var i = pass.links.length - 1; i >= 0; i--) {
-          ////console.log(getNodeGroup(pass.nodes,pass.links[i].source));
-          //console.log(getNodeGroup(pass.nodes,pass.links[i].target));
+          //////console.log(getNodeGroup(pass.nodes,pass.links[i].source));
+          ////console.log(getNodeGroup(pass.nodes,pass.links[i].target));
           if (
             getNodeGroup(pass.nodes, pass.links[i].source) ==
             getNodeGroup(pass.nodes, pass.links[i].target)
           ) {
-            //console.log("dlinks[i]", pass.links[i]);
+            ////console.log("dlinks[i]", pass.links[i]);
             pass.links.splice(i, 1);
           }
         }

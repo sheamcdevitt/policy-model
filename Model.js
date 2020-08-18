@@ -909,7 +909,7 @@ $(document).ready(function () {
                         countParentGroups(pass.nodes) +
                         6
                     ][1];
-                  }
+                  } else return height / 2;
                 }
               })
             )
@@ -1056,7 +1056,7 @@ $(document).ready(function () {
                         countParentGroups(pass.nodes) +
                         6
                     ][0];
-                  }
+                  } else return width / 2;
                 }
               })
             )

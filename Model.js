@@ -166,31 +166,6 @@ var colours = [
 
 //Search box function; searches nodes.json by id, group and description
 $(document).ready(function () {
-  //todo configure select box behaviour
-
-  var groups = [];
-  $.getJSON("nodes.json", function (data) {
-    //for each distinct group, push distinct value to array
-    $.each(data, function (key, value) {
-      if ($.inArray(value.group, groups) === -1) {
-        groups.push(value.group);
-      }
-    });
-
-    //display group values from array
-    $.each(groups, function (key, value) {
-      $("#selectStrategy").append("<option>" + value + "</option>");
-    });
-  });
-
-  //add selected groups to temp array
-
-  var selectedgroups = [];
-  $("#selectStrategy").on("change", function () {
-    selectedgroups.push($(this).val());
-    console.log(selectedgroups);
-  });
-
   $.ajaxSetup({ cache: false });
   $("#search").on("change paste keyup", function () {
     $("#result").html("");
@@ -223,20 +198,10 @@ $(document).ready(function () {
         //     }
 
         // });
-
-        $("#result").on("click", function (e) {
-          e.stopPropagation();
-        });
-
-        $(document).on("click", function (e) {
-          $("#result").empty();
-        });
       });
 
       //Adds clicked node value to jsonToPass
       $("#result").on("click", "li", function () {
-        $(this).removeClass("link-class");
-        $(this).addClass("clicked-background");
         var click_text = $(this).text().split("*");
         $("#search").val($.trim(click_text[1]));
         var clickedId = $("#search").val();
@@ -383,14 +348,14 @@ $(document).ready(function () {
               showGroup(json, temp, "UN Sustainable Development Goals");
               create(temp);
               originalPass = pass;
-              //console.log(originalPass);
+              console.log(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              //console.log(originalPass);
+              console.log(originalPass);
               create(originalPass);
             }
 
@@ -405,14 +370,14 @@ $(document).ready(function () {
               showGroup(json, temp, "A Bolder Vision for Belfast");
               create(temp);
               originalPass = pass;
-              //console.log(originalPass);
+              console.log(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              //console.log(originalPass);
+              console.log(originalPass);
               create(originalPass);
             }
 
@@ -425,14 +390,14 @@ $(document).ready(function () {
               showGroup(json, temp, "A City Imagining");
               create(temp);
               originalPass = pass;
-              //console.log(originalPass);
+              console.log(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              //console.log(originalPass);
+              console.log(originalPass);
               create(originalPass);
             }
 
@@ -445,14 +410,14 @@ $(document).ready(function () {
               showGroup(json, temp, "Belfast Agenda");
               create(temp);
               originalPass = pass;
-              //console.log(originalPass);
+              console.log(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              //console.log(originalPass);
+              console.log(originalPass);
               create(originalPass);
             }
 
@@ -467,14 +432,14 @@ $(document).ready(function () {
               showGroup(json, temp, "Belfast Agenda Immediate Priorities");
               create(temp);
               originalPass = pass;
-              //console.log(originalPass);
+              console.log(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              //console.log(originalPass);
+              console.log(originalPass);
               create(originalPass);
             }
 
@@ -493,14 +458,14 @@ $(document).ready(function () {
               );
               create(temp);
               originalPass = pass;
-              //console.log(originalPass);
+              console.log(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              //console.log(originalPass);
+              console.log(originalPass);
               create(originalPass);
             }
 
@@ -519,14 +484,14 @@ $(document).ready(function () {
               );
               create(temp);
               originalPass = pass;
-              //console.log(originalPass);
+              console.log(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              //console.log(originalPass);
+              console.log(originalPass);
               create(originalPass);
             }
 
@@ -541,14 +506,14 @@ $(document).ready(function () {
               showGroup(json, temp, "Belfast City Council Public Realm");
               create(temp);
               originalPass = pass;
-              //console.log(originalPass);
+              console.log(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              //console.log(originalPass);
+              console.log(originalPass);
               create(originalPass);
             }
 
@@ -567,14 +532,14 @@ $(document).ready(function () {
               );
               create(temp);
               originalPass = pass;
-              //console.log(originalPass);
+              console.log(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              //console.log(originalPass);
+              console.log(originalPass);
               create(originalPass);
             }
 
@@ -589,14 +554,14 @@ $(document).ready(function () {
               showGroup(json, temp, "Culture 2030 Indicators");
               create(temp);
               originalPass = pass;
-              //console.log(originalPass);
+              console.log(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              //console.log(originalPass);
+              console.log(originalPass);
               create(originalPass);
             }
 
@@ -615,14 +580,14 @@ $(document).ready(function () {
               );
               create(temp);
               originalPass = pass;
-              //console.log(originalPass);
+              console.log(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              //console.log(originalPass);
+              console.log(originalPass);
               create(originalPass);
             }
 
@@ -637,14 +602,14 @@ $(document).ready(function () {
               showGroup(json, temp, "Programme for Government");
               create(temp);
               originalPass = pass;
-              //console.log(originalPass);
+              console.log(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              //console.log(originalPass);
+              console.log(originalPass);
               create(originalPass);
             }
 
@@ -663,14 +628,14 @@ $(document).ready(function () {
               );
               create(temp);
               originalPass = pass;
-              //console.log(originalPass);
+              console.log(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              //console.log(originalPass);
+              console.log(originalPass);
               create(originalPass);
             }
 
@@ -683,14 +648,14 @@ $(document).ready(function () {
               showGroup(json, temp, "Resilience");
               create(temp);
               originalPass = pass;
-              //console.log(originalPass);
+              console.log(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              //console.log(originalPass);
+              console.log(originalPass);
               create(originalPass);
             }
 
@@ -705,14 +670,14 @@ $(document).ready(function () {
               showGroup(json, temp, "WHO 5 Ways To Wellbeing");
               create(temp);
               originalPass = pass;
-              //console.log(originalPass);
+              console.log(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              //console.log(originalPass);
+              console.log(originalPass);
               create(originalPass);
             }
 
@@ -725,14 +690,14 @@ $(document).ready(function () {
               showGroup(json, temp, "WHO Arts Components");
               create(temp);
               originalPass = pass;
-              //console.log(originalPass);
+              console.log(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              //console.log(originalPass);
+              console.log(originalPass);
               create(originalPass);
             }
 
@@ -754,7 +719,7 @@ $(document).ready(function () {
           smartLink(json, pass);
           removeLinksBetweenSameGroup(pass);
           legend(pass.nodes);
-          console.log(pass);
+
           //Physics simualtion using d3 library
           //TODO: play around with values to make best looking model
           var simulation = d3
@@ -797,7 +762,7 @@ $(document).ready(function () {
                   if (fn.type == "Parent") {
                     return checkNodeHasChild(fn, pass.nodes);
                   } else {
-                    return fn.radius;
+                    return 1.5 * fn.radius;
                   }
                 })
                 .strength(1)
@@ -1112,7 +1077,7 @@ $(document).ready(function () {
                   }
                 })
                 .strength(1)
-                .centerInertia(0.0)
+                .centerInertia(1.0)
             );
           var link = svg.append("g").attr("class", "links");
 
@@ -1193,10 +1158,7 @@ $(document).ready(function () {
                 .attr("offset", "100%")
                 .attr("stop-color", getColourById(pass.nodes, fn.target)) //getColour(d.source,graph.nodes))
                 .attr("stop-opacity", 0.5);
-              ////////console.log(getNodeColour(pass.nodes,fn.source));
-              ////////console.log(getNodeColour(pass.nodes,fn.target));
-
-              // ////////console.log(getColour(d.target,graph.nodes));
+              
               gradient
                 .append("stop")
                 .attr("class", "end")
@@ -1498,37 +1460,36 @@ $(document).ready(function () {
                 );
             };
           }
-
+          var store = $.extend(true, {}, pass);
           function showOnly(pG) {
             //TODO: Lots of generalising
             showOnlyFade(pG);
           }
-
-          //
-          //Table Function
-          //
-          let tableData = [];
-          for (let node of pass.nodes) {
-            console.log(pass);
-            var noArr = node.id.match(/([a-z]*)([\w.]+)/i);
-            var element = {
-              policyIndicator: "",
-              action: "",
-              measurable: "",
-              keyPartners: "",
-            };
-            //console.log(noArr);
-            element.policyIndicator = node.group.slice(0, -1) + " " + noArr[2];
-            tableData.push(element);
-          }
-
-          //  window.onload = () => {
-          document.getElementById("CreateTable").onclick = function () {
-            //console.log(tableData);
-            loadTableData(tableData);
-          };
-          // };
         });
+
+        //
+        //Table Function
+        //
+        let tableData = [];
+        for (let node of pass.nodes) {
+          var noArr = node.id.match(/([a-z]*)([\w.]+)/i);
+          var element = {
+            policyIndicator: "",
+            action: "",
+            measurable: "",
+            keyPartners: "",
+          };
+          //console.log(noArr);
+          element.policyIndicator = node.group.slice(0, -1) + " " + noArr[2];
+          tableData.push(element);
+        }
+
+        //  window.onload = () => {
+        document.getElementById("CreateTable").onclick = function () {
+          //console.log(tableData);
+          loadTableData(tableData);
+        };
+        // };
       }
 
       //linkArc - defines curved path that links should take
@@ -1658,14 +1619,7 @@ $(document).ready(function () {
             "Protect Life 2 - Suicide Prevention Strategy"
           ) {
             d[i]["colour"] = "LightGreen";
-          } else if (d[i]["parentGroup"] == "A Bolder Vision for Belfast") {
-            d[i]["colour"] = "Magenta";
-          } else if (
-            d[i]["parentGroup"] == "Belfast Green and Blue Infrastructure Plan"
-          ) {
-            d[i]["colour"] = "Maroon";
           }
-
           //default:   d[i]['colour'] = "Black";
         }
       }
@@ -1673,7 +1627,7 @@ $(document).ready(function () {
       function legend(d) {
         var obj = Object.keys(countParentGroupsArray(d)).sort();
         for (var i = 0; i < obj.length; i++) {
-          var y = height - 300 + i * 40;
+          var y = height - 1000 + i * 40;
           svg
             .append("text")
             .attr("x", 50)
@@ -1738,6 +1692,62 @@ $(document).ready(function () {
           }
         }
         return collision;
+      }
+
+      /*  function showMore(pG) {
+        //Even clicks do...
+        if (UNSDGCLICKS % 2 == 0) {
+          var temp = JSON.parse(JSON.stringify(pass));
+          showGroup(json, temp, pG);
+          create(temp);
+          originalPass = pass;
+          console.log(originalPass);
+        }
+
+        //Odd clicks do...
+        //TODO: needs to clear the temp nodes and pass in the orignal model
+        else {
+          originalPass = originalPass;
+          console.log(originalPass);
+          create(originalPass);
+        }
+
+        UNSDGCLICKS++;
+      };*/
+
+      //showOnlyFade - fade out anything that isn't the pG (parentGroup)
+      var showOnlyFadeClicks;
+      function showOnlyFade(pG) {
+        if (typeof showOnlyFadeClicks == "undefined") {
+          showOnlyFadeClicks = 0;
+        }
+        //console.log(showOnlyFadeClicks);
+
+        d3.selectAll("circle")
+          .transition()
+          .duration(500)
+          .style("opacity", function (d) {
+            if (showOnlyFadeClicks % 2 == 0) {
+              if (typeof d != "undefined" && d.parentGroup != pG) {
+                return 0.1;
+              }
+            } else {
+              return 1;
+            }
+          });
+        d3.selectAll("text")
+          .transition()
+          .duration(500)
+          .style("opacity", function (d) {
+            if (showOnlyFadeClicks % 2 == 0) {
+              if (typeof d != "undefined" && d.parentGroup != pG) {
+                return 0.2;
+              }
+            } else {
+              return 1;
+            }
+          });
+        showOnlyFadeClicks++;
       }
 
       //showGroup - only show nodes of a specified parentGroup
@@ -1828,43 +1838,8 @@ $(document).ready(function () {
             temp.nodes.push(pass.nodes[i]);
           }
         }
-        ////console.log(temp);
+        //console.log(temp);
         return temp;
-      }
-
-      //showOnlyFade - fade out anything that isn't the pG (parentGroup)
-      var showOnlyFadeClicks;
-      function showOnlyFade(pG) {
-        if (typeof showOnlyFadeClicks == "undefined") {
-          showOnlyFadeClicks = 0;
-        }
-        ////console.log(showOnlyFadeClicks);
-
-        d3.selectAll("circle")
-          .transition()
-          .duration(500)
-          .style("opacity", function (d) {
-            if (showOnlyFadeClicks % 2 == 0) {
-              if (typeof d != "undefined" && d.parentGroup != pG) {
-                return 0.1;
-              }
-            } else {
-              return 1;
-            }
-          });
-        d3.selectAll("text")
-          .transition()
-          .duration(500)
-          .style("opacity", function (d) {
-            if (showOnlyFadeClicks % 2 == 0) {
-              if (typeof d != "undefined" && d.parentGroup != pG) {
-                return 0.2;
-              }
-            } else {
-              return 1;
-            }
-          });
-        showOnlyFadeClicks++;
       }
 
       //removeLinksBetweenSameGroup - if there exists links between nodes of the same parentGroup, remove them
@@ -1876,7 +1851,7 @@ $(document).ready(function () {
             getNodeGroup(pass.nodes, pass.links[i].source) ==
             getNodeGroup(pass.nodes, pass.links[i].target)
           ) {
-            ////console.log("dlinks[i]", pass.links[i]);
+            //console.log("dlinks[i]", pass.links[i]);
             pass.links.splice(i, 1);
           }
         }

@@ -1,5 +1,8 @@
 //Empty JSON to populate
-var jsonToPass = { nodes: [], links: [] };
+var jsonToPass = {
+  nodes: [],
+  links: []
+};
 var originalPass;
 //Array for all the policies websites
 //TODO finish inserting rest of the websites
@@ -164,9 +167,39 @@ var colours = [
   "YellowGreen",
 ];
 
+
+//todo configure select box behaviour 
+
+var groups = [];
+$.getJSON('nodes.json', function (data) {
+
+  //for each distinct group, push distinct value to array
+  $.each(data, function (key, value) {
+    if ($.inArray(value.group, groups) === -1) {
+      groups.push(value.group);
+    }
+  });
+
+  //display group values from array
+  $.each(groups, function (key, value) {
+    $('#selectStrategy').append('<option>' + value + '</option>');
+  });
+
+});
+
+//add selected groups to temp array
+
+var selectedgroups = [];
+$('#selectStrategy').on('change', function () {
+  selectedgroups.push($(this).val())
+  console.log(selectedgroups);
+});
+
 //Search box function; searches nodes.json by id, group and description
 $(document).ready(function () {
-  $.ajaxSetup({ cache: false });
+  $.ajaxSetup({
+    cache: false
+  });
   $("#search").on("change paste keyup", function () {
     $("#result").html("");
     $("#state").val("");
@@ -181,14 +214,25 @@ $(document).ready(function () {
         ) {
           $("#result").append(
             '<li class="list-group-item link-class">' +
-              value.group +
-              ' | <span class="text-muted">' +
-              value.description +
-              '<style = "visibility:hidden;"> | *' +
-              value.id +
-              "  "
+            value.group +
+            ' | <span class="text-muted">' +
+            value.description +
+            '<style = "visibility:hidden;"> | *' +
+            value.id +
+            "  "
           );
         }
+
+
+
+        $('#result').on('click', function (e) {
+          e.stopPropagation();
+        });
+
+        $(document).on('click', function (e) {
+          $('#result').empty();
+        });
+
 
         //   TODO: ux improvement - remove list when clicked off, when anywhere other than id clicked, remove children - todo: bug fixes
 
@@ -202,6 +246,8 @@ $(document).ready(function () {
 
       //Adds clicked node value to jsonToPass
       $("#result").on("click", "li", function () {
+        $(this).removeClass("link-class");
+        $(this).addClass("clicked-background");
         var click_text = $(this).text().split("*");
         $("#search").val($.trim(click_text[1]));
         var clickedId = $("#search").val();
@@ -216,8 +262,8 @@ $(document).ready(function () {
             jsonToPass.nodes.push(data[i]);
             $("#add").append(
               '<li class="list-group-item list-group-item-success">' +
-                clickedId +
-                ' added!<span class="badge">X</span></li>'
+              clickedId +
+              ' added!<span class="badge">X</span></li>'
             );
           }
         }
@@ -239,7 +285,10 @@ $(document).ready(function () {
       //If "Create Model" is clicked, create the model using whatever is passed into jsonToPass
       document.getElementById("CreateModel").onclick = function () {
         create(jsonToPass);
-        jsonToPass = { nodes: [], links: [] };
+        jsonToPass = {
+          nodes: [],
+          links: []
+        };
       };
 
       //create function: holds all functions for creating model
@@ -727,12 +776,12 @@ $(document).ready(function () {
             .force(
               "link",
               d3
-                .forceLink()
-                .id(function (d) {
-                  return d.id;
-                })
-                .strength(0.01)
-                .distance(300)
+              .forceLink()
+              .id(function (d) {
+                return d.id;
+              })
+              .strength(0.01)
+              .distance(300)
             )
             //Charge - replusion/attraction between individual nodes
             .force(
@@ -749,23 +798,23 @@ $(document).ready(function () {
             .force(
               "attract",
               d3
-                .forceAttract()
-                .target([width / 2, height / 2])
-                .strength(0.4)
+              .forceAttract()
+              .target([width / 2, height / 2])
+              .strength(0.4)
             )
             //Collision - collision between individual nodes
             .force(
               "collision",
               d3
-                .forceCollide()
-                .radius(function (fn) {
-                  if (fn.type == "Parent") {
-                    return checkNodeHasChild(fn, pass.nodes);
-                  } else {
-                    return 1.5 * fn.radius;
-                  }
-                })
-                .strength(1)
+              .forceCollide()
+              .radius(function (fn) {
+                if (fn.type == "Parent") {
+                  return checkNodeHasChild(fn, pass.nodes);
+                } else {
+                  return 1.5 * fn.radius;
+                }
+              })
+              .strength(1)
             )
             //Set where nodes will be attracted to on the y axis
             //Different groups will have differnt y values
@@ -781,7 +830,9 @@ $(document).ready(function () {
                   Oy = 100;
                 var regionArray;
                 if (countParentGroups(pass.nodes) == 1) {
-                  regionArray = [[Ox, Oy, w - 100, h - 100]];
+                  regionArray = [
+                    [Ox, Oy, w - 100, h - 100]
+                  ];
                 } else if (countParentGroups(pass.nodes) == 2) {
                   regionArray = [
                     [Ox, Oy, w / 2 - 50, h - 100],
@@ -824,90 +875,90 @@ $(document).ready(function () {
                     fn.parentGroup ==
                     obj[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes)
+                      countParentGroups(pass.nodes)
                     ]
                   ) {
                     return regionArray[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes)
+                      countParentGroups(pass.nodes)
                     ][1];
                   } else if (
                     fn.parentGroup ==
                     obj[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        1
+                      countParentGroups(pass.nodes) +
+                      1
                     ]
                   ) {
                     return regionArray[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        1
+                      countParentGroups(pass.nodes) +
+                      1
                     ][1];
                   } else if (
                     fn.parentGroup ==
                     obj[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        2
+                      countParentGroups(pass.nodes) +
+                      2
                     ]
                   ) {
                     return regionArray[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        2
+                      countParentGroups(pass.nodes) +
+                      2
                     ][1];
                   } else if (
                     fn.parentGroup ==
                     obj[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        3
+                      countParentGroups(pass.nodes) +
+                      3
                     ]
                   ) {
                     return regionArray[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        3
+                      countParentGroups(pass.nodes) +
+                      3
                     ][1];
                   } else if (
                     fn.parentGroup ==
                     obj[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        4
+                      countParentGroups(pass.nodes) +
+                      4
                     ]
                   ) {
                     return regionArray[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        4
+                      countParentGroups(pass.nodes) +
+                      4
                     ][1];
                   } else if (
                     fn.parentGroup ==
                     obj[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        5
+                      countParentGroups(pass.nodes) +
+                      5
                     ]
                   ) {
                     return regionArray[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        5
+                      countParentGroups(pass.nodes) +
+                      5
                     ][1];
                   } else if (
                     fn.parentGroup ==
                     obj[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        6
+                      countParentGroups(pass.nodes) +
+                      6
                     ]
                   ) {
                     return regionArray[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        6
+                      countParentGroups(pass.nodes) +
+                      6
                     ][1];
                   } else return height / 2;
                 }
@@ -928,7 +979,9 @@ $(document).ready(function () {
                   Oy = 100;
                 var regionArray;
                 if (countParentGroups(pass.nodes) == 1) {
-                  regionArray = [[Ox, Oy, w - 100, h - 100]];
+                  regionArray = [
+                    [Ox, Oy, w - 100, h - 100]
+                  ];
                 } else if (countParentGroups(pass.nodes) == 2) {
                   regionArray = [
                     [Ox, Oy, w / 2 - 50, h - 100],
@@ -971,90 +1024,90 @@ $(document).ready(function () {
                     fn.parentGroup ==
                     obj[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes)
+                      countParentGroups(pass.nodes)
                     ]
                   ) {
                     return regionArray[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes)
+                      countParentGroups(pass.nodes)
                     ][0];
                   } else if (
                     fn.parentGroup ==
                     obj[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        1
+                      countParentGroups(pass.nodes) +
+                      1
                     ]
                   ) {
                     return regionArray[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        1
+                      countParentGroups(pass.nodes) +
+                      1
                     ][0];
                   } else if (
                     fn.parentGroup ==
                     obj[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        2
+                      countParentGroups(pass.nodes) +
+                      2
                     ]
                   ) {
                     return regionArray[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        2
+                      countParentGroups(pass.nodes) +
+                      2
                     ][0];
                   } else if (
                     fn.parentGroup ==
                     obj[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        3
+                      countParentGroups(pass.nodes) +
+                      3
                     ]
                   ) {
                     return regionArray[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        3
+                      countParentGroups(pass.nodes) +
+                      3
                     ][0];
                   } else if (
                     fn.parentGroup ==
                     obj[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        4
+                      countParentGroups(pass.nodes) +
+                      4
                     ]
                   ) {
                     return regionArray[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        4
+                      countParentGroups(pass.nodes) +
+                      4
                     ][0];
                   } else if (
                     fn.parentGroup ==
                     obj[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        5
+                      countParentGroups(pass.nodes) +
+                      5
                     ]
                   ) {
                     return regionArray[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        5
+                      countParentGroups(pass.nodes) +
+                      5
                     ][0];
                   } else if (
                     fn.parentGroup ==
                     obj[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        6
+                      countParentGroups(pass.nodes) +
+                      6
                     ]
                   ) {
                     return regionArray[
                       countParentGroups(pass.nodes) -
-                        countParentGroups(pass.nodes) +
-                        6
+                      countParentGroups(pass.nodes) +
+                      6
                     ][0];
                   } else return width / 2;
                 }
@@ -1069,15 +1122,15 @@ $(document).ready(function () {
             .force(
               "cluster",
               d3
-                .forceCluster()
-                .centers(function (d) {
-                  //Check node is a child
-                  if (d.type == "Child") {
-                    return clusters[d.clusterIndex];
-                  }
-                })
-                .strength(1)
-                .centerInertia(1.0)
+              .forceCluster()
+              .centers(function (d) {
+                //Check node is a child
+                if (d.type == "Child") {
+                  return clusters[d.clusterIndex];
+                }
+              })
+              .strength(1)
+              .centerInertia(1.0)
             );
           var link = svg.append("g").attr("class", "links");
 
@@ -1195,11 +1248,11 @@ $(document).ready(function () {
             })
             .call(
               d3
-                .drag()
+              .drag()
 
-                .on("start", dragstarted)
-                .on("drag", dragged)
-                .on("end", dragended)
+              .on("start", dragstarted)
+              .on("drag", dragged)
+              .on("end", dragended)
             )
 
             //.on("dblclick", doubleClick)
@@ -1461,6 +1514,7 @@ $(document).ready(function () {
             };
           }
           var store = $.extend(true, {}, pass);
+
           function showOnly(pG) {
             //TODO: Lots of generalising
             showOnlyFade(pG);
@@ -1520,9 +1574,11 @@ $(document).ready(function () {
       function getRadius(d) {
         return d.radius;
       }
+
       function getGradID(link) {
         return "linkGrad-" + link.source + link.target;
       }
+
       function getColourById(d, a) {
         for (i = 0; i < d.length; i++) {
           if (d[i]["id"] == a) {
@@ -1530,6 +1586,7 @@ $(document).ready(function () {
           }
         }
       }
+
       function getNodeType(d, a) {
         for (i = 0; i < d.length; i++) {
           if (d[i]["id"] == a) {
@@ -1537,6 +1594,7 @@ $(document).ready(function () {
           }
         }
       }
+
       function getNodeGroup(d, a) {
         for (i = 0; i < d.length; i++) {
           if (d[i]["id"] == a) {
@@ -1544,6 +1602,7 @@ $(document).ready(function () {
           }
         }
       }
+
       function getColourByParentGroup(d, a) {
         for (i = 0; i < d.length; i++) {
           if (d[i]["parentGroup"] == a) {
@@ -1717,6 +1776,7 @@ $(document).ready(function () {
 
       //showOnlyFade - fade out anything that isn't the pG (parentGroup)
       var showOnlyFadeClicks;
+
       function showOnlyFade(pG) {
         if (typeof showOnlyFadeClicks == "undefined") {
           showOnlyFadeClicks = 0;
@@ -1816,7 +1876,7 @@ $(document).ready(function () {
       //removeDups - remove any duplicate links that exist
       function removeDups(myArray) {
         myArray.sort();
-        for (var i = 1; i < myArray.length; ) {
+        for (var i = 1; i < myArray.length;) {
           if (
             myArray[i - 1].source === myArray[i].source &&
             myArray[i - 1].target === myArray[i].target
@@ -1832,7 +1892,10 @@ $(document).ready(function () {
       //isolate - looks at current nodes and creates new model with nodes of a certain parentGroup
       //! - changing this completely as per 10/08/20
       function isolate(pass, pG) {
-        temp = { nodes: [], links: [] };
+        temp = {
+          nodes: [],
+          links: []
+        };
         for (var i = 0; i < pass.nodes.length; i++) {
           if (pass.nodes[i].parentGroup == pG) {
             temp.nodes.push(pass.nodes[i]);
@@ -1986,8 +2049,14 @@ $(document).ready(function () {
         for (var i = 0; i < jsonData.nodes.length; i++) {
           for (var j = 0; j < allData.links.length; j++) {
             for (var k = 0; k < allData.links.length; k++) {
-              var linkToPush = { source: "", target: "" };
-              var reverseLink = { source: "", target: "" };
+              var linkToPush = {
+                source: "",
+                target: ""
+              };
+              var reverseLink = {
+                source: "",
+                target: ""
+              };
               var pass = jsonData.nodes;
               var passLinks = jsonData.links;
               var all = allData.links;
@@ -2007,7 +2076,7 @@ $(document).ready(function () {
                   var contains = false;
                   if (
                     JSON.stringify(passLinks[l]) !=
-                      JSON.stringify(linkToPush) &&
+                    JSON.stringify(linkToPush) &&
                     JSON.stringify(passLinks[l]) != JSON.stringify(reverseLink)
                   ) {
                     contains = true;
@@ -2031,7 +2100,7 @@ $(document).ready(function () {
                   var contains = false;
                   if (
                     JSON.stringify(passLinks[l]) !=
-                      JSON.stringify(linkToPush) &&
+                    JSON.stringify(linkToPush) &&
                     JSON.stringify(passLinks[l]) != JSON.stringify(reverseLink)
                   ) {
                     contains = true;
@@ -2055,7 +2124,7 @@ $(document).ready(function () {
                   var contains = false;
                   if (
                     JSON.stringify(passLinks[l]) !=
-                      JSON.stringify(linkToPush) &&
+                    JSON.stringify(linkToPush) &&
                     JSON.stringify(passLinks[l]) != JSON.stringify(reverseLink)
                   ) {
                     contains = true;
@@ -2079,7 +2148,7 @@ $(document).ready(function () {
                   var contains = false;
                   if (
                     JSON.stringify(passLinks[l]) !=
-                      JSON.stringify(linkToPush) &&
+                    JSON.stringify(linkToPush) &&
                     JSON.stringify(passLinks[l]) != JSON.stringify(reverseLink)
                   ) {
                     contains = true;

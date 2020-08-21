@@ -205,7 +205,7 @@
             <br>
             <div class="box">
               <div class="input-group input-group-lg">
-                <input type="text" name="search" id="search" placeholder="Search Policies" class="form-control"/>
+                <input type="text" name="search" id="search" placeholder="Search Policies" class="form-control" />
                 <span class="input-group-append">
                   <button id="CreateModel" class="btn btn-primary">
                     <span aria-hidden="true"></span>Create Model</button>
@@ -213,7 +213,7 @@
               </div>
             </div>
             <ul class="pb-5" id="result"></ul>
-            <br/>
+            <br />
             <!-- <label for="exampleFormControlSelect2">Select/Unselect Strategies to search</label>
           <select multiple class="form-control select-checkbox" id="selectStrategy" style="height: 185px">
           </select>
@@ -604,7 +604,7 @@
 
   <div class="svg-bg">
     <svg class="center-svg" viewBox="0 0 1600 1600"></svg>
-</div>
+  </div>
   <!--TABLE CODE-->
   <div class="container pb-5">
     <div class="row justify-content-center">
@@ -637,8 +637,6 @@
 
 
 <style>
-
-  
   /* table {
     font-family: Arial, sans-serif;
     border-collapse: collapse;
@@ -687,6 +685,16 @@
 <script>
   //add suggested search to bar and fire event when changed
 
-  $(" .suggest-click").on("click", function (e) { $("#search").val(e.target.innerText); console.log("Test .val");
-      $("#search").change(); }); $(document).ready(function () { $('#stack-menu').stackMenu(); }); </script> </html>
-      <!-- <div class="model-bg"> -->
+  $(" .suggest-click").on("click", function (e) {
+    $("#search").val(e.target.innerText);
+    $('#search').keyup();
+  });
+
+
+  $(document).ready(function () {
+    $('#stack-menu').stackMenu();
+  });
+</script>
+
+</html>
+<!-- <div class="model-bg"> -->

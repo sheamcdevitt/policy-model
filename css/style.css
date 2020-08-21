@@ -142,3 +142,44 @@ background-color: #87ce99;
 .clicked-background:hover {
 background-color: #87ce99;
 }
+
+
+.model-bg {
+  background-color: #bee5eb;
+}
+
+
+.svg-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  vertical-align: top;
+  overflow: hidden;
+  margin-right: auto;
+    margin-left: auto;
+  
+}
+.svg-content {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+}
+
+.center-svg {
+  display: block;
+  margin: auto;
+  
+}
+
+.svg-bg {
+  border: 1px solid rgb(194, 194, 194);
+  margin: 49px;
+  padding: 20px;
+}
+
+.result-li {
+  display: block;
+}

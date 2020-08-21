@@ -200,7 +200,7 @@ $(document).ready(function () {
   $.ajaxSetup({
     cache: false
   });
-  $("#search").on("change paste keyup", function () {
+  $("#search").on("keyup", function () {
     $("#result").html("");
     $("#state").val("");
     var searchField = $("#search").val();
@@ -213,7 +213,7 @@ $(document).ready(function () {
           value.group.search(expression) != -1
         ) {
           $("#result").append(
-            '<li class="list-group-item link-class">' +
+            '<li class="list-group-item link-class result-li">' +
             value.group +
             ' | <span class="text-muted">' +
             value.description +
@@ -245,6 +245,7 @@ $(document).ready(function () {
       });
 
       //Adds clicked node value to jsonToPass
+
       $("#result").on("click", "li", function () {
         $(this).removeClass("link-class");
         $(this).addClass("clicked-background");
@@ -260,11 +261,7 @@ $(document).ready(function () {
             !jsonToPass.nodes.some((item) => item.id === clickedId)
           ) {
             jsonToPass.nodes.push(data[i]);
-            $("#add").append(
-              '<li class="list-group-item list-group-item-success">' +
-              clickedId +
-              ' added!<span class="badge">X</span></li>'
-            );
+
           }
         }
       });
@@ -273,8 +270,9 @@ $(document).ready(function () {
       var UNSDGCLICKS = 0;
       //Declare svg values from existing svg
       var svg = d3.select("svg"),
-        width = +svg.attr("width"),
-        height = +svg.attr("height");
+      width = svg.property("viewBox").baseVal.width,
+      height = svg.property("viewBox").baseVal.height;
+
 
       var tooltip = d3
         .select("body")

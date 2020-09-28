@@ -1,0 +1,405 @@
+{
+  "nodes": [
+    {
+      "id": "DSSGP1",
+      "display": "Better Skilled & Educated",
+      "parentGroup": "Derry City & Strabane District’s Inclusive Strategic Growth Plan",
+      "group": "Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes",
+      "description": "(Economic wellbeing): We are better skilled and educated",
+      "type": "Parent"
+    },
+    {
+      "id": "DSSGP2",
+      "display": "Strong & Competitive Economy",
+      "parentGroup": "Derry City & Strabane District’s Inclusive Strategic Growth Plan",
+      "group": "Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes",
+      "description": "(Economic wellbeing): We prosper though a strong, sustainable and competitive economy",
+      "type": "Parent"
+    },
+    {
+      "id": "DSSGP3",
+      "display": "Cultural Destination",
+      "parentGroup": "Derry City & Strabane District’s Inclusive Strategic Growth Plan",
+      "group": "Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes",
+      "description": "(Economic wellbeing): We live in the cultural destination of choice",
+      "type": "Parent"
+    },
+    {
+      "id": "DSSGP4",
+      "display": "Live Sustainably",
+      "parentGroup": "Derry City & Strabane District’s Inclusive Strategic Growth Plan",
+      "group": "Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes",
+      "description": "(Environment and Regeneration): We live sustainably - protecting and enhancing the environment",
+      "type": "Parent"
+    },
+    {
+      "id": "DSSGP5",
+      "display": "Connect through Infrastructure",
+      "parentGroup": "Derry City & Strabane District’s Inclusive Strategic Growth Plan",
+      "group": "Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes",
+      "description": "(Environment and Regeneration): We connect people and opportunities through our infrastructure",
+      "type": "Parent"
+    },
+    {
+      "id": "DSSGP6",
+      "display": "Long fulfilling Lives",
+      "parentGroup": "Derry City & Strabane District’s Inclusive Strategic Growth Plan",
+      "group": "Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes",
+      "description": "(Community and Social): We live long, healthy and fulfilling lives",
+      "type": "Parent"
+    },
+    {
+      "id": "DSSGP7",
+      "display": "Community",
+      "parentGroup": "Derry City & Strabane District’s Inclusive Strategic Growth Plan",
+      "group": "Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes",
+      "description": "(Community and Social): We live in a shared, equal and safe community ",
+      "type": "Parent"
+    },
+    {
+      "id": "DSSGP8",
+      "display": "Best start in Life",
+      "parentGroup": "Derry City & Strabane District’s Inclusive Strategic Growth Plan",
+      "group": "Derry City & Strabane District’s Inclusive Strategic Growth Plan Outcomes",
+      "description": "(Community and Social): Our children and young people have the best start in life",
+      "type": "Parent"
+    },
+    {
+      "id": "PFGVI1",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Reduce crime",
+      "type": "Child"
+    },
+    {
+      "id": "PFGVI2",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Reduce health inequality",
+      "type": "Child"
+    },
+    {
+      "id": "PFGVI3",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Increase healthy life expectancy",
+      "type": "Child"
+    },
+    {
+      "id": "PFGVI4",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Reduce preventable deaths",
+      "type": "Child"
+    },
+    {
+      "id": "PFGVI6",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Improve mental health",
+      "type": "Child"
+    },
+    {
+      "id": "PFGVI14",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Improve the skills profile of the population",
+      "type": "Child"
+    },
+    {
+      "id": "PFGVI21",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Increase the competitiveness of the economy",
+      "type": "Child"
+    },
+    {
+      "id": "PFGVI22",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Increase innovation in our economy",
+      "type": "Child"
+    },
+    {
+      "id": "PFGVI23",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Improve transport connections for people, goods and services",
+      "type": "Child"
+    },
+    {
+      "id": "PFGVI25",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Increase the use of public transport and active travel",
+      "type": "Child"
+    },
+    {
+      "id": "PFGVI26",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Increase respect for each other",
+      "type": "Child"
+    },
+    {
+      "id": "PFGVI27",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Improve cultural participation",
+      "type": "Child"
+    },
+    {
+      "id": "PFGVI28",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Increase the confidence and capability of people and communities",
+      "type": "Child"
+    },
+    {
+      "id": "PFGVI29",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Increase environmental sustainability",
+      "type": "Child"
+    },
+    {
+      "id": "PFGVI30",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Improve our attractiveness as a destination",
+      "type": "Child"
+    },
+    {
+      "id": "PFGVI31",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Increase shared space",
+      "type": "Child"
+    },
+    {
+      "id": "PFGVI35",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Increase reconciliation",
+      "type": "Child"
+    },
+    {
+      "id": "PFGVI40",
+      "display": "",
+      "parentGroup": "Programme for Government",
+      "group": "Programme for Government Indicators",
+      "description": "Improve our international reputation",
+      "type": "Child"
+    },
+    {
+      "id": "PHMLB1",
+      "display": "Quality Parenting & Family Support",
+      "parentGroup": "Making Life Better",
+      "group": "Making Life Better Outcomes",
+      "description": "(Theme 1: Giving Every Child the Best Start): Good quality parenting and family support",
+      "type": "Parent"
+    },
+    {
+      "id": "PHMLB2",
+      "display": "Healthy & Confident Children",
+      "parentGroup": "Making Life Better",
+      "group": "Making Life Better Outcomes",
+      "description": "(Theme 1: Giving Every Child the Best Start): Healthy and confident children and young people",
+      "type": "Parent"
+    },
+    {
+      "id": "PHMLB3",
+      "display": "Skilled for Life",
+      "parentGroup": "Making Life Better",
+      "group": "Making Life Better Outcomes",
+      "description": "(Theme 1: Giving Every Child the Best Start): Children and young people skilled for life",
+      "type": "Parent"
+    },
+    {
+      "id": "PHMLB4",
+      "display": "Ready for Life",
+      "parentGroup": "Making Life Better",
+      "group": "Making Life Better Outcomes",
+      "description": "(Theme 2: Equipped throughout Life): Ready for adult life",
+      "type": "Parent"
+    },
+    {
+      "id": "PHMLB5",
+      "display": "Employment",
+      "parentGroup": "Making Life Better",
+      "group": "Making Life Better Outcomes",
+      "description": "(Theme 2: Equipped throughout Life): Employment, life-long learning and participation",
+      "type": "Parent"
+    },
+    {
+      "id": "PHMLB6",
+      "display": "Ageing",
+      "parentGroup": "Making Life Better",
+      "group": "Making Life Better Outcomes",
+      "description": "(Theme 2: Equipped throughout Life): Healthy active ageing",
+      "type": "Parent"
+    },
+    {
+      "id": "PHMLB7",
+      "display": "Harm Reduction",
+      "parentGroup": "Making Life Better",
+      "group": "Making Life Better Outcomes",
+      "description": "(Theme 3: Empowering Healthy Lives): Improved health and reduction in harm",
+      "type": "Parent"
+    },
+    {
+      "id": "PHMLB8",
+      "display": "Mental Health & Wellbeing",
+      "parentGroup": "Making Life Better",
+      "group": "Making Life Better Outcomes",
+      "description": "(Theme 3: Empowering Healthy Lives): Improved mental health and wellbeing, and reduction in self harm and suicide",
+      "type": "Parent"
+    },
+    {
+      "id": "PHMLB11",
+      "display": "Standard of Living",
+      "parentGroup": "Making Life Better",
+      "group": "Making Life Better Outcomes",
+      "description": "(Theme 4: Creating the Conditions): A decent standard of living",
+      "type": "Parent"
+    },
+    {
+      "id": "PHMLB12",
+      "display": "Physical Evironment",
+      "parentGroup": "Making Life Better",
+      "group": "Making Life Better Outcomes",
+      "description": "(Theme 4: Creating the Conditions): Making the most of the physical environment",
+      "type": "Parent"
+    },
+    {
+      "id": "PHMLB13",
+      "display": "Safe & Healthy Homes",
+      "parentGroup": "Making Life Better",
+      "group": "Making Life Better Outcomes",
+      "description": "(Theme 4: Creating the Conditions): Safe and healthy homes",
+      "type": "Parent"
+    },
+    {
+      "id": "PHMLB14",
+      "display": "Thriving Communities",
+      "parentGroup": "Making Life Better",
+      "group": "Making Life Better Outcomes",
+      "description": "(Theme 5: Empowering communities): Thriving communities",
+      "type": "Parent"
+    },
+    {
+      "id": "PHMLB15",
+      "display": "Safe Communities",
+      "parentGroup": "Making Life Better",
+      "group": "Making Life Better Outcomes",
+      "description": "(Theme 5: Empowering communities): Safe communities",
+      "type": "Parent"
+    },
+    {
+      "id": "PHMLB16",
+      "display": "Safe & Healthy Workplaces",
+      "parentGroup": "Making Life Better",
+      "group": "Making Life Better Outcomes",
+      "description": "(Theme 5: Empowering communities): Safe and healthy workplaces",
+      "type": "Parent"
+    },
+    {
+      "id": "PHMLB17",
+      "display": "Strategic Approach",
+      "parentGroup": "Making Life Better",
+      "group": "Making Life Better Outcomes",
+      "description": "(Theme 6: Developing Collaboration): A Strategic Approach to Public Health",
+      "type": "Parent"
+    },
+    {
+      "id": "PHMLB18",
+      "display": "Collaboration",
+      "parentGroup": "Making Life Better",
+      "group": "Making Life Better Outcomes",
+      "description": "(Theme 6: Developing Collaboration): Strengthened collaboration for health and wellbeing",
+      "type": "Parent"
+    },
+    {
+      "id": "PLSPO1",
+      "display": "Right Approach",
+      "parentGroup": "Protect Life 2 - Suicide Prevention Strategy",
+      "group": "Protect Life 2 - Suicide Prevention Strategy Objectives",
+      "description": "Ensure a collaborative, coordinated crossdepartmental approach to suicide prevention  ",
+      "type": "Parent"
+    },
+    {
+      "id": "PLSPO4",
+      "display": "Community Capacity",
+      "parentGroup": "Protect Life 2 - Suicide Prevention Strategy",
+      "group": "Protect Life 2 - Suicide Prevention Strategy Objectives",
+      "description": "Enhance community capacity to prevent and respond to suicidal behaviour within local communities",
+      "type": "Parent"
+    },
+    {
+      "id": "PLSPO6",
+      "display": "Restrict Access",
+      "parentGroup": "Protect Life 2 - Suicide Prevention Strategy",
+      "group": "Protect Life 2 - Suicide Prevention Strategy Objectives",
+      "description": "Restrict access to the means of suicide",
+      "type": "Parent"
+    },
+    {
+      "id": "PLSPO10",
+      "display": "Effective Interventions",
+      "parentGroup": "Protect Life 2 - Suicide Prevention Strategy",
+      "group": "Protect Life 2 - Suicide Prevention Strategy Objectives",
+      "description": "Strengthen the local evidence on suicide patterns, trends and risk, and on effective interventions to prevent suicide and self-harm",
+      "type": "Parent"
+    },
+    {
+      "id": "UNSDT10.2",
+      "display": "",
+      "parentGroup": "UN Sustainable Development Goals",
+      "group": "UN Sustainable Development Targets",
+      "description": "By 2030, empower and promote the social, economic and political inclusion of all, irrespective of age, sex, disability, race, ethnicity, origin,religion or economic or other status",
+      "type": "Child"
+    },
+    {
+      "id": "UNSDT4.4",
+      "display": "",
+      "parentGroup": "UN Sustainable Development Goals",
+      "group": "UN Sustainable Development Targets",
+      "description": "By 2030, substantially increase the number of youth and adults who have relevant skills, including technical and vocational skills, for employment, decent jobs and entrepreneurship",
+      "type": "Child"
+    },
+    {
+      "id": "UNSDT8.9",
+      "display": "",
+      "parentGroup": "UN Sustainable Development Goals",
+      "group": "UN Sustainable Development Targets",
+      "description": "By 2030, devise and implement policies to promote sustainable tourism that creates jobs and promotes local culture and products",
+      "type": "Child"
+    },
+    {
+      "id": "UNSDT9.1",
+      "display": "",
+      "parentGroup": "UN Sustainable Development Goals",
+      "group": "UN Sustainable Development Targets",
+      "description": "Develop quality, reliable, sustainable and resilient infrastructure, including regional and transborder infrastructure, to support economic development and human well-being, with a focus on affordable and equitable access for all",
+      "type": "Child"
+    }
+  ],
+  "links": []
+}

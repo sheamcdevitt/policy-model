@@ -75,7 +75,7 @@
 			// save to db and check
 			if(mysqli_query($conn, $sql)){
 				// success
-				//header('Location: ../index.php');
+				header('Location: index.php');
 				
 			} else {
 				echo 'query error: '. mysqli_error($conn) . $modelData . "   end";
@@ -88,35 +88,106 @@
 
 ?>
 
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
-	
-	
 
-	<section class="container grey-text">
-		<h4 class="center">Add Project</h4>
-		<form class="white" action="add.php" method="POST">
-			<label>Name</label>
-			<input type="text" name="projectName" value="<?php echo htmlspecialchars($projectName) ?>">
-			<div class="red-text"><?php echo $errors['projectName']; ?></div>
-			<label>Value</label>
-			<input type="text" name="projectValue" value="<?php echo htmlspecialchars($projectValue) ?>">
-			<div class="red-text"><?php echo $errors['projectName']; ?></div>
-			<label>Location</label>
-			<input type="text" name="projectLocation" value="<?php echo htmlspecialchars($projectLocation) ?>">
-			<div class="red-text"><?php echo $errors['projectLocation']; ?></div>
-			<label>projectDeliveryDate</label>
-			<input type="text" name="projectDeliveryDate" value="<?php echo htmlspecialchars($projectDeliveryDate) ?>">
-			<div class="red-text"><?php echo $errors['projectDeliveryDate']; ?></div>
-			<label>projectDeliveryPartners</label>
-			<input type="text" name="projectDeliveryPartners" value="<?php echo htmlspecialchars($projectDeliveryPartners) ?>">
-			<div class="red-text"><?php echo $errors['projectDeliveryPartners']; ?></div>
-			<div class="center">
-			<div class="center">
-				<input type="submit" name="submit" value="Submit" class="btn brand z-depth-0">
-			</div>
-		</form>
-	</section>
+<!-- 
 
-	
+<section class="container grey-text">
+
+    <form class="form-group white" action="add.php" method="POST">
+        <label>Name</label>
+        <input type="text" name="projectName" value="<?php echo htmlspecialchars($projectName) ?>">
+        <div class="red-text"><?php echo $errors['projectName']; ?></div>
+        <label>Value</label>
+        <input type="text" name="projectValue" value="<?php echo htmlspecialchars($projectValue) ?>">
+        <div class="red-text"><?php echo $errors['projectName']; ?></div>
+        <label>Location</label>
+        <input type="text" name="projectLocation" value="<?php echo htmlspecialchars($projectLocation) ?>">
+        <div class="red-text"><?php echo $errors['projectLocation']; ?></div>
+        <label>projectDeliveryDate</label>
+        <input type="text" name="projectDeliveryDate" value="<?php echo htmlspecialchars($projectDeliveryDate) ?>">
+        <div class="red-text"><?php echo $errors['projectDeliveryDate']; ?></div>
+        <label>projectDeliveryPartners</label>
+        <input type="text" name="projectDeliveryPartners"
+            value="<?php echo htmlspecialchars($projectDeliveryPartners) ?>">
+        <div class="red-text"><?php echo $errors['projectDeliveryPartners']; ?></div>
+        <div class="center">
+            <div class="center">
+                <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+            </div>
+    </form>
+</section> -->
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+
+            <form action="add.php" method="POST">
+                <div class="form-group">
+                    <br>
+                    <label for="formGroupExampleInput">Name</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Project Name"
+                        name="projectName" value="<?php echo htmlspecialchars($projectName) ?>"  required />
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Value</label>
+
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01"><b>£</b></label>
+                        </div>
+                        <input type="text" class="form-control" id="formGroupExampleInput2"
+                            placeholder="Enter Estimated Value " name="projectValue"
+                            value="<?php echo htmlspecialchars($projectValue) ?>"  required />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div id="locationField">
+                        <label for="formGroupExampleInput2">Project Location</label>
+                        <input class="form-control" id="autocomplete" placeholder="Enter an address" type="text"
+                            name="projectLocation" value="<?php echo htmlspecialchars($projectLocation) ?>" required/>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Project Delivery Date</label>
+                    <input type="text" class="form-control" id="datepicker" placeholder="Choose delivery date"
+                        name="projectDeliveryDate" value="<?php echo htmlspecialchars($projectDeliveryDate) ?>"  required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Project Delivery Partners <small>(Select from list, or type your
+                            own)</small></label>
+                    <select id="select-partners" class="form-control" name="projectDeliveryPartners" multiple="multiple" value="<?php echo htmlspecialchars($projectDeliveryPartners) ?>" required>
+                        <option>Belfast City Council</option>
+                        <option>Public Health Agency</option>
+                        <option>Department for Infrastructure</option>
+                        <option>Department for Communities</option>
+                        <option>Department of Health</option>
+                    </select>
+                </div>
+
+                <input type="submit" name="submit" value="Save Project" class="btn btn-success mt-5">
+            </form>
+
+
+        </div>
+        <div class="col-md-6 text-center"><img src="img/add.svg" width="400px" alt=""></div>
+    </div>
+</div>
+
+
+
+
+
 </html>

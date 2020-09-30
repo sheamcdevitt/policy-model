@@ -1,3 +1,87 @@
+@font-face {
+  font-family: NeueMachinaBold;
+  src: url("./fonts/NeueMachinaBold.otf");
+}
+
+@font-face {
+  font-family: NeueMachinaRegular;
+  src: url("./fonts/NeueMachinaRegular.otf");
+}
+
+@font-face {
+  font-family: NeueMachinaLight;
+  src: url("./fonts/NeueMachinaLight.otf");
+}
+
+
+.machina-font {
+  font-family: 'NeueMachinaBold', sans-serif !important;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background-color: #f5f5f5 !important;
+}
+
+.jumbotron {
+  background-color: #f5f5f5 !important;
+}
+
+
+.tab-section {
+  padding-top: 160px;
+}
+
+.nav-tabs .nav-link {
+  border: 1px solid #00000014 !important;
+
+}
+
+
+.media-body {
+  line-height: 1.7;
+}
+
+
+h1 {
+
+  font-family: 'NeueMachinaBold', sans-serif;
+
+}
+
+p {
+  line-height: 1.8 !important;
+}
+
+h5 {
+  font-family: 'NeueMachinaBold', sans-serif;
+  line-height: 1.8 !important;
+}
+
+h4 {
+  font-family: 'Manrope', sans-serif;
+  line-height: 1.8 !important;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+.rotate{
+  -moz-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.rotate.down{
+  -moz-transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+  transform:rotate(180deg);
+}
+
+
 .boxSearch {
   background-color: #d9d9d9;
   border-radius: 6px;
@@ -5,7 +89,12 @@
     0 0px 0 1px rgba(10, 10, 10, 0.02);
   color: #4a4a4a;
   display: block;
-  padding: 1.25rem;
+
+}
+
+.search-jumbo {
+  padding-top: 20%;
+  padding-bottom: 20%;
 }
 
 .boxInfo {
@@ -15,7 +104,7 @@
   color: #4a4a4a;
 
   padding: 1.25rem;
-  width: 300px;
+
   height: 100px;
 }
 .link-class:hover {
@@ -24,7 +113,7 @@
 
 #result {
   position: absolute;
-  width: 100%;
+  width: 97%;
   max-width: 640px;
   overflow-y: auto;
   max-height: 400px;
@@ -79,8 +168,16 @@ a {
   cursor: pointer;
 }
 
+.float-right {
+  float: right !important;
+}
+
 .jumbotron {
   margin-bottom: 0;
+}
+
+.list-group-item {
+  box-shadow: inset 2px 0px 10px rgba(209, 209, 209, 0.219) !important;
 }
 
 svg text {
@@ -176,9 +273,10 @@ svg text {
 }
 
 .svg-bg {
-  border: 1px solid rgb(194, 194, 194);
+  border: 2px solid rgb(194, 194, 194);
   margin: 49px;
   padding: 20px;
+  background-color: #fff;
 }
 
 .result-li {
@@ -195,7 +293,7 @@ svg text {
 
 div.container {
   width: 100%;
-  border: 1px solid gray;
+
 }
 div.tooltip {
   position: absolute;

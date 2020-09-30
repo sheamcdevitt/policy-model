@@ -1,4 +1,4 @@
-.box {
+.boxSearch {
   background-color: #d9d9d9;
   border-radius: 6px;
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
@@ -8,6 +8,16 @@
   padding: 1.25rem;
 }
 
+.boxInfo {
+  background-color: #d9d9d9;
+  border-radius: 2px;
+
+  color: #4a4a4a;
+
+  padding: 1.25rem;
+  width: 300px;
+  height: 100px;
+}
 .link-class:hover {
   background-color: #d9d9d9;
 }
@@ -16,7 +26,6 @@
   position: absolute;
   width: 100%;
   max-width: 640px;
-  cursor: pointer;
   overflow-y: auto;
   max-height: 400px;
   box-sizing: border-box;
@@ -75,8 +84,7 @@ a {
 }
 
 svg text {
-  cursor: default;
-  pointer-events: none;
+  cursor: pointer;
 }
 
 .circle__spin {
@@ -105,6 +113,23 @@ svg text {
   color: white;
 }
 
+.select-checkbox option::before {
+  content: "\2610";
+  width: 1.3em;
+  text-align: center;
+  display: inline-block;
+}
+.select-checkbox option:checked::before {
+  content: "\2611";
+}
+
+.clicked-background {
+  background: #b7e0c1;
+}
+
+.clicked-background:hover {
+  background-color: #87ce99;
+}
 
 .select-checkbox option::before {
   content: "\2610";
@@ -117,37 +142,16 @@ svg text {
 }
 
 .clicked-background {
-  background: #b7e0c1; 
+  background: #b7e0c1;
 }
 
 .clicked-background:hover {
-background-color: #87ce99;
+  background-color: #87ce99;
 }
-
-
-.select-checkbox option::before {
-  content: "\2610";
-  width: 1.3em;
-  text-align: center;
-  display: inline-block;
-}
-.select-checkbox option:checked::before {
-  content: "\2611";
-}
-
-.clicked-background {
-  background: #b7e0c1; 
-}
-
-.clicked-background:hover {
-background-color: #87ce99;
-}
-
 
 .model-bg {
   background-color: #bee5eb;
 }
-
 
 .svg-container {
   display: inline-block;
@@ -157,21 +161,18 @@ background-color: #87ce99;
   vertical-align: top;
   overflow: hidden;
   margin-right: auto;
-    margin-left: auto;
-  
+  margin-left: auto;
 }
 .svg-content {
   display: inline-block;
   position: absolute;
   top: 0;
   left: 0;
-  
 }
 
 .center-svg {
   display: block;
   margin: auto;
-  
 }
 
 .svg-bg {
@@ -182,4 +183,45 @@ background-color: #87ce99;
 
 .result-li {
   display: block;
+}
+
+.edge {
+  stroke: white;
+  stroke-width: 1;
+}
+.graphSVG {
+  background-color: black;
+}
+
+div.container {
+  width: 100%;
+  border: 1px solid gray;
+}
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 180px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.tip {
+  pointer-events: none;
+}
+@font-face {
+  font-family: "Oswald";
+
+  src: url("https://fonts.googleapis.com/css?family=Oswald|Oswald+Light|Saira+Extra+Light|Saira+Semi+Bolf");
+}
+
+#modelMap {
+  padding-left: 200px;
+}
+
+div.map {
+  padding-left: 200px;
 }

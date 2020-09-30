@@ -1,178 +1,35 @@
 //Empty JSON to populate
 var jsonToPass = {
   nodes: [],
-  links: []
+  links: [],
 };
+var modelData = { nodes: [], links: [] };
+var zoomLevel = 1,
+  panX = 0,
+  panY = 0,
+  descriptionUpdated = false,
+  descClickId;
+
+//Todo need to brainstorm ideas what to do here but plenty of ideas
+var menu = [
+  {
+    title: "Info",
+    action: function (elm, d, i) {},
+  },
+  {
+    title: "Delete",
+    action: function (elm, d, i) {},
+  },
+];
+
 var originalPass;
 //Array for all the policies websites
 //TODO finish inserting rest of the websites
-var websites = [
-  "https://www.un.org/sustainabledevelopment/sustainable-development-goals/",
-  "https://www.northernireland.gov.uk/consultations/draft-programme-government-framework-2016-21-and-questionnaire",
-  "https://whc.unesco.org/en/culture2030indicators/",
-  //to be continued
-];
 
-//Array for all the colors that will be used by each parentGroup
-//*: colors need to be assigned to their colour and not change
-//TODO write function for above
-var colours = [
-  "AliceBlue",
-  "AntiqueWhite",
-  "Aqua",
-  "Aquamarine",
-  "Azure",
-  "Beige",
-  "Bisque",
-  "Black",
-  "BlanchedAlmond",
-  "Blue",
-  "BlueViolet",
-  "Brown",
-  "BurlyWood",
-  "CadetBlue",
-  "Chartreuse",
-  "Chocolate",
-  "Coral",
-  "CornflowerBlue",
-  "Cornsilk",
-  "Crimson",
-  "Cyan",
-  "DarkBlue",
-  "DarkCyan",
-  "DarkGoldenRod",
-  "DarkGray",
-  "DarkGrey",
-  "DarkGreen",
-  "DarkKhaki",
-  "DarkMagenta",
-  "DarkOliveGreen",
-  "DarkOrange",
-  "DarkOrchid",
-  "DarkRed",
-  "DarkSalmon",
-  "DarkSeaGreen",
-  "DarkSlateBlue",
-  "DarkSlateGray",
-  "DarkSlateGrey",
-  "DarkTurquoise",
-  "DarkViolet",
-  "DeepPink",
-  "DeepSkyBlue",
-  "DimGray",
-  "DimGrey",
-  "DodgerBlue",
-  "FireBrick",
-  "FloralWhite",
-  "ForestGreen",
-  "Fuchsia",
-  "Gainsboro",
-  "GhostWhite",
-  "Gold",
-  "GoldenRod",
-  "Gray",
-  "Grey",
-  "Green",
-  "GreenYellow",
-  "HoneyDew",
-  "HotPink",
-  "IndianRed",
-  "Indigo",
-  "Ivory",
-  "Khaki",
-  "Lavender",
-  "LavenderBlush",
-  "LawnGreen",
-  "LemonChiffon",
-  "LightBlue",
-  "LightCoral",
-  "LightCyan",
-  "LightGoldenRodYellow",
-  "LightGray",
-  "LightGrey",
-  "LightGreen",
-  "LightPink",
-  "LightSalmon",
-  "LightSeaGreen",
-  "LightSkyBlue",
-  "LightSlateGray",
-  "LightSlateGrey",
-  "LightSteelBlue",
-  "LightYellow",
-  "Lime",
-  "LimeGreen",
-  "Linen",
-  "Magenta",
-  "Maroon",
-  "MediumAquaMarine",
-  "MediumBlue",
-  "MediumOrchid",
-  "MediumPurple",
-  "MediumSeaGreen",
-  "MediumSlateBlue",
-  "MediumSpringGreen",
-  "MediumTurquoise",
-  "MediumVioletRed",
-  "MidnightBlue",
-  "MintCream",
-  "MistyRose",
-  "Moccasin",
-  "NavajoWhite",
-  "Navy",
-  "OldLace",
-  "Olive",
-  "OliveDrab",
-  "Orange",
-  "OrangeRed",
-  "Orchid",
-  "PaleGoldenRod",
-  "PaleGreen",
-  "PaleTurquoise",
-  "PaleVioletRed",
-  "PapayaWhip",
-  "PeachPuff",
-  "Peru",
-  "Pink",
-  "Plum",
-  "PowderBlue",
-  "Purple",
-  "RebeccaPurple",
-  "Red",
-  "RosyBrown",
-  "RoyalBlue",
-  "SaddleBrown",
-  "Salmon",
-  "SandyBrown",
-  "SeaGreen",
-  "SeaShell",
-  "Sienna",
-  "Silver",
-  "SkyBlue",
-  "SlateBlue",
-  "SlateGray",
-  "SlateGrey",
-  "Snow",
-  "SpringGreen",
-  "SteelBlue",
-  "Tan",
-  "Teal",
-  "Thistle",
-  "Tomato",
-  "Turquoise",
-  "Violet",
-  "Wheat",
-  "White",
-  "WhiteSmoke",
-  "Yellow",
-  "YellowGreen",
-];
-
-
-//todo configure select box behaviour 
+//todo configure select box behaviour
 
 var groups = [];
-$.getJSON('nodes.json', function (data) {
-
+$.getJSON("json/nodes.json", function (data) {
   //for each distinct group, push distinct value to array
   $.each(data, function (key, value) {
     if ($.inArray(value.group, groups) === -1) {
@@ -182,31 +39,30 @@ $.getJSON('nodes.json', function (data) {
 
   //display group values from array
   $.each(groups, function (key, value) {
-    $('#selectStrategy').append('<option>' + value + '</option>');
+    $("#selectStrategy").append("<option>" + value + "</option>");
   });
-
 });
 
 //add selected groups to temp array
 
 var selectedgroups = [];
-$('#selectStrategy').on('change', function () {
-  selectedgroups.push($(this).val())
-  console.log(selectedgroups);
+$("#selectStrategy").on("change", function () {
+  selectedgroups.push($(this).val());
+  selectedgroups;
 });
 
 //Search box function; searches nodes.json by id, group and description
 $(document).ready(function () {
   $.ajaxSetup({
-    cache: false
+    cache: false,
   });
   $("#search").on("keyup", function () {
     $("#result").html("");
     $("#state").val("");
     var searchField = $("#search").val();
     var expression = new RegExp(searchField, "i");
-    $.getJSON("nodes.json", function (data) {
-      $.each(data, function (key, value) {
+    $.getJSON("json/Data.json", function (data) {
+      $.each(data.nodes, function (key, value) {
         if (
           value.id.search(expression) != -1 ||
           value.description.search(expression) != -1 ||
@@ -214,25 +70,22 @@ $(document).ready(function () {
         ) {
           $("#result").append(
             '<li class="list-group-item link-class result-li">' +
-            value.group +
-            ' | <span class="text-muted">' +
-            value.description +
-            '<style = "visibility:hidden;"> | *' +
-            value.id +
-            "  "
+              value.group +
+              ' | <span class="text-muted">' +
+              value.description +
+              '<style = "visibility:hidden;"> | *' +
+              value.id +
+              "  "
           );
         }
 
-
-
-        $('#result').on('click', function (e) {
+        $("#result").on("click", function (e) {
           e.stopPropagation();
         });
 
-        $(document).on('click', function (e) {
-          $('#result').empty();
+        $(document).on("click", function (e) {
+          $("#result").empty();
         });
-
 
         //   TODO: ux improvement - remove list when clicked off, when anywhere other than id clicked, remove children - todo: bug fixes
 
@@ -252,27 +105,36 @@ $(document).ready(function () {
         var click_text = $(this).text().split("*");
         $("#search").val($.trim(click_text[1]));
         var clickedId = $("#search").val();
-        console.log(clickedId + " added!");
+
         //Loop through nodes.json and return the node based on whats been selected
         //? Better way to do this? Works but seems lazy way of doing it
-        for (var i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.nodes.length; i++) {
           if (
-            data[i]["id"] == clickedId &&
+            data.nodes[i]["id"] == clickedId &&
             !jsonToPass.nodes.some((item) => item.id === clickedId)
           ) {
-            jsonToPass.nodes.push(data[i]);
-
+            jsonToPass.nodes.push(data.nodes[i]);
           }
         }
+      });
+
+      $.ajaxSetup({
+        // Disable caching of AJAX responses
+        // Used when debugging
+        cache: false,
       });
 
       //TODO: figure out better way to track how many times a button has been clicked, otherwise going to get pretty messy
       var UNSDGCLICKS = 0;
       //Declare svg values from existing svg
       var svg = d3.select("svg"),
-      width = svg.property("viewBox").baseVal.width,
-      height = svg.property("viewBox").baseVal.height;
+        width = svg.property("viewBox").baseVal.width,
+        height = svg.property("viewBox").baseVal.height;
+      (padding = 15), // separation between same-color circles
+        (clusterPadding = 60), // separation between different-color circles
+        (maxRadius = 55);
 
+      // Put the svg into an image tag so that the Canvas element can read it in.
 
       var tooltip = d3
         .select("body")
@@ -282,10 +144,10 @@ $(document).ready(function () {
 
       //If "Create Model" is clicked, create the model using whatever is passed into jsonToPass
       document.getElementById("CreateModel").onclick = function () {
-        create(jsonToPass);
+        modelData = create(jsonToPass);
         jsonToPass = {
           nodes: [],
-          links: []
+          links: [],
         };
       };
 
@@ -293,11 +155,13 @@ $(document).ready(function () {
       function create(pass) {
         //Remove previous model
         svg.selectAll("*").remove();
+        svg.property("viewBox").baseVal.height = height;
 
         //Pass in Data.json so we can access all nodes and links that exist
-        d3.json("Data.json", function (error, json) {
+        d3.json("json/Data.json", function (error, json) {
           if (error) throw error;
 
+          /*
           //onclick function for showOnly function (UNSDG)
           //TODO: write more general for other parentGroups
           document.getElementById("SHOWONLYUNSDG").onclick = function () {
@@ -395,14 +259,16 @@ $(document).ready(function () {
               showGroup(json, temp, "UN Sustainable Development Goals");
               create(temp);
               originalPass = pass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
               create(originalPass);
             }
 
@@ -417,14 +283,16 @@ $(document).ready(function () {
               showGroup(json, temp, "A Bolder Vision for Belfast");
               create(temp);
               originalPass = pass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
               create(originalPass);
             }
 
@@ -437,14 +305,16 @@ $(document).ready(function () {
               showGroup(json, temp, "A City Imagining");
               create(temp);
               originalPass = pass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
               create(originalPass);
             }
 
@@ -457,14 +327,16 @@ $(document).ready(function () {
               showGroup(json, temp, "Belfast Agenda");
               create(temp);
               originalPass = pass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
               create(originalPass);
             }
 
@@ -479,14 +351,16 @@ $(document).ready(function () {
               showGroup(json, temp, "Belfast Agenda Immediate Priorities");
               create(temp);
               originalPass = pass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
               create(originalPass);
             }
 
@@ -505,14 +379,16 @@ $(document).ready(function () {
               );
               create(temp);
               originalPass = pass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
               create(originalPass);
             }
 
@@ -531,14 +407,16 @@ $(document).ready(function () {
               );
               create(temp);
               originalPass = pass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
               create(originalPass);
             }
 
@@ -553,14 +431,16 @@ $(document).ready(function () {
               showGroup(json, temp, "Belfast City Council Public Realm");
               create(temp);
               originalPass = pass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
               create(originalPass);
             }
 
@@ -579,14 +459,16 @@ $(document).ready(function () {
               );
               create(temp);
               originalPass = pass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
               create(originalPass);
             }
 
@@ -601,14 +483,16 @@ $(document).ready(function () {
               showGroup(json, temp, "Culture 2030 Indicators");
               create(temp);
               originalPass = pass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
               create(originalPass);
             }
 
@@ -627,14 +511,16 @@ $(document).ready(function () {
               );
               create(temp);
               originalPass = pass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
               create(originalPass);
             }
 
@@ -649,14 +535,16 @@ $(document).ready(function () {
               showGroup(json, temp, "Programme for Government");
               create(temp);
               originalPass = pass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
               create(originalPass);
             }
 
@@ -675,14 +563,16 @@ $(document).ready(function () {
               );
               create(temp);
               originalPass = pass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
               create(originalPass);
             }
 
@@ -695,14 +585,16 @@ $(document).ready(function () {
               showGroup(json, temp, "Resilience");
               create(temp);
               originalPass = pass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
               create(originalPass);
             }
 
@@ -717,14 +609,16 @@ $(document).ready(function () {
               showGroup(json, temp, "WHO 5 Ways To Wellbeing");
               create(temp);
               originalPass = pass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
               create(originalPass);
             }
 
@@ -737,49 +631,341 @@ $(document).ready(function () {
               showGroup(json, temp, "WHO Arts Components");
               create(temp);
               originalPass = pass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
             }
 
             //Odd clicks do...
             //TODO: needs to clear the temp nodes and pass in the orignal model
             else {
               originalPass = originalPass;
-              console.log(originalPass);
+              ////////console.log
+(originalPass);
               create(originalPass);
             }
 
             UNSDGCLICKS++;
           };
+          
+*/
+          $(".atab")
+            .unbind()
+            .click(function () {
+              //weird bug where it clicks loads of times
+              create(pass);
+              // ////console.log
+              //pass;
+              /* = {
+              nodes: [],
+              links: [],
+            };*/
+            });
 
+          $(".btab")
+            .unbind()
+            .click(function () {
+              var d = pass.nodes;
+
+              svg.selectAll("*").remove();
+              svg.on(".zoom", null);
+              var defs = svg.append("defs");
+              defs
+                .append("style")
+                .attr("type", "text/css")
+                .text(
+                  "@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap')"
+                );
+
+              var obj = Object.keys(countGroupsArray(d)).sort();
+              var descArray = getDescription(pass.nodes);
+              // console.log("desc", descArray);
+              var descriptions = svg
+                  .append("g")
+                  .attr("class", "text")
+                  .style("pointer-events", "auto"),
+                output;
+
+              var y = 40;
+              for (var i = 0; i < obj.length; i++) {
+                descriptions
+                  .append("text")
+                  .attr("x", 50)
+                  .attr("y", y)
+                  .text(obj[i])
+                  .style("font-size", "20px")
+                  .style("font-family", "Lato")
+                  .style("stroke", getColourByGroup(d, obj[i]))
+                  .style("fill", getColourByGroup(d, obj[i]))
+                  .attr("alignment-baseline", "middle")
+                  .on("mouseover", function () {
+                    //console.log(d3.select(this).text());
+                  });
+                for (var j = 0; j < descArray[i].length; j++) {
+                  // console.log(descArray);
+                  output = splitStringWithoutBreakingWords(90, descArray[i][j]);
+                  //////console.log
+                  //  "output", output;
+                  for (var k = 0; k < output.length; k++) {
+                    y += 40;
+                    descriptions
+                      .data(output)
+                      .append("text")
+                      .attr("x", 50)
+                      .attr("y", y)
+                      .text(output[k])
+                      .style("font-size", "20px")
+                      .style("font-family", "Lato")
+                      .style("stroke", "Black")
+                      .attr("alignment-baseline", "middle")
+                      .on("mouseover", function () {
+                        //
+                        d3.select(this).style("stroke", "Gold");
+                        d3.select(this).style("fill", "Gold");
+
+                        // console.log(d3.select(this).text());
+                      })
+                      .on("mouseout", function (d, i) {
+                        //
+
+                        d3.select(this).style("stroke", "Black");
+                        d3.select(this).style("fill", "Black");
+                      })
+                      .on("click", function (d, i) {
+                        //pass.nodes.splice(i, 1);
+                        descriptionUpdated = true;
+                        var startNo = d.match(/([a-z]*)([\w.]+)/i);
+                        var toCheck = d.split(startNo[0])[1].trim();
+                        var final;
+                        //  console.log("dTrue", toCheck);
+                        //  console.log("clicked", d3.select(this).text());
+                        final = d3.select(this).text().includes(toCheck)
+                          ? toCheck
+                          : toCheck + " " + d3.select(this).text();
+                        // console.log("final", final);
+                        var nodeToDelete;
+
+                        for (let node of pass.nodes) {
+                          if (node.description.includes(final)) {
+                            var index = pass.nodes.indexOf(node);
+                            pass.nodes.splice(index, 1);
+                            // console.log(pass.nodes);
+                          }
+                        }
+                        d3.select(this).style(
+                          "text-decoration",
+                          "line-through"
+                        );
+                      });
+                  }
+                }
+                y += 40;
+                svg.property("viewBox").baseVal.height = y + 25;
+
+                // g.attr("height", y + 100);
+                /* svg
+                  .append("circle")
+                  .attr("cx", width - 425)
+                  .attr("cy", y)
+                  .attr("r", 15)
+                  .style("fill", "White")
+                  .style("stroke-width", 5)
+                  .style("stroke", getColourByParentGroup(d, obj[i]));*/
+              }
+              //svg.width = 3000;
+              ////console.log
+              // "y", y;
+
+              /*  var test = d3
+                .select("g")
+                .selectAll("text")
+                .data(output)
+                .text(function (d, i) {
+                  console.log(d);
+                  console.log(i);
+                  return d;
+                });*/
+            });
+
+          //document.getElementById("CreateSheet").onclick = function () {};
+
+          document.getElementById("FoyleAware").onclick = function () {
+            create(westlinkOveralljson);
+            //  var temp = JSON.parse(JSON.stringify(pass));
+            // showGroup(json, temp, "Programme for Government");
+          };
+
+          /*document.getElementById("Foyle Groups").onclick = function () {
+            //Even clicks do...
+            if (UNSDGCLICKS % 2 == 0) {
+              var temp = JSON.parse(JSON.stringify(pass));
+              /*showGroup(json, temp, "UN Sustainable Development Goals");
+              showGroup(
+                json,
+                temp,
+                "Derry City & Strabane District’s Inclusive Strategic Growth Plan"
+              );
+              showGroup(
+                json,
+                temp,
+                "Protect Life 2 - Suicide Prevention Strategy"
+              );
+              showGroup(json, temp, "Making Life Better");
+              showGroupFoyle(json, temp);
+              create(temp);
+              originalPass = pass;
+              ////////console.log
+              originalPass;
+            }
+
+            //Odd clicks do...
+            //TODO: needs to clear the temp nodes and pass in the orignal model
+            else {
+              originalPass = originalPass;
+              ////////console.log
+              originalPass;
+              create(originalPass);
+            }
+
+            UNSDGCLICKS++;
+          };
+*/
           //If indicators clicked, add their parents to the model too (if not also clicked)
+
+          pass.nodes = getUnique(pass.nodes, pass.nodes);
+          //console.log
+          pass.nodes;
           addParents(pass.nodes, json.nodes);
+
+          /* addChildren(pass, json, "Making Life Better");
+          addChildren(
+            pass,
+            json,
+            "Derry City & Strabane District’s Inclusive Strategic Growth Plan"
+          );
+          addChildren(
+            pass,
+            json,
+            "Protect Life 2 - Suicide Prevention Strategy"
+          );*/
+          //Protect Life 2 - Suicide Prevention Strategy
+          // removeOrphans(pass.nodes);
           //Create clusters array : parentNodes which have childrenNodes (for force.cluster) and
           //give each of the relevant children a 'clusterindex' which points it to its parent's index
           //in 'clusters' which is then used by force.cluster so that children circle their parents
-          var clusters = createParentArray(pass.nodes);
+          var clusters = [];
+          clusters = createParentArray(pass.nodes);
           pointChildToParent(pass.nodes, clusters);
+          assignParentClusterIndex(pass.nodes, clusters);
+          //console.log
+          clusters;
 
           //Required functions (more information on each in //Functions Section)
           groupToColor(pass.nodes);
           typeToRadius(pass.nodes);
-          addLinksToDynamicJSON(json, pass);
-          smartLink(json, pass);
-          removeLinksBetweenSameGroup(pass);
-          legend(pass.nodes);
+          shuffle(pass.nodes);
+          fakeLinks(pass);
+          shuffle(pass.nodes);
+          fakeLinks(pass);
+          shuffle(pass.nodes);
+          fakeLinks(pass);
 
+          addLinksToDynamicJSON(json, pass);
+
+          //console.log
+          pass;
+          // smartLink(json, pass);
+          // removeLinksBetweenSameGroup(pass);
+          //Regional code
+          var obj = Object.keys(countParentGroupsArray(pass.nodes)).sort();
+          var w = width,
+            h = height,
+            Ox = 100,
+            Oy = 100;
+          var regionArray;
+          if (countParentGroups(pass.nodes) == 1) {
+            regionArray = [[Ox, Oy, w - 100, h - 100]];
+          } else if (countParentGroups(pass.nodes) == 2) {
+            regionArray = [
+              [Ox, Oy, w / 2 - 50, h - 100],
+              [w / 2 + 50, Oy, w - 100, h - 100],
+            ];
+          } else if (countParentGroups(pass.nodes) == 3) {
+            regionArray = [
+              [Ox, Oy, w / 2 - 50, (2 * h) / 3 - 50],
+              [w / 2 + 50, Oy, w - 100, (2 * h) / 3 - 50],
+              [Ox, (2 * h) / 3 + 50, w - 100, h - 100],
+            ];
+          } else if (countParentGroups(pass.nodes) == 4) {
+            regionArray = [
+              [Ox, Oy, w / 2 - 50, h / 2 - 50],
+              [w / 2 + 50, Oy, w - 100, h / 2 - 50],
+              [Ox, h / 2 + 50, w / 2 - 50, h - 100],
+              [w / 2 + 50, h / 2 + 50, w - 100, h - 100],
+            ];
+          } else if (countParentGroups(pass.nodes) == 5) {
+            regionArray = [
+              [Ox, Oy, w / 2 - 50, (2 * h) / 5 - 50],
+              [w / 2 + 50, Oy, w - 100, (2 * h) / 5 - 50],
+              [Ox, (2 * h) / 5 + 50, w / 2 - 50, (4 * h) / 5 - 50],
+              [w / 2 - 50, (2 * h) / 5 + 50, w - 100, (4 * h) / 5 - 50],
+              [Ox, (4 * h) / 5 + 50, w - 200, h - 300],
+            ];
+          } else if (countParentGroups(pass.nodes) == 6) {
+            regionArray = [
+              [Ox, Oy, w / 2 - 50, h / 3 - 50],
+              [w / 2 + 50, Oy, w - 50, h / 3 - 50],
+              [Ox, h / 3 + 50, w / 2 - 50, (2 * h) / 3 - 50],
+              [w / 2 + 50, h / 3 + 50, w - 50, (2 * h) / 3 - 50],
+              [Ox, (2 * h) / 3 + 50, w / 2 - 50, h - 50],
+              [w / 2 + 50, (2 * h) / 3 + 50, w - 50, h - 50],
+            ];
+          } else if (countParentGroups(pass.nodes) == 7) {
+            regionArray = [
+              [w / 3, h / 6],
+              [(2 * w) / 3, h / 6],
+              [w / 6, h / 2],
+              [w / 2, h / 2],
+              [(5 * w) / 6, h / 2],
+              [w / 3, (5 * h) / 6],
+              [(2 * w) / 3, (5 * h) / 6],
+            ];
+          } else if (countParentGroups(pass.nodes) == 8) {
+            regionArray = [
+              [w / 6, h / 6],
+              [w / 2, h / 6],
+              [(5 * w) / 6, h / 6],
+              [w / 6, h / 2],
+              [(5 * w) / 6, h / 2],
+              [w / 6, (5 * h) / 6],
+              [w / 2, (5 * h) / 6],
+              [(5 * w) / 6, (5 * h) / 6],
+            ];
+          } else if (countParentGroups(pass.nodes) == 9) {
+            regionArray = [
+              [Ox, Oy],
+              [Ox, h / 4],
+              [Ox, h / 2],
+              [Ox, (3 * h) / 4],
+              [(3 * w) / 5, Oy],
+              [(4 * w) / 5, Oy],
+              [(3 * w) / 5, (3 * h) / 4],
+              [(4 * w) / 5, (3 * h) / 4],
+              [w, h / 2],
+            ];
+          }
           //Physics simualtion using d3 library
           //TODO: play around with values to make best looking model
           var simulation = d3
-            .forceSimulation()
+            .forceSimulation(pass.nodes)
             .force(
               "link",
               d3
-              .forceLink()
-              .id(function (d) {
-                return d.id;
-              })
-              .strength(0.01)
-              .distance(300)
+                .forceLink()
+                .id(function (d) {
+                  return d.id;
+                })
+                .strength(0)
+                .distance(500)
             )
             //Charge - replusion/attraction between individual nodes
             .force(
@@ -787,398 +973,163 @@ $(document).ready(function () {
               d3.forceManyBody().strength(function (d) {
                 //if (d.type == "Parent"){return -500;}
                 ///else {return -100;}
-                return -500;
+                return -2000;
               })
             )
+            //  .force("gravity", 100)
             //Attract - attracts all nodes to a target co-ordinate
             //This is used to bring nodes together to middle of canvas, allows us to be less specific with our force "y"
             //force "x" regional values below
             .force(
               "attract",
               d3
-              .forceAttract()
-              .target([width / 2, height / 2])
-              .strength(0.4)
+                .forceAttract()
+                .target([(2 * width) / 3, height / 2])
+                .strength(0.6)
             )
             //Collision - collision between individual nodes
             .force(
               "collision",
               d3
-              .forceCollide()
-              .radius(function (fn) {
-                if (fn.type == "Parent") {
-                  return checkNodeHasChild(fn, pass.nodes);
-                } else {
+                .forceCollide()
+                .radius(function (fn) {
+                  //if (fn.type == "Parent") {
+                  //  return checkNodeHasChild(fn, pass.nodes);
+                  // } else {
                   return 1.5 * fn.radius;
-                }
-              })
-              .strength(1)
+                  //  }
+                })
+                .strength(0.8)
             )
+            // .force("collide", collide)
             //Set where nodes will be attracted to on the y axis
             //Different groups will have differnt y values
             .force(
               "y",
-              d3.forceY(function (fn) {
-                var obj = Object.keys(
-                  countParentGroupsArray(pass.nodes)
-                ).sort();
-                var w = width,
-                  h = height,
-                  Ox = 100,
-                  Oy = 100;
-                var regionArray;
-                if (countParentGroups(pass.nodes) == 1) {
-                  regionArray = [
-                    [Ox, Oy, w - 100, h - 100]
-                  ];
-                } else if (countParentGroups(pass.nodes) == 2) {
-                  regionArray = [
-                    [Ox, Oy, w / 2 - 50, h - 100],
-                    [w / 2 + 50, Oy, w - 100, h - 100],
-                  ];
-                } else if (countParentGroups(pass.nodes) == 3) {
-                  regionArray = [
-                    [Ox, Oy, w / 2 - 50, (2 * h) / 3 - 50],
-                    [w / 2 + 50, Oy, w - 100, (2 * h) / 3 - 50],
-                    [Ox, (2 * h) / 3 + 50, w - 100, h - 100],
-                  ];
-                } else if (countParentGroups(pass.nodes) == 4) {
-                  regionArray = [
-                    [Ox, Oy, w / 2 - 50, h / 2 - 50],
-                    [w / 2 + 50, Oy, w - 100, h / 2 - 50],
-                    [Ox, h / 2 + 50, w / 2 - 50, h - 100],
-                    [w / 2 + 50, h / 2 + 50, w - 100, h - 100],
-                  ];
-                } else if (countParentGroups(pass.nodes) == 5) {
-                  regionArray = [
-                    [Ox, Oy, w / 2 - 50, (2 * h) / 5 - 50],
-                    [w / 2 + 50, Oy, w - 100, (2 * h) / 5 - 50],
-                    [Ox, (2 * h) / 5 + 50, w / 2 - 50, (4 * h) / 5 - 50],
-                    [w / 2 - 50, (2 * h) / 5 + 50, w - 100, (4 * h) / 5 - 50],
-                    [Ox, (4 * h) / 5 + 50, w - 100, h - 100],
-                  ];
-                } else if (countParentGroups(pass.nodes) == 6) {
-                  regionArray = [
-                    [Ox, Oy, w / 2 - 50, h / 3 - 50],
-                    [w / 2 + 50, Oy, w - 50, h / 3 - 50],
-                    [Ox, h / 3 + 50, w / 2 - 50, (2 * h) / 3 - 50],
-                    [w / 2 + 50, h / 3 + 50, w - 50, (2 * h) / 3 - 50],
-                    [Ox, (2 * h) / 3 + 50, w / 2 - 50, h - 50],
-                    [w / 2 + 50, (2 * h) / 3 + 50, w - 50, h - 50],
-                  ];
-                }
-
-                for (var i = 0, len = pass.nodes.length; i < len; i++) {
-                  if (
-                    fn.parentGroup ==
-                    obj[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes)
-                    ]
-                  ) {
-                    return regionArray[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes)
-                    ][1];
-                  } else if (
-                    fn.parentGroup ==
-                    obj[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      1
-                    ]
-                  ) {
-                    return regionArray[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      1
-                    ][1];
-                  } else if (
-                    fn.parentGroup ==
-                    obj[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      2
-                    ]
-                  ) {
-                    return regionArray[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      2
-                    ][1];
-                  } else if (
-                    fn.parentGroup ==
-                    obj[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      3
-                    ]
-                  ) {
-                    return regionArray[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      3
-                    ][1];
-                  } else if (
-                    fn.parentGroup ==
-                    obj[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      4
-                    ]
-                  ) {
-                    return regionArray[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      4
-                    ][1];
-                  } else if (
-                    fn.parentGroup ==
-                    obj[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      5
-                    ]
-                  ) {
-                    return regionArray[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      5
-                    ][1];
-                  } else if (
-                    fn.parentGroup ==
-                    obj[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      6
-                    ]
-                  ) {
-                    return regionArray[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      6
-                    ][1];
-                  } else return height / 2;
-                }
-              })
+              d3
+                .forceY(function (fn) {
+                  for (let node of pass.nodes) {
+                    for (var j = 0; j < countParentGroups(pass.nodes); j++) {
+                      if (fn.parentGroup == obj[j]) {
+                        return regionArray[j][1];
+                      }
+                    }
+                  }
+                })
+                .strength(0.7)
             )
             //Set where nodes will be attracted to on the x axis
             //Different groups will have differnt x values
             //TODO refactor so that we're not writing same thing twice for x and y
             .force(
               "x",
-              d3.forceX(function (fn) {
-                var obj = Object.keys(
-                  countParentGroupsArray(pass.nodes)
-                ).sort();
-                var w = width,
-                  h = height,
-                  Ox = 100,
-                  Oy = 100;
-                var regionArray;
-                if (countParentGroups(pass.nodes) == 1) {
-                  regionArray = [
-                    [Ox, Oy, w - 100, h - 100]
-                  ];
-                } else if (countParentGroups(pass.nodes) == 2) {
-                  regionArray = [
-                    [Ox, Oy, w / 2 - 50, h - 100],
-                    [w / 2 + 50, Oy, w - 100, h - 100],
-                  ];
-                } else if (countParentGroups(pass.nodes) == 3) {
-                  regionArray = [
-                    [Ox, Oy, w / 2 - 50, (2 * h) / 3 - 50],
-                    [w / 2 + 50, Oy, w - 100, (2 * h) / 3 - 50],
-                    [Ox, (2 * h) / 3 + 50, w - 100, h - 100],
-                  ];
-                } else if (countParentGroups(pass.nodes) == 4) {
-                  regionArray = [
-                    [Ox, Oy, w / 2 - 50, h / 2 - 50],
-                    [w / 2 + 50, Oy, w - 100, h / 2 - 50],
-                    [Ox, h / 2 + 50, w / 2 - 50, h - 100],
-                    [w / 2 + 50, h / 2 + 50, w - 100, h - 100],
-                  ];
-                } else if (countParentGroups(pass.nodes) == 5) {
-                  regionArray = [
-                    [Ox, Oy, w / 2 - 50, (2 * h) / 5 - 50],
-                    [w / 2 + 50, Oy, w - 100, (2 * h) / 5 - 50],
-                    [Ox, (2 * h) / 5 + 50, w / 2 - 50, (4 * h) / 5 - 50],
-                    [w / 2 - 50, (2 * h) / 5 + 50, w - 100, (4 * h) / 5 - 50],
-                    [Ox, (4 * h) / 5 + 50, w - 100, h - 100],
-                  ];
-                } else if (countParentGroups(pass.nodes) == 6) {
-                  regionArray = [
-                    [Ox, Oy, w / 2 - 50, h / 3 - 50],
-                    [w / 2 + 50, Oy, w - 50, h / 3 - 50],
-                    [Ox, h / 3 + 50, w / 2 - 50, (2 * h) / 3 - 50],
-                    [w / 2 + 50, h / 3 + 50, w - 50, (2 * h) / 3 - 50],
-                    [Ox, (2 * h) / 3 + 50, w / 2 - 50, h - 50],
-                    [w / 2 + 50, (2 * h) / 3 + 50, w - 50, h - 50],
-                  ];
-                }
-
-                for (var i = 0, len = pass.nodes.length; i < len; i++) {
-                  if (
-                    fn.parentGroup ==
-                    obj[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes)
-                    ]
-                  ) {
-                    return regionArray[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes)
-                    ][0];
-                  } else if (
-                    fn.parentGroup ==
-                    obj[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      1
-                    ]
-                  ) {
-                    return regionArray[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      1
-                    ][0];
-                  } else if (
-                    fn.parentGroup ==
-                    obj[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      2
-                    ]
-                  ) {
-                    return regionArray[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      2
-                    ][0];
-                  } else if (
-                    fn.parentGroup ==
-                    obj[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      3
-                    ]
-                  ) {
-                    return regionArray[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      3
-                    ][0];
-                  } else if (
-                    fn.parentGroup ==
-                    obj[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      4
-                    ]
-                  ) {
-                    return regionArray[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      4
-                    ][0];
-                  } else if (
-                    fn.parentGroup ==
-                    obj[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      5
-                    ]
-                  ) {
-                    return regionArray[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      5
-                    ][0];
-                  } else if (
-                    fn.parentGroup ==
-                    obj[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      6
-                    ]
-                  ) {
-                    return regionArray[
-                      countParentGroups(pass.nodes) -
-                      countParentGroups(pass.nodes) +
-                      6
-                    ][0];
-                  } else return width / 2;
-                }
-              })
+              d3
+                .forceX(function (fn) {
+                  for (let node of pass.nodes) {
+                    for (var j = 0; j < countParentGroups(pass.nodes); j++) {
+                      if (fn.parentGroup == obj[j]) {
+                        return regionArray[j][0];
+                      }
+                    }
+                  }
+                })
+                .strength(0.7)
             )
             //! probably need to remove as does same as attract but...
             //TODO ... need to read documentation and see difference (will keep for now)
-            .force("center", d3.forceCenter(width / 2, height / 2))
-            //Cluster - as explained above: there is a "parentArray" -> clusters : all parentNodes which have children in an array
+            //  .force("center", d3.forceCenter(width / 3, height / 3))
+            //Cluster - as explained above: there is a "parentrray" -> clusters : all parentNodes which have children in an array
             //Then pointChildToParent function assigns each parent with a clusterIndex which tells it where in the clusters array its parent
             //is and therefore where to cluster do
             .force(
               "cluster",
+              //clustering
               d3
-              .forceCluster()
-              .centers(function (d) {
-                //Check node is a child
-                if (d.type == "Child") {
-                  return clusters[d.clusterIndex];
-                }
-              })
-              .strength(1)
-              .centerInertia(1.0)
+                .forceCluster()
+                .centers(function (d) {
+                  //Check node is a child
+                  if (d.type == "Child") {
+                    return clusters[d.clusterIndex];
+                  }
+                })
+                .strength(1)
+                .centerInertia(1.0)
             );
-          var link = svg.append("g").attr("class", "links");
+          // .stop()
+          //.alphaDecay(0.05);
+          // .velocityDecay(0.2)
+          // .tick(70);
+          // .stop();
+          /*.on("end", function () {
+              node.each(function (d) {
+                d.fx = d.x;
+                d.fy = d.y;
+              });
+            });*/
+          //.stop();
+          // .stop();
+
+          //var link = svg.append("g").attr("class", "links");
+
+          var g = svg.append("g").attr("class", "everything");
+          var g_links = svg.append("g").attr("class", "links");
+          var g_nodes = svg.append("g").attr("class", "nodes");
 
           //Define the path which links will take
           //TODO figure out the gradient function so that
-          var path = svg
-            .append("g")
-            .selectAll("path")
-            .data(pass.links)
-            .enter()
-            .append("path")
-            .attr("class", function (d) {
-              return "link " + d.type;
-            })
-            .style("fill", "none")
-            .style("stroke-width", ".5") //!Keeping here in case I come back to it //Mouseover functions //TODO brainstorm ideas with team if they need mouse over function or what that would show
-            .style("stroke", function (fn) {
-              if (
-                getNodeType(pass.nodes, fn.source) == "Parent" &&
-                getNodeType(pass.nodes, fn.target) == "Parent"
-              ) {
-                var defs = svg.append("defs");
+          var defs = g.append("defs");
+          defs
+            .append("style")
+            .attr("type", "text/css")
+            .text(
+              "@import url('https://fonts.googleapis.com/css?family=Oswald:400,700')"
+            );
+          var path = //g
+            //.append("g")
+            g_links
+              .selectAll("path")
+              .data(pass.links)
+              .enter()
+              .append("path")
+              .attr("class", function (d) {
+                return "link " + d.type;
+              })
+              .style("fill", "None")
+              .style("stroke-width", ".5") //!Keeping here in case I come back to it //Mouseover functions //TODO brainstorm ideas with team if they need mouse over function or what that would show
+              .style("stroke", function (fn) {
+                if (
+                  getNodeType(pass.nodes, fn.source) == "Parent" &&
+                  getNodeType(pass.nodes, fn.target) == "Parent"
+                ) {
+                  var gradient = defs
+                    .append("linearGradient")
+                    .attr("id", getGradID(fn))
+                    .attr("x1", "0%") // getNodePosition(pass.nodes, fn.source, true))
+                    .attr("x2", "100%") // getNodePosition(pass.nodes, fn.target, true))
+                    .attr("y1", "0%") // getNodePosition(pass.nodes, fn.source, false))
+                    .attr("y2", "100"); // getNodePosition(pass.nodes, fn.target, false));
 
-                var gradient = defs
-                  .append("linearGradient")
-                  .attr("id", getGradID(fn))
-                  .attr("x1", getNodePosition(pass.nodes, fn.source, true))
-                  .attr("x2", getNodePosition(pass.nodes, fn.target, true))
-                  .attr("y1", getNodePosition(pass.nodes, fn.source, false))
-                  .attr("y2", getNodePosition(pass.nodes, fn.target, false));
-
-                d3.select("#" + getGradID(fn))
-                  .append("stop")
-                  .attr("class", "start")
-                  .attr("offset", 0)
-                  .attr("stop-color", getNodeColour(pass.nodes, fn.source)) //getColour(d.source,graph.nodes))
-                  .attr("stop-opacity", 0.5);
-                //console.log(getNodeColour(pass.nodes, fn.source));
-                //console.log(getNodeColour(pass.nodes, fn.target));
-                gradient
-                  .append("stop")
-                  .attr("class", "end")
-                  .attr("offset", 1)
-                  .attr("stop-color", getNodeColour(pass.nodes, fn.target)) // getColour(d.target,graph.nodes))
-                  .attr("stop-opacity", 0.5);
-                return "url(#" + getGradID(fn) + ")";
-              } else {
-                return "White";
-              }
-            })
+                  d3.select("#" + getGradID(fn))
+                    .append("stop")
+                    .attr("class", "start")
+                    .attr("offset", 0)
+                    .attr("stop-color", getNodeColour(pass.nodes, fn.source)) //getColour(d.source,graph.nodes))
+                    .attr("stop-opacity", 0.4);
+                  ////////console.log
+                  // getNodeColour(pass.nodes, fn.source);
+                  ////////console.log
+                  // getNodeColour(pass.nodes, fn.target);
+                  gradient
+                    .append("stop")
+                    .attr("class", "end")
+                    .attr("offset", 0.5)
+                    .attr("stop-color", getNodeColour(pass.nodes, fn.target)) // getColour(d.target,graph.nodes))
+                    .attr("stop-opacity", 0.4);
+                  return "url(#" + getGradID(fn) + ")";
+                } else {
+                  return null;
+                }
+              }); /*
             .on("mouseover.tooltip", function (d) {
               tooltip.transition().duration(300).style("opacity", 0.8);
             })
@@ -1190,10 +1141,10 @@ $(document).ready(function () {
               tooltip
                 .style("left", d3.event.pageX + "px")
                 .style("top", d3.event.pageY + 10 + "px");
-            });
+            });*/
           //Gradient function for links
           //TODO: fix
-          /* .style("stroke", function (fn) {
+          /*   .style("stroke", function (fn) {
               var defs = svg.append("defs");
               var gradient = defs
                 .append("linearGradient")
@@ -1207,26 +1158,23 @@ $(document).ready(function () {
                 .append("stop")
                 .attr("class", "start")
                 .attr("offset", "100%")
-                .attr("stop-color", getColourById(pass.nodes, fn.target)) //getColour(d.source,graph.nodes))
+                .attr("stop-color", getNodeColour(pass.nodes, fn.target)) //getColour(d.source,graph.nodes))
                 .attr("stop-opacity", 0.5);
-              
+
               gradient
                 .append("stop")
                 .attr("class", "end")
                 .attr("offset", "0%")
-                .attr("stop-color", getColourById(pass.nodes, fn.source)) // getColour(d.target,graph.nodes))
+                .attr("stop-color", getNodeColour(pass.nodes, fn.source)) // getColour(d.target,graph.nodes))
                 .attr("stop-opacity", 0.5);
               return "url(#svgGradient)";
             });*/
 
           var tip;
-          var node = svg
-            .append("g")
-            .attr("class", "nodes")
-            .selectAll("g")
-            .data(pass.nodes)
-            .enter()
-            .append("g");
+          var node = //g;
+            //.append("g")
+            // .attr("class", "nodes")
+            g_nodes.selectAll("g").data(pass.nodes).enter().append("g");
 
           node
             .append("circle")
@@ -1246,25 +1194,54 @@ $(document).ready(function () {
             })
             .call(
               d3
-              .drag()
+                .drag()
 
-              .on("start", dragstarted)
-              .on("drag", dragged)
-              .on("end", dragended)
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended)
             )
+            .on(
+              "dblclick" /*function (d, i) {
+              d3.event.stopPropagation();
+              var data = [];
+              data.push(pass.nodes[i]);
+              console.log(data);
+              this.remove();
+              g_nodes
+                .selectAll("text")
+                .data(data)
+                .exit()
+                .remove(); //);
+              pass.nodes.splice(i, 1);
+              console.log(pass.nodes);
+              // this.attr("text").remove();
+              // force.resume();
+            }) */, //
+              remove
+            )
+            // .on("dblclick", function (d) {
+            /* removeSpecOrphans(pass, d);
+              const index = pass.nodes.indexOf(d);
+              pass.nodes.splice(index, 1);
 
-            //.on("dblclick", doubleClick)
+              create(pass);*/
+            /*  //console.log
+(
+                document.querySelector("div").getBoundingClientRect()
+              );*/
+            //})
             //Node click function
             //TODO: fix fade bug with children, create 'mouseout' even if mouse taken off node
-            .on("click", function (d) {
-              var clicks = $(this).data("clicks");
-              if (clicks == null) {
-                clicks = false;
-              }
+            .on("contextmenu", d3.contextMenu(menu))
+            .on("mouseover", function (d) {
+              //   var clicks = $(this).data("clicks");
+              // if (clicks == null) {
+              //   clicks = false;
+              // }
               //if (!clicks) {
               if (
-                (d3.select(this).attr("r") == 55 && d.type == "Parent") ||
-                (d3.select(this).attr("r") == 15 && d.type == "Child")
+                (d3.select(this).attr("r") >= 55 && d.type == "Parent") ||
+                (d3.select(this).attr("r") >= 15 && d.type == "Child")
               ) {
                 d3.select(this)
                   .transition()
@@ -1276,14 +1253,18 @@ $(document).ready(function () {
 
                 if (tip) tip.remove();
 
-                tip = svg
-                  .append("g")
-                  .attr(
-                    "transform",
-                    "translate(" + (d.x + 50) + "," + d.y + ")"
-                  );
+                tip = g_nodes.append("g").classed("tip", true);
+
                 let strGroup = d.group;
-                strGroup = strGroup.slice(0, -1);
+
+                //var esArray = strGroup.match(/[^e]s(?!.*[^e]s)/i);
+                strGroup =
+                  strGroup.slice(-1) == "s"
+                    ? strGroup.slice(-2) == "es"
+                      ? strGroup
+                      : strGroup.slice(0, -1)
+                    : strGroup;
+
                 let strDescription = d.description;
                 var strDesLength = strDescription.length;
                 var linesNo = strDesLength / 70;
@@ -1300,7 +1281,9 @@ $(document).ready(function () {
                   .text(strGroup + " " + arr[2])
                   .attr("dy", 30)
                   .attr("x", 5)
-                  .style("font-size", "26px");
+                  .style("font-size", "26px")
+                  .style("font-family", "Oswald")
+                  .style("pointer-events", "none");
 
                 for (var i = 0; i < linesNo; i++) {
                   var sub = output[i];
@@ -1309,19 +1292,65 @@ $(document).ready(function () {
                     .text(i == 0 ? "• " + sub : sub)
                     .attr("dy", (i + 2) * 30)
                     .attr("x", 5)
-                    .style("font-size", "20px");
+                    .style("font-size", "20px")
+                    .style("font-family", "Oswald")
+                    .style("pointer-events", "none");
                 }
 
                 var bbox = tip.node().getBBox();
                 rect
                   .attr("width", bbox.width + 10)
                   .attr("height", bbox.height + 10);
+
+                var boxX =
+                    (d.x + bbox.width + (d.type == "Parent" ? 60 : 30)) *
+                      zoomLevel +
+                    panX,
+                  boxY =
+                    (d.y + bbox.height + (d.type == "Parent" ? 60 : 30)) *
+                      zoomLevel +
+                    panY,
+                  xPos = d.x * zoomLevel + panX,
+                  yPos = d.y * zoomLevel + panY,
+                  startOfBox =
+                    /*(d.type == "Parent")?*/ (d.x -
+                      bbox.width -
+                      (d.type == "Parent" ? 60 : 30)) *
+                      zoomLevel +
+                    panX, // : ,
+                  endOfBox = d.x + bbox.width + (d.type == "Parent" ? 60 : 30),
+                  topOfBox =
+                    (d.y - bbox.height - (d.type == "Parent" ? 60 : 30)) *
+                      zoomLevel +
+                    panY,
+                  bottomOfBox =
+                    d.y + bbox.height + (d.type == "Parent" ? 60 : 30),
+                  st = d.x - bbox.width - (d.type == "Parent" ? 60 : 30),
+                  end = d.x - (d.type == "Parent" ? 60 : 30),
+                  adjHeight = (height - panY) / zoomLevel;
+                adjWidth = (width - panX) / zoomLevel;
+
+                tip.attr("transform", function () {
+                  var x, y;
+                  x =
+                    boxX < width
+                      ? d.x + (d.type == "Parent" ? 50 : 20)
+                      : startOfBox > 0
+                      ? d.x - bbox.width - (d.type == "Parent" ? 60 : 30)
+                      : d.x - Math.abs(endOfBox - adjWidth) - 20;
+                  y =
+                    boxY < height
+                      ? d.y + (d.type == "Parent" ? 50 : 20)
+                      : d.y - Math.abs(bottomOfBox - adjHeight) - 20;
+
+                  return "translate(" + x + "," + y + ")";
+                });
               } else {
                 d3.select(this).transition().duration(750).attr("r", d.radius);
                 d3.event.stopPropagation();
                 if (tip) tip.remove();
               }
-              $(this).data("clicks", !clicks);
+              // $(this).data("clicks", !clicks);
             })
 
             .on("mouseover.tooltip", function (d) {
@@ -1343,6 +1372,7 @@ $(document).ready(function () {
 
           node
             .append("text")
+            //.attr("class", "nodeText")
             .attr("dy", function (d) {
               return 22;
             })
@@ -1354,9 +1384,10 @@ $(document).ready(function () {
                 return "White";
               }
             })
+            .style("font-family", "Oswald")
             //Text function for nodes
             .text(function (d) {
-              if (d.type == "Child") {
+              if (d.type == "Child" && d.display == "") {
                 //Split name into number and letter parts: only return number for 'Child' circles
                 var arr = d.id.match(/([a-z]*)([\w.]+)/i);
                 return arr[2];
@@ -1367,7 +1398,7 @@ $(document).ready(function () {
               }
             })
             .attr("y", function (d) {
-              output = splitStringWithoutBreakingWords(6, d.display);
+              output = splitStringWithoutBreakingWords(5, d.display);
               // yValue;
               switch (output.length) {
                 case 1:
@@ -1384,19 +1415,18 @@ $(document).ready(function () {
             })
             .selectAll("tspan.text")
             .data(function (d) {
-              output = splitStringWithoutBreakingWords(6, d.display);
+              output = splitStringWithoutBreakingWords(5, d.display);
               return output;
-              //console.log("OUTPUT   ", output);
-              //console.log("data", d.display.split(" "));
-              // return d.display.split(" ")
             })
             .enter()
             .append("tspan")
             .attr("class", "display")
             .text(function (d) {
-              //console.log(d);
-              if (d.type == "Child") {
-                //console.log("CHILD");
+              //////////console.log
+              d;
+              if (d.type == "Child" && d.display == "") {
+                //////////console.log
+                ("CHILD");
                 //Split name into number and letter parts: only return number for 'Child' circles
                 var arr = d.id.match(/([a-z]*)([\w.]+)/i);
                 return arr[2];
@@ -1416,32 +1446,31 @@ $(document).ready(function () {
                   return "15px";
                 }
               }
-            });
-          node
-            .append("text")
-            .attr("dy", 10) // you can vary how far apart it shows up
-            .attr("text-anchor", "middle")
-            .style("fill", function (d) {
-              return d.colour;
             })
-            .text(function (d) {
-              return d.secondDisplay;
-            })
-            .style("font-size", function (d) {
-              if (d.secondDisplay != null) {
-                if (d.secondDisplay.length > 13) {
-                  return "12px";
-                } else {
-                  return "15px";
-                }
-              }
-            });
+            .style("pointer-events", "none");
 
           simulation.nodes(pass.nodes).on("tick", ticked);
-
           simulation.force("link").links(pass.links);
 
-          simulation.force("collide");
+          //   simulation.force("collide");
+          legend(g, pass.nodes);
+          highlightStrandList(g);
+
+          var drag_handler = d3
+            .drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended);
+
+          drag_handler(node);
+
+          //add zoom capabilities
+          var zoom_handler = d3
+            .zoom()
+            .on("zoom", zoomActions)
+            .scaleExtent([0.5, 3]);
+
+          zoom_handler(svg);
 
           //Sort links alphanumerically for removing duplicates
           pass.links.forEach(function (d) {
@@ -1455,6 +1484,31 @@ $(document).ready(function () {
           });
           removeDups(pass.links);
 
+          // removeChildLinks(pass);
+          //Node remove function
+          function mousedownNode(d, i) {
+            nodes.splice(i, 1);
+            links = links.filter(function (l) {
+              return l.source !== d && l.target !== d;
+            });
+            d3.event.stopPropagation();
+
+            simulation.restart();
+          }
+          //Zoom functions
+          function zoomActions() {
+            g.attr("transform", d3.event.transform);
+            g_links.attr("transform", d3.event.transform);
+            g_nodes.attr("transform", d3.event.transform);
+            (zoomLevel = d3.event.transform.k),
+              (panX = d3.event.transform.x),
+              (panY = d3.event.transform.y);
+            // //console.log
+            d3.event.transform;
+            //zoomLevel +
+
+            //g.call(zoomX);
+          }
           //Node drag functions
           function dragstarted(d) {
             if (!d3.event.active) simulation.alphaTarget(0.3).restart();
@@ -1473,11 +1527,164 @@ $(document).ready(function () {
             d.fy = null;
           }
 
+          //Speed up tick functionality
+
+          var ticksPerRender = 300;
+
           function ticked() {
+            var radius = 60;
+
             node.attr("transform", function (d) {
+              d.x = Math.max(radius, Math.min(width - radius, d.x));
+              d.y = Math.max(radius, Math.min(height - radius, d.y));
               return "translate(" + d.x + "," + d.y + ")";
             });
+            //for (var i = 0; i < ticksPerRender; i++) {
             path.attr("d", linkArc);
+            // }
+          }
+
+          // These are implementations of the custom forces.
+          function clustering(alpha) {
+            // //console.log
+            "Clusters", clusters;
+            pass.nodes.forEach(function (d) {
+              var cluster = clusters[d.clusterIndex];
+              ////console.log
+              cluster;
+              if (cluster === d) return;
+              ////console.log
+              "d", d;
+              //  //console.log
+              "cluster", cluster;
+              if (!typeof cluster == "undefined") {
+                var x = d.x - cluster.x,
+                  y = d.y - cluster.y,
+                  l = Math.sqrt(x * x + y * y),
+                  r = d.radius + cluster.radius;
+                if (l !== r) {
+                  l = ((l - r) / l) * alpha;
+                  d.x -= x *= l;
+                  d.y -= y *= l;
+                  cluster.x += x;
+                  cluster.y += y;
+                }
+              }
+            });
+          }
+
+          function collide(alpha) {
+            var quadtree = d3
+              .quadtree()
+              .x((d) => d.x)
+              .y((d) => d.y)
+              .addAll(pass.nodes);
+
+            pass.nodes.forEach(function (d) {
+              var r = d.radius + maxRadius + Math.max(padding, clusterPadding),
+                nx1 = d.x - r,
+                nx2 = d.x + r,
+                ny1 = d.y - r,
+                ny2 = d.y + r;
+              quadtree.visit(function (quad, x1, y1, x2, y2) {
+                if (quad.data && quad.data !== d) {
+                  var x = d.x - quad.data.x,
+                    y = d.y - quad.data.y,
+                    l = Math.sqrt(x * x + y * y),
+                    r =
+                      d.r +
+                      quad.data.r +
+                      (d.cluster === quad.data.cluster
+                        ? padding
+                        : clusterPadding);
+                  if (l < r) {
+                    l = ((l - r) / l) * alpha;
+                    d.x -= x *= l;
+                    d.y -= y *= l;
+                    quad.data.x += x;
+                    quad.data.y += y;
+                  }
+                }
+                return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+              });
+            });
+          }
+
+          //redraw-
+          function reDraw() {
+            //if (tip) tip.remove();
+            console.log(pass.nodes);
+            var update_nodes = g_nodes.selectAll("g").data(pass.nodes);
+            update_nodes.exit().remove();
+
+            node = update_nodes.enter().append("g").merge(update_nodes);
+            var update_links = g_links.selectAll("path").data(pass.links);
+            update_links.exit().remove();
+            path = update_links
+              .enter()
+              .append("path")
+
+              .merge(update_links);
+          }
+          //remove-
+          function remove(n, i) {
+            Array.prototype.delete = function (arr) {
+              console.log(arr);
+
+              var t = [];
+              for (let j = 0; j < this.length; ++j) {
+                let f = false;
+                for (let i = 0; i < arr.length; ++i) {
+                  if (j == arr[i]) {
+                    f = true;
+                  }
+                }
+                if (!f) {
+                  t.push(this[j]);
+                }
+              }
+
+              return t;
+            };
+            d3.event.bubbles = false;
+            if (d3.event.target.tagName == "circle") {
+              d3.event.stopPropagation();
+            }
+            var linkIndex = pass.links.filter((d) => {
+              return d.target.index == i || d.source.index == i;
+            });
+            var nodeIndex = pass.nodes.filter((d) => {
+              return d.id.index == i;
+            });
+
+            pass.links = pass.links.delete(
+              linkIndex.map((d) => {
+                return d.index;
+              })
+            );
+            /*  console.log(
+              "Nodes before",
+              pass.nodes.map(function (node) {
+                return node["id"];
+              })
+            );*/
+            //pass.nodes = pass.nodes.slice(i, 1);
+            // pass.nodes.push(pass.nodes.splice(i, 1)[0]);
+            pass.nodes.splice(i, 1);
+
+            /* console.log(
+              "Nodes after",
+              pass.nodes.map(function (node) {
+                return node["id"];
+              })
+            );*/
+
+            simulation.nodes(pass.nodes).on("tick", ticked);
+            simulation.force("link").links(pass.links);
+
+            //simulation.alpha(1);
+            simulation.restart();
+            reDraw();
           }
           //Functions for the fade/mouse over events
           const linkedByIndex = {};
@@ -1517,6 +1724,17 @@ $(document).ready(function () {
             //TODO: Lots of generalising
             showOnlyFade(pG);
           }
+
+          var printArray = { nodes: [] };
+          for (let node of pass.nodes) {
+            element = { id: "", group: "", description: "" };
+            element.id = node.id;
+            element.group = node.group;
+            element.description = node.description;
+            printArray.nodes.push(element);
+          }
+          ////console.log
+          JSON.stringify(printArray);
         });
 
         //
@@ -1531,24 +1749,138 @@ $(document).ready(function () {
             measurable: "",
             keyPartners: "",
           };
-          //console.log(noArr);
+          //////////console.log
+          noArr;
           element.policyIndicator = node.group.slice(0, -1) + " " + noArr[2];
           tableData.push(element);
         }
 
         //  window.onload = () => {
         document.getElementById("CreateTable").onclick = function () {
-          //console.log(tableData);
           loadTableData(tableData);
         };
         // };
+
+        //Save as svg function
+        d3.select("#download-svg").on("click", function () {
+          var config = {
+            filename: document.getElementById("projectName").value + " Model",
+          };
+          d3_save_svg.save(d3.select("svg").node(), config);
+        });
+
+        //Save as png function
+
+        d3.select("#download-png").on("click", function () {
+          //Save as image function
+          var html = d3
+            .select("svg")
+            .attr("version", 1.1)
+            .attr("xmlns", "http://www.w3.org/2000/svg")
+            .node().parentNode.innerHTML;
+
+          var imgsrc =
+            "data:image/svg+xml;base64," +
+            btoa(unescape(encodeURIComponent(html)));
+          var img = '<img src="' + imgsrc + '">';
+          d3.select("#svgdataurl").html(img);
+          ////console.log
+          //  html;
+
+          var canvas = document.querySelector("canvas"),
+            context = canvas.getContext("2d");
+          context.clearRect(0, 0, canvas.width, canvas.height);
+          var image = new Image();
+          image.src = imgsrc;
+          image.onload = function () {
+            context.drawImage(image, 0, 0);
+
+            var canvasdata = canvas.toDataURL("image/jpg", 1);
+
+            var pngimg = '<img src="' + canvasdata + '">';
+            d3.select("#jpgdataurl").html(pngimg);
+
+            var a = document.createElement("a");
+            a.download =
+              document.getElementById("projectName").value + " Model.jpg";
+            a.href = canvasdata;
+            a.click();
+            ////console.log
+            // getParentGroupArray(pass.nodes);
+          };
+        });
+        //document;
+        //display image
+        /*  var img = document.createElement("img");
+        img.setAttribute("src", "data:image/svg+xml;base64," + btoa(svgData));
+
+        img.onload = function () {
+          ctx.drawImage(img, 0, 0);
+
+          //image link
+          ////console.log
+(canvas.toDataURL("image/png"));
+
+          //open image
+          window.location.href = canvas.toDataURL("image/png");
+        };*/
+
+        //  d3.selectAll("svg").style("font-family", "Oswald");
+
+        /*d3.select("#dl").on("click", function () {
+          ////////console.log
+("download");
+          // Get the d3js SVG element and save using saveSvgAsPng.js
+          saveSvgAsPng(document.getElementsByTagName("svg")[0], "plot.png", {
+            scale: 2,
+            backgroundColor: "#FFFFFF",
+          });
+        });*/
+        var modelPHP = $("#pass").val();
+        $(document).ready(function () {
+          $.ajax({
+            method: "POST",
+            url: "add.php",
+            dataType: "json",
+            data: pass,
+
+            success: function (data) {
+              alert("success!");
+            },
+          });
+        });
+        /*
+        console.log(pass);
+        $.ajax({
+          method: "POST",
+          url: "add.php",
+          dataType: "json",
+          data: { pass: pass },
+
+          success: function (data) {
+            alert("success!");
+          },
+        });*/
+        return pass;
       }
+
+      /*  modelData = JSON.stringify(modelData);
+        modelData.replace("nodes", '"nodes"');
+        modelData.replace("links", '"links"');
+        var modelPHP = $("#modelData").val();*/
+      var modelData = $(this).attr("pass");
 
       //linkArc - defines curved path that links should take
       function linkArc(d) {
+        var maxMultiplier = 10 / 7,
+          minMultiplier = 5 / 7;
+        //    posOrNeg = Math.floor(Math.random() * 1.1);
+        //////console.log
+        //(posOrNeg);
         var dx = d.target.x - d.source.x,
           dy = d.target.y - d.source.y,
           dr = Math.sqrt(dx * dx + dy * dy);
+        dR = getRandomArbitrary(dr * minMultiplier, dr * maxMultiplier);
         return (
           "M" +
           d.source.x +
@@ -1558,7 +1890,7 @@ $(document).ready(function () {
           dr +
           "," +
           dr +
-          " 0 0,1 " +
+          " 0 0,1" +
           d.target.x +
           "," +
           d.target.y
@@ -1609,6 +1941,14 @@ $(document).ready(function () {
         }
       }
 
+      function getColourByGroup(d, a) {
+        for (i = 0; i < d.length; i++) {
+          if (d[i]["group"] == a) {
+            return d[i]["colour"];
+          }
+        }
+      }
+
       function getNodePosition(d, a, pos) {
         for (i = 0; i < d.length; i++) {
           if (d[i]["id"] == a && pos) {
@@ -1641,13 +1981,13 @@ $(document).ready(function () {
           } else if (d[i]["parentGroup"] == "Belfast Agenda") {
             d[i]["colour"] = "Purple";
           } else if (d[i]["parentGroup"] == "A City Imagining - Priorities") {
-            d[i]["colour"] = "Yellow";
+            d[i]["colour"] = "Orange";
           } else if (
             d[i]["parentGroup"] == "Resilience - Shocks and Stresses"
           ) {
             d[i]["colour"] = "Green";
           } else if (d[i]["parentGroup"] == "Resilience") {
-            d[i]["colour"] = "Orange";
+            d[i]["colour"] = "DarkOrchid";
           } else if (
             d[i]["parentGroup"] == "Belfast Agenda Immediate Priorities"
           ) {
@@ -1661,7 +2001,7 @@ $(document).ready(function () {
           } else if (
             d[i]["parentGroup"] == "Belfast City Council Local Development Plan"
           ) {
-            d[i]["colour"] = "Gold";
+            d[i]["colour"] = "Tomato";
           } else if (
             d[i]["parentGroup"] == "Belfast City Council Open Spaces Strategy"
           ) {
@@ -1675,33 +2015,138 @@ $(document).ready(function () {
             d[i]["parentGroup"] ==
             "Protect Life 2 - Suicide Prevention Strategy"
           ) {
-            d[i]["colour"] = "LightGreen";
+            d[i]["colour"] = "DarkSlateBlue";
+          } else if (d[i]["parentGroup"] == "Making Life Better") {
+            d[i]["colour"] = "FireBrick";
+          } else if (
+            d[i]["parentGroup"] == "Belfast Green and Blue Infrastructure Plan"
+          ) {
+            d[i]["colour"] = "MediumSeaGreen";
+          } else if (d[i]["parentGroup"] == "A Bolder Vision for Belfast") {
+            d[i]["colour"] = "Sienna";
           }
+          //Making Life Better A Bolder Vision for Belfast
           //default:   d[i]['colour'] = "Black";
         }
       }
+      //sheet
+
       //legend - Create legend based off passedNodes
-      function legend(d) {
-        var obj = Object.keys(countParentGroupsArray(d)).sort();
-        for (var i = 0; i < obj.length; i++) {
-          var y = height - 1000 + i * 40;
-          svg
-            .append("text")
-            .attr("x", 50)
-            .attr("y", y)
-            .text(obj[i])
-            .style("font-size", "15px")
-            .attr("alignment-baseline", "middle");
-          svg
-            .append("circle")
-            .attr("cx", 25)
-            .attr("cy", y)
-            .attr("r", 15)
-            .style("fill", "White")
-            .style("stroke-width", 5)
-            .style("stroke", getColourByParentGroup(d, obj[i]));
-        }
+      function legend(g, x) {
+        var obj = Object.keys(countParentGroupsArray(x)).sort();
+        var data = d3.range(obj.length).map((d) => ({
+          id: d,
+        }));
+
+        var y = height - 400 + i * 40;
+        g.selectAll()
+          .data(data)
+          .enter()
+          .append("text")
+          .attr("x", width - 400)
+          .attr("y", (d, i) => height - 400 + i * 40)
+          .text((d, i) => obj[i])
+          .style("font-size", "15px")
+          .style("font-family", "Oswald")
+          .attr("alignment-baseline", "middle");
+        g.selectAll()
+          .data(data)
+          .enter()
+          .append("circle")
+          .attr("cx", width - 425)
+          .attr("cy", (d, i) => height - 400 + i * 40)
+          .attr("r", 15)
+          .style("fill", "White")
+          .style("stroke-width", 5)
+          .style("stroke", (d, i) => getColourByParentGroup(x, obj[i]))
+          .on("click", function (d) {
+            d.noFill = d.noFill || false;
+
+            if (!d.noFill) {
+              d3.select(this).style("fill", d3.select(this).style("stroke"));
+              showOnlyFadeGroup(
+                getKeyByValue(groupColours, d3.select(this).style("stroke")),
+                d.noFill
+              );
+            } else {
+              d3.select(this).style("fill", "white");
+              showOnlyFadeGroup(
+                getKeyByValue(groupColours, d3.select(this).style("stroke")),
+                d.noFill
+              );
+            }
+            d.noFill = !d.noFill;
+          });
       }
+
+      //highlightStrandList
+      var noFill = true;
+      function highlightStrandList(g) {
+        var data = d3.range(countProperties(highlightObject)).map((d) => ({
+          id: d,
+        }));
+
+        g.selectAll()
+          .data(data)
+          .enter()
+          .append("text")
+          .attr("x", width - 600)
+          .attr("y", (d, i) => height - 400 + i * 40)
+          .text((d, i) =>
+            getKeyByValue(
+              highlightObject,
+              highlightObject[Object.keys(highlightObject)[i]]
+            )
+          )
+          .style("font-size", "15px")
+          .style("font-family", "Oswald")
+          .attr("alignment-baseline", "middle");
+        g.selectAll()
+          .data(data)
+          .enter()
+          .append("circle")
+          .attr("class", "highlight")
+          .attr("cx", width - 625)
+          .attr("cy", (d, i) => height - 400 + i * 40)
+          .attr("r", 15)
+          .style("fill", "White")
+          .style("stroke-width", 5)
+          .style(
+            "stroke",
+            (d, i) => highlightObject[Object.keys(highlightObject)[i]]
+          )
+          .on("click", function (d) {
+            d.noFill = d.noFill || false;
+            console.log(d);
+            if (!d.noFill) {
+              highlightStore[d.id] = !d.noFill;
+              console.log(highlightStore);
+              d3.select(this).style("fill", d3.select(this).style("stroke"));
+              showOnlyFade(
+                getKeyByValue(highlightObject, d3.select(this).style("stroke")),
+                d.noFill,
+                d.id
+              );
+            } else {
+              highlightStore[d.id] = !d.noFill;
+              console.log(highlightStore);
+              d3.select(this).style("fill", "white");
+              showOnlyFade(
+                getKeyByValue(highlightObject, d3.select(this).style("stroke")),
+                // d.noFill
+                d.noFill,
+                d.id
+              );
+            }
+            d.noFill = !d.noFill;
+          });
+      }
+
+      //getKeyByValue
+      function getKeyByValue(object, value) {
+        return Object.keys(object).find((key) => object[key] === value);
+      }
+
       //typeToRadius - Go through nodes and assign a raidus based on type (Child/Parent)
       function typeToRadius(d) {
         for (var i = 0; i < d.length; i++) {
@@ -1713,7 +2158,31 @@ $(document).ready(function () {
         }
       }
 
-      //createParentArray - find all parentNodes nad put those nodes in an array
+      //fakelinks
+      function fakeLinks(d) {
+        for (var i = 0; i < d.nodes.length - 1; i++) {
+          var element = { source: "", target: "" };
+          element.source = d.nodes[i].id;
+          element.target = d.nodes[i + 1].id;
+          //console.log
+          //element;
+          d.links.push(element);
+        }
+      }
+
+      //shuffle
+      function shuffle(a) {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+          j = Math.floor(Math.random() * (i + 1));
+          x = a[i];
+          a[i] = a[j];
+          a[j] = x;
+        }
+        return a;
+      }
+
+      //createParentArray - find all parentNodes and put those nodes in an array
       function createParentArray(d) {
         var obj = countParents(d);
         var arr = Array(countParents(d));
@@ -1758,14 +2227,16 @@ $(document).ready(function () {
           showGroup(json, temp, pG);
           create(temp);
           originalPass = pass;
-          console.log(originalPass);
+          ////////console.log
+(originalPass);
         }
 
         //Odd clicks do...
         //TODO: needs to clear the temp nodes and pass in the orignal model
         else {
           originalPass = originalPass;
-          console.log(originalPass);
+          ////////console.log
+(originalPass);
           create(originalPass);
         }
 
@@ -1775,36 +2246,138 @@ $(document).ready(function () {
       //showOnlyFade - fade out anything that isn't the pG (parentGroup)
       var showOnlyFadeClicks;
 
-      function showOnlyFade(pG) {
-        if (typeof showOnlyFadeClicks == "undefined") {
+      function showOnlyFade(pG, flag, id) {
+        /*if (typeof showOnlyFadeClicks == "undefined") {
           showOnlyFadeClicks = 0;
-        }
-        //console.log(showOnlyFadeClicks);
+        }*/
+        //////////console.log
+        // showOnlyFadeClicks;
 
-        d3.selectAll("circle")
+        d3.select(".nodes")
+          // .append("svg")
+          .selectAll("circle")
           .transition()
           .duration(500)
           .style("opacity", function (d) {
-            if (showOnlyFadeClicks % 2 == 0) {
-              if (typeof d != "undefined" && d.parentGroup != pG) {
-                return 0.1;
+            for (var i = 0; i < highlightStore.length; i++) {
+              if (highlightStore[i] == true) {
+                //if (!flag) {
+
+                if (
+                  typeof d != "undefined" &&
+                  //  (d.description.includes(pG) ||
+                  // !d.description.includes(pG.toLowerCase()) )
+                  !d.description.includes(
+                    getKeyByValue(
+                      highlightObject,
+                      highlightObject[Object.keys(highlightObject)[i]]
+                    ).toLowerCase()
+                  )
+                ) {
+                  highlightStore[id] = !flag;
+                  console.log(highlightStore);
+                  return 0.2;
+                }
+              } else {
+                highlightStore[id] = !flag;
+                console.log(highlightStore);
+                return 1;
+              }
+            }
+          });
+        d3.select(".nodes")
+          .selectAll("text")
+          .transition()
+          .duration(500)
+          .style("opacity", function (d) {
+            // if (showOnlyFadeClicks % 2 == 0) {
+            console.log(highlightStore);
+            if (highlightStore[i] == true) {
+              //if (!flag) {
+              console.log(d);
+              console.log(
+                getKeyByValue(
+                  highlightObject,
+                  highlightObject[Object.keys(highlightObject)[i]]
+                ).toLowerCase()
+              );
+              if (
+                typeof d != "undefined" &&
+                //  (d.description.includes(pG) ||
+                !d.description.includes(
+                  getKeyByValue(
+                    highlightObject,
+                    highlightObject[Object.keys(highlightObject)[i]]
+                  ).toLowerCase()
+                )
+              ) {
+                console.log("success");
+                return 0.2;
               }
             } else {
+              console.log("failure");
               return 1;
             }
           });
-        d3.selectAll("text")
+        d3.selectAll("path")
+          .transition()
+          .duration(500)
+          .style("opacity", function () {
+            //  if (showOnlyFadeClicks % 2 == 0) {
+            if (highlightStore[i] == true) {
+              // if (!flag) {
+              return 0;
+            } else {
+              return 0.5;
+            }
+          });
+      }
+
+      //showOnlyFadeParentGroup
+      function showOnlyFadeGroup(pG, flag) {
+        if (typeof showOnlyFadeClicks == "undefined") {
+          showOnlyFadeClicks = 0;
+        }
+        //////////console.log
+        // showOnlyFadeClicks;
+
+        d3.select(".nodes")
+          .selectAll("circle")
           .transition()
           .duration(500)
           .style("opacity", function (d) {
-            if (showOnlyFadeClicks % 2 == 0) {
-              if (typeof d != "undefined" && d.parentGroup != pG) {
+            if (!flag) {
+              if (typeof d != "undefined" && !d.parentGroup.includes(pG)) {
                 return 0.2;
               }
             } else {
               return 1;
             }
           });
+        d3.select(".nodes")
+          .selectAll("text")
+          .transition()
+          .duration(500)
+          .style("opacity", function (d) {
+            if (!flag) {
+              if (typeof d != "undefined" && !d.parentGroup.includes(pG)) {
+                return 0.2;
+              }
+            } else {
+              return 1;
+            }
+          });
+        d3.selectAll("path")
+          .transition()
+          .duration(500)
+          .style("opacity", function () {
+            if (!flag) {
+              return 0;
+            } else {
+              return 0.5;
+            }
+          });
+
         showOnlyFadeClicks++;
       }
 
@@ -1840,6 +2413,48 @@ $(document).ready(function () {
         }
       }
 
+      function showGroupFoyle(data, pass) {
+        var pg1 = "UN Sustainable Development Goals",
+          pg2 =
+            "Derry City & Strabane District’s Inclusive Strategic Growth Plan",
+          pg3 = "Protect Life 2 - Suicide Prevention Strategy",
+          pg4 = "Making Life Better",
+          pg5 = "Programme for Government";
+        for (var i = 0; i < pass.nodes.length; i++) {
+          for (var j = 0; j < data.links.length; j++) {
+            for (var k = 0; k < data.nodes.length; k++) {
+              if (pass.nodes[i].id == data.links[j].source) {
+                if (
+                  data.nodes[k].id == data.links[j].target &&
+                  (pg1 == data.nodes[k].parentGroup ||
+                    pg2 == data.nodes[k].parentGroup ||
+                    pg3 == data.nodes[k].parentGroup ||
+                    pg4 == data.nodes[k].parentGroup ||
+                    pg5 == data.nodes[k].parentGroup)
+                ) {
+                  if (!pass.nodes.some((item) => item === data.nodes[k])) {
+                    pass.nodes.push(data.nodes[k]);
+                  }
+                }
+              } else if (pass.nodes[i].id == data.links[j].target) {
+                if (
+                  data.nodes[k].id == data.links[j].source &&
+                  (pg1 == data.nodes[k].parentGroup ||
+                    pg2 == data.nodes[k].parentGroup ||
+                    pg3 == data.nodes[k].parentGroup ||
+                    pg4 == data.nodes[k].parentGroup ||
+                    pg5 == data.nodes[k].parentGroup)
+                ) {
+                  if (!pass.nodes.some((item) => item === data.nodes[k])) {
+                    pass.nodes.push(data.nodes[k]);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
       //removeOrphans - remove any child nodes that don't have a parent
       function removeOrphans(d) {
         for (var i = 0; i < d.length; i++) {
@@ -1849,7 +2464,40 @@ $(document).ready(function () {
         }
       }
 
+      //removeSpecOrphans - remove any child nodes that don't have a parent
+      function removeSpecOrphans(pass, d) {
+        //for (let node of pass.nodes) {
+        // ////////console.log
+        "pass.node", pass.nodes;
+        for (var i = pass.nodes.length - 1; i > 0; i--) {
+          // ////////console.log
+          //  node;
+          if (pass.nodes[i].type == "Child") {
+            var node = pass.nodes[i];
+            ////////console.log
+            // node;
+            var child = node.id.match(/([a-z]*)([\w.]+)/i);
+            var parent = d.id.match(/([a-z]*)([\w.]+)/i);
+            ////////console.log
+            // "parent", parent;
+            ////////console.log
+            //  "child", child;
+
+            if (
+              node.parentGroup == d.parentGroup &&
+              Math.floor(parseInt(child[2])) == parseInt(parent[2]) &&
+              node.type == "Child"
+            ) {
+              const index = pass.nodes.indexOf(node);
+              pass.nodes.splice(index, 1);
+            }
+          }
+        }
+        // }
+      }
       //addParents - if a child node is selected in search, add it's parent also
+
+      //!Exceptions: PFG
       function addParents(pass, data) {
         for (var i = 0; i < pass.length; i++) {
           if (pass[i].type == "Child" && pass[i].clusterIndex == null) {
@@ -1859,10 +2507,32 @@ $(document).ready(function () {
               if (
                 pass[i]["parentGroup"] == data[j]["parentGroup"] &&
                 Math.floor(parseInt(child[2])) == parseInt(parent[2]) &&
-                data[j].type == "Parent"
+                data[j].type == "Parent" &&
+                data[j].parentGroup != "Programme for Government"
               ) {
                 if (!checkPassHasNode(pass, data[j].id)) {
                   pass.push(data[j]);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      //addChildren -
+      function addChildren(pass, data, pG) {
+        for (let passNode of pass.nodes) {
+          if (passNode.parentGroup == pG && passNode.type == "Parent") {
+            for (let dataNode of data.nodes) {
+              var child = dataNode.id.match(/([a-z]*)([\w.]+)/i);
+              var parent = passNode.id.match(/([a-z]*)([\w.]+)/i);
+              if (
+                passNode.parentGroup == dataNode.parentGroup &&
+                Math.floor(parseInt(child[2])) == parseInt(parent[2]) &&
+                dataNode.type == "Child"
+              ) {
+                if (!checkPassHasNode(pass.nodes, dataNode.id)) {
+                  pass.nodes.push(dataNode);
                 }
               }
             }
@@ -1874,7 +2544,7 @@ $(document).ready(function () {
       //removeDups - remove any duplicate links that exist
       function removeDups(myArray) {
         myArray.sort();
-        for (var i = 1; i < myArray.length;) {
+        for (var i = 1; i < myArray.length; ) {
           if (
             myArray[i - 1].source === myArray[i].source &&
             myArray[i - 1].target === myArray[i].target
@@ -1887,35 +2557,82 @@ $(document).ready(function () {
         return myArray;
       }
 
+      //removeDups - remove any duplicate links that exist
+      function getUnique(arr) {
+        let newArray = [];
+
+        // Declare an empty object
+        let uniqueObject = {};
+
+        // Loop for the array elements
+        for (let i in arr) {
+          // Extract the title
+          id = arr[i]["id"];
+
+          // Use the title as the index
+          uniqueObject[id] = arr[i];
+        }
+
+        // Loop to push unique object into array
+        for (i in uniqueObject) {
+          newArray.push(uniqueObject[i]);
+        }
+        return newArray;
+      }
+
       //isolate - looks at current nodes and creates new model with nodes of a certain parentGroup
       //! - changing this completely as per 10/08/20
       function isolate(pass, pG) {
         temp = {
           nodes: [],
-          links: []
+          links: [],
         };
         for (var i = 0; i < pass.nodes.length; i++) {
           if (pass.nodes[i].parentGroup == pG) {
             temp.nodes.push(pass.nodes[i]);
           }
         }
-        //console.log(temp);
+        //////////console.log
+        //temp;
         return temp;
       }
 
       //removeLinksBetweenSameGroup - if there exists links between nodes of the same parentGroup, remove them
       function removeLinksBetweenSameGroup(pass) {
         for (var i = pass.links.length - 1; i >= 0; i--) {
-          //////console.log(getNodeGroup(pass.nodes,pass.links[i].source));
-          ////console.log(getNodeGroup(pass.nodes,pass.links[i].target));
+          //////////////console.log
+          // getNodeGroup(pass.nodes, pass.links[i].source);
+          ////////////console.log
+          // getNodeGroup(pass.nodes, pass.links[i].target);
           if (
             getNodeGroup(pass.nodes, pass.links[i].source) ==
             getNodeGroup(pass.nodes, pass.links[i].target)
           ) {
-            //console.log("dlinks[i]", pass.links[i]);
+            //////////console.log
+            // "dlinks[i]", pass.links[i];
             pass.links.splice(i, 1);
           }
         }
+      }
+
+      //removeChildLinks
+      function removeChildLinks(pass) {
+        var id, index;
+        //for (let node of pass.nodes) {
+        //if (node.type == "Child") {
+        //id = node.id, index = pass.links.indexOf(id);
+        for (var i = pass.links.length - 1; i >= 0; i--) {
+          for (let node of pass.nodes) {
+            //  id = pass.links.target;
+            if (node.id == pass.links.target && node.type == "Child") {
+              pass.links.splice(i, 1);
+            } else if (node.id == pass.links.source && node.type == "Child") {
+              pass.links.splice(i, 1);
+            }
+          }
+        }
+        // }
+        // }
       }
 
       //pointChildToParent - give child a clusterIndex which points to its parent in the clusters array
@@ -1933,6 +2650,17 @@ $(document).ready(function () {
               d[j]["clusterIndex"] = i;
             } else {
               childArr[i] = 0;
+            }
+          }
+        }
+      }
+
+      //assignParentClusterIndex()
+      function assignParentClusterIndex(d, clusters) {
+        for (let node of d) {
+          for (let c of clusters) {
+            if (node.id == c.id) {
+              node.clusterIndex = clusters.indexOf(c);
             }
           }
         }
@@ -1986,6 +2714,14 @@ $(document).ready(function () {
         }
         return countProperties(counts);
       }
+      //countGroupsArray - returns an array of all the groups in the selected nodes
+      function countGroupsArray(d) {
+        var counts = {};
+        for (var i = 0; i < d.length; i++) {
+          counts[d[i]["group"]] = 1 + (counts[d[i]["group"]] || 0);
+        }
+        return counts;
+      }
 
       //countParentGroups - returns the number of parentGroups in the selected nodes
       function countParentGroups(d) {
@@ -1993,15 +2729,165 @@ $(document).ready(function () {
         for (var i = 0; i < d.length; i++) {
           counts[d[i]["parentGroup"]] = 1 + (counts[d[i]["parentGroup"]] || 0);
         }
+
         return countProperties(counts);
       }
+      //sortByDigits
+      function sortByDigits(array) {
+        var re = /\D/g;
 
-      //countParentGroupsArray - returns an array of all the groups in the selected nodes
+        array.sort(function (a, b) {
+          return (
+            parseInt(a.replace(re, ""), 10) - parseInt(b.replace(re, ""), 10)
+          );
+        });
+        return array;
+      }
+
+      //sortArray - custom sort
+      function sortArray(arr) {
+        var tempArr = [],
+          n;
+        for (var i in arr) {
+          tempArr[i] = arr[i].match(/([^0-9]+)|([0-9]+)/g);
+          for (var j in tempArr[i]) {
+            if (!isNaN((n = parseInt(tempArr[i][j])))) {
+              tempArr[i][j] = n;
+            }
+          }
+        }
+        tempArr.sort(function (x, y) {
+          for (var i in x) {
+            if (y.length < i || x[i] < y[i]) {
+              return -1; // x is longer
+            }
+            if (x[i] > y[i]) {
+              return 1;
+            }
+          }
+          return 0;
+        });
+        for (var i in tempArr) {
+          arr[i] = tempArr[i].join("");
+        }
+        return arr;
+      }
+
+      //sortTitleIndicatorsToTop - simple bubble sort for bring 1. above 1.1 in array as above sort puts below
+      function sortTitleIndicatorsToTop(arr) {
+        var s1, s2, n1, n2;
+        for (var i = 0; i < arr.length; i++) {
+          for (var j = 0; j < arr.length; j++) {
+            if (j < arr.length - 1) {
+              (s1 = arr[j].substring(0, 4)),
+                (s2 = arr[j + 1].substring(0, 4)),
+                (n1 = s1.search(/\d[.]\s/g)),
+                (n2 = s2.search(/\d[.]\s/g));
+
+              if (
+                n2 >= 0 &&
+                n1 < 0 // &&
+                //arr[j].substring(0, 1) === arr[j + 1].substring(0, 1) //can take this line out if we prefer
+              ) {
+                let tmp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = tmp;
+              }
+            }
+          }
+        }
+        return arr;
+      }
+      //stringSimularity
+      function stringSimilarity(s1, s2) {
+        var longer = s1;
+        var shorter = s2;
+        if (s1.length < s2.length) {
+          longer = s2;
+          shorter = s1;
+        }
+        var longerLength = longer.length;
+        if (longerLength == 0) {
+          return 1.0;
+        }
+        return (
+          (longerLength - editDistance(longer, shorter)) /
+          parseFloat(longerLength)
+        );
+      }
+
+      //editDistance
+
+      function editDistance(s1, s2) {
+        s1 = s1.toLowerCase();
+        s2 = s2.toLowerCase();
+
+        var costs = new Array();
+        for (var i = 0; i <= s1.length; i++) {
+          var lastValue = i;
+          for (var j = 0; j <= s2.length; j++) {
+            if (i == 0) costs[j] = j;
+            else {
+              if (j > 0) {
+                var newValue = costs[j - 1];
+                if (s1.charAt(i - 1) != s2.charAt(j - 1))
+                  newValue =
+                    Math.min(Math.min(newValue, lastValue), costs[j]) + 1;
+                costs[j - 1] = lastValue;
+                lastValue = newValue;
+              }
+            }
+          }
+          if (i > 0) costs[s2.length] = lastValue;
+        }
+        return costs[s2.length];
+      }
+
+      //getDescription
+      function getDescription(d) {
+        var descArray = [];
+        var tempArray = [];
+        var obj = Object.keys(countGroupsArray(d)).sort();
+        for (var i = 0; i < obj.length; i++) {
+          descArray.push([]);
+
+          for (var j = 0; j < d.length; j++) {
+            if (d[j].group == obj[i]) {
+              // console.log(obj[i]);
+              var child = d[j].id.match(/([a-z]*)([\w.]+)/i);
+
+              descArray[i].push(child[2] + ". " + d[j].description);
+            }
+          }
+          sortArray(descArray[i]);
+          sortTitleIndicatorsToTop(descArray[i]);
+
+          //test//
+        }
+
+        return descArray;
+      }
+      //getParentGroupArray = returns an array of parent groups
+      function getParentGroupArray(d) {
+        var arr = [];
+        var noParents = countParents(d);
+        for (var j = 0; j < noParents; ) {
+          for (var i = 0; i < d.length; i++) {
+            if (!arr.includes(d[i].parentGroup)) {
+              arr[j] = d[i].parentGroup;
+              j++;
+            }
+          }
+        }
+        return arr;
+      }
+      //countParentGroupsArray - returns an object of all the groups in the selected nodes
       function countParentGroupsArray(d) {
         var counts = {};
         for (var i = 0; i < d.length; i++) {
           counts[d[i]["parentGroup"]] = 1 + (counts[d[i]["parentGroup"]] || 0);
         }
+
         return counts;
       }
       //countParents - returns the number of nodes of type Parent in the selected nodes
@@ -2049,11 +2935,11 @@ $(document).ready(function () {
             for (var k = 0; k < allData.links.length; k++) {
               var linkToPush = {
                 source: "",
-                target: ""
+                target: "",
               };
               var reverseLink = {
                 source: "",
-                target: ""
+                target: "",
               };
               var pass = jsonData.nodes;
               var passLinks = jsonData.links;
@@ -2074,7 +2960,7 @@ $(document).ready(function () {
                   var contains = false;
                   if (
                     JSON.stringify(passLinks[l]) !=
-                    JSON.stringify(linkToPush) &&
+                      JSON.stringify(linkToPush) &&
                     JSON.stringify(passLinks[l]) != JSON.stringify(reverseLink)
                   ) {
                     contains = true;
@@ -2098,7 +2984,7 @@ $(document).ready(function () {
                   var contains = false;
                   if (
                     JSON.stringify(passLinks[l]) !=
-                    JSON.stringify(linkToPush) &&
+                      JSON.stringify(linkToPush) &&
                     JSON.stringify(passLinks[l]) != JSON.stringify(reverseLink)
                   ) {
                     contains = true;
@@ -2122,7 +3008,7 @@ $(document).ready(function () {
                   var contains = false;
                   if (
                     JSON.stringify(passLinks[l]) !=
-                    JSON.stringify(linkToPush) &&
+                      JSON.stringify(linkToPush) &&
                     JSON.stringify(passLinks[l]) != JSON.stringify(reverseLink)
                   ) {
                     contains = true;
@@ -2146,7 +3032,7 @@ $(document).ready(function () {
                   var contains = false;
                   if (
                     JSON.stringify(passLinks[l]) !=
-                    JSON.stringify(linkToPush) &&
+                      JSON.stringify(linkToPush) &&
                     JSON.stringify(passLinks[l]) != JSON.stringify(reverseLink)
                   ) {
                     contains = true;

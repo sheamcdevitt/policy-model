@@ -41,7 +41,7 @@
       TODO: Niall can you have a look to see how this might be fixed 
       <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">-->
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/jquery-stack-menu.css" />
+    <link rel="stylesheet" href="css/jquery-stack-menu.css" type="text/css"/>
     <link rel="stylesheet" href="css/d3-context-menu.css" />
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKR3RYTibZwlPfntvwKz44Yy1oxQ1m9f0&callback=initAutocomplete&libraries=places&v=weekly"
@@ -315,7 +315,9 @@
                             <input type="text" name="search" id="search" placeholder="Search Policies"
                                 class="form-control" />
                             <span class="input-group-append">
-                                <a href="#create-model-btn" id="CreateModel" class="btn btn-primary">Create Model</a>
+                                <button id="CreateModel" class="btn btn-primary">Create Model</button>
+                                <button id="SendModel" class="btn btn-primary">Send Model</button>
+                               
                             </span>
                         </div>
                     </div>

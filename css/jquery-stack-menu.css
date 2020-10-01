@@ -10,7 +10,7 @@
 }
 
 .stack-menu--active {
-  display: block;
+  display: block; 
 }
 
 .stack-menu__list {

@@ -52,7 +52,6 @@
 		if(isset($_POST['pass']))
 		{
 			$modelData = $_POST['pass'];//$modelData = '{"nodes":[],"links":[]}';
-			
 			// Do whatever you want with the $uid
 		}
 		

@@ -28,26 +28,26 @@ var menu = [{
 
 //js to retrieve checked boxes and add to array
 window.onload=function(){
-  var checkboxes = document.querySelectorAll("input[type=checkbox]");
-  var submit = document.getElementById("submit");
-  
-  function getCheckedValue() {
-    var checked = [];
-  
-    for (var i = 0; i < checkboxes.length; i++) {
-      var checkbox = checkboxes[i];
-      if (checkbox.checked) checked.push(checkbox.value);
-    }
-  
-    return checked;
+ var checkboxes = document.querySelectorAll("input[type=checkbox]");
+var submit = document.getElementById("submit");
+
+function getCheckedValue() {
+  var checked = [];
+
+  for (var i = 0; i < checkboxes.length; i++) {
+    var checkbox = checkboxes[i];
+    if (checkbox.checked) checked.push(checkbox.value);
   }
-  
-  
-  submit.addEventListener("click", function() {
-    var checked = getCheckedValue();
-    console.log(checked);
-  });
-  
+
+  return checked;
+}
+
+
+submit.addEventListener("click", function() {
+  var checked = getCheckedValue();
+  console.log(checked);
+});
+
 }
 
 

@@ -239,8 +239,8 @@
     <!--Show only Buttons
   <button id="Foyle Groups" class="btn btn-primary">
     <span class="glyphicon glyphicon-pencil pr-4" aria-hidden="true"></span>Show Foyle Links</button>-->
-    <!-- <button id="FoyleAware" class="btn btn-primary">
-        <span class="glyphicon glyphicon-pencil pr-4" aria-hidden="true"></span>Westlink</button> -->
+    <button id="FoyleAware" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil pr-4" aria-hidden="true"></span>Westlink</button>
 
 
     <!-- <button id="Education" class="btn btn-primary">
@@ -1099,7 +1099,6 @@
 
 
 <script>
-$('#question-modal').modal(options)
 
 
 

@@ -3,7 +3,10 @@ var jsonToPass = {
   nodes: [],
   links: [],
 };
-var modelData = { nodes: [], links: [] };
+var modelData = {
+  nodes: [],
+  links: []
+};
 var zoomLevel = 1,
   panX = 0,
   panY = 0,
@@ -11,8 +14,7 @@ var zoomLevel = 1,
   descClickId;
 
 //Todo need to brainstorm ideas what to do here but plenty of ideas
-var menu = [
-  {
+var menu = [{
     title: "Info",
     action: function (elm, d, i) {},
   },
@@ -21,6 +23,37 @@ var menu = [
     action: function (elm, d, i) {},
   },
 ];
+
+
+
+//js to retrieve checked boxes and add to array
+window.onload=function(){
+  var checkboxes = document.querySelectorAll("input[type=checkbox]");
+  var submit = document.getElementById("submit");
+  
+  function getCheckedValue() {
+    var checked = [];
+  
+    for (var i = 0; i < checkboxes.length; i++) {
+      var checkbox = checkboxes[i];
+      if (checkbox.checked) checked.push(checkbox.value);
+    }
+  
+    return checked;
+  }
+  
+  
+  submit.addEventListener("click", function() {
+    var checked = getCheckedValue();
+    console.log(checked);
+  });
+  
+}
+
+
+
+
+
 
 var originalPass;
 //Array for all the policies websites
@@ -70,12 +103,12 @@ $(document).ready(function () {
         ) {
           $("#result").append(
             '<li class="list-group-item link-class result-li">' +
-              value.group +
-              ' | <span class="text-muted">' +
-              value.description +
-              '<style = "visibility:hidden;"> | *' +
-              value.id +
-              "  "
+            value.group +
+            ' | <span class="text-muted">' +
+            value.description +
+            '<style = "visibility:hidden;"> | *' +
+            value.id +
+            "  "
           );
         }
 
@@ -131,8 +164,8 @@ $(document).ready(function () {
         width = svg.property("viewBox").baseVal.width,
         height = svg.property("viewBox").baseVal.height;
       (padding = 15), // separation between same-color circles
-        (clusterPadding = 60), // separation between different-color circles
-        (maxRadius = 55);
+      (clusterPadding = 60), // separation between different-color circles
+      (maxRadius = 55);
 
       // Put the svg into an image tag so that the Canvas element can read it in.
 
@@ -150,6 +183,31 @@ $(document).ready(function () {
           links: [],
         };
       };
+
+
+    // modelDataSend = create(pass)
+     modelDataToSend = JSON.stringify(modelData);
+
+     //testing it with seperate button submit & click
+ 
+        $('#SendModel').one('click', function () {
+          $.ajax({
+            method: "POST",
+            url: "add.php",
+            data: { "pass" : modelDataToSend 
+
+          },
+          
+            success: function () {
+              alert(modelDataToSend);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+              console.log("unsuccessful");
+            }
+          });
+        });
+
+
 
       //create function: holds all functions for creating model
       function create(pass) {
@@ -680,9 +738,9 @@ $(document).ready(function () {
               var descArray = getDescription(pass.nodes);
               // console.log("desc", descArray);
               var descriptions = svg
-                  .append("g")
-                  .attr("class", "text")
-                  .style("pointer-events", "auto"),
+                .append("g")
+                .attr("class", "text")
+                .style("pointer-events", "auto"),
                 output;
 
               var y = 40;
@@ -738,9 +796,9 @@ $(document).ready(function () {
                         var final;
                         //  console.log("dTrue", toCheck);
                         //  console.log("clicked", d3.select(this).text());
-                        final = d3.select(this).text().includes(toCheck)
-                          ? toCheck
-                          : toCheck + " " + d3.select(this).text();
+                        final = d3.select(this).text().includes(toCheck) ?
+                          toCheck :
+                          toCheck + " " + d3.select(this).text();
                         // console.log("final", final);
                         var nodeToDelete;
 
@@ -883,7 +941,9 @@ $(document).ready(function () {
             Oy = 100;
           var regionArray;
           if (countParentGroups(pass.nodes) == 1) {
-            regionArray = [[Ox, Oy, w - 100, h - 100]];
+            regionArray = [
+              [Ox, Oy, w - 100, h - 100]
+            ];
           } else if (countParentGroups(pass.nodes) == 2) {
             regionArray = [
               [Ox, Oy, w / 2 - 50, h - 100],
@@ -960,12 +1020,12 @@ $(document).ready(function () {
             .force(
               "link",
               d3
-                .forceLink()
-                .id(function (d) {
-                  return d.id;
-                })
-                .strength(0)
-                .distance(500)
+              .forceLink()
+              .id(function (d) {
+                return d.id;
+              })
+              .strength(0)
+              .distance(500)
             )
             //Charge - replusion/attraction between individual nodes
             .force(
@@ -983,23 +1043,23 @@ $(document).ready(function () {
             .force(
               "attract",
               d3
-                .forceAttract()
-                .target([(2 * width) / 3, height / 2])
-                .strength(0.6)
+              .forceAttract()
+              .target([(2 * width) / 3, height / 2])
+              .strength(0.6)
             )
             //Collision - collision between individual nodes
             .force(
               "collision",
               d3
-                .forceCollide()
-                .radius(function (fn) {
-                  //if (fn.type == "Parent") {
-                  //  return checkNodeHasChild(fn, pass.nodes);
-                  // } else {
-                  return 1.5 * fn.radius;
-                  //  }
-                })
-                .strength(0.8)
+              .forceCollide()
+              .radius(function (fn) {
+                //if (fn.type == "Parent") {
+                //  return checkNodeHasChild(fn, pass.nodes);
+                // } else {
+                return 1.5 * fn.radius;
+                //  }
+              })
+              .strength(0.8)
             )
             // .force("collide", collide)
             //Set where nodes will be attracted to on the y axis
@@ -1007,16 +1067,16 @@ $(document).ready(function () {
             .force(
               "y",
               d3
-                .forceY(function (fn) {
-                  for (let node of pass.nodes) {
-                    for (var j = 0; j < countParentGroups(pass.nodes); j++) {
-                      if (fn.parentGroup == obj[j]) {
-                        return regionArray[j][1];
-                      }
+              .forceY(function (fn) {
+                for (let node of pass.nodes) {
+                  for (var j = 0; j < countParentGroups(pass.nodes); j++) {
+                    if (fn.parentGroup == obj[j]) {
+                      return regionArray[j][1];
                     }
                   }
-                })
-                .strength(0.7)
+                }
+              })
+              .strength(0.7)
             )
             //Set where nodes will be attracted to on the x axis
             //Different groups will have differnt x values
@@ -1024,16 +1084,16 @@ $(document).ready(function () {
             .force(
               "x",
               d3
-                .forceX(function (fn) {
-                  for (let node of pass.nodes) {
-                    for (var j = 0; j < countParentGroups(pass.nodes); j++) {
-                      if (fn.parentGroup == obj[j]) {
-                        return regionArray[j][0];
-                      }
+              .forceX(function (fn) {
+                for (let node of pass.nodes) {
+                  for (var j = 0; j < countParentGroups(pass.nodes); j++) {
+                    if (fn.parentGroup == obj[j]) {
+                      return regionArray[j][0];
                     }
                   }
-                })
-                .strength(0.7)
+                }
+              })
+              .strength(0.7)
             )
             //! probably need to remove as does same as attract but...
             //TODO ... need to read documentation and see difference (will keep for now)
@@ -1045,15 +1105,15 @@ $(document).ready(function () {
               "cluster",
               //clustering
               d3
-                .forceCluster()
-                .centers(function (d) {
-                  //Check node is a child
-                  if (d.type == "Child") {
-                    return clusters[d.clusterIndex];
-                  }
-                })
-                .strength(1)
-                .centerInertia(1.0)
+              .forceCluster()
+              .centers(function (d) {
+                //Check node is a child
+                if (d.type == "Child") {
+                  return clusters[d.clusterIndex];
+                }
+              })
+              .strength(1)
+              .centerInertia(1.0)
             );
           // .stop()
           //.alphaDecay(0.05);
@@ -1087,61 +1147,62 @@ $(document).ready(function () {
           var path = //g
             //.append("g")
             g_links
-              .selectAll("path")
-              .data(pass.links)
-              .enter()
-              .append("path")
-              .attr("class", function (d) {
-                return "link " + d.type;
-              })
-              .style("fill", "None")
-              .style("stroke-width", ".5") //!Keeping here in case I come back to it //Mouseover functions //TODO brainstorm ideas with team if they need mouse over function or what that would show
-              .style("stroke", function (fn) {
-                if (
-                  getNodeType(pass.nodes, fn.source) == "Parent" &&
-                  getNodeType(pass.nodes, fn.target) == "Parent"
-                ) {
-                  var gradient = defs
-                    .append("linearGradient")
-                    .attr("id", getGradID(fn))
-                    .attr("x1", "0%") // getNodePosition(pass.nodes, fn.source, true))
-                    .attr("x2", "100%") // getNodePosition(pass.nodes, fn.target, true))
-                    .attr("y1", "0%") // getNodePosition(pass.nodes, fn.source, false))
-                    .attr("y2", "100"); // getNodePosition(pass.nodes, fn.target, false));
+            .selectAll("path")
+            .data(pass.links)
+            .enter()
+            .append("path")
+            .attr("class", function (d) {
+              return "link " + d.type;
+            })
+            .style("fill", "None")
+            .style("stroke-width", ".5") //!Keeping here in case I come back to it //Mouseover functions //TODO brainstorm ideas with team if they need mouse over function or what that would show
+            .style("stroke", function (fn) {
+              if (
+                getNodeType(pass.nodes, fn.source) == "Parent" &&
+                getNodeType(pass.nodes, fn.target) == "Parent"
+              ) {
+                var gradient = defs
+                  .append("linearGradient")
+                  .attr("id", getGradID(fn))
+                  .attr("x1", "0%") // getNodePosition(pass.nodes, fn.source, true))
+                  .attr("x2", "100%") // getNodePosition(pass.nodes, fn.target, true))
+                  .attr("y1", "0%") // getNodePosition(pass.nodes, fn.source, false))
+                  .attr("y2", "100"); // getNodePosition(pass.nodes, fn.target, false));
 
-                  d3.select("#" + getGradID(fn))
-                    .append("stop")
-                    .attr("class", "start")
-                    .attr("offset", 0)
-                    .attr("stop-color", getNodeColour(pass.nodes, fn.source)) //getColour(d.source,graph.nodes))
-                    .attr("stop-opacity", 0.4);
-                  ////////console.log
-                  // getNodeColour(pass.nodes, fn.source);
-                  ////////console.log
-                  // getNodeColour(pass.nodes, fn.target);
-                  gradient
-                    .append("stop")
-                    .attr("class", "end")
-                    .attr("offset", 0.5)
-                    .attr("stop-color", getNodeColour(pass.nodes, fn.target)) // getColour(d.target,graph.nodes))
-                    .attr("stop-opacity", 0.4);
-                  return "url(#" + getGradID(fn) + ")";
-                } else {
-                  return null;
-                }
-              }); /*
-            .on("mouseover.tooltip", function (d) {
-              tooltip.transition().duration(300).style("opacity", 0.8);
-            })
-            .on("mouseout.tooltip", function () {
-              tooltip.transition().duration(100).style("opacity", 0);
-            })
-            .on("mouseout.fade", fade(1))
-            .on("mousemove", function () {
-              tooltip
-                .style("left", d3.event.pageX + "px")
-                .style("top", d3.event.pageY + 10 + "px");
-            });*/
+                d3.select("#" + getGradID(fn))
+                  .append("stop")
+                  .attr("class", "start")
+                  .attr("offset", 0)
+                  .attr("stop-color", getNodeColour(pass.nodes, fn.source)) //getColour(d.source,graph.nodes))
+                  .attr("stop-opacity", 0.4);
+                ////////console.log
+                // getNodeColour(pass.nodes, fn.source);
+                ////////console.log
+                // getNodeColour(pass.nodes, fn.target);
+                gradient
+                  .append("stop")
+                  .attr("class", "end")
+                  .attr("offset", 0.5)
+                  .attr("stop-color", getNodeColour(pass.nodes, fn.target)) // getColour(d.target,graph.nodes))
+                  .attr("stop-opacity", 0.4);
+                return "url(#" + getGradID(fn) + ")";
+              } else {
+                return null;
+              }
+            });
+          /*
+                     .on("mouseover.tooltip", function (d) {
+                       tooltip.transition().duration(300).style("opacity", 0.8);
+                     })
+                     .on("mouseout.tooltip", function () {
+                       tooltip.transition().duration(100).style("opacity", 0);
+                     })
+                     .on("mouseout.fade", fade(1))
+                     .on("mousemove", function () {
+                       tooltip
+                         .style("left", d3.event.pageX + "px")
+                         .style("top", d3.event.pageY + 10 + "px");
+                     });*/
           //Gradient function for links
           //TODO: fix
           /*   .style("stroke", function (fn) {
@@ -1194,29 +1255,31 @@ $(document).ready(function () {
             })
             .call(
               d3
-                .drag()
+              .drag()
 
-                .on("start", dragstarted)
-                .on("drag", dragged)
-                .on("end", dragended)
+              .on("start", dragstarted)
+              .on("drag", dragged)
+              .on("end", dragended)
             )
             .on(
-              "dblclick" /*function (d, i) {
-              d3.event.stopPropagation();
-              var data = [];
-              data.push(pass.nodes[i]);
-              console.log(data);
-              this.remove();
-              g_nodes
-                .selectAll("text")
-                .data(data)
-                .exit()
-                .remove(); //);
-              pass.nodes.splice(i, 1);
-              console.log(pass.nodes);
-              // this.attr("text").remove();
-              // force.resume();
-            }) */, //
+              "dblclick"
+              /*function (d, i) {
+                           d3.event.stopPropagation();
+                           var data = [];
+                           data.push(pass.nodes[i]);
+                           console.log(data);
+                           this.remove();
+                           g_nodes
+                             .selectAll("text")
+                             .data(data)
+                             .exit()
+                             .remove(); //);
+                           pass.nodes.splice(i, 1);
+                           console.log(pass.nodes);
+                           // this.attr("text").remove();
+                           // force.resume();
+                         }) */
+              , //
               remove
             )
             // .on("dblclick", function (d) {
@@ -1259,11 +1322,11 @@ $(document).ready(function () {
 
                 //var esArray = strGroup.match(/[^e]s(?!.*[^e]s)/i);
                 strGroup =
-                  strGroup.slice(-1) == "s"
-                    ? strGroup.slice(-2) == "es"
-                      ? strGroup
-                      : strGroup.slice(0, -1)
-                    : strGroup;
+                  strGroup.slice(-1) == "s" ?
+                  strGroup.slice(-2) == "es" ?
+                  strGroup :
+                  strGroup.slice(0, -1) :
+                  strGroup;
 
                 let strDescription = d.description;
                 var strDesLength = strDescription.length;
@@ -1303,28 +1366,29 @@ $(document).ready(function () {
                   .attr("height", bbox.height + 10);
 
                 var boxX =
-                    (d.x + bbox.width + (d.type == "Parent" ? 60 : 30)) *
-                      zoomLevel +
-                    panX,
+                  (d.x + bbox.width + (d.type == "Parent" ? 60 : 30)) *
+                  zoomLevel +
+                  panX,
                   boxY =
-                    (d.y + bbox.height + (d.type == "Parent" ? 60 : 30)) *
-                      zoomLevel +
-                    panY,
+                  (d.y + bbox.height + (d.type == "Parent" ? 60 : 30)) *
+                  zoomLevel +
+                  panY,
                   xPos = d.x * zoomLevel + panX,
                   yPos = d.y * zoomLevel + panY,
                   startOfBox =
-                    /*(d.type == "Parent")?*/ (d.x -
-                      bbox.width -
-                      (d.type == "Parent" ? 60 : 30)) *
-                      zoomLevel +
-                    panX, // : ,
+                  /*(d.type == "Parent")?*/
+                  (d.x -
+                    bbox.width -
+                    (d.type == "Parent" ? 60 : 30)) *
+                  zoomLevel +
+                  panX, // : ,
                   endOfBox = d.x + bbox.width + (d.type == "Parent" ? 60 : 30),
                   topOfBox =
-                    (d.y - bbox.height - (d.type == "Parent" ? 60 : 30)) *
-                      zoomLevel +
-                    panY,
+                  (d.y - bbox.height - (d.type == "Parent" ? 60 : 30)) *
+                  zoomLevel +
+                  panY,
                   bottomOfBox =
-                    d.y + bbox.height + (d.type == "Parent" ? 60 : 30),
+                  d.y + bbox.height + (d.type == "Parent" ? 60 : 30),
                   st = d.x - bbox.width - (d.type == "Parent" ? 60 : 30),
                   end = d.x - (d.type == "Parent" ? 60 : 30),
                   adjHeight = (height - panY) / zoomLevel;
@@ -1333,15 +1397,15 @@ $(document).ready(function () {
                 tip.attr("transform", function () {
                   var x, y;
                   x =
-                    boxX < width
-                      ? d.x + (d.type == "Parent" ? 50 : 20)
-                      : startOfBox > 0
-                      ? d.x - bbox.width - (d.type == "Parent" ? 60 : 30)
-                      : d.x - Math.abs(endOfBox - adjWidth) - 20;
+                    boxX < width ?
+                    d.x + (d.type == "Parent" ? 50 : 20) :
+                    startOfBox > 0 ?
+                    d.x - bbox.width - (d.type == "Parent" ? 60 : 30) :
+                    d.x - Math.abs(endOfBox - adjWidth) - 20;
                   y =
-                    boxY < height
-                      ? d.y + (d.type == "Parent" ? 50 : 20)
-                      : d.y - Math.abs(bottomOfBox - adjHeight) - 20;
+                    boxY < height ?
+                    d.y + (d.type == "Parent" ? 50 : 20) :
+                    d.y - Math.abs(bottomOfBox - adjHeight) - 20;
 
                   return "translate(" + x + "," + y + ")";
                 });
@@ -1465,8 +1529,13 @@ $(document).ready(function () {
           drag_handler(node);
 
           //add zoom capabilities
+
+
+
           var zoom_handler = d3
             .zoom()
+
+
             .on("zoom", zoomActions)
             .scaleExtent([0.5, 3]);
 
@@ -1501,8 +1570,8 @@ $(document).ready(function () {
             g_links.attr("transform", d3.event.transform);
             g_nodes.attr("transform", d3.event.transform);
             (zoomLevel = d3.event.transform.k),
-              (panX = d3.event.transform.x),
-              (panY = d3.event.transform.y);
+            (panX = d3.event.transform.x),
+            (panY = d3.event.transform.y);
             // //console.log
             d3.event.transform;
             //zoomLevel +
@@ -1547,7 +1616,8 @@ $(document).ready(function () {
           // These are implementations of the custom forces.
           function clustering(alpha) {
             // //console.log
-            "Clusters", clusters;
+            "Clusters",
+            clusters;
             pass.nodes.forEach(function (d) {
               var cluster = clusters[d.clusterIndex];
               ////console.log
@@ -1592,11 +1662,11 @@ $(document).ready(function () {
                     y = d.y - quad.data.y,
                     l = Math.sqrt(x * x + y * y),
                     r =
-                      d.r +
-                      quad.data.r +
-                      (d.cluster === quad.data.cluster
-                        ? padding
-                        : clusterPadding);
+                    d.r +
+                    quad.data.r +
+                    (d.cluster === quad.data.cluster ?
+                      padding :
+                      clusterPadding);
                   if (l < r) {
                     l = ((l - r) / l) * alpha;
                     d.x -= x *= l;
@@ -1725,9 +1795,15 @@ $(document).ready(function () {
             showOnlyFade(pG);
           }
 
-          var printArray = { nodes: [] };
+          var printArray = {
+            nodes: []
+          };
           for (let node of pass.nodes) {
-            element = { id: "", group: "", description: "" };
+            element = {
+              id: "",
+              group: "",
+              description: ""
+            };
             element.id = node.id;
             element.group = node.group;
             element.description = node.description;
@@ -1837,30 +1913,43 @@ $(document).ready(function () {
           });
         });*/
         var modelPHP = $("#pass").val();
-        $(document).ready(function () {
-          $.ajax({
-            method: "POST",
-            url: "add.php",
-            dataType: "json",
-            data: pass,
 
-            success: function (data) {
-              alert("success!");
-            },
-          });
-        });
-        /*
+
+
+
+        
+        // $(document).ready(function () {
+        //   $('#CreateModel').one('click', function () {
+        //     $.ajax({
+        //       method: "POST",
+        //       url: "add.php",
+        //       data: {
+        //         'pass': pass
+        //       },
+
+        //       success: function (data) {
+        //         alert("success!");
+        //       },
+        //       error: function (XMLHttpRequest, textStatus, errorThrown) {
+        //         console.log("Achievement SQL unsuccessful");
+        //       }
+        //     });
+        //   });
+        // });
+
         console.log(pass);
-        $.ajax({
-          method: "POST",
-          url: "add.php",
-          dataType: "json",
-          data: { pass: pass },
+        // $.ajax({
+        //   method: "POST",
+        //   url: "add.php",
+        //   dataType: "json",
+        //   data: {
+        //     pass: pass
+        //   },
 
-          success: function (data) {
-            alert("success!");
-          },
-        });*/
+        //   success: function (data) {
+        //     alert("success!");
+        //   },
+        // });
         return pass;
       }
 
@@ -1868,7 +1957,7 @@ $(document).ready(function () {
         modelData.replace("nodes", '"nodes"');
         modelData.replace("links", '"links"');
         var modelPHP = $("#modelData").val();*/
-      var modelData = $(this).attr("pass");
+      // var modelData = $(this).attr("pass");
 
       //linkArc - defines curved path that links should take
       function linkArc(d) {
@@ -2081,6 +2170,7 @@ $(document).ready(function () {
 
       //highlightStrandList
       var noFill = true;
+
       function highlightStrandList(g) {
         var data = d3.range(countProperties(highlightObject)).map((d) => ({
           id: d,
@@ -2161,7 +2251,10 @@ $(document).ready(function () {
       //fakelinks
       function fakeLinks(d) {
         for (var i = 0; i < d.nodes.length - 1; i++) {
-          var element = { source: "", target: "" };
+          var element = {
+            source: "",
+            target: ""
+          };
           element.source = d.nodes[i].id;
           element.target = d.nodes[i + 1].id;
           //console.log
@@ -2416,7 +2509,7 @@ $(document).ready(function () {
       function showGroupFoyle(data, pass) {
         var pg1 = "UN Sustainable Development Goals",
           pg2 =
-            "Derry City & Strabane District’s Inclusive Strategic Growth Plan",
+          "Derry City & Strabane District’s Inclusive Strategic Growth Plan",
           pg3 = "Protect Life 2 - Suicide Prevention Strategy",
           pg4 = "Making Life Better",
           pg5 = "Programme for Government";
@@ -2468,7 +2561,8 @@ $(document).ready(function () {
       function removeSpecOrphans(pass, d) {
         //for (let node of pass.nodes) {
         // ////////console.log
-        "pass.node", pass.nodes;
+        "pass.node",
+        pass.nodes;
         for (var i = pass.nodes.length - 1; i > 0; i--) {
           // ////////console.log
           //  node;
@@ -2544,7 +2638,7 @@ $(document).ready(function () {
       //removeDups - remove any duplicate links that exist
       function removeDups(myArray) {
         myArray.sort();
-        for (var i = 1; i < myArray.length; ) {
+        for (var i = 1; i < myArray.length;) {
           if (
             myArray[i - 1].source === myArray[i].source &&
             myArray[i - 1].target === myArray[i].target
@@ -2780,9 +2874,9 @@ $(document).ready(function () {
           for (var j = 0; j < arr.length; j++) {
             if (j < arr.length - 1) {
               (s1 = arr[j].substring(0, 4)),
-                (s2 = arr[j + 1].substring(0, 4)),
-                (n1 = s1.search(/\d[.]\s/g)),
-                (n2 = s2.search(/\d[.]\s/g));
+              (s2 = arr[j + 1].substring(0, 4)),
+              (n1 = s1.search(/\d[.]\s/g)),
+              (n2 = s2.search(/\d[.]\s/g));
 
               if (
                 n2 >= 0 &&
@@ -2832,7 +2926,7 @@ $(document).ready(function () {
                 var newValue = costs[j - 1];
                 if (s1.charAt(i - 1) != s2.charAt(j - 1))
                   newValue =
-                    Math.min(Math.min(newValue, lastValue), costs[j]) + 1;
+                  Math.min(Math.min(newValue, lastValue), costs[j]) + 1;
                 costs[j - 1] = lastValue;
                 lastValue = newValue;
               }
@@ -2871,7 +2965,7 @@ $(document).ready(function () {
       function getParentGroupArray(d) {
         var arr = [];
         var noParents = countParents(d);
-        for (var j = 0; j < noParents; ) {
+        for (var j = 0; j < noParents;) {
           for (var i = 0; i < d.length; i++) {
             if (!arr.includes(d[i].parentGroup)) {
               arr[j] = d[i].parentGroup;
@@ -2960,7 +3054,7 @@ $(document).ready(function () {
                   var contains = false;
                   if (
                     JSON.stringify(passLinks[l]) !=
-                      JSON.stringify(linkToPush) &&
+                    JSON.stringify(linkToPush) &&
                     JSON.stringify(passLinks[l]) != JSON.stringify(reverseLink)
                   ) {
                     contains = true;
@@ -2984,7 +3078,7 @@ $(document).ready(function () {
                   var contains = false;
                   if (
                     JSON.stringify(passLinks[l]) !=
-                      JSON.stringify(linkToPush) &&
+                    JSON.stringify(linkToPush) &&
                     JSON.stringify(passLinks[l]) != JSON.stringify(reverseLink)
                   ) {
                     contains = true;
@@ -3008,7 +3102,7 @@ $(document).ready(function () {
                   var contains = false;
                   if (
                     JSON.stringify(passLinks[l]) !=
-                      JSON.stringify(linkToPush) &&
+                    JSON.stringify(linkToPush) &&
                     JSON.stringify(passLinks[l]) != JSON.stringify(reverseLink)
                   ) {
                     contains = true;
@@ -3032,7 +3126,7 @@ $(document).ready(function () {
                   var contains = false;
                   if (
                     JSON.stringify(passLinks[l]) !=
-                      JSON.stringify(linkToPush) &&
+                    JSON.stringify(linkToPush) &&
                     JSON.stringify(passLinks[l]) != JSON.stringify(reverseLink)
                   ) {
                     contains = true;
@@ -3067,3 +3161,79 @@ $(document).ready(function () {
     });
   });
 });
+
+
+
+
+// This sample uses the Autocomplete widget to help the user select a
+// place, then it retrieves the address components associated with that
+// place, and then it populates the form fields with those details.
+// This sample requires the Places library. Include the libraries=places
+// parameter when you first load the API. For example:
+// <script
+// src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+let placeSearch;
+let autocomplete;
+const componentForm = {
+  street_number: "short_name",
+  route: "long_name",
+  locality: "long_name",
+  administrative_area_level_1: "short_name",
+  country: "long_name",
+  postal_code: "short_name",
+};
+
+function initAutocomplete() {
+  // Create the autocomplete object, restricting the search predictions to
+  // geographical location types.
+  autocomplete = new google.maps.places.Autocomplete(
+    document.getElementById("autocomplete"), {
+      types: ["geocode"]
+    }
+  );
+  // Avoid paying for data that you don't need by restricting the set of
+  // place fields that are returned to just the address components.
+  autocomplete.setFields(["address_component"]);
+  // When the user selects an address from the drop-down, populate the
+  // address fields in the form.
+  autocomplete.addListener("place_changed", fillInAddress);
+}
+
+function fillInAddress() {
+  // Get the place details from the autocomplete object.
+  const place = autocomplete.getPlace();
+
+  for (const component in componentForm) {
+    document.getElementById(component).value = "";
+    document.getElementById(component).disabled = false;
+  }
+
+  // Get each component of the address from the place details,
+  // and then fill-in the corresponding field on the form.
+  for (const component of place.address_components) {
+    const addressType = component.types[0];
+
+    if (componentForm[addressType]) {
+      const val = component[componentForm[addressType]];
+      document.getElementById(addressType).value = val;
+    }
+  }
+}
+
+// Bias the autocomplete object to the user's geographical location,
+// as supplied by the browser's 'navigator.geolocation' object.
+function geolocate() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const geolocation = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      };
+      const circle = new google.maps.Circle({
+        center: geolocation,
+        radius: position.coords.accuracy,
+      });
+      autocomplete.setBounds(circle.getBounds());
+    });
+  }
+}

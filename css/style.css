@@ -14,6 +14,10 @@
 }
 
 
+.manrope-font {
+  font-family: 'Manrope', sans-serif;
+}
+
 .machina-font {
   font-family: 'NeueMachinaBold', sans-serif !important;
 }
@@ -25,6 +29,11 @@ body {
 
 .jumbotron {
   background-color: #f5f5f5 !important;
+
+}
+
+.modal-body {
+  padding-top: 20px !important;
 }
 
 
@@ -43,10 +52,15 @@ body {
 }
 
 
-h1 {
+h1, h2, h4, h5, small{
 
   font-family: 'NeueMachinaBold', sans-serif;
+  color: #41393E;
 
+}
+
+h3 {
+  color: #709176;
 }
 
 p {
@@ -56,11 +70,38 @@ p {
 h5 {
   font-family: 'NeueMachinaBold', sans-serif;
   line-height: 1.8 !important;
+  color: #41393E;
 }
 
 h4 {
   font-family: 'Manrope', sans-serif;
   line-height: 1.8 !important;
+    color: #41393E;
+}
+
+.tab-link > .nav-link {
+  color: #41393E !important;
+}
+
+.olive {
+  color:  #709176;
+}
+
+.icon-color {
+  color:  #d8636e;
+}
+
+.nav-bg {
+  background-color:  #709176;
+  color: #fff ,!important;
+}
+
+.light {
+  color: #f5f5f5;
+}
+
+.nav-link {
+  color: #f5f5f5 !important;
 }
 
 
@@ -68,17 +109,41 @@ html {
   scroll-behavior: smooth;
 }
 
+.align-middle {
+  display: flex;
+  align-items: center;
+}
 
-.rotate{
+
+.select2-container--default .select2-selection--multiple {
+  padding: .3rem .50rem .50rem .50rem !important;
+  
+}
+
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__display {
+  color: #858585;
+  font-size: 18px;
+}
+
+.form-control {
+  padding: .7rem .75rem !important;
+}
+
+.align-right {
+  margin-left: auto;
+}
+
+.rotate {
   -moz-transition: all 0.3s linear;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }
 
-.rotate.down{
-  -moz-transform:rotate(180deg);
-  -webkit-transform:rotate(180deg);
-  transform:rotate(180deg);
+.rotate.down {
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 
@@ -107,6 +172,7 @@ html {
 
   height: 100px;
 }
+
 .link-class:hover {
   background-color: #d9d9d9;
 }
@@ -156,6 +222,7 @@ li.list-margin,
 .filter li:not(.active) {
   opacity: 0.7;
 }
+
 .filter li:not(.active) a {
   transform: scale(0.9);
 }
@@ -175,6 +242,14 @@ a {
 .jumbotron {
   margin-bottom: 0;
 }
+
+
+.question-list-group>.list-group-item {
+  box-shadow: none !important;
+  font-size: 18px;
+  padding: 0.55rem 1.25rem;
+}
+
 
 .list-group-item {
   box-shadow: inset 2px 0px 10px rgba(209, 209, 209, 0.219) !important;
@@ -216,6 +291,7 @@ svg text {
   text-align: center;
   display: inline-block;
 }
+
 .select-checkbox option:checked::before {
   content: "\2611";
 }
@@ -234,6 +310,7 @@ svg text {
   text-align: center;
   display: inline-block;
 }
+
 .select-checkbox option:checked::before {
   content: "\2611";
 }
@@ -260,6 +337,7 @@ svg text {
   margin-right: auto;
   margin-left: auto;
 }
+
 .svg-content {
   display: inline-block;
   position: absolute;
@@ -287,6 +365,7 @@ svg text {
   stroke: white;
   stroke-width: 1;
 }
+
 .graphSVG {
   background-color: black;
 }
@@ -295,6 +374,7 @@ div.container {
   width: 100%;
 
 }
+
 div.tooltip {
   position: absolute;
   text-align: center;
@@ -310,6 +390,7 @@ div.tooltip {
 .tip {
   pointer-events: none;
 }
+
 @font-face {
   font-family: "Oswald";
 
@@ -323,3 +404,177 @@ div.tooltip {
 div.map {
   padding-left: 200px;
 }
+
+
+.suggested-font {
+  font-size: 1.25rem;
+}
+
+/**Buttons**/
+
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #3D52D5 !important;
+}
+
+
+
+
+/**Modal**/
+
+.modal-body {
+  padding: 40px;
+}
+
+
+
+/**Toggler**/
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  /* content: "No";
+  font-size: 14px;
+  font-weight: 300;
+  color: #afafaf;
+  font-family: 'Manrope', sans-serif;
+  padding-left: 3px;
+  padding-top: 2px; */
+
+}
+
+
+
+.on {
+  display: none;
+}
+
+.on,
+.off {
+  color: #ccc;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 15%;
+  right: 100%;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+
+  /*
+    Introduced in IE 10.
+    See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+  */
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input:checked+.slider .on {
+  display: block;
+  color: #fff;
+  left: 10%;
+}
+
+input:checked+.slider .off {
+  display: none;
+}
+
+
+input:checked+.slider {
+  background-color: #0abd4e;
+
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px#0abd4e;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+/**Footer**/
+
+#footer {
+  background: #7091764b;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  padding: 30px 0;
+}
+
+#footer h3 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #41393E;
+  position: relative;
+  font-family: 'NeueMachinaBold', sans-serif !important;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+#footer p {
+  font-size: 15;
+  font-style: italic;
+  padding: 0;
+  margin: 0 0 40px 0;
+ 
+}
+
+#footer .copyright {
+  margin: 0 0 5px 0;
+  color: #41393E;
+}
+

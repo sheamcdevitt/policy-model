@@ -6,7 +6,7 @@
   box-shadow: 0 6px 32px 0 rgba(0, 0, 0, 0.1);
   max-height: 330px;
   overflow: auto;
-
+  margin-top: 3px;
 }
 
 .stack-menu--active {
@@ -59,7 +59,7 @@
 .stack-menu__link--back {
   background-position: center left 20px;
   background-image: url("data:image/svg+xml,%3Csvg width='6' height='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-rule='evenodd'%3E%3Cpath d='M5.913 1.656L4.768.318.087 5.344l1.145 1.338z'/%3E%3Cpath d='M1.232 5.318L.087 6.656l4.68 5.026 1.146-1.338z'/%3E%3C/g%3E%3C/svg%3E");
-  background-color: #0069D9;
+  background-color: #17a2b8;
 }
 
 .stack-menu__link--hidden {
@@ -67,8 +67,8 @@
 }
 
 .stack-menu__link:hover {
-  color: #fff;
-  background-color: #007aff;
+  color: #fff !important;
+  background-color: #17a2b8;
 }
 
 .stack-menu__link--parent:hover {

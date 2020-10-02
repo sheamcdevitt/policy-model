@@ -165,7 +165,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Project Delivery Partners <small>(Select from list, or type your
+                    <label for="formGroupExampleInput2">Project Delivery Partners <small class="manrope-font"><br>(Select from list, or type your
                             own)</small></label>
                     <select id="select-partners" class="form-control" name="projectDeliveryPartners" multiple="multiple" value="<?php echo htmlspecialchars($projectDeliveryPartners) ?>" required>
                         <option>Belfast City Council</option>
@@ -176,7 +176,7 @@
                     </select>
                 </div>
 
-                <input type="submit" name="submit" value="Save Project" class="btn btn-success mt-5">
+                <input type="submit" name="submit" value="Save Project" class="btn btn-info mt-5 btn">
             </form>
 
 

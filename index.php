@@ -41,7 +41,7 @@
       TODO: Niall can you have a look to see how this might be fixed 
       <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">-->
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/jquery-stack-menu.css" type="text/css"/>
+    <link rel="stylesheet" href="css/jquery-stack-menu.css" type="text/css" />
     <link rel="stylesheet" href="css/d3-context-menu.css" />
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKR3RYTibZwlPfntvwKz44Yy1oxQ1m9f0&callback=initAutocomplete&libraries=places&v=weekly"
@@ -56,7 +56,7 @@
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin="" />
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"
         integrity="sha512-Izh34nqeeR7/nwthfeE0SI3c8uhFSnqxV0sI9TvTcXiFJkMd6fB644O64BRq2P/LA/+7eRvCw4GmLsXksyTHBg=="
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
@@ -66,7 +66,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-    
+
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
@@ -78,9 +78,9 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light">
+    <nav class="navbar navbar-expand-md sticky-top nav-bg">
         <a class="navbar-brand" href="#">
-            <h4 class="machina-font">USI Policy Tool</h4>
+            <h4 class="machina-font light">USI Policy Tool</h4>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -102,7 +102,7 @@
 
     <div class="jumbotron" style="margin-bottom: 0;">
         <div class="container">
-            <p class="h5">Welcome to</p>
+            <p class="h5 olive">Welcome to</p>
             <h1 class="display-3 mb-3">USI Policy Tool</h1>
             <p class="h5">The aim of the USI Policy Tool is to provide instant and coherent access to multiple outcomes
                 and
@@ -116,7 +116,7 @@
             <br>
             <ul class="list-unstyled">
                 <li class="media">
-                    <i class="fas fa-sitemap fa-fw fa-3x mr-4"></i>
+                    <i class="fas fa-sitemap fa-fw fa-3x mr-4 icon-color"></i>
                     <div class="media-body">
                         <h5 class="mt-0 mb-1">Mapping</h5>
                         One of the key issues surrounding government departments and city councils is the ability for
@@ -128,7 +128,7 @@
                     </div>
                 </li>
                 <li class="media my-4">
-                    <i class="fas fa-database fa-fw fa-3x mr-4"></i>
+                    <i class="fas fa-database fa-fw fa-3x mr-4  icon-color"></i>
                     <div class="media-body">
                         <h5 class="mt-0 mb-1">User Input</h5>
                         As well as mapping to other projects and strategies, the user can input their project onto the
@@ -139,7 +139,7 @@
                     </div>
                 </li>
                 <li class="media">
-                    <i class="fas fa-table fa-fw fa-3x mr-4"></i>
+                    <i class="fas fa-table fa-fw fa-3x mr-4  icon-color"></i>
                     <div class="media-body">
                         <h5 class="mt-0 mb-1">Implementation Table</h5>
                         Beyond the visual map the user can also use the implementation table to identify KPIs alongside
@@ -150,7 +150,7 @@
                     </div>
                 </li>
                 <li class="media mt-4">
-                    <i class="fas fa-calendar-check fa-fw fa-3x mr-4"></i>
+                    <i class="fas fa-calendar-check fa-fw fa-3x mr-4  icon-color"></i>
                     <div class="media-body">
                         <h5 class="mt-0 mb-1">Development Plans</h5>
                         The next stage of the tools' development is for users to input if the KPIs were achieved post
@@ -171,17 +171,17 @@
                 NIGEIE
                 compliant documents, namely:</h4>
             <ul class="list-group mt-4">
-                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4"></i>Intuitive Strategic fit, (need
+                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4 olive"></i>Intuitive Strategic fit, (need
                     and
                     demand) mapping</li>
-                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4"></i>Live SMART objectives</li>
-                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4"></i>A better understanding of
+                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4 olive"></i>Live SMART objectives</li>
+                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4 olive"></i>A better understanding of
                     potential
                     for displacement (see all projects across departments)</li>
-                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4"></i>Stronger chance of
+                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4 olive"></i>Stronger chance of
                     cross-departmental
                     collaboration, (see what others are trying to achieve through the database)</li>
-                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4"></i>Provides an intuitive post
+                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4 olive"></i>Provides an intuitive post
                     project
                     monitoring and evaluation database for better practise and rational of KPIs. </li>
             </ul>
@@ -239,8 +239,8 @@
     <!--Show only Buttons
   <button id="Foyle Groups" class="btn btn-primary">
     <span class="glyphicon glyphicon-pencil pr-4" aria-hidden="true"></span>Show Foyle Links</button>-->
-    <button id="FoyleAware" class="btn btn-primary">
-        <span class="glyphicon glyphicon-pencil pr-4" aria-hidden="true"></span>Westlink</button>
+    <!-- <button id="FoyleAware" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil pr-4" aria-hidden="true"></span>Westlink</button> -->
 
 
     <!-- <button id="Education" class="btn btn-primary">
@@ -300,10 +300,10 @@
         <div class="container">
             <div class="text-center">
                 <h1 class="manrope">Explore connected policies in a visual map<br><br></h1>
-                <h3>To start, enter a policy, goal or indicator</h3>
+                <h3>To start, enter a policy, goal or indicator, and begin selecting</h3>
                 <h3 style="font-size: 18px;">Or click on suggested searches<br><br><br> <small>Learn More</small></h3>
 
-                <i class="fas fa-chevron-circle-up rotate fa-2x"></i>
+                <i class="fas fa-chevron-circle-up rotate fa-2x icon-color"></i>
                 <hr>
                 <br>
             </div>
@@ -311,14 +311,19 @@
                 <div class="col-md-7">
 
                     <div class="boxSearch">
+
                         <div class="input-group input-group-lg">
+
                             <input type="text" name="search" id="search" placeholder="Search Policies"
                                 class="form-control" />
                             <span class="input-group-append">
-                                <button id="CreateModel" class="btn btn-primary">Create Model</button>
-                                <button id="SendModel" class="btn btn-primary">Send Model</button>
-                               
+                                <button id="CreateModel" class="btn btn-info">Create Model</button>
+                                <button id="SendModel" class="btn btn-info">Send Model</button>
+                                <button id="QuestionModal" class="btn btn-info" data-toggle="modal"
+                                    data-target="#question-modal">Align Policies</button>
+
                             </span>
+
                         </div>
                     </div>
                     <ul class="pb-5" id="result"></ul>
@@ -330,12 +335,125 @@
           <button type="button" id="applySelections" class="btn btn-primary">Apply Selections</button> -->
                 </div>
 
+
+                <!-- Modal -->
+                <div class="modal fade" id="question-modal" tabindex="-1" role="dialog" data-keyboard="false"
+                    data-backdrop="static" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title machina-font ml-4" id="exampleModalLongTitle">Answer the questions to help us
+                                    narrow your
+                                    search</h4>
+
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="media">
+                                <i class="align-middle fas fa-question-circle fa-4x mr-3"></i></i>
+                                    <div class="media-body mb-2">
+
+                                        <p class="mt-1">Ensure you read and toggle yes/no for each question. <br>Your answers to
+                                            the questions below have an affect on the final generated model</p>
+
+                                    </div>
+                                </div>
+
+                                <ul class="list-group question-list-group">
+                                    <li class="list-group-item align-middle question">Lorem ipsum dolor sit amet,
+                                        consectetur adipiscing elit
+                                        <label class="align-right switch float-right mb-0">
+                                            <input type="checkbox" name="data[question1]" id="question1"
+                                                value="question1">
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                        </label>
+                                    </li>
+                                    <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit
+                                        <label class="align-right switch float-right mb-0">
+                                            <input type="checkbox" name="data[question1]" id="question2"
+                                                value="question2">
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                        </label>
+                                    </li>
+                                    <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit
+                                        <label class="align-right switch float-right mb-0">
+                                            <input type="checkbox" name="data[question1]" id="question3"
+                                                value="question3">
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                        </label>
+                                    </li>
+                                    <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit
+                                        <label class="align-right switch float-right mb-0">
+                                            <input type="checkbox" name="data[question1]" id="question4"
+                                                value="question4">
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                        </label>
+                                    </li>
+                                    <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit
+                                        <label class="align-right switch float-right mb-0">
+                                            <input type="checkbox" name="question5" id="question5" value="question5">
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                        </label>
+                                    </li>
+                                    <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit
+                                        <label class="align-right switch float-right mb-0">
+                                            <input type="checkbox" name="question6" id="question6" value="question6">
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                        </label>
+                                    </li>
+                                    <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit
+                                        <label class="align-right switch float-right mb-0">
+                                            <input type="checkbox" name="question7" id="question7" value="question7">
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                        </label>
+                                    </li>
+                                    <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit
+                                        <label class="align-right switch float-right mb-0">
+                                            <input type="checkbox" name="question8" id="question8" value="question8">
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                        </label>
+                                    </li>
+                                    <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit
+                                        <label class="align-right switch float-right mb-0">
+                                            <input type="checkbox" name="question9" id="question9" value="question9">
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                        </label>
+                                    </li>
+                                    <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit
+                                        <label class="align-right switch float-right mb-0">
+                                            <input type="checkbox" name="question10" id="question10" value="question10">
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                        </label>
+                                    </li>
+
+
+                                </ul>
+
+                            </div>
+                            <div class="modal-footer">
+                                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                                <button type="submit" class="btn btn-primary" id="submit">Regenerate Model</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-md-5">
 
                     <div class="menu pt-6">
                         <nav id="stack-menu">
                             <ul>
-                                <li><a>Suggested Searches</a>
+                                <li><a class="suggested-font">Suggested Searches</a>
                                     <ul>
                                         <li><a>Poverty</a>
                                             <ul>
@@ -715,9 +833,9 @@
     <div class="container tab-section" id="model">
         <h4 id="create-model-btn">Model Output</h4>
         <ul class="nav nav-tabs">
-            <li class="nav-item active"><a class="nav-link active atab" href="#a_tab" data-toggle="tab">Model</a></li>
-            <li class="nav-item"><a class="nav-link btab" href="#b_tab" data-toggle="tab">Description</a></li>
-            <li class="nav-item"><a class="nav-link ctab" href="#c_tab" data-toggle="tab">Implementation Table</a></li>
+            <li class="nav-item  tab-link active"><a class="nav-link active atab" href="#a_tab" data-toggle="tab">Model</a></li>
+            <li class="nav-item tab-link"><a class="nav-link btab" href="#b_tab" data-toggle="tab">Description</a></li>
+            <li class="nav-item tab-link"><a class="nav-link ctab" href="#c_tab" data-toggle="tab">Implementation Table</a></li>
         </ul>
         <div class="tab-content text-center mt-5">
             <div class="tab-pane active" id="a_tab">
@@ -818,6 +936,19 @@
     </section>
 
     </form>
+
+
+
+    <footer id="footer">
+    <div class="container">
+      <h3>USI Policy Tool</h3>
+      <div class="copyright">
+        Developed by Urban Scale Interventions
+      </div>
+     
+
+    </div>
+  </footer>
     <!-- 
     <div class="container tab-section">
         <h4>Model Output</h4>
@@ -968,6 +1099,11 @@
 
 
 <script>
+$('#question-modal').modal(options)
+
+
+
+
 var picker = new Pikaday({
 
     field: document.getElementById('datepicker'),

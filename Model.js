@@ -1,3 +1,4 @@
+window.indicatorData = []
 //Empty JSON to populate
 var jsonToPass = {
   nodes: [],
@@ -1814,28 +1815,90 @@ $(document).ready(function () {
         });
 
         //
-        //Table Function
+        //Table Function - now with datatables implementation
         //
+
+
+
+    
+    
+   
         let tableData = [];
+        let id = "row_" ;
+        var id_string = document.getElementById("id").innerHTML;
+        var id_no = parseInt(id_string);
+        
         for (let node of pass.nodes) {
           var noArr = node.id.match(/([a-z]*)([\w.]+)/i);
-          var element = {
-            policyIndicator: "",
-            action: "",
-            measurable: "",
-            keyPartners: "",
-          };
+          
+          id_no += 1;
+         
+
+          element = {
+            data: [{
+              DT_RowId: "",
+              indicator: "",
+              action: "",
+              measurables: "",
+              partners: "",
+              project: ""
+            }]
+           
+          }
           //////////console.log
           noArr;
-          element.policyIndicator = node.group.slice(0, -1) + " " + noArr[2];
+
+          indicators = node.id + " - " + node.description;
+
+          element.DT_RowId = id + id_no;
+          element.indicator = "";
+          element.action = "";
+          element.measurables = "";
+          element.partners = "";
+          element.project = "";
+
+
+          indicatorData.push(indicators);
+          console.log(indicatorData);
+
           tableData.push(element);
         }
 
-        //  window.onload = () => {
-        document.getElementById("CreateTable").onclick = function () {
-          loadTableData(tableData);
-        };
-        // };
+     
+
+        $( "#CreateTable" ).click(function() {
+          console.log(tableData);
+            var table = $('#example').DataTable();  
+           table.rows.add(tableData).draw();
+           var tr = $('#example tbody tr:eq(0)');
+           table
+              .rows(tr)
+              .invalidate()
+              .draw();
+
+
+            //   editor.add( {
+            //     type:     'select',
+            //     label:    'Locations:',
+            //     name:     'locations',
+            //     multiple: true,
+            //     separator: ',',
+            //     options: [
+            //         { label: 'Edinburgh', value: 51 },
+            //         { label: 'London',    value: 76 }
+            //         // etc
+            //     ]
+            // } );
+
+          
+        });
+
+
+         $( "#save" ).click(function() {
+          var table = $('#example').DataTable();  
+          table.draw
+
+        });
 
         //Save as svg function
         d3.select("#download-svg").on("click", function () {

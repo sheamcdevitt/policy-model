@@ -124,6 +124,12 @@
     </form>
 </section> -->
 
+<style>
+    .select2-container {
+        width: 400px !important;
+    }
+</style>
+
 <div class="container">
     <div class="row align-items-center">
         <div class="col-md-6">
@@ -166,8 +172,8 @@
 
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Project Delivery Partners <small class="manrope-font"><br>(Select from list, or type your
-                            own)</small></label>
-                    <select id="select-partners" class="form-control" name="projectDeliveryPartners" multiple="multiple" value="<?php echo htmlspecialchars($projectDeliveryPartners) ?>" required>
+                            own)</small></label><br>
+                    <select width="600px" id="select-partners" class="form-control" name="projectDeliveryPartners" multiple="multiple" value="<?php echo htmlspecialchars($projectDeliveryPartners) ?>" required>
                         <option>Belfast City Council</option>
                         <option>Public Health Agency</option>
                         <option>Department for Infrastructure</option>

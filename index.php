@@ -1,3 +1,32 @@
+<?php
+
+
+include('db_connect.php');
+    
+
+//pass last implementation id to be ready by datatables
+
+$sql = "SELECT `id` from `implementation` ORDER BY `id` DESC LIMIT 1";
+$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+
+if(mysqli_num_rows($result) > 0){
+    while($row = mysqli_fetch_assoc( $result)){
+        
+        echo "<p id='id'>";
+        echo  $id = $row['id'];
+        echo "</p>";
+       
+    }
+    } else {
+        echo "no id";
+    }
+
+
+
+?>
+
+
 <!DOCTYPE html>
 
 <html>
@@ -70,13 +99,43 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
+
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <canvas width="4000" height="5000" style="display: none"></canvas>
 
 
 
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.22/b-1.6.4/b-html5-1.6.4/sl-1.3.1/datatables.min.css" />
+
+
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.22/b-1.6.4/b-html5-1.6.4/sl-1.3.1/datatables.min.js">
+    </script>
+
+
+    <script type="text/javascript" language="javascript"
+        src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript"
+        src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" language="javascript"
+        src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="datatables/Editor-1.9.5/css/editor.dataTables.css">
+    <script type="text/javascript" src="Editor-PHP-1.9.5/js/dataTables.editor.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 </head>
 
+
+
 <body>
+
+
 
     <nav class="navbar navbar-expand-md sticky-top nav-bg">
         <a class="navbar-brand" href="#">
@@ -171,17 +230,21 @@
                 NIGEIE
                 compliant documents, namely:</h4>
             <ul class="list-group mt-4">
-                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4 olive"></i>Intuitive Strategic fit, (need
+                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4 olive"></i>Intuitive Strategic fit,
+                    (need
                     and
                     demand) mapping</li>
-                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4 olive"></i>Live SMART objectives</li>
-                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4 olive"></i>A better understanding of
+                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4 olive"></i>Live SMART objectives
+                </li>
+                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4 olive"></i>A better understanding
+                    of
                     potential
                     for displacement (see all projects across departments)</li>
                 <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4 olive"></i>Stronger chance of
                     cross-departmental
                     collaboration, (see what others are trying to achieve through the database)</li>
-                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4 olive"></i>Provides an intuitive post
+                <li class="list-group-item"><i class="fas fa-check-circle fa-lg mr-4 olive"></i>Provides an intuitive
+                    post
                     project
                     monitoring and evaluation database for better practise and rational of KPIs. </li>
             </ul>
@@ -342,7 +405,8 @@
                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title machina-font ml-4" id="exampleModalLongTitle">Answer the questions to help us
+                                <h4 class="modal-title machina-font ml-4" id="exampleModalLongTitle">Answer the
+                                    questions to help us
                                     narrow your
                                     search</h4>
 
@@ -350,10 +414,11 @@
                             <div class="modal-body">
 
                                 <div class="media">
-                                <i class="align-middle fas fa-question-circle fa-4x mr-3"></i></i>
+                                    <i class="align-middle fas fa-question-circle fa-4x mr-3"></i></i>
                                     <div class="media-body mb-2">
 
-                                        <p class="mt-1">Ensure you read and toggle yes/no for each question. <br>Your answers to
+                                        <p class="mt-1">Ensure you read and toggle yes/no for each question. <br>Your
+                                            answers to
                                             the questions below have an affect on the final generated model</p>
 
                                     </div>
@@ -365,7 +430,8 @@
                                         <label class="align-right switch float-right mb-0">
                                             <input type="checkbox" name="data[question1]" id="question1"
                                                 value="question1">
-                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span
+                                                    class="off unselectable">No</span></span>
                                         </label>
                                     </li>
                                     <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
@@ -373,7 +439,8 @@
                                         <label class="align-right switch float-right mb-0">
                                             <input type="checkbox" name="data[question1]" id="question2"
                                                 value="question2">
-                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span
+                                                    class="off unselectable">No</span></span>
                                         </label>
                                     </li>
                                     <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
@@ -381,7 +448,8 @@
                                         <label class="align-right switch float-right mb-0">
                                             <input type="checkbox" name="data[question1]" id="question3"
                                                 value="question3">
-                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span
+                                                    class="off unselectable">No</span></span>
                                         </label>
                                     </li>
                                     <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
@@ -389,49 +457,56 @@
                                         <label class="align-right switch float-right mb-0">
                                             <input type="checkbox" name="data[question1]" id="question4"
                                                 value="question4">
-                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span
+                                                    class="off unselectable">No</span></span>
                                         </label>
                                     </li>
                                     <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
                                         adipiscing elit
                                         <label class="align-right switch float-right mb-0">
                                             <input type="checkbox" name="question5" id="question5" value="question5">
-                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span
+                                                    class="off unselectable">No</span></span>
                                         </label>
                                     </li>
                                     <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
                                         adipiscing elit
                                         <label class="align-right switch float-right mb-0">
                                             <input type="checkbox" name="question6" id="question6" value="question6">
-                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span
+                                                    class="off unselectable">No</span></span>
                                         </label>
                                     </li>
                                     <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
                                         adipiscing elit
                                         <label class="align-right switch float-right mb-0">
                                             <input type="checkbox" name="question7" id="question7" value="question7">
-                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span
+                                                    class="off unselectable">No</span></span>
                                         </label>
                                     </li>
                                     <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
                                         adipiscing elit
                                         <label class="align-right switch float-right mb-0">
                                             <input type="checkbox" name="question8" id="question8" value="question8">
-                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span
+                                                    class="off unselectable">No</span></span>
                                         </label>
                                     </li>
                                     <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
                                         adipiscing elit
                                         <label class="align-right switch float-right mb-0">
                                             <input type="checkbox" name="question9" id="question9" value="question9">
-                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span
+                                                    class="off unselectable">No</span></span>
                                         </label>
                                     </li>
                                     <li class="list-group-item align-middle">Lorem ipsum dolor sit amet, consectetur
                                         adipiscing elit
                                         <label class="align-right switch float-right mb-0">
                                             <input type="checkbox" name="question10" id="question10" value="question10">
-                                            <span class="slider round"><span class="on unselectable">Yes</span><span class="off unselectable">No</span></span>
+                                            <span class="slider round"><span class="on unselectable">Yes</span><span
+                                                    class="off unselectable">No</span></span>
                                         </label>
                                     </li>
 
@@ -831,11 +906,14 @@
     <!-- Tab code: can be used to Tab between Model, Table, and Model Descriptions maybe--->
 
     <div class="container tab-section" id="model">
-        <h4 id="create-model-btn">Model Output</h4>
+        <h4 id="create-model-btn">Model Output and Implementation Table</h4>
         <ul class="nav nav-tabs">
-            <li class="nav-item  tab-link active"><a class="nav-link active atab" href="#a_tab" data-toggle="tab">Model</a></li>
-            <li class="nav-item tab-link"><a class="nav-link btab" href="#b_tab" data-toggle="tab">Description</a></li>
-            <li class="nav-item tab-link"><a class="nav-link ctab" href="#c_tab" data-toggle="tab">Implementation Table</a></li>
+            <li class="nav-item  tab-link active"><a class="nav-link active atab" href="#a_tab"
+                    data-toggle="tab">1. Model</a></li>
+            <li class="nav-item tab-link"><a class="nav-link btab" href="#b_tab" data-toggle="tab">2. Description</a></li>
+            <li class="nav-item tab-link"><a class="nav-link btab" href="#c_tab" data-toggle="tab">3. Save Project</a></li>
+            <li class="nav-item tab-link"><a class="nav-link ctab" href="#d_tab" data-toggle="tab">4. Implementation
+                    Table</a></li>
         </ul>
         <div class="tab-content text-center mt-5">
             <div class="tab-pane active" id="a_tab">
@@ -846,48 +924,9 @@
                 <h1>Model Description</h1>
                 <bcontent></bcontent>
             </div>
-            <div class="tab-pane" id="c_tab">
-                <h1>Implementation Table</h1>
-                <div class="table-responsive mt-5">
-                    <table class="table w-100 table-bordered table-striped" id="Table">
-                        <thead class="table-info">
-                            <tr>
-                                <th onclick="sortColumn('age')">Age</th>
-                                <th>Policy Indicator</th>
-                                <th>Action</th>
-                                <th>Measurables</th>
-                                <th>Key Partners</th>
-                            </tr>
-                        </thead>
 
-                        <tbody id="tableData"></tbody>
-                    </table>
-                </div>
-            </div>
-            <!-- <div class="tab-pane" id="modelMap" style="width: 600px; height: 400px; padding-left: 50px;">
-         <h1>Map</h1>
-        <ccontent></ccontent></div>-->
-
-        </div>
-
-
-
-        <div class="svg-bg">
-            <svg id="center-svg" class="center-svg" viewBox="0 0 2000 2500"></svg>
-            <hr>
-            <button class="btn btn-info" id="download-png" <span aria-hidden="true"></span>Download
-                Image</button>
-            <button class="btn btn-info" id="download-svg" <span aria-hidden="true"></span>Download
-                Vector</button>
-
-        </div>
-
-    </div>
-
-
-
-
-    <section class="jumbotron" style="margin-top: 0; margin-bottom: 0;">
+            <div class="tab-pane text-left" id="c_tab">
+            <section class="jumbotron" style="margin-top: 0; margin-bottom: 0;">
         <div class="container">
             <div class=" row">
                 <div class="col-md-12">
@@ -934,21 +973,146 @@
                 </div>
 
     </section>
+            </div>
+            <div class="tab-pane text-left" id="d_tab">
+                <h1>Implementation Table</h1>
+                <div class="table-responsive mt-5">
+                    <!-- <table id="implementation" class="table w-100 table-bordered table-striped" id="Table">
+                        <thead class="table-head">
+                            <tr>
+                                <th>Policy Indicator</th>
+                                <th>Action</th>
+                                <th>Measurables</th>
+                                <th>Key Partners</th>
+                            </tr>
+                        </thead>
+
+                        
+                    </table> -->
+
+<style>
+
+td {
+    height: 35px;
+}
+
+
+div.DTE_Field select {
+
+    width: 100% !important;
+    height: 400px;
+}
+
+
+div.DTE_Bubble div.DTE_Bubble_Liner {
+ width: 650px !important;
+}
+
+
+</style>
+
+
+
+                    <table id="example" class="table w-100 table-bordered table-striped display" id="Table">
+                        <thead class="table-head">
+                            <tr>
+                                
+                                <th>Action</th>
+                                <th>Indicator</th>
+                                <th>Measurables</th>
+                                <th>Key Partners</th>
+                                <th>Project Name</th>
+                        
+
+                            </tr>
+
+                        </thead>
+                        <tbody id="tableData">
+                           
+                        </tbody>
+                    </table>
+                </div>
+                <button class="btn btn-info" id="CreateTable"> <span aria-hidden="true"></span>Create Implementation
+                    Table <i class="fas fa-plus-circle fa-fw"></i></button>
+                <!-- <button class="btn btn-success" id="save"> Save Implementation Table <i
+                        class="fas fa-save fa-fw"></i></button> -->
+            </div>
+            <!-- <div class="tab-pane" id="modelMap" style="width: 600px; height: 400px; padding-left: 50px;">
+         <h1>Map</h1>
+        <ccontent></ccontent></div>-->
+
+        </div>
+
+
+
+        <div class="svg-bg">
+            <svg id="center-svg" class="center-svg" viewBox="0 0 2000 2500"></svg>
+            <hr>
+            <button class="btn btn-info" id="download-png"> <span aria-hidden="true"></span>Download
+                Image</button>
+            <button class="btn btn-info" id="download-svg"> <span aria-hidden="true"></span>Download
+                Vector</button>
+
+        </div>
+
+    </div>
+
+
+
+
+   
+
+
+    <hr>
+    <section class="jumbotron" style="margin-top: 0; margin-bottom: 0;">
+
+        <div class="container">
+            <div class=" row">
+                <div class="col-md-12">
+                    <h1 style="text-align: left;">All Projects</h1>
+                    <h3 style="font-size: 18px;">Below you can view all the projects that have been entered into the
+                        Policy tool, including their model<br>
+                        <br><br>
+
+
+                        <table id="projects" class="table w-100 table-bordered table-striped display" id="Table">
+                            <thead class="table-head">
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th>Project Value</th>
+                                    <th>Delivery Date</th>
+                                    <th>Project Location</th>
+                                    <th>Delivery Partners</th>
+                                    <th>Model</th>
+
+                                </tr>
+
+                            </thead>
+
+                        </table>
+
+
+
+                </div>
+
+    </section>
+
+   
 
     </form>
 
 
 
     <footer id="footer">
-    <div class="container">
-      <h3>USI Policy Tool</h3>
-      <div class="copyright">
-        Developed by Urban Scale Interventions
-      </div>
-     
+        <div class="container">
+            <h3>USI Policy Tool</h3>
+            <div class="copyright">
+                Developed by Urban Scale Interventions
+            </div>
 
-    </div>
-  </footer>
+
+        </div>
+    </footer>
     <!-- 
     <div class="container tab-section">
         <h4>Model Output</h4>
@@ -1099,10 +1263,6 @@
 
 
 <script>
-
-
-
-
 var picker = new Pikaday({
 
     field: document.getElementById('datepicker'),
@@ -1137,6 +1297,294 @@ $(" .suggest-click").on("click", function(e) {
 $(document).ready(function() {
     $('#stack-menu').stackMenu();
 });
+</script>
+
+
+
+<script>
+var editor;
+var editor1; // use a global for the submit and return data rendering in the examples
+
+$(document).ready(function() {
+    editor = new $.fn.dataTable.Editor({
+        ajax: 'Editor-PHP-1.9.5/controllers/imptable.php',
+        table: '#example',
+        fields: [{
+            label: "Actions",
+            name: "action"
+        },{
+            label: "Measurables:",
+            name: "measurables"
+        }, {
+            label: "Partners:",
+            name: "partners"
+        },
+
+        {
+            label: "Project Name",
+            name: "project"
+        },
+    
+    
+    ],
+        formOptions: {
+            main: {
+                scope: 'cell' // Allow multi-row editing with cell selection
+            }
+        },
+        
+       
+    });
+
+
+// console.log(indicatorData);
+$( "#CreateTable" ).click(function() {
+    editor.add( {
+                type:     'select',
+                label:    'Select Indicators:',
+                name:     'indicator',
+                multiple: true,
+                separator: ',',
+                options: indicatorData
+            } );
+
+        });
+
+    //create new table
+    //add empty row button
+    //retrieve indicator tableData
+    //add multiselect form field and map to table field
+
+
+
+
+
+
+
+    // $('#example').on('click', 'tbody td:not(:first-child)', function(e) {
+    //     editor.inline(this, {
+
+    //         submit: 'allIfChanged'
+    //     });
+    // });
+
+    $('#example').on( 'click', 'tbody td', function (e) {
+        editor.bubble( this );
+    } );
+
+
+
+    //  // Activate an inline edit on click of a table cell
+    //  $('#example').on( 'click', 'tbody td:not(:first-child)', function (e) {
+    //     editor.inline( this, {
+    //         onBlur: 'submit'
+    //     } );
+
+    // } );
+
+
+    $('#example').DataTable({
+        "language": {
+            "emptyTable": "Click create button below to view and edit your implementation table"
+        },
+        dom: 'Bfrtip',
+
+        columns: [
+            {
+                "data": "action",
+                editField: "action"
+            },
+            {
+                "data": "indicator",
+                editField: "indicator"
+            },
+            {
+                "data": "measurables",
+                editField: "measurables"
+            },
+            {
+                "data": "partners",
+                editField: "partners"
+            },
+            {
+                "data": "project",
+                editField: "project"
+            }
+        ],
+        select: true,
+        buttons: [
+            {
+                extend: "edit",
+                editor: editor
+            },
+            {
+                extend: "remove",
+                editor: editor
+            },
+            { extend: "create", 
+            editor: editor 
+            },
+
+            "selectColumns",
+        ]
+    });
+});
+
+
+// $(document).ready(function() {
+//     editor = new $.fn.dataTable.Editor( {
+//         ajax: 'Editor-PHP-1.9.5/controllers/imptable.php',
+//         table: '#example',
+//         fields: [ {
+//                 label: "Action",
+//                 name: "action"
+//             }, {
+//                 label: "Measurables",
+//                 name: "measurables"
+//             }, {
+//                 label: "Partners",
+//                 name: "partners"
+//             }, {
+//                 label: "Project",
+//                 name: "project"
+//             }
+//         ]
+//     } );
+ 
+//     $('#example').DataTable( {
+//         dom: 'Bfrtip',
+//         columns: [
+//             { data: "action" },
+//             { data: "indicator" },
+//             { data: "measurables" },
+//             { data: "partners" },
+//             { data: "project" }
+//         ],
+//         select: true,
+//         buttons: [
+//             { extend: "create", editor: editor },
+//             { extend: "edit",   editor: editor },
+//             { extend: "remove", editor: editor }
+//         ]
+//     } );
+// } );
+
+
+//      $('#example').on( 'click', 'tbody td', function (e) {
+//          editor.bubble( this );
+//      } );
+
+
+
+//      $( "#CreateModel" ).click(function() {
+        
+
+//         editor.add( {
+//             type:  'select',
+//             label:  'Indicators',
+//             name:   'indicator',
+//             multiple: true,
+//             separator: ',',
+//             options: [ "Test1", "Test2" ]
+//         } );
+
+
+         
+     
+//    });
+
+
+
+
+
+
+
+$(document).ready(function() {
+    editor1 = new $.fn.dataTable.Editor({
+        ajax: "Editor-PHP-1.9.5/controllers/projects.php",
+        table: "#projects",
+        fields: [{
+            label: "Project Name:",
+            name: "projectName"
+        }, {
+            label: "Project Value:",
+            name: "projectValue"
+        }, {
+            label: "Delivery Date:",
+            name: "deliveryDate"
+        }, {
+            label: "Project Location:",
+            name: "projectLocation"
+        }, {
+            label: "Delivery Partners",
+            name: "deliveryPartners"
+        }, {
+            label: "Model",
+            name: "modelData"
+        }]
+    });
+
+    $('#projects').DataTable({
+        dom: "Bfrtip",
+        ajax: "Editor-PHP-1.9.5/controllers/projects.php",
+        columns: [{
+                data: "projectName"
+            },
+            {
+                data: "projectValue"
+            },
+            {
+                data: "deliveryDate"
+            },
+            {
+                data: "projectLocation"
+            },
+            {
+                data: "deliveryPartners"
+            },
+            {
+                data: "modelData",
+                render: function(data, type, row) {
+                    return '<button type="button" id="viewmodel" class="btn btn-info">View Model</button>';
+                }
+            }
+
+        ],
+
+        buttons: [
+
+        ]
+    });
+
+
+    $("#viewmodel").click(function() {
+        //var data = table.row( $(this).parents('tr') ).data(); //model data would be in this variable
+        console.log("clicked");
+    });
+
+
+
+
+});
+
+</script>
+
+
+
+<script>
+   $("select").mousedown(function(e){
+    e.preventDefault();
+    
+		var select = this;
+    var scroll = select.scrollTop;
+    
+    e.target.selected = !e.target.selected;
+    
+    setTimeout(function(){select.scrollTop = scroll;}, 0);
+    
+    $(select).focus();
+}).mousemove(function(e){e.preventDefault()});
+
 </script>
 
 </html>

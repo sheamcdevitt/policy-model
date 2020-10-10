@@ -87,6 +87,14 @@ h4 {
   color:  #709176;
 }
 
+
+
+.table-head {
+  background-color: #709176;
+  color: #fff;
+  font-family: 'Manrope', sans-serif;
+}
+
 .icon-color {
   color:  #d8636e;
 }

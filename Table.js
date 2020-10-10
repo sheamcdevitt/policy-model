@@ -5,7 +5,7 @@ function loadTableData(tableData) {
   let dataHtml = "";
 
   for (let row of tableData) {
-    dataHtml += `<tr><td>${row.policyIndicator}</td><td>${row.action}</td><td>${row.measurable}</td><td>${row.keyPartners}</td></tr>`;
+    dataHtml += `<tr id="row_1"><td>${row.policyIndicator}</td><td></td><td></td><td></td><td></td></tr>`;
   }
 
   tablebody.innerHTML = dataHtml;

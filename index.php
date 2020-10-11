@@ -1,26 +1,26 @@
 <?php
 
 
-include('db_connect.php');
+// include('db_connect.php');
     
 
 //pass last implementation id to be ready by datatables
 
-$sql = "SELECT `id` from `implementation` ORDER BY `id` DESC LIMIT 1";
-$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+// $sql = "SELECT `id` from `implementation` ORDER BY `id` DESC LIMIT 1";
+// $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
 
-if(mysqli_num_rows($result) > 0){
-    while($row = mysqli_fetch_assoc( $result)){
+// if(mysqli_num_rows($result) > 0){
+//     while($row = mysqli_fetch_assoc( $result)){
         
-        echo "<p id='id'>";
-        echo  $id = $row['id'];
-        echo "</p>";
+//         echo "<p id='id'>";
+//         echo  $id = $row['id'];
+//         echo "</p>";
        
-    }
-    } else {
-        echo "no id";
-    }
+//     }
+//     } else {
+//         echo "no id";
+//     }
 
 
 
@@ -137,7 +137,7 @@ if(mysqli_num_rows($result) > 0){
 
 
 
-    <nav class="navbar navbar-expand-md sticky-top nav-bg">
+    <nav class="navbar navbar-expand-md  nav-bg">
         <a class="navbar-brand" href="#">
             <h4 class="machina-font light">USI Policy Tool</h4>
         </a>
@@ -908,10 +908,12 @@ if(mysqli_num_rows($result) > 0){
     <div class="container tab-section" id="model">
         <h4 id="create-model-btn">Model Output and Implementation Table</h4>
         <ul class="nav nav-tabs">
-            <li class="nav-item  tab-link active"><a class="nav-link active atab" href="#a_tab"
-                    data-toggle="tab">1. Model</a></li>
-            <li class="nav-item tab-link"><a class="nav-link btab" href="#b_tab" data-toggle="tab">2. Description</a></li>
-            <li class="nav-item tab-link"><a class="nav-link btab" href="#c_tab" data-toggle="tab">3. Save Project</a></li>
+            <li class="nav-item  tab-link active"><a class="nav-link active atab" href="#a_tab" data-toggle="tab">1.
+                    Model</a></li>
+            <li class="nav-item tab-link"><a class="nav-link btab" href="#b_tab" data-toggle="tab">2. Description</a>
+            </li>
+            <li class="nav-item tab-link"><a class="nav-link btab" href="#c_tab" data-toggle="tab">3. Save Project</a>
+            </li>
             <li class="nav-item tab-link"><a class="nav-link ctab" href="#d_tab" data-toggle="tab">4. Implementation
                     Table</a></li>
         </ul>
@@ -926,17 +928,18 @@ if(mysqli_num_rows($result) > 0){
             </div>
 
             <div class="tab-pane text-left" id="c_tab">
-            <section class="jumbotron" style="margin-top: 0; margin-bottom: 0;">
-        <div class="container">
-            <div class=" row">
-                <div class="col-md-12">
-                    <h1 style="text-align: left;">Enter Project Info</h1>
-                    <h3 style="font-size: 18px;">To save your project, enter the project's information below (ensure you
-                        are happy with the above created model before proceeding)<br>
-                        <br>
+                <section class="jumbotron" style="margin-top: 0; margin-bottom: 0;">
+                    <div class="container">
+                        <div class=" row">
+                            <div class="col-md-12">
+                                <h1 style="text-align: left;">Enter Project Info</h1>
+                                <h3 style="font-size: 18px;">To save your project, enter the project's information below
+                                    (ensure you
+                                    are happy with the above created model before proceeding)<br>
+                                    <br>
 
-                        <?php include('add.php');?>
-                        <!-- <div class="boxInfo">
+                                    <?php include('add.php');?>
+                                    <!-- <div class="boxInfo">
                                 <div class="input-group input-group-lg">
                                     <input type="text" name="projectName" id="projectName" placeholder="Project Name"
                                         class="form-control" value="<?php echo htmlspecialchars($projectName) ?>" />
@@ -970,12 +973,59 @@ if(mysqli_num_rows($result) > 0){
                                 </div>
                             </div>
                             <br /> -->
-                </div>
+                            </div>
 
-    </section>
+                </section>
             </div>
+
             <div class="tab-pane text-left" id="d_tab">
-                <h1>Implementation Table</h1>
+
+                <section class="jumbotron" style="margin-top: 0; margin-bottom: 0;">
+
+                    <div class="container">
+                        <div class=" row">
+                            <div class="col-md-12">
+
+                                <h3 style="text-align: left;">1. Click a project to view or edit implementation
+                                    table<br></h1>
+
+                                    <table id="projectparent" class="table w-100 table-bordered table-striped display">
+                                        <thead class="table-head">
+                                            <tr>
+                                                <th>Project Name</th>
+                                                <th>No. of Actions</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+
+
+                                    <h3 style="text-align: left;"><br>2. View and Create Implementation Table</h1>
+                                    <button class="btn btn-info mb-4 mt-2" id="CreateData"> <span
+                                                aria-hidden="true"></span>Load Current Model Indicators<i
+                                                class="fas fa-plus-circle fa-fw"></i></button>
+                                        <table id="implementationtable"
+                                            class="table w-100 table-bordered table-striped display">
+                                            <thead class="table-head">
+                                                <tr>
+                                                    <th>Indicators</th>
+                                                    <th>Action</th>
+                                                    <th>Measurables</th>
+                                                    <th>Partners</th>
+                                                    <th>More Info</th>
+                                                    <th>Project</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+
+                                      
+
+
+
+
+                            </div>
+
+                </section>
+                <!-- <h1>Implementation Table</h1>
                 <div class="table-responsive mt-5">
                     <!-- <table id="implementation" class="table w-100 table-bordered table-striped" id="Table">
                         <thead class="table-head">
@@ -990,56 +1040,38 @@ if(mysqli_num_rows($result) > 0){
                         
                     </table> -->
 
-<style>
-
-td {
-    height: 35px;
-}
-
-
-div.DTE_Field select {
-
-    width: 100% !important;
-    height: 400px;
-}
-
-
-div.DTE_Bubble div.DTE_Bubble_Liner {
- width: 650px !important;
-}
-
-
-</style>
 
 
 
-                    <table id="example" class="table w-100 table-bordered table-striped display" id="Table">
+
+                <!-- <table id="example" class="table w-100 table-bordered table-striped display" id="Table">
                         <thead class="table-head">
                             <tr>
-                                
+
                                 <th>Action</th>
                                 <th>Indicator</th>
                                 <th>Measurables</th>
                                 <th>Key Partners</th>
+                                <th>More Info</th>
                                 <th>Project Name</th>
-                        
+
 
                             </tr>
 
                         </thead>
                         <tbody id="tableData">
-                           
+
                         </tbody>
                     </table>
                 </div>
                 <button class="btn btn-info" id="CreateTable"> <span aria-hidden="true"></span>Create Implementation
-                    Table <i class="fas fa-plus-circle fa-fw"></i></button>
+                    Table <i class="fas fa-plus-circle fa-fw"></i></button> -->
                 <!-- <button class="btn btn-success" id="save"> Save Implementation Table <i
                         class="fas fa-save fa-fw"></i></button> -->
             </div>
             <!-- <div class="tab-pane" id="modelMap" style="width: 600px; height: 400px; padding-left: 50px;">
          <h1>Map</h1>
-        <ccontent></ccontent></div>-->
+        <ccontent></ccontent></div> -->
 
         </div>
 
@@ -1056,12 +1088,6 @@ div.DTE_Bubble div.DTE_Bubble_Liner {
         </div>
 
     </div>
-
-
-
-
-   
-
 
     <hr>
     <section class="jumbotron" style="margin-top: 0; margin-bottom: 0;">
@@ -1097,9 +1123,25 @@ div.DTE_Bubble div.DTE_Bubble_Liner {
 
     </section>
 
-   
+    <style>
+    
+    td {
+        color: black;
+    }
+
+    </style>
+
+
 
     </form>
+
+
+
+
+
+
+
+
 
 
 
@@ -1223,6 +1265,19 @@ div.DTE_Bubble div.DTE_Bubble_Liner {
 
 
 <style>
+
+.DTE_Field_InputControl > select {
+    overflow-x: scroll;
+    width: 400px;
+}
+
+
+.DTE_Field_InputControl > #DTE_Field_implementation-indicator {
+    height: 200px
+}
+
+
+
 /* table {
     font-family: Arial, sans-serif;
     border-collapse: collapse;
@@ -1302,133 +1357,154 @@ $(document).ready(function() {
 
 
 <script>
-var editor;
-var editor1; // use a global for the submit and return data rendering in the examples
+// var editor;
+// var editor1; // use a global for the submit and return data rendering in the examples
 
-$(document).ready(function() {
-    editor = new $.fn.dataTable.Editor({
-        ajax: 'Editor-PHP-1.9.5/controllers/imptable.php',
-        table: '#example',
-        fields: [{
-            label: "Actions",
-            name: "action"
-        },{
-            label: "Measurables:",
-            name: "measurables"
-        }, {
-            label: "Partners:",
-            name: "partners"
-        },
+// $(document).ready(function() {
+//     editor = new $.fn.dataTable.Editor({
+//         ajax: 'Editor-PHP-1.9.5/controllers/imptable.php',
+//         table: '#example',
+//         fields: [{
+//                 label: "Actions",
+//                 name: "implementation.action"
+//             }, {
+//                 label: "Measurables:",
+//                 name: "implementation.measurables"
+//             }, {
+//                 label: "Partners:",
+//                 name: "implementation.partners"
+//             },
+//             {
+//                 label: "More Info:",
+//                 name: "implementation.moreinfo"
+//             },
+//             {
+//                 label: "Project Name",
+//                 name: "implementation.project",
+//                 type: "select",
+//                 placeholder: "Select a project"
+//             },
 
-        {
-            label: "Project Name",
-            name: "project"
-        },
-    
-    
-    ],
-        formOptions: {
-            main: {
-                scope: 'cell' // Allow multi-row editing with cell selection
-            }
-        },
-        
-       
-    });
+
+//         ],
+//         formOptions: {
+//             main: {
+//                 scope: 'cell' // Allow multi-row editing with cell selection
+//             }
+//         },
+
+
+//     });
 
 
 // console.log(indicatorData);
-$( "#CreateTable" ).click(function() {
-    editor.add( {
-                type:     'select',
-                label:    'Select Indicators:',
-                name:     'indicator',
-                multiple: true,
-                separator: ',',
-                options: indicatorData
-            } );
+// $("#CreateTable").click(function() {
+//     editor.add({
+//         type: 'select',
+//         label: 'Select Indicators:',
+//         name: 'indicator',
+//         multiple: true,
+//         separator: ',',
+//         options: indicatorData
+//     });
 
-        });
+// });
 
-    //create new table
-    //add empty row button
-    //retrieve indicator tableData
-    //add multiselect form field and map to table field
+// $( "#UpdateProjects" ).click(function() {
+//     editor.add( {
+//                 type:     'select',
+//                 label:    'Projects:',
+//                 name:     'projects',
+//                 multiple: true,
+//                 separator: ',',
+//                 options: projectsData
+//             } );
 
+//         });        
 
-
-
-
-
-
-    // $('#example').on('click', 'tbody td:not(:first-child)', function(e) {
-    //     editor.inline(this, {
-
-    //         submit: 'allIfChanged'
-    //     });
-    // });
-
-    $('#example').on( 'click', 'tbody td', function (e) {
-        editor.bubble( this );
-    } );
+//create new table
+//add empty row button
+//retrieve indicator tableData
+//add multiselect form field and map to table field
 
 
 
-    //  // Activate an inline edit on click of a table cell
-    //  $('#example').on( 'click', 'tbody td:not(:first-child)', function (e) {
-    //     editor.inline( this, {
-    //         onBlur: 'submit'
-    //     } );
-
-    // } );
 
 
-    $('#example').DataTable({
-        "language": {
-            "emptyTable": "Click create button below to view and edit your implementation table"
-        },
-        dom: 'Bfrtip',
 
-        columns: [
-            {
-                "data": "action",
-                editField: "action"
-            },
-            {
-                "data": "indicator",
-                editField: "indicator"
-            },
-            {
-                "data": "measurables",
-                editField: "measurables"
-            },
-            {
-                "data": "partners",
-                editField: "partners"
-            },
-            {
-                "data": "project",
-                editField: "project"
-            }
-        ],
-        select: true,
-        buttons: [
-            {
-                extend: "edit",
-                editor: editor
-            },
-            {
-                extend: "remove",
-                editor: editor
-            },
-            { extend: "create", 
-            editor: editor 
-            },
 
-            "selectColumns",
-        ]
-    });
-});
+// $('#example').on('click', 'tbody td:not(:first-child)', function(e) {
+//     editor.inline(this, {
+
+//         submit: 'allIfChanged'
+//     });
+// });
+
+// $('#example').on('click', 'tbody td', function(e) {
+//     editor.bubble(this);
+// });
+
+
+
+//  // Activate an inline edit on click of a table cell
+//  $('#example').on( 'click', 'tbody td:not(:first-child)', function (e) {
+//     editor.inline( this, {
+//         onBlur: 'submit'
+//     } );
+
+// } );
+
+
+//     $('#example').DataTable({
+//         "language": {
+//             "emptyTable": "Click create button below to view and edit your implementation table"
+//         },
+//         dom: 'Bfrtip',
+
+
+//         columns: [{
+//                 "data": "action",
+//                 editField: "implementation.action"
+//             },
+//             {
+//                 "data": "indicator",
+//                 editField: "indicator"
+//             },
+//             {
+//                 "data": "measurables",
+//                 editField: "implementation.measurables"
+//             },
+//             {
+//                 "data": "partners",
+//                 editField: "implementation.partners"
+//             },
+//             {
+//                 "data": "moreinfo",
+//                 editField: "implementation.moreinfo"
+//             },
+//             {
+//                 data: "projects.projectName",
+//                 editField: "implementation.project"
+//             }
+//         ],
+//         select: true,
+//         buttons: [{
+//                 extend: "edit",
+//                 editor: editor
+//             },
+//             {
+//                 extend: "remove",
+//                 editor: editor
+//             },
+//             {
+//                 extend: "create",
+//                 editor: editor
+//             },
+
+//             "selectColumns",
+//         ]
+//     });
+// });
 
 
 // $(document).ready(function() {
@@ -1450,7 +1526,7 @@ $( "#CreateTable" ).click(function() {
 //             }
 //         ]
 //     } );
- 
+
 //     $('#example').DataTable( {
 //         dom: 'Bfrtip',
 //         columns: [
@@ -1477,7 +1553,7 @@ $( "#CreateTable" ).click(function() {
 
 
 //      $( "#CreateModel" ).click(function() {
-        
+
 
 //         editor.add( {
 //             type:  'select',
@@ -1489,8 +1565,8 @@ $( "#CreateTable" ).click(function() {
 //         } );
 
 
-         
-     
+
+
 //    });
 
 
@@ -1567,25 +1643,215 @@ $(document).ready(function() {
 
 });
 
+
+
+
+//PARENT CHILD *******
+
+$(document).ready(function() {
+    var siteEditor = new $.fn.dataTable.Editor({
+        ajax: "Editor-PHP-1.9.5/controllers/projects-parent.php",
+        table: "#projectparent",
+        fields: [{
+            label: "Project name:",
+            name: "projectName"
+        }]
+    });
+
+
+    var siteTable = $('#projectparent').DataTable({
+        dom: "Bfrtip",
+        ajax: "Editor-PHP-1.9.5/controllers/projects-parent.php",
+        columns: [{
+                data: 'projectName'
+            },
+            {
+                data: 'implementation',
+                render: function(data) {
+                    return data.length;
+                }
+            }
+        ],
+        select: {
+            style: 'single'
+        },
+        buttons: []
+    });
+
+
+    var usersEditor = new $.fn.dataTable.Editor({
+
+        ajax: {
+            url: 'Editor-PHP-1.9.5/controllers/implementation-child.php',
+            data: function(d) {
+                var selected = siteTable.row({
+                    selected: true
+                });
+                if (selected.any()) {
+                    d.project = selected.data().id;
+                }
+            }
+        },
+        table: '#implementationtable',
+        fields: [{
+                label: "Enter Actions",
+                name: "implementation.action"
+            }, {
+                label: "Enter Measurables",
+                name: "implementation.measurables"
+            },
+            {
+                label: "Enter Partners",
+                name: "implementation.partners"
+            },
+            {
+                label: "Enter Additional Info",
+                name: "implementation.moreinfo"
+            },
+
+            {
+                label: "Project",
+                name: "implementation.project",
+                type: "select",
+                placeholder: "Select a project"
+            }
+        ]
+    });
+    
+    
+
+
+    $("#CreateData").click(function() {
+        usersEditor.add({
+            type: 'select',
+            label: 'Select Indicators:',
+            name: 'implementation.indicator',
+            multiple: true,
+            separator: ',<br>',
+            options: indicatorData
+        });
+
+    });
+
+    var usersTable = $('#implementationtable').DataTable({
+        
+        "language": {
+            "emptyTable": "<b>Click on a project above to view and edit it's implementation table</b>"
+        },
+        dom: 'Bfrtip',
+        ajax: {
+            url: 'Editor-PHP-1.9.5/controllers/implementation-child.php',
+            type: 'post',
+            data: function(d) {
+                var selected = siteTable.row({
+                    selected: true
+                });
+                if (selected.any()) {
+                    d.project = selected.data().id;
+                }
+            }
+        },
+        columns: [{
+                data: 'implementation.indicator',
+                editField: "indicator"
+            },
+            {
+                data: 'implementation.action',
+                editField: 'implementation.action'
+            },
+            {
+                data: 'implementation.measurables',
+                editField: 'implementation.measurables'
+            },
+            {
+                data: 'implementation.partners',
+                editField: 'implementation.partners'
+            },
+            {
+                data: 'implementation.moreinfo',
+                editField: 'implementation.moreinfo'
+            },
+            {
+                data: 'projects.projectName',
+                editField: 'implementation.indicator'
+            }
+        ],
+        select: true,
+        buttons: [{
+                extend: 'create',
+                editor: usersEditor,
+                enabled: false,
+                init: function(dt) {
+                    var that = this;
+                    siteTable.on('select deselect', function() {
+                        that.enable(siteTable.rows({
+                            selected: true
+                        }).any())
+                    })
+                }
+            },
+            {
+                extend: 'edit',
+                editor: usersEditor
+            },
+            {
+                extend: 'remove',
+                editor: usersEditor
+            }
+        ]
+    });
+
+    
+    $('#implementationtable').on( 'dblclick', 'tbody td', function (e) {
+        usersEditor.bubble( this );
+    } );
+
+    // $('#implementationtable').on( 'click', 'tbody td:not(:first-child)', function (e) {
+    //     siteEditor.inline( this );
+    // } );
+
+    
+// $('#implementationtable').on('click', 'tbody td:not(:first-child)', function(e) {
+//     siteEditor.inline(this, {
+//         submit: 'allIfChanged'
+//     });
+// });
+
+// $('#implementationtable').on( 'click', 'tbody td:not(:first-child)', function (e) {
+//     siteEditor.inline( usersTable.cell(this).index(), {
+//         onBlur: 'submit'
+//     } );
+// } );
+
+
+
+    siteTable.on('select', function(e) {
+        usersTable.ajax.reload();
+
+        usersEditor
+            .field('implementation.project')
+            .def(siteTable.row({
+                selected: true
+            }).data().id);
+    });
+
+    siteTable.on('deselect', function() {
+        usersTable.ajax.reload();
+    });
+
+    usersEditor.on('submitSuccess', function() {
+        siteTable.ajax.reload();
+    });
+
+    siteEditor.on('submitSuccess', function() {
+        usersTable.ajax.reload();
+    });
+});
 </script>
 
 
 
-<script>
-   $("select").mousedown(function(e){
-    e.preventDefault();
-    
-		var select = this;
-    var scroll = select.scrollTop;
-    
-    e.target.selected = !e.target.selected;
-    
-    setTimeout(function(){select.scrollTop = scroll;}, 0);
-    
-    $(select).focus();
-}).mousemove(function(e){e.preventDefault()});
 
-</script>
 
 </html>
 <!-- <div class="model-bg"> -->

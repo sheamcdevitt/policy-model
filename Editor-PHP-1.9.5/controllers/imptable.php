@@ -19,14 +19,23 @@ use
 	DataTables\Editor\ValidateOptions;
 
 Editor::inst( $db, 'implementation' )
-	->fields(
+	->field(
 		
-		Field::inst( 'indicator' ),
-		Field::inst( 'action' ),
-		Field::inst( 'measurables' ),
-		Field::inst( 'partners' ),
-		Field::inst( 'project' )
+		Field::inst( 'implementation.indicator' ),
+		Field::inst( 'implementation.action' ),
+		Field::inst( 'implementation.measurables' ),
+		Field::inst( 'implementation.partners' ),
+		Field::inst( 'implementation.moreinfo' ),
+		Field::inst( 'implementation.project' )
+			->options( Options::inst()
+				->table( 'projects' )
+				->value( 'id' )
+				->label( 'projectName' )
+			)
+			->validator( Validate::dbValues() ),
+        Field::inst( 'projects.projectName' )
 	)
 
-	->process( $_POST )
-	->json();
+	->leftJoin( 'projects', 'projects.id', '=', 'implementation.project' )
+    ->process($_POST)
+    ->json();

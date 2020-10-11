@@ -364,9 +364,9 @@
             <div class="text-center">
                 <h1 class="manrope">Explore connected policies in a visual map<br><br></h1>
                 <h3>To start, enter a policy, goal or indicator, and begin selecting</h3>
-                <h3 style="font-size: 18px;">Or click on suggested searches<br><br><br> <small>Learn More</small></h3>
+                <!-- <h3 style="font-size: 18px;">Or click on suggested searches<br><br><br> <small>Learn More</small></h3> -->
 
-                <i class="fas fa-chevron-circle-up rotate fa-2x icon-color"></i>
+                <!-- <i class="fas fa-chevron-circle-up rotate fa-2x icon-color"></i> -->
                 <hr>
                 <br>
             </div>
@@ -914,7 +914,7 @@
             </li>
             <li class="nav-item tab-link"><a class="nav-link btab" href="#c_tab" data-toggle="tab">3. Save Project</a>
             </li>
-            <li class="nav-item tab-link"><a class="nav-link ctab" href="#d_tab" data-toggle="tab">4. Implementation
+            <li class="nav-item tab-link"><a class="nav-link ctab" id="refreshed" href="#d_tab" data-toggle="tab">4. Implementation
                     Table</a></li>
         </ul>
         <div class="tab-content text-center mt-5">
@@ -988,7 +988,8 @@
 
                                 <h3 style="text-align: left;">1. Click a project to view or edit implementation
                                     table<br></h1>
-
+                                    <!-- <button class="btn btn-success mb-4 mt-2" id="refresh"><span
+                                                aria-hidden="true"></span>Refresh Projects<i class="ml-2 fas fa-sync-alt"></i></button> -->
                                     <table id="projectparent" class="table w-100 table-bordered table-striped display">
                                         <thead class="table-head">
                                             <tr>
@@ -1274,6 +1275,10 @@
 
 .DTE_Field_InputControl > #DTE_Field_implementation-indicator {
     height: 200px
+}
+
+#DTE_Field_implementation-project {
+    width:260px !important;
 }
 
 
@@ -1659,6 +1664,9 @@ $(document).ready(function() {
     });
 
 
+
+ 
+
     var siteTable = $('#projectparent').DataTable({
         dom: "Bfrtip",
         ajax: "Editor-PHP-1.9.5/controllers/projects-parent.php",
@@ -1676,6 +1684,12 @@ $(document).ready(function() {
             style: 'single'
         },
         buttons: []
+    });
+
+
+    
+    $("#refreshed").click(function() {
+       siteTable.ajax.reload();
     });
 
 
@@ -1773,7 +1787,7 @@ $(document).ready(function() {
             },
             {
                 data: 'projects.projectName',
-                editField: 'implementation.indicator'
+                editField: 'implementation.project'
             }
         ],
         select: true,

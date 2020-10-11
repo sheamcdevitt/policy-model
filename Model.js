@@ -1825,13 +1825,10 @@ $(document).ready(function () {
    
         let tableData = [];
         let id = "row_" ;
-        var id_string = document.getElementById("id").innerHTML;
-        var id_no = parseInt(id_string);
         
         for (let node of pass.nodes) {
           var noArr = node.id.match(/([a-z]*)([\w.]+)/i);
-          
-          id_no += 1;
+      
          
 
           element = {
@@ -1850,7 +1847,7 @@ $(document).ready(function () {
 
           indicators = node.id + " - " + node.description;
 
-          element.DT_RowId = id + id_no;
+          // element.DT_RowId = id + id_no;
           element.indicator = "";
           element.action = "";
           element.measurables = "";
@@ -1866,32 +1863,32 @@ $(document).ready(function () {
 
      
 
-        $( "#CreateTable" ).click(function() {
-          console.log(tableData);
-            var table = $('#example').DataTable();  
-           table.rows.add(tableData).draw();
-           var tr = $('#example tbody tr:eq(0)');
-           table
-              .rows(tr)
-              .invalidate()
-              .draw();
+        // $( "#CreateTable" ).click(function() {
+        //   console.log(tableData);
+        //     var table = $('#example').DataTable();  
+        //    table.rows.add(tableData).draw();
+        //    var tr = $('#example tbody tr:eq(0)');
+        //    table
+        //       .rows(tr)
+        //       .invalidate()
+        //       .draw();
 
 
-            //   editor.add( {
-            //     type:     'select',
-            //     label:    'Locations:',
-            //     name:     'locations',
-            //     multiple: true,
-            //     separator: ',',
-            //     options: [
-            //         { label: 'Edinburgh', value: 51 },
-            //         { label: 'London',    value: 76 }
-            //         // etc
-            //     ]
-            // } );
+        //     //   editor.add( {
+        //     //     type:     'select',
+        //     //     label:    'Locations:',
+        //     //     name:     'locations',
+        //     //     multiple: true,
+        //     //     separator: ',',
+        //     //     options: [
+        //     //         { label: 'Edinburgh', value: 51 },
+        //     //         { label: 'London',    value: 76 }
+        //     //         // etc
+        //     //     ]
+        //     // } );
 
           
-        });
+        // });
 
 
          $( "#save" ).click(function() {

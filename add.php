@@ -2,7 +2,7 @@
 
 	include('db_connect.php');
 
-	$projectName = $projectValue = $projectDeliveryDate = $projectLocation = $projectDeliveryPartners = $modelData = '';
+	$projectName = $projectValue = $projectDeliveryDate = $projectLocation = $projectDeliveryPartners = $modelDataToSend = '';
 	$errors = array('projectName' => '', 'projectValue' => '', 'projectDeliveryDate' => '', 'projectLocation' => '', 'projectDeliveryPartners' => '');
 
 	if(isset($_POST['submit'])){
@@ -49,10 +49,12 @@
 
 		//check projectDeliveryDate
 		
-		if(isset($_POST['pass']))
+		if(isset($_POST['modelDataToSend']))
 		{
-			$modelData = $_POST['pass'];//$modelData = '{"nodes":[],"links":[]}';
-			// Do whatever you want with the $uid
+           
+			$modelDataToSend = $_POST['modelDataToSend'];//'{"nodes":[{"id":"UNSDG2","display":"Zero Hunger","parentGroup":"UN Sustainable Development Goals","group":"UN Sustainable Development Goals","description":"Zero Hunger","type":"Parent","clusterIndex":0,"colour":"Red","radius":55,"index":0,"x":668.4405701515979,"y":630.0244454302416,"vy":1.6291889674164621,"vx":1.7285297581125916}],"links":[]}';
+            // Do whatever you want with the $uid
+           
 		}
 		
 		
@@ -65,11 +67,12 @@
 			$projectValue = mysqli_real_escape_string($conn, $_POST['projectValue']);
 			$projectDeliveryDate = mysqli_real_escape_string($conn, $_POST['projectDeliveryDate']);
 			$projectLocation = mysqli_real_escape_string($conn, $_POST['projectLocation']);
-			$projectDeliveryPartners = mysqli_real_escape_string($conn, $_POST['projectDeliveryPartners']);
+            $projectDeliveryPartners = mysqli_real_escape_string($conn, $_POST['projectDeliveryPartners']);
+            $modelDataToSend = mysqli_real_escape_string($conn, $_POST['modelDataToSend']);
 
 			// create sql
 			$sql = "INSERT INTO projects(projectName,projectValue,deliveryDate,projectLocation,deliveryPartners,modelData)
-			 VALUES('$projectName','$projectValue','$projectDeliveryDate','$projectLocation','$projectDeliveryPartners', '$modelData')";
+			 VALUES('$projectName','$projectValue','$projectDeliveryDate','$projectLocation','$projectDeliveryPartners', '$modelDataToSend')";
 
 			// save to db and check
 			if(mysqli_query($conn, $sql)){
@@ -77,7 +80,7 @@
 				header('Location: index.php');
 				
 			} else {
-				echo 'query error: '. mysqli_error($conn) . $modelData . "   end";
+				echo 'query error: '. mysqli_error($conn) . $modelDataToSend . "   end";
 				//echo $modelData;
 			}
 			
@@ -96,8 +99,8 @@
 <!DOCTYPE html>
 <html>
 
-<!-- 
 
+<!--
 <section class="container grey-text">
 
     <form class="form-group white" action="add.php" method="POST">
@@ -119,16 +122,10 @@
         <div class="red-text"><?php echo $errors['projectDeliveryPartners']; ?></div>
         <div class="center">
             <div class="center">
-                <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+              
             </div>
     </form>
-</section> -->
-
-<style>
-    .select2-container {
-        width: 400px !important;
-    }
-</style>
+</section>   -->
 
 <div class="container">
     <div class="row align-items-center">
@@ -172,8 +169,8 @@
 
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Project Delivery Partners <small class="manrope-font"><br>(Select from list, or type your
-                            own)</small></label><br>
-                    <select width="600px" id="select-partners" class="form-control" name="projectDeliveryPartners" multiple="multiple" value="<?php echo htmlspecialchars($projectDeliveryPartners) ?>" required>
+                            own)</small></label>
+                    <select id="select-partners" class="form-control" name="projectDeliveryPartners" multiple="multiple" value="<?php echo htmlspecialchars($projectDeliveryPartners) ?>" required>
                         <option>Belfast City Council</option>
                         <option>Public Health Agency</option>
                         <option>Department for Infrastructure</option>
@@ -181,7 +178,23 @@
                         <option>Department of Health</option>
                     </select>
                 </div>
-
+                
+                <div class="form-group">
+                    <br>
+                    
+                    <input type="text" class="form-control" id="formGroupModelData" 
+                        name="modelDataToSend" value="<?php echo htmlspecialchars($modelDataToSend) ?>"  required />
+                </div>
+<!--
+                <div class="form-group">
+                        <div class="input-group-prepend">
+                            <label class="form-control" for="inputGroupSelect01"></label>
+                        </div>
+                        <input display="none" type="text" class="form-control" id="formGroupModelData"
+                            placeholder="ModelData" name="modelDataToSend"
+                            value="<?php echo htmlspecialchars($modelDataToSend) ?>"  required />
+                    </div>
+                </div>--->
                 <input type="submit" name="submit" value="Save Project" class="btn btn-info mt-5 btn">
             </form>
 
@@ -193,6 +206,7 @@
 
 
 
-
+<script>document.getElementById("formGroupModelData").style.display = "none";
+</script>
 
 </html>

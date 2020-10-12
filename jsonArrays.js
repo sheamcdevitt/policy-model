@@ -72,9 +72,13 @@ var highlightStrandsColours = ["Red", "LightBlue", "Coral"];
 var highlightObject = {
   Health: "red",
   Education: "lightblue",
-  Toursim: "coral",
+  Tourism: "coral",
 };
-var highlightStore = [false, false, false]; //id : flag
+var highlightStore = [false, false, false], //id : flag
+  highlightStoreStrs = [],
+  highlightStoreGroup = [],
+  highlightStoreGroupStrs = [],
+  currentGroups = {};
 
 var groupColours = {
   "UN Sustainable Development Goals": "red",
@@ -97,6 +101,11 @@ var groupColours = {
   "Belfast Green and Blue Infrastructure Plan": "mediumseagreen",
   "A Bolder Vision for Belfast": "sienna",
 };
+
+//
+//INSIGHTS
+//
+var pfgTargetDistribution = {};
 //
 //MODELS
 //

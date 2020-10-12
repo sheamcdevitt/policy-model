@@ -25,8 +25,6 @@
 
 
 ?>
-
-
 <!DOCTYPE html>
 
 <html>
@@ -49,6 +47,8 @@
     <script src="js/underscore-min.js"></script>
     <script src="js/d3-save-svg.min.js"></script>
     <script src="js/saveSvgAsPng.js"></script>
+    
+
     <script src="https://unpkg.com/d3-force-attract@latest"></script>
     <script src="https://unpkg.com/d3-force-cluster@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
@@ -56,12 +56,13 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script src="js/d3-context-menu.js"></script>
+    <script src="js/Chart.js"></script>
     <!-- <!-- !Used for tabs but interferes with searchbox format 
       TODO: Niall can you have a look to see how this might be fixed 
        <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>-->
     <script src='Table.js'></script>
     <script src='Model.js'></script>
-
+    
     <script src='jsonArrays.js'></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -302,9 +303,9 @@
     <!--Show only Buttons
   <button id="Foyle Groups" class="btn btn-primary">
     <span class="glyphicon glyphicon-pencil pr-4" aria-hidden="true"></span>Show Foyle Links</button>-->
-    <button id="FoyleAware" class="btn btn-primary">
+    <button   id="FoyleAware" class="btn btn-primary">
         <span class="glyphicon glyphicon-pencil pr-4" aria-hidden="true"></span>Westlink</button>
-
+<!--style="display:none"-->
 
     <!-- <button id="Education" class="btn btn-primary">
             <span class="glyphicon glyphicon-pencil pr-4" aria-hidden="true"></span>Education</button>-->
@@ -381,7 +382,7 @@
                                 class="form-control" />
                             <span class="input-group-append">
                                 <button id="CreateModel" class="btn btn-info">Create Model</button>
-                                <button id="SendModel" class="btn btn-info">Send Model</button>
+                                <button  style="display: none"id="SendModel" class="btn btn-info">Send Model</button>
                                 <button id="QuestionModal" class="btn btn-info" data-toggle="modal"
                                     data-target="#question-modal">Align Policies</button>
 
@@ -939,6 +940,7 @@
                                     <br>
 
                                     <?php include('add.php');?>
+                                   
                                     <!-- <div class="boxInfo">
                                 <div class="input-group input-group-lg">
                                     <input type="text" name="projectName" id="projectName" placeholder="Project Name"
@@ -981,7 +983,7 @@
             <div class="tab-pane text-left" id="d_tab">
 
                 <section class="jumbotron" style="margin-top: 0; margin-bottom: 0;">
-
+              
                     <div class="container">
                         <div class=" row">
                             <div class="col-md-12">
@@ -1078,15 +1080,21 @@
 
 
 
-        <div class="svg-bg">
-            <svg id="center-svg" class="center-svg" viewBox="0 0 2000 2500"></svg>
-            <hr>
-            <button class="btn btn-info" id="download-png"> <span aria-hidden="true"></span>Download
+        <div class="svg-bg"  id="model-svg-div">
+            <svg id="center-svg" class="center-svg" viewBox="0 0 2000 2500"></svg>     
+                          
+        </div>
+        <div style="display:none" class="svg-bg" id="desc-svg-div" >
+        <svg id="desc-svg" class="center-svg" viewBox="0 0 2000 2500"></svg>    
+</div>
+
+        <button class="btn btn-info" id="download-png"> <span aria-hidden="true"></span>Download
                 Image</button>
             <button class="btn btn-info" id="download-svg"> <span aria-hidden="true"></span>Download
                 Vector</button>
+                <button class="btn btn-hidden" id="viewLoaded"> <span aria-hidden="true"></span>View Loaded
+                Model</button>
 
-        </div>
 
     </div>
 
@@ -1106,7 +1114,7 @@
                             <thead class="table-head">
                                 <tr>
                                     <th>Project Name</th>
-                                    <th>Project Value</th>
+                                    <th>Project Value (£)</th>
                                     <th>Delivery Date</th>
                                     <th>Project Location</th>
                                     <th>Delivery Partners</th>
@@ -1605,6 +1613,7 @@ $(document).ready(function() {
         }]
     });
 
+ 
     $('#projects').DataTable({
         dom: "Bfrtip",
         ajax: "Editor-PHP-1.9.5/controllers/projects.php",
@@ -1612,7 +1621,11 @@ $(document).ready(function() {
                 data: "projectName"
             },
             {
-                data: "projectValue"
+                data: "projectValue", render : function(data){
+                    allProjectsValue += data;
+                console.log(allProjectsValue);
+                return data;
+                }
             },
             {
                 data: "deliveryDate"
@@ -1625,8 +1638,15 @@ $(document).ready(function() {
             },
             {
                 data: "modelData",
-                render: function(data, type, row) {
-                    return '<button type="button" id="viewmodel" class="btn btn-info">View Model</button>';
+                render: function(data, type, row,i) {
+                    var temp = data;
+                    temp.replace('"nodes"', "nodes");
+        temp.replace('"links"', "links");
+        
+                    allModels[row.DT_RowId] =JSON.parse(temp);
+                    
+                   
+                    return '<button "type="button" id="'+ row.DT_RowId + '" onClick="setId(this.id)" class="btn btn-info">Load Model</button>';
                 }
             }
 
@@ -1638,10 +1658,7 @@ $(document).ready(function() {
     });
 
 
-    $("#viewmodel").click(function() {
-        //var data = table.row( $(this).parents('tr') ).data(); //model data would be in this variable
-        console.log("clicked");
-    });
+    ;
 
 
 
@@ -1863,9 +1880,136 @@ $(document).ready(function() {
 });
 </script>
 
+<hr>
+    <section style="margin-right: 75px; margin-left: 75px; margin-top: 75px; margin-bottom: 75px;">
+        <div class="container-fluid">
+            <h1 style="text-align: left;" class="display-4">Insights</h1>
+            <h3 style="font-size: 18px;">PFG Indicators hit across all projects per ... <br>
+                <br><br>
+                <div class="row mt-5 text-center" style="margin-bottom: 100px">
+                    <div class="col-lg-4">
+                        <h2>
+                            PFG Target 1 Distribution
+                        </h2>
+                        <canvas id="insights-pfg1" width="200" height="200"></canvas>
+           
+         
+                    </div>
+                    <div class="col-lg-4 text-center">
+                    <h2>
+                            PFG Target 2 Distribution
+                        </h2>
+                        <canvas id="insights-pfg2" width="200" height="200"></canvas>
+               
+                    </div>
+                    <div class="col-lg-4 text-center">
+                    <h2>
+                            PFG Target 3 Distribution
+                        </h2>
+                        <canvas id="insights-pfg3" width="200" height="200"></canvas>
+              
+                    </div>
+                </div>
+                <div class="row mt-5" style="margin-bottom: 100px">
+                    <div class="col-lg-4 text-center">
+                    <h2>
+                            PFG Target 4 Distribution
+                        </h2>
+                        <canvas id="insights-pfg4" width="200" height="200"></canvas>
+             
+                    </div>
+                    <div class="col-lg-4 text-center">
+                    <h2>
+                            PFG Target 5 Distribution
+                        </h2>
+                        <canvas id="insights-pfg5" width="200" height="200"></canvas>
+                 
+                    </div>
+                    <div class="col-lg-4 text-center">
+                    <h2>
+                            PFG Target 6 Distribution
+                        </h2>
+                        <canvas id="insights-pfg6" width="200" height="200"></canvas>
+               
+                    </div>
+                </div>
+                <div class="row mt-5" style="margin-bottom: 100px">
+                    <div class="col-lg-4 text-center">
+                    <h2>
+                            PFG Target 7 Distribution
+                        </h2>
+                        <canvas id="insights-pfg7" width="200" height="200"></canvas>
+                  
+                    </div>
+                    <div class="col-lg-4 text-center">
+                    <h2>
+                            PFG Target 8 Distribution
+                        </h2>
+                        <canvas id="insights-pfg8" width="200" height="200"></canvas>
+                   
+                    </div>
+                    <div class="col-lg-4 text-center">
+                    <h2>
+                            PFG Target 9 Distribution
+                        </h2>
+                        <canvas id="insights-pfg9" width="200" height="200"></canvas>
+                    
+                    </div>
+                </div>
+                <div class="row mt-5" style="margin-bottom: 100px">
+                    <div class="col-lg-4 text-center">
+                    <h2>
+                            PFG Target 10 Distribution
+                        </h2>
+                        <canvas id="insights-pfg10" width="200" height="200"></canvas>
+                  
+                    </div>
+                    <div class="col-lg-4 text-center">
+                    <h2>
+                            PFG Target 11 Distribution
+                        </h2>
+                        <canvas id="insights-pfg11" width="200" height="200"></canvas>
+                  
+                    </div>
+                    <div class="col-lg-4 text-center">
+                    <h2>
+                            PFG Target 12 Distribution
+                        </h2>
+                        <canvas id="insights-pfg12" width="200" height="200"></canvas>
+                       
+                    </div>
+                </div>
+                <div class="row mt-5" style="margin-bottom: 100px">
+                    <div class="col-lg-4 text-center">
+                    <h2>
+                            PFG Target 13 Distribution
+                        </h2>
+                        <canvas id="insights-pfg13" width="200" height="200"></canvas>
+                 
+                    </div>
+                    <div class="col-lg-4 text-center">
+                    <h2>
+                            PFG Target 14 Distribution
+                        </h2>
+                        <canvas id="insights-pfg14" width="200" height="200"></canvas>
+                    </div>
+               
+                    <div class="col-lg-4 text-center">
+                        <h2>
+                            Heading
+                        </h2>
+                        <p>
+                            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
+                            tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+                            malesuada magna mollis euismod. Donec sed odio dui.
+                        </p>
+                 
+                    </div>
+                </div>
+        </div>
 
 
-
+        <script src='Insights.js'></script>
 
 </html>
 <!-- <div class="model-bg"> -->

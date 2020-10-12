@@ -1,13 +1,26 @@
-window.indicatorData = []
+function setId(clicked_id) {
+  modelRowIndex = clicked_id;
+  simulateClick(document.getElementById("viewLoaded"), "click");
+}
+
+window.indicatorData = [];
 //Empty JSON to populate
 var jsonToPass = {
   nodes: [],
   links: [],
 };
 var modelData = {
-  nodes: [],
-  links: []
-};
+    nodes: [],
+    links: [],
+  },
+  modelDataToSend,
+  viewLoaded,
+  allModels = {},
+  allProjectsValue = 0,
+  modelRowIndex,
+  g,
+  g_links,
+  g_nodes;
 var zoomLevel = 1,
   panX = 0,
   panY = 0,
@@ -15,7 +28,8 @@ var zoomLevel = 1,
   descClickId;
 
 //Todo need to brainstorm ideas what to do here but plenty of ideas
-var menu = [{
+var menu = [
+  {
     title: "Info",
     action: function (elm, d, i) {},
   },
@@ -25,36 +39,64 @@ var menu = [{
   },
 ];
 
-
-
 //js to retrieve checked boxes and add to array
-window.onload=function(){
- var checkboxes = document.querySelectorAll("input[type=checkbox]");
-var submit = document.getElementById("submit");
+window.onload = function () {
+  hideSVG();
+  allProjectsValue = allProjectsValue / 4;
+  $("#SendModel").click(function () {
+    /*  for (var key in mo) {
+      if (obj.hasOwnProperty(key)) {
+        arr.push(key);
+      }
+    }*/
+    //console.log(document.getElementById(viewLoaded).value);
+    var temp = JSON.stringify(modelData);
 
-function getCheckedValue() {
-  var checked = [];
+    // console.log(temp);
+    /* for (let node of temp.nodes) {
+      delete node.clusterIndex;
+      delete node.colour;
+      delete node.radius;
+      delete node.index;
+      delete node.x;
+      delete node.y;
+      delete node.vx;
+      delete node.vy;
+    }*/
 
-  for (var i = 0; i < checkboxes.length; i++) {
-    var checkbox = checkboxes[i];
-    if (checkbox.checked) checked.push(checkbox.value);
+    /* $.ajax({
+      url: "index.php",
+      type: "POST",
+      //data: { "message":$('#input-message').val(),"sender":$('#sender').val(),"receiver":$('#receiver').val()},you can pass the values directly like this or else you can store it in variables and can pass
+      data: { modelDataToSend: " " },
+      success: function (data) {
+        alert("OKay        " + modelDataToSend);
+      },
+      error: function () {
+        alert("Not OKay");
+      },
+    });*/
+  });
+
+  var checkboxes = document.querySelectorAll("input[type=checkbox]");
+  var submit = document.getElementById("submit");
+
+  function getCheckedValue() {
+    var checked = [];
+
+    for (var i = 0; i < checkboxes.length; i++) {
+      var checkbox = checkboxes[i];
+      if (checkbox.checked) checked.push(checkbox.value);
+    }
+
+    return checked;
   }
 
-  return checked;
-}
-
-
-submit.addEventListener("click", function() {
-  var checked = getCheckedValue();
-  console.log(checked);
-});
-
-}
-
-
-
-
-
+  submit.addEventListener("click", function () {
+    var checked = getCheckedValue();
+    console.log(checked);
+  });
+};
 
 var originalPass;
 //Array for all the policies websites
@@ -104,12 +146,12 @@ $(document).ready(function () {
         ) {
           $("#result").append(
             '<li class="list-group-item link-class result-li">' +
-            value.group +
-            ' | <span class="text-muted">' +
-            value.description +
-            '<style = "visibility:hidden;"> | *' +
-            value.id +
-            "  "
+              value.group +
+              ' | <span class="text-muted">' +
+              value.description +
+              '<style = "visibility:hidden;"> | *' +
+              value.id +
+              "  "
           );
         }
 
@@ -130,6 +172,137 @@ $(document).ready(function () {
 
         // });
       });
+
+      //Tab functions
+      $(".atab")
+        .unbind()
+        .click(function () {
+          document.getElementById("desc-svg-div").style.display = "none";
+          document.getElementById("desc-svg").style.display = "none";
+          document.getElementById("center-svg").style.display = "block";
+          document.getElementById("model-svg-div").style.display = "block";
+        });
+
+      $(".btab")
+        .unbind()
+        .click(function () {
+          document.getElementById("desc-svg-div").style.display = "block";
+          document.getElementById("desc-svg").style.display = "block";
+          document.getElementById("center-svg").style.display = "none";
+          document.getElementById("model-svg-div").style.display = "none";
+          var d = modelData.nodes;
+
+          svgDescription.selectAll("*").remove();
+          svgDescription.on(".zoom", null);
+          var defs = svgDescription.append("defs");
+          defs
+            .append("style")
+            .attr("type", "text/css")
+            .text(
+              "@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap')"
+            );
+
+          var obj = Object.keys(countGroupsArray(d)).sort();
+          var descArray = getDescription(modelData.nodes);
+          // console.log("desc", descArray);
+          var descriptions = svgDescription
+              .append("g")
+              .attr("class", "text")
+              .style("pointer-events", "auto"),
+            output;
+
+          var y = 40;
+          for (var i = 0; i < obj.length; i++) {
+            descriptions
+              .append("text")
+              .attr("x", 50)
+              .attr("y", y)
+              .text(obj[i])
+              .style("font-size", "20px")
+              .style("font-family", "Lato")
+              .style("stroke", getColourByGroup(d, obj[i]))
+              .style("fill", getColourByGroup(d, obj[i]))
+              .attr("alignment-baseline", "middle")
+              .on("mouseover", function () {
+                //console.log(d3.select(this).text());
+              });
+            for (var j = 0; j < descArray[i].length; j++) {
+              // console.log(descArray);
+              output = splitStringWithoutBreakingWords(90, descArray[i][j]);
+              console.log(output);
+              //////console.log
+              //  "output", output;
+              for (var k = 0; k < output.length; k++) {
+                y += 40;
+                descriptions
+                  .data(output)
+                  .append("text")
+                  .attr("x", 50)
+                  .attr("y", y)
+                  .text(output[k])
+                  .style("font-size", "20px")
+                  .style("font-family", "Lato")
+                  .style("stroke", "Black")
+                  .attr("alignment-baseline", "middle")
+                  .on("mouseover", function () {
+                    //
+                    d3.select(this).style("stroke", "Gold");
+                    d3.select(this).style("fill", "Gold");
+
+                    // console.log(d3.select(this).text());
+                  })
+                  .on("mouseout", function (d, i) {
+                    //
+
+                    d3.select(this).style("stroke", "Black");
+                    d3.select(this).style("fill", "Black");
+                  })
+                  .on("click", function (d, i) {
+                    //pass.nodes.splice(i, 1);
+                    descriptionUpdated = true;
+                    var startNo = d.match(/([a-z]*)([\w.]+)/i);
+                    var toCheck = d.split(startNo[0])[1].trim();
+                    var final;
+                    //  console.log("dTrue", toCheck);
+                    //  console.log("clicked", d3.select(this).text());
+                    final = d3.select(this).text().includes(toCheck)
+                      ? toCheck
+                      : toCheck + " " + d3.select(this).text();
+                    // console.log("final", final);
+                    var nodeToDelete;
+
+                    for (let node of pass.nodes) {
+                      if (node.description.includes(final)) {
+                        var index = pass.nodes.indexOf(node);
+                        pass.nodes.splice(index, 1);
+                        // console.log(pass.nodes);
+                      }
+                    }
+                    d3.select(this).style("text-decoration", "line-through");
+                  });
+              }
+            }
+            y += 40;
+            svgDescription.property("viewBox").baseVal.height = y + 25;
+          }
+        });
+
+      $(".ctab")
+        .unbind()
+        .click(function () {
+          document.getElementById("desc-svg-div").style.display = "none";
+          document.getElementById("desc-svg").style.display = "none";
+          document.getElementById("center-svg").style.display = "none";
+          document.getElementById("model-svg-div").style.display = "none";
+        });
+      $(".dtab")
+        .unbind()
+        .click(function () {
+          document.getElementById("desc-svg-div").style.display = "none";
+          document.getElementById("desc-svg").style.display = "none";
+          document.getElementById("center-svg").style.display = "none";
+          document.getElementById("model-svg-div").style.display = "none";
+        });
 
       //Adds clicked node value to jsonToPass
 
@@ -161,12 +334,13 @@ $(document).ready(function () {
       //TODO: figure out better way to track how many times a button has been clicked, otherwise going to get pretty messy
       var UNSDGCLICKS = 0;
       //Declare svg values from existing svg
-      var svg = d3.select("svg"),
+      var svg = d3.select("#center-svg"),
+        svgDescription = d3.select("#desc-svg"),
         width = svg.property("viewBox").baseVal.width,
         height = svg.property("viewBox").baseVal.height;
       (padding = 15), // separation between same-color circles
-      (clusterPadding = 60), // separation between different-color circles
-      (maxRadius = 55);
+        (clusterPadding = 60), // separation between different-color circles
+        (maxRadius = 55);
 
       // Put the svg into an image tag so that the Canvas element can read it in.
 
@@ -178,43 +352,43 @@ $(document).ready(function () {
 
       //If "Create Model" is clicked, create the model using whatever is passed into jsonToPass
       document.getElementById("CreateModel").onclick = function () {
-        modelData = create(jsonToPass);
+        create(jsonToPass);
+        hideSVG();
         jsonToPass = {
           nodes: [],
           links: [],
         };
       };
 
+      document.getElementById("viewLoaded").onclick = function () {
+        var dataToTest = allModels[modelRowIndex];
+        create(dataToTest);
+        hideSVG();
+      };
 
-    // modelDataSend = create(pass)
-     modelDataToSend = JSON.stringify(modelData);
+      //testing it with seperate button submit & click
+      /*
+      $("#SendModel").one("click", function () {
+        $.ajax({
+          method: "POST",
+          url: "add.php",
+          data: { pass: modelDataToSend },
 
-     //testing it with seperate button submit & click
- 
-        $('#SendModel').one('click', function () {
-          $.ajax({
-            method: "POST",
-            url: "add.php",
-            data: { "pass" : modelDataToSend 
-
+          success: function () {
+            alert(modelDataToSend);
           },
-          
-            success: function () {
-              alert(modelDataToSend);
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-              console.log("unsuccessful");
-            }
-          });
+          error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log("unsuccessful");
+          },
         });
-
-
+      });*/
 
       //create function: holds all functions for creating model
       function create(pass) {
         //Remove previous model
         svg.selectAll("*").remove();
         svg.property("viewBox").baseVal.height = height;
+        console.log(pass);
 
         //Pass in Data.json so we can access all nodes and links that exist
         d3.json("json/Data.json", function (error, json) {
@@ -707,148 +881,11 @@ $(document).ready(function () {
           };
           
 */
-          $(".atab")
-            .unbind()
-            .click(function () {
-              //weird bug where it clicks loads of times
-              create(pass);
-              // ////console.log
-              //pass;
-              /* = {
-              nodes: [],
-              links: [],
-            };*/
-            });
-
-          $(".btab")
-            .unbind()
-            .click(function () {
-              var d = pass.nodes;
-
-              svg.selectAll("*").remove();
-              svg.on(".zoom", null);
-              var defs = svg.append("defs");
-              defs
-                .append("style")
-                .attr("type", "text/css")
-                .text(
-                  "@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap')"
-                );
-
-              var obj = Object.keys(countGroupsArray(d)).sort();
-              var descArray = getDescription(pass.nodes);
-              // console.log("desc", descArray);
-              var descriptions = svg
-                .append("g")
-                .attr("class", "text")
-                .style("pointer-events", "auto"),
-                output;
-
-              var y = 40;
-              for (var i = 0; i < obj.length; i++) {
-                descriptions
-                  .append("text")
-                  .attr("x", 50)
-                  .attr("y", y)
-                  .text(obj[i])
-                  .style("font-size", "20px")
-                  .style("font-family", "Lato")
-                  .style("stroke", getColourByGroup(d, obj[i]))
-                  .style("fill", getColourByGroup(d, obj[i]))
-                  .attr("alignment-baseline", "middle")
-                  .on("mouseover", function () {
-                    //console.log(d3.select(this).text());
-                  });
-                for (var j = 0; j < descArray[i].length; j++) {
-                  // console.log(descArray);
-                  output = splitStringWithoutBreakingWords(90, descArray[i][j]);
-                  //////console.log
-                  //  "output", output;
-                  for (var k = 0; k < output.length; k++) {
-                    y += 40;
-                    descriptions
-                      .data(output)
-                      .append("text")
-                      .attr("x", 50)
-                      .attr("y", y)
-                      .text(output[k])
-                      .style("font-size", "20px")
-                      .style("font-family", "Lato")
-                      .style("stroke", "Black")
-                      .attr("alignment-baseline", "middle")
-                      .on("mouseover", function () {
-                        //
-                        d3.select(this).style("stroke", "Gold");
-                        d3.select(this).style("fill", "Gold");
-
-                        // console.log(d3.select(this).text());
-                      })
-                      .on("mouseout", function (d, i) {
-                        //
-
-                        d3.select(this).style("stroke", "Black");
-                        d3.select(this).style("fill", "Black");
-                      })
-                      .on("click", function (d, i) {
-                        //pass.nodes.splice(i, 1);
-                        descriptionUpdated = true;
-                        var startNo = d.match(/([a-z]*)([\w.]+)/i);
-                        var toCheck = d.split(startNo[0])[1].trim();
-                        var final;
-                        //  console.log("dTrue", toCheck);
-                        //  console.log("clicked", d3.select(this).text());
-                        final = d3.select(this).text().includes(toCheck) ?
-                          toCheck :
-                          toCheck + " " + d3.select(this).text();
-                        // console.log("final", final);
-                        var nodeToDelete;
-
-                        for (let node of pass.nodes) {
-                          if (node.description.includes(final)) {
-                            var index = pass.nodes.indexOf(node);
-                            pass.nodes.splice(index, 1);
-                            // console.log(pass.nodes);
-                          }
-                        }
-                        d3.select(this).style(
-                          "text-decoration",
-                          "line-through"
-                        );
-                      });
-                  }
-                }
-                y += 40;
-                svg.property("viewBox").baseVal.height = y + 25;
-
-                // g.attr("height", y + 100);
-                /* svg
-                  .append("circle")
-                  .attr("cx", width - 425)
-                  .attr("cy", y)
-                  .attr("r", 15)
-                  .style("fill", "White")
-                  .style("stroke-width", 5)
-                  .style("stroke", getColourByParentGroup(d, obj[i]));*/
-              }
-              //svg.width = 3000;
-              ////console.log
-              // "y", y;
-
-              /*  var test = d3
-                .select("g")
-                .selectAll("text")
-                .data(output)
-                .text(function (d, i) {
-                  console.log(d);
-                  console.log(i);
-                  return d;
-                });*/
-            });
 
           //document.getElementById("CreateSheet").onclick = function () {};
 
           document.getElementById("FoyleAware").onclick = function () {
-            create(westlinkOveralljson);
+            create(foyleExperienceJson);
             //  var temp = JSON.parse(JSON.stringify(pass));
             // showGroup(json, temp, "Programme for Government");
           };
@@ -931,20 +968,20 @@ $(document).ready(function () {
           addLinksToDynamicJSON(json, pass);
 
           //console.log
-          pass;
+          // pass;
           // smartLink(json, pass);
           // removeLinksBetweenSameGroup(pass);
           //Regional code
           var obj = Object.keys(countParentGroupsArray(pass.nodes)).sort();
+          console.log(obj);
+
           var w = width,
             h = height,
             Ox = 100,
             Oy = 100;
           var regionArray;
           if (countParentGroups(pass.nodes) == 1) {
-            regionArray = [
-              [Ox, Oy, w - 100, h - 100]
-            ];
+            regionArray = [[Ox, Oy, w - 100, h - 100]];
           } else if (countParentGroups(pass.nodes) == 2) {
             regionArray = [
               [Ox, Oy, w / 2 - 50, h - 100],
@@ -1021,12 +1058,12 @@ $(document).ready(function () {
             .force(
               "link",
               d3
-              .forceLink()
-              .id(function (d) {
-                return d.id;
-              })
-              .strength(0)
-              .distance(500)
+                .forceLink()
+                .id(function (d) {
+                  return d.id;
+                })
+                .strength(0)
+                .distance(500)
             )
             //Charge - replusion/attraction between individual nodes
             .force(
@@ -1044,23 +1081,23 @@ $(document).ready(function () {
             .force(
               "attract",
               d3
-              .forceAttract()
-              .target([(2 * width) / 3, height / 2])
-              .strength(0.6)
+                .forceAttract()
+                .target([(2 * width) / 3, height / 2])
+                .strength(0.6)
             )
             //Collision - collision between individual nodes
             .force(
               "collision",
               d3
-              .forceCollide()
-              .radius(function (fn) {
-                //if (fn.type == "Parent") {
-                //  return checkNodeHasChild(fn, pass.nodes);
-                // } else {
-                return 1.5 * fn.radius;
-                //  }
-              })
-              .strength(0.8)
+                .forceCollide()
+                .radius(function (fn) {
+                  //if (fn.type == "Parent") {
+                  //  return checkNodeHasChild(fn, pass.nodes);
+                  // } else {
+                  return 1.5 * fn.radius;
+                  //  }
+                })
+                .strength(0.8)
             )
             // .force("collide", collide)
             //Set where nodes will be attracted to on the y axis
@@ -1068,16 +1105,16 @@ $(document).ready(function () {
             .force(
               "y",
               d3
-              .forceY(function (fn) {
-                for (let node of pass.nodes) {
-                  for (var j = 0; j < countParentGroups(pass.nodes); j++) {
-                    if (fn.parentGroup == obj[j]) {
-                      return regionArray[j][1];
+                .forceY(function (fn) {
+                  for (let node of pass.nodes) {
+                    for (var j = 0; j < countParentGroups(pass.nodes); j++) {
+                      if (fn.parentGroup == obj[j]) {
+                        return regionArray[j][1];
+                      }
                     }
                   }
-                }
-              })
-              .strength(0.7)
+                })
+                .strength(0.7)
             )
             //Set where nodes will be attracted to on the x axis
             //Different groups will have differnt x values
@@ -1085,16 +1122,16 @@ $(document).ready(function () {
             .force(
               "x",
               d3
-              .forceX(function (fn) {
-                for (let node of pass.nodes) {
-                  for (var j = 0; j < countParentGroups(pass.nodes); j++) {
-                    if (fn.parentGroup == obj[j]) {
-                      return regionArray[j][0];
+                .forceX(function (fn) {
+                  for (let node of pass.nodes) {
+                    for (var j = 0; j < countParentGroups(pass.nodes); j++) {
+                      if (fn.parentGroup == obj[j]) {
+                        return regionArray[j][0];
+                      }
                     }
                   }
-                }
-              })
-              .strength(0.7)
+                })
+                .strength(0.7)
             )
             //! probably need to remove as does same as attract but...
             //TODO ... need to read documentation and see difference (will keep for now)
@@ -1106,15 +1143,15 @@ $(document).ready(function () {
               "cluster",
               //clustering
               d3
-              .forceCluster()
-              .centers(function (d) {
-                //Check node is a child
-                if (d.type == "Child") {
-                  return clusters[d.clusterIndex];
-                }
-              })
-              .strength(1)
-              .centerInertia(1.0)
+                .forceCluster()
+                .centers(function (d) {
+                  //Check node is a child
+                  if (d.type == "Child") {
+                    return clusters[d.clusterIndex];
+                  }
+                })
+                .strength(1)
+                .centerInertia(1.0)
             );
           // .stop()
           //.alphaDecay(0.05);
@@ -1132,9 +1169,9 @@ $(document).ready(function () {
 
           //var link = svg.append("g").attr("class", "links");
 
-          var g = svg.append("g").attr("class", "everything");
-          var g_links = svg.append("g").attr("class", "links");
-          var g_nodes = svg.append("g").attr("class", "nodes");
+          g = svg.append("g").attr("class", "everything");
+          g_links = svg.append("g").attr("class", "links");
+          g_nodes = svg.append("g").attr("class", "nodes");
 
           //Define the path which links will take
           //TODO figure out the gradient function so that
@@ -1148,49 +1185,49 @@ $(document).ready(function () {
           var path = //g
             //.append("g")
             g_links
-            .selectAll("path")
-            .data(pass.links)
-            .enter()
-            .append("path")
-            .attr("class", function (d) {
-              return "link " + d.type;
-            })
-            .style("fill", "None")
-            .style("stroke-width", ".5") //!Keeping here in case I come back to it //Mouseover functions //TODO brainstorm ideas with team if they need mouse over function or what that would show
-            .style("stroke", function (fn) {
-              if (
-                getNodeType(pass.nodes, fn.source) == "Parent" &&
-                getNodeType(pass.nodes, fn.target) == "Parent"
-              ) {
-                var gradient = defs
-                  .append("linearGradient")
-                  .attr("id", getGradID(fn))
-                  .attr("x1", "0%") // getNodePosition(pass.nodes, fn.source, true))
-                  .attr("x2", "100%") // getNodePosition(pass.nodes, fn.target, true))
-                  .attr("y1", "0%") // getNodePosition(pass.nodes, fn.source, false))
-                  .attr("y2", "100"); // getNodePosition(pass.nodes, fn.target, false));
+              .selectAll("path")
+              .data(pass.links)
+              .enter()
+              .append("path")
+              .attr("class", function (d) {
+                return "link " + d.type;
+              })
+              .style("fill", "None")
+              .style("stroke-width", ".5") //!Keeping here in case I come back to it //Mouseover functions //TODO brainstorm ideas with team if they need mouse over function or what that would show
+              .style("stroke", function (fn) {
+                if (
+                  getNodeType(pass.nodes, fn.source) == "Parent" &&
+                  getNodeType(pass.nodes, fn.target) == "Parent"
+                ) {
+                  var gradient = defs
+                    .append("linearGradient")
+                    .attr("id", getGradID(fn))
+                    .attr("x1", "0%") // getNodePosition(pass.nodes, fn.source, true))
+                    .attr("x2", "100%") // getNodePosition(pass.nodes, fn.target, true))
+                    .attr("y1", "0%") // getNodePosition(pass.nodes, fn.source, false))
+                    .attr("y2", "100"); // getNodePosition(pass.nodes, fn.target, false));
 
-                d3.select("#" + getGradID(fn))
-                  .append("stop")
-                  .attr("class", "start")
-                  .attr("offset", 0)
-                  .attr("stop-color", getNodeColour(pass.nodes, fn.source)) //getColour(d.source,graph.nodes))
-                  .attr("stop-opacity", 0.4);
-                ////////console.log
-                // getNodeColour(pass.nodes, fn.source);
-                ////////console.log
-                // getNodeColour(pass.nodes, fn.target);
-                gradient
-                  .append("stop")
-                  .attr("class", "end")
-                  .attr("offset", 0.5)
-                  .attr("stop-color", getNodeColour(pass.nodes, fn.target)) // getColour(d.target,graph.nodes))
-                  .attr("stop-opacity", 0.4);
-                return "url(#" + getGradID(fn) + ")";
-              } else {
-                return null;
-              }
-            });
+                  d3.select("#" + getGradID(fn))
+                    .append("stop")
+                    .attr("class", "start")
+                    .attr("offset", 0)
+                    .attr("stop-color", getNodeColour(pass.nodes, fn.source)) //getColour(d.source,graph.nodes))
+                    .attr("stop-opacity", 0.4);
+                  ////////console.log
+                  // getNodeColour(pass.nodes, fn.source);
+                  ////////console.log
+                  // getNodeColour(pass.nodes, fn.target);
+                  gradient
+                    .append("stop")
+                    .attr("class", "end")
+                    .attr("offset", 0.5)
+                    .attr("stop-color", getNodeColour(pass.nodes, fn.target)) // getColour(d.target,graph.nodes))
+                    .attr("stop-opacity", 0.4);
+                  return "url(#" + getGradID(fn) + ")";
+                } else {
+                  return null;
+                }
+              });
           /*
                      .on("mouseover.tooltip", function (d) {
                        tooltip.transition().duration(300).style("opacity", 0.8);
@@ -1256,14 +1293,14 @@ $(document).ready(function () {
             })
             .call(
               d3
-              .drag()
+                .drag()
 
-              .on("start", dragstarted)
-              .on("drag", dragged)
-              .on("end", dragended)
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended)
             )
             .on(
-              "dblclick"
+              "dblclick", //
               /*function (d, i) {
                            d3.event.stopPropagation();
                            var data = [];
@@ -1280,8 +1317,10 @@ $(document).ready(function () {
                            // this.attr("text").remove();
                            // force.resume();
                          }) */
-              , //
-              remove
+              function (d, i) {
+                d3.select(this).style("stroke", "none");
+                remove(d, i);
+              }
             )
             // .on("dblclick", function (d) {
             /* removeSpecOrphans(pass, d);
@@ -1323,11 +1362,11 @@ $(document).ready(function () {
 
                 //var esArray = strGroup.match(/[^e]s(?!.*[^e]s)/i);
                 strGroup =
-                  strGroup.slice(-1) == "s" ?
-                  strGroup.slice(-2) == "es" ?
-                  strGroup :
-                  strGroup.slice(0, -1) :
-                  strGroup;
+                  strGroup.slice(-1) == "s"
+                    ? strGroup.slice(-2) == "es"
+                      ? strGroup
+                      : strGroup.slice(0, -1)
+                    : strGroup;
 
                 let strDescription = d.description;
                 var strDesLength = strDescription.length;
@@ -1367,29 +1406,27 @@ $(document).ready(function () {
                   .attr("height", bbox.height + 10);
 
                 var boxX =
-                  (d.x + bbox.width + (d.type == "Parent" ? 60 : 30)) *
-                  zoomLevel +
-                  panX,
+                    (d.x + bbox.width + (d.type == "Parent" ? 60 : 30)) *
+                      zoomLevel +
+                    panX,
                   boxY =
-                  (d.y + bbox.height + (d.type == "Parent" ? 60 : 30)) *
-                  zoomLevel +
-                  panY,
+                    (d.y + bbox.height + (d.type == "Parent" ? 60 : 30)) *
+                      zoomLevel +
+                    panY,
                   xPos = d.x * zoomLevel + panX,
                   yPos = d.y * zoomLevel + panY,
                   startOfBox =
-                  /*(d.type == "Parent")?*/
-                  (d.x -
-                    bbox.width -
-                    (d.type == "Parent" ? 60 : 30)) *
-                  zoomLevel +
-                  panX, // : ,
+                    /*(d.type == "Parent")?*/
+                    (d.x - bbox.width - (d.type == "Parent" ? 60 : 30)) *
+                      zoomLevel +
+                    panX, // : ,
                   endOfBox = d.x + bbox.width + (d.type == "Parent" ? 60 : 30),
                   topOfBox =
-                  (d.y - bbox.height - (d.type == "Parent" ? 60 : 30)) *
-                  zoomLevel +
-                  panY,
+                    (d.y - bbox.height - (d.type == "Parent" ? 60 : 30)) *
+                      zoomLevel +
+                    panY,
                   bottomOfBox =
-                  d.y + bbox.height + (d.type == "Parent" ? 60 : 30),
+                    d.y + bbox.height + (d.type == "Parent" ? 60 : 30),
                   st = d.x - bbox.width - (d.type == "Parent" ? 60 : 30),
                   end = d.x - (d.type == "Parent" ? 60 : 30),
                   adjHeight = (height - panY) / zoomLevel;
@@ -1398,15 +1435,15 @@ $(document).ready(function () {
                 tip.attr("transform", function () {
                   var x, y;
                   x =
-                    boxX < width ?
-                    d.x + (d.type == "Parent" ? 50 : 20) :
-                    startOfBox > 0 ?
-                    d.x - bbox.width - (d.type == "Parent" ? 60 : 30) :
-                    d.x - Math.abs(endOfBox - adjWidth) - 20;
+                    boxX < width
+                      ? d.x + (d.type == "Parent" ? 50 : 20)
+                      : startOfBox > 0
+                      ? d.x - bbox.width - (d.type == "Parent" ? 60 : 30)
+                      : d.x - Math.abs(endOfBox - adjWidth) - 20;
                   y =
-                    boxY < height ?
-                    d.y + (d.type == "Parent" ? 50 : 20) :
-                    d.y - Math.abs(bottomOfBox - adjHeight) - 20;
+                    boxY < height
+                      ? d.y + (d.type == "Parent" ? 50 : 20)
+                      : d.y - Math.abs(bottomOfBox - adjHeight) - 20;
 
                   return "translate(" + x + "," + y + ")";
                 });
@@ -1531,11 +1568,8 @@ $(document).ready(function () {
 
           //add zoom capabilities
 
-
-
           var zoom_handler = d3
             .zoom()
-
 
             .on("zoom", zoomActions)
             .scaleExtent([0.5, 3]);
@@ -1571,8 +1605,8 @@ $(document).ready(function () {
             g_links.attr("transform", d3.event.transform);
             g_nodes.attr("transform", d3.event.transform);
             (zoomLevel = d3.event.transform.k),
-            (panX = d3.event.transform.x),
-            (panY = d3.event.transform.y);
+              (panX = d3.event.transform.x),
+              (panY = d3.event.transform.y);
             // //console.log
             d3.event.transform;
             //zoomLevel +
@@ -1607,7 +1641,9 @@ $(document).ready(function () {
             node.attr("transform", function (d) {
               d.x = Math.max(radius, Math.min(width - radius, d.x));
               d.y = Math.max(radius, Math.min(height - radius, d.y));
-              return "translate(" + d.x + "," + d.y + ")";
+              if (d.x && d.y) {
+                return "translate(" + d.x + "," + d.y + ")";
+              }
             });
             //for (var i = 0; i < ticksPerRender; i++) {
             path.attr("d", linkArc);
@@ -1617,17 +1653,16 @@ $(document).ready(function () {
           // These are implementations of the custom forces.
           function clustering(alpha) {
             // //console.log
-            "Clusters",
-            clusters;
+            "Clusters", clusters;
             pass.nodes.forEach(function (d) {
               var cluster = clusters[d.clusterIndex];
               ////console.log
               cluster;
               if (cluster === d) return;
               ////console.log
-              "d", d;
+              //   "d", d;
               //  //console.log
-              "cluster", cluster;
+              // "cluster", cluster;
               if (!typeof cluster == "undefined") {
                 var x = d.x - cluster.x,
                   y = d.y - cluster.y,
@@ -1663,11 +1698,11 @@ $(document).ready(function () {
                     y = d.y - quad.data.y,
                     l = Math.sqrt(x * x + y * y),
                     r =
-                    d.r +
-                    quad.data.r +
-                    (d.cluster === quad.data.cluster ?
-                      padding :
-                      clusterPadding);
+                      d.r +
+                      quad.data.r +
+                      (d.cluster === quad.data.cluster
+                        ? padding
+                        : clusterPadding);
                   if (l < r) {
                     l = ((l - r) / l) * alpha;
                     d.x -= x *= l;
@@ -1741,7 +1776,8 @@ $(document).ready(function () {
             );*/
             //pass.nodes = pass.nodes.slice(i, 1);
             // pass.nodes.push(pass.nodes.splice(i, 1)[0]);
-            pass.nodes.splice(i, 1);
+            console.log(" i ", i);
+            pass.nodes[i].colour = "White";
 
             /* console.log(
               "Nodes after",
@@ -1797,13 +1833,13 @@ $(document).ready(function () {
           }
 
           var printArray = {
-            nodes: []
+            nodes: [],
           };
           for (let node of pass.nodes) {
             element = {
               id: "",
               group: "",
-              description: ""
+              description: "",
             };
             element.id = node.id;
             element.group = node.group;
@@ -1815,33 +1851,60 @@ $(document).ready(function () {
         });
 
         //
-        //Table Function - now with datatables implementation
+        //Table Function
         //
-
-
-
-    
-    
-   
         let tableData = [];
-        let id = "row_" ;
-        
+        let id = "row_";
+        /* if (modelRowIndex) {
+          for (let node of allModels[modelRowIndex].nodes) {
+            var noArr = node.id.match(/([a-z]*)([\w.]+)/i);
+
+            element = {
+              data: [
+                {
+                  DT_RowId: "",
+                  indicator: "",
+                  action: "",
+                  measurables: "",
+                  partners: "",
+                  project: "",
+                },
+              ],
+            };
+            //////////console.log
+            noArr;
+
+            indicators = node.id + " - " + node.description;
+
+            // element.DT_RowId = id + id_no;
+            element.indicator = "";
+            element.action = "";
+            element.measurables = "";
+            element.partners = "";
+            element.project = "";
+
+            indicatorData.push(indicators);
+            sortArray(indicatorData);
+            //console.log(indicatorData);
+
+            tableData.push(element);
+          }*/
+        // }// else {
         for (let node of pass.nodes) {
           var noArr = node.id.match(/([a-z]*)([\w.]+)/i);
-      
-         
 
           element = {
-            data: [{
-              DT_RowId: "",
-              indicator: "",
-              action: "",
-              measurables: "",
-              partners: "",
-              project: ""
-            }]
-           
-          }
+            data: [
+              {
+                DT_RowId: "",
+                indicator: "",
+                action: "",
+                measurables: "",
+                partners: "",
+                project: "",
+              },
+            ],
+          };
           //////////console.log
           noArr;
 
@@ -1854,53 +1917,25 @@ $(document).ready(function () {
           element.partners = "";
           element.project = "";
 
-
           indicatorData.push(indicators);
-          console.log(indicatorData);
+          sortArray(indicatorData);
+          //console.log(indicatorData);
 
           tableData.push(element);
+          // }
         }
-
-     
-
-        // $( "#CreateTable" ).click(function() {
-        //   console.log(tableData);
-        //     var table = $('#example').DataTable();  
-        //    table.rows.add(tableData).draw();
-        //    var tr = $('#example tbody tr:eq(0)');
-        //    table
-        //       .rows(tr)
-        //       .invalidate()
-        //       .draw();
-
-
-        //     //   editor.add( {
-        //     //     type:     'select',
-        //     //     label:    'Locations:',
-        //     //     name:     'locations',
-        //     //     multiple: true,
-        //     //     separator: ',',
-        //     //     options: [
-        //     //         { label: 'Edinburgh', value: 51 },
-        //     //         { label: 'London',    value: 76 }
-        //     //         // etc
-        //     //     ]
-        //     // } );
-
-          
-        // });
-
-
-         $( "#save" ).click(function() {
-          var table = $('#example').DataTable();  
-          table.draw
-
-        });
+        /*
+        //  window.onload = () => {
+        document.getElementById("CreateTable").onclick = function () {
+          loadTableData(tableData);
+        };
+        // };*/
 
         //Save as svg function
         d3.select("#download-svg").on("click", function () {
           var config = {
-            filename: document.getElementById("projectName").value + " Model",
+            filename:
+              document.getElementById("formGroupExampleInput").value + " Model",
           };
           d3_save_svg.save(d3.select("svg").node(), config);
         });
@@ -1909,28 +1944,28 @@ $(document).ready(function () {
 
         d3.select("#download-png").on("click", function () {
           //Save as image function
-          var html = d3
-            .select("svg")
+          console.log("IMAGE CODE");
+          var html = svg
             .attr("version", 1.1)
             .attr("xmlns", "http://www.w3.org/2000/svg")
             .node().parentNode.innerHTML;
-
+          console.log("html", html);
           var imgsrc =
             "data:image/svg+xml;base64," +
             btoa(unescape(encodeURIComponent(html)));
           var img = '<img src="' + imgsrc + '">';
           d3.select("#svgdataurl").html(img);
-          ////console.log
-          //  html;
+          console.log("img", img);
 
           var canvas = document.querySelector("canvas"),
             context = canvas.getContext("2d");
           context.clearRect(0, 0, canvas.width, canvas.height);
+          console.log("canvas", canvas);
           var image = new Image();
           image.src = imgsrc;
           image.onload = function () {
             context.drawImage(image, 0, 0);
-
+            console.log("canvas", canvas);
             var canvasdata = canvas.toDataURL("image/jpg", 1);
 
             var pngimg = '<img src="' + canvasdata + '">';
@@ -1938,9 +1973,14 @@ $(document).ready(function () {
 
             var a = document.createElement("a");
             a.download =
-              document.getElementById("projectName").value + " Model.jpg";
+              document.getElementById("formGroupExampleInput").value +
+              " Model.jpg";
             a.href = canvasdata;
             a.click();
+            console.log("HTML", html);
+            console.log("canvas", canvas);
+            console.log("img", img);
+            console.log("a", a);
             ////console.log
             // getParentGroupArray(pass.nodes);
           };
@@ -1974,10 +2014,6 @@ $(document).ready(function () {
         });*/
         var modelPHP = $("#pass").val();
 
-
-
-
-        
         // $(document).ready(function () {
         //   $('#CreateModel').one('click', function () {
         //     $.ajax({
@@ -1997,7 +2033,6 @@ $(document).ready(function () {
         //   });
         // });
 
-        console.log(pass);
         // $.ajax({
         //   method: "POST",
         //   url: "add.php",
@@ -2010,14 +2045,20 @@ $(document).ready(function () {
         //     alert("success!");
         //   },
         // });
-        return pass;
+        modelData = pass;
+        modelDataToSend = JSON.stringify(modelData);
+        modelDataToSend.replace("nodes", '"nodes"');
+        modelDataToSend.replace("links", '"links"');
+
+        document.getElementById("formGroupModelData").value = modelDataToSend;
+        console.log(modelData);
+        //return pass;
       }
 
       /*  modelData = JSON.stringify(modelData);
         modelData.replace("nodes", '"nodes"');
         modelData.replace("links", '"links"');
         var modelPHP = $("#modelData").val();*/
-      // var modelData = $(this).attr("pass");
 
       //linkArc - defines curved path that links should take
       function linkArc(d) {
@@ -2030,20 +2071,22 @@ $(document).ready(function () {
           dy = d.target.y - d.source.y,
           dr = Math.sqrt(dx * dx + dy * dy);
         dR = getRandomArbitrary(dr * minMultiplier, dr * maxMultiplier);
-        return (
-          "M" +
-          d.source.x +
-          "," +
-          d.source.y +
-          "A" +
-          dr +
-          "," +
-          dr +
-          " 0 0,1" +
-          d.target.x +
-          "," +
-          d.target.y
-        );
+        if (dx) {
+          return (
+            "M" +
+            d.source.x +
+            "," +
+            d.source.y +
+            "A" +
+            dr +
+            "," +
+            dr +
+            " 0 0,1" +
+            d.target.x +
+            "," +
+            d.target.y
+          );
+        }
       }
 
       //
@@ -2186,7 +2229,13 @@ $(document).ready(function () {
         var data = d3.range(obj.length).map((d) => ({
           id: d,
         }));
-
+        g.append("text")
+          .attr("x", width - 640)
+          .attr("y", height - 440)
+          .text("Click circle to highlight")
+          .style("font-size", "18px")
+          .style("font-family", "Oswald")
+          .attr("alignment-baseline", "middle");
         var y = height - 400 + i * 40;
         g.selectAll()
           .data(data)
@@ -2211,18 +2260,35 @@ $(document).ready(function () {
           .on("click", function (d) {
             d.noFill = d.noFill || false;
 
+            var parentObj = parentGroupObject(countParentGroupsArray(x));
             if (!d.noFill) {
+              highlightStoreGroup[d.id] = !d.noFill;
+              highlightStoreGroupStrs = boolArrayToStringArray(
+                highlightStoreGroup,
+                Object.keys(parentObj)
+                  .sort()
+                  .reduce(function (acc, key) {
+                    acc[key] = parentObj[key];
+                    return acc;
+                  }, {})
+              );
+
               d3.select(this).style("fill", d3.select(this).style("stroke"));
-              showOnlyFadeGroup(
-                getKeyByValue(groupColours, d3.select(this).style("stroke")),
-                d.noFill
-              );
+              showOnlyFadeGroup(d.noFill);
             } else {
-              d3.select(this).style("fill", "white");
-              showOnlyFadeGroup(
-                getKeyByValue(groupColours, d3.select(this).style("stroke")),
-                d.noFill
+              highlightStoreGroup[d.id] = !d.noFill;
+              highlightStoreGroupStrs = boolArrayToStringArray(
+                highlightStoreGroup,
+                Object.keys(parentObj)
+                  .sort()
+                  .reduce(function (acc, key) {
+                    acc[key] = parentObj[key];
+                    return acc;
+                  }, {})
               );
+
+              d3.select(this).style("fill", "white");
+              showOnlyFadeGroup(d.noFill);
             }
             d.noFill = !d.noFill;
           });
@@ -2230,7 +2296,6 @@ $(document).ready(function () {
 
       //highlightStrandList
       var noFill = true;
-
       function highlightStrandList(g) {
         var data = d3.range(countProperties(highlightObject)).map((d) => ({
           id: d,
@@ -2270,23 +2335,20 @@ $(document).ready(function () {
             console.log(d);
             if (!d.noFill) {
               highlightStore[d.id] = !d.noFill;
-              console.log(highlightStore);
-              d3.select(this).style("fill", d3.select(this).style("stroke"));
-              showOnlyFade(
-                getKeyByValue(highlightObject, d3.select(this).style("stroke")),
-                d.noFill,
-                d.id
+              highlightStoreStrs = boolArrayToStringArray(
+                highlightStore,
+                highlightObject
               );
+              d3.select(this).style("fill", d3.select(this).style("stroke"));
+              showOnlyFade(d.noFill, highlightStoreStrs);
             } else {
               highlightStore[d.id] = !d.noFill;
-              console.log(highlightStore);
-              d3.select(this).style("fill", "white");
-              showOnlyFade(
-                getKeyByValue(highlightObject, d3.select(this).style("stroke")),
-                // d.noFill
-                d.noFill,
-                d.id
+              highlightStoreStrs = boolArrayToStringArray(
+                highlightStore,
+                highlightObject
               );
+              d3.select(this).style("fill", "white");
+              showOnlyFade(d.noFill, highlightStoreStrs);
             }
             d.noFill = !d.noFill;
           });
@@ -2313,7 +2375,7 @@ $(document).ready(function () {
         for (var i = 0; i < d.nodes.length - 1; i++) {
           var element = {
             source: "",
-            target: ""
+            target: "",
           };
           element.source = d.nodes[i].id;
           element.target = d.nodes[i + 1].id;
@@ -2399,43 +2461,24 @@ $(document).ready(function () {
       //showOnlyFade - fade out anything that isn't the pG (parentGroup)
       var showOnlyFadeClicks;
 
-      function showOnlyFade(pG, flag, id) {
-        /*if (typeof showOnlyFadeClicks == "undefined") {
-          showOnlyFadeClicks = 0;
-        }*/
-        //////////console.log
-        // showOnlyFadeClicks;
-
+      function showOnlyFade(flag) {
         d3.select(".nodes")
-          // .append("svg")
           .selectAll("circle")
           .transition()
           .duration(500)
           .style("opacity", function (d) {
-            for (var i = 0; i < highlightStore.length; i++) {
-              if (highlightStore[i] == true) {
-                //if (!flag) {
+            if (highlightStoreStrs.length == 0) {
+              return 1;
+            }
 
-                if (
-                  typeof d != "undefined" &&
-                  //  (d.description.includes(pG) ||
-                  // !d.description.includes(pG.toLowerCase()) )
-                  !d.description.includes(
-                    getKeyByValue(
-                      highlightObject,
-                      highlightObject[Object.keys(highlightObject)[i]]
-                    ).toLowerCase()
-                  )
-                ) {
-                  highlightStore[id] = !flag;
-                  console.log(highlightStore);
-                  return 0.2;
-                }
-              } else {
-                highlightStore[id] = !flag;
-                console.log(highlightStore);
-                return 1;
-              }
+            if (!stringInArray(d.description, highlightStoreStrs)) {
+              highlightStore[id] = !flag;
+              console.log("true");
+              return 0.2;
+            } else {
+              highlightStore[id] = !flag;
+              console.log("false");
+              return 1;
             }
           });
         d3.select(".nodes")
@@ -2443,32 +2486,20 @@ $(document).ready(function () {
           .transition()
           .duration(500)
           .style("opacity", function (d) {
-            // if (showOnlyFadeClicks % 2 == 0) {
-            console.log(highlightStore);
-            if (highlightStore[i] == true) {
-              //if (!flag) {
-              console.log(d);
-              console.log(
-                getKeyByValue(
-                  highlightObject,
-                  highlightObject[Object.keys(highlightObject)[i]]
-                ).toLowerCase()
-              );
-              if (
-                typeof d != "undefined" &&
-                //  (d.description.includes(pG) ||
-                !d.description.includes(
-                  getKeyByValue(
-                    highlightObject,
-                    highlightObject[Object.keys(highlightObject)[i]]
-                  ).toLowerCase()
-                )
-              ) {
-                console.log("success");
-                return 0.2;
-              }
+            if (highlightStoreStrs.length == 0) {
+              return 1;
+            }
+            if (
+              typeof d != "undefined" &&
+              !stringInArray(d.description, highlightStoreStrs)
+            ) {
+              return 0.2;
+            }
+            if (!stringInArray(d.description, highlightStoreStrs)) {
+              highlightStore[id] = !flag;
+              return 0.2;
             } else {
-              console.log("failure");
+              highlightStore[id] = !flag;
               return 1;
             }
           });
@@ -2477,7 +2508,7 @@ $(document).ready(function () {
           .duration(500)
           .style("opacity", function () {
             //  if (showOnlyFadeClicks % 2 == 0) {
-            if (highlightStore[i] == true) {
+            if (highlightStoreStrs.length > 0) {
               // if (!flag) {
               return 0;
             } else {
@@ -2487,23 +2518,26 @@ $(document).ready(function () {
       }
 
       //showOnlyFadeParentGroup
-      function showOnlyFadeGroup(pG, flag) {
-        if (typeof showOnlyFadeClicks == "undefined") {
-          showOnlyFadeClicks = 0;
-        }
-        //////////console.log
-        // showOnlyFadeClicks;
-
+      function showOnlyFadeGroup(flag) {
         d3.select(".nodes")
           .selectAll("circle")
           .transition()
           .duration(500)
           .style("opacity", function (d) {
-            if (!flag) {
-              if (typeof d != "undefined" && !d.parentGroup.includes(pG)) {
-                return 0.2;
-              }
+            if (highlightStoreGroupStrs.length == 0) {
+              return 1;
+            }
+
+            if (
+              !specificStringInArray(
+                d.parentGroup.toLowerCase(),
+                highlightStoreGroupStrs
+              )
+            ) {
+              highlightStoreGroup[id] = !flag;
+              return 0.2;
             } else {
+              highlightStoreGroup[id] = !flag;
               return 1;
             }
           });
@@ -2512,11 +2546,30 @@ $(document).ready(function () {
           .transition()
           .duration(500)
           .style("opacity", function (d) {
-            if (!flag) {
-              if (typeof d != "undefined" && !d.parentGroup.includes(pG)) {
-                return 0.2;
-              }
+            if (highlightStoreGroupStrs.length == 0) {
+              return 1;
+            }
+            if (
+              typeof d != "undefined" &&
+              !specificStringInArray(
+                d.parentGroup.toLowerCase(),
+                highlightStoreGroupStrs
+              )
+            ) {
+              return 0.2;
+            }
+            if (
+              !specificStringInArray(
+                d.parentGroup.toLowerCase(),
+                highlightStoreGroupStrs
+              )
+            ) {
+              highlightStoreGroup[id] = !flag;
+
+              return 0.2;
             } else {
+              highlightStoreGroup[id] = !flag;
+
               return 1;
             }
           });
@@ -2524,14 +2577,14 @@ $(document).ready(function () {
           .transition()
           .duration(500)
           .style("opacity", function () {
-            if (!flag) {
+            //  if (showOnlyFadeClicks % 2 == 0) {
+            if (highlightStoreGroupStrs.length > 0) {
+              // if (!flag) {
               return 0;
             } else {
               return 0.5;
             }
           });
-
-        showOnlyFadeClicks++;
       }
 
       //showGroup - only show nodes of a specified parentGroup
@@ -2569,7 +2622,7 @@ $(document).ready(function () {
       function showGroupFoyle(data, pass) {
         var pg1 = "UN Sustainable Development Goals",
           pg2 =
-          "Derry City & Strabane District’s Inclusive Strategic Growth Plan",
+            "Derry City & Strabane District’s Inclusive Strategic Growth Plan",
           pg3 = "Protect Life 2 - Suicide Prevention Strategy",
           pg4 = "Making Life Better",
           pg5 = "Programme for Government";
@@ -2621,8 +2674,7 @@ $(document).ready(function () {
       function removeSpecOrphans(pass, d) {
         //for (let node of pass.nodes) {
         // ////////console.log
-        "pass.node",
-        pass.nodes;
+        "pass.node", pass.nodes;
         for (var i = pass.nodes.length - 1; i > 0; i--) {
           // ////////console.log
           //  node;
@@ -2698,7 +2750,7 @@ $(document).ready(function () {
       //removeDups - remove any duplicate links that exist
       function removeDups(myArray) {
         myArray.sort();
-        for (var i = 1; i < myArray.length;) {
+        for (var i = 1; i < myArray.length; ) {
           if (
             myArray[i - 1].source === myArray[i].source &&
             myArray[i - 1].target === myArray[i].target
@@ -2858,34 +2910,6 @@ $(document).ready(function () {
         return dist;
       }
 
-      //Edit of : https://stackoverflow.com/questions/15052702/count-unique-elements-in-array-without-sorting
-      //countGroups - returns the number of groups in the selected nodes
-      //! - will count parent nodes and child nodes from same parentGroup as two seperate groups
-      function countGroups(d) {
-        var counts = {};
-        for (var i = 0; i < d.length; i++) {
-          counts[d[i]["group"]] = 1 + (counts[d[i]["group"]] || 0);
-        }
-        return countProperties(counts);
-      }
-      //countGroupsArray - returns an array of all the groups in the selected nodes
-      function countGroupsArray(d) {
-        var counts = {};
-        for (var i = 0; i < d.length; i++) {
-          counts[d[i]["group"]] = 1 + (counts[d[i]["group"]] || 0);
-        }
-        return counts;
-      }
-
-      //countParentGroups - returns the number of parentGroups in the selected nodes
-      function countParentGroups(d) {
-        var counts = {};
-        for (var i = 0; i < d.length; i++) {
-          counts[d[i]["parentGroup"]] = 1 + (counts[d[i]["parentGroup"]] || 0);
-        }
-
-        return countProperties(counts);
-      }
       //sortByDigits
       function sortByDigits(array) {
         var re = /\D/g;
@@ -2934,9 +2958,9 @@ $(document).ready(function () {
           for (var j = 0; j < arr.length; j++) {
             if (j < arr.length - 1) {
               (s1 = arr[j].substring(0, 4)),
-              (s2 = arr[j + 1].substring(0, 4)),
-              (n1 = s1.search(/\d[.]\s/g)),
-              (n2 = s2.search(/\d[.]\s/g));
+                (s2 = arr[j + 1].substring(0, 4)),
+                (n1 = s1.search(/\d[.]\s/g)),
+                (n2 = s2.search(/\d[.]\s/g));
 
               if (
                 n2 >= 0 &&
@@ -2986,7 +3010,7 @@ $(document).ready(function () {
                 var newValue = costs[j - 1];
                 if (s1.charAt(i - 1) != s2.charAt(j - 1))
                   newValue =
-                  Math.min(Math.min(newValue, lastValue), costs[j]) + 1;
+                    Math.min(Math.min(newValue, lastValue), costs[j]) + 1;
                 costs[j - 1] = lastValue;
                 lastValue = newValue;
               }
@@ -3025,7 +3049,7 @@ $(document).ready(function () {
       function getParentGroupArray(d) {
         var arr = [];
         var noParents = countParents(d);
-        for (var j = 0; j < noParents;) {
+        for (var j = 0; j < noParents; ) {
           for (var i = 0; i < d.length; i++) {
             if (!arr.includes(d[i].parentGroup)) {
               arr[j] = d[i].parentGroup;
@@ -3055,9 +3079,16 @@ $(document).ready(function () {
         return counts;
       }
 
-      //https://stackoverflow.com/questions/956719/number-of-elements-in-a-javascript-object
-      function countProperties(obj) {
-        return Object.keys(obj).length;
+      //parentGroupObj - returns an object of all the groups in the selected nodes
+      function parentGroupObject(obj) {
+        var returnObj;
+        var i = 0;
+        for (let key in obj) {
+          obj[key] = i;
+          i++;
+        }
+        returnObj = obj;
+        return returnObj;
       }
 
       //getColour - returns colour of node (used for linkGradient function mainly)
@@ -3114,7 +3145,7 @@ $(document).ready(function () {
                   var contains = false;
                   if (
                     JSON.stringify(passLinks[l]) !=
-                    JSON.stringify(linkToPush) &&
+                      JSON.stringify(linkToPush) &&
                     JSON.stringify(passLinks[l]) != JSON.stringify(reverseLink)
                   ) {
                     contains = true;
@@ -3138,7 +3169,7 @@ $(document).ready(function () {
                   var contains = false;
                   if (
                     JSON.stringify(passLinks[l]) !=
-                    JSON.stringify(linkToPush) &&
+                      JSON.stringify(linkToPush) &&
                     JSON.stringify(passLinks[l]) != JSON.stringify(reverseLink)
                   ) {
                     contains = true;
@@ -3162,7 +3193,7 @@ $(document).ready(function () {
                   var contains = false;
                   if (
                     JSON.stringify(passLinks[l]) !=
-                    JSON.stringify(linkToPush) &&
+                      JSON.stringify(linkToPush) &&
                     JSON.stringify(passLinks[l]) != JSON.stringify(reverseLink)
                   ) {
                     contains = true;
@@ -3186,7 +3217,7 @@ $(document).ready(function () {
                   var contains = false;
                   if (
                     JSON.stringify(passLinks[l]) !=
-                    JSON.stringify(linkToPush) &&
+                      JSON.stringify(linkToPush) &&
                     JSON.stringify(passLinks[l]) != JSON.stringify(reverseLink)
                   ) {
                     contains = true;
@@ -3218,12 +3249,51 @@ $(document).ready(function () {
         output.push(str.substr(prev));
         return output;
       }
+
+      //boolArrayToStringArray
+      function boolArrayToStringArray(arr, obj) {
+        console.log("arr", arr);
+        console.log("obj", obj);
+        var strArray = [];
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i]) {
+            strArray.push(
+              getKeyByValue(obj, obj[Object.keys(obj)[i]]).toLowerCase()
+            );
+            console.log(
+              getKeyByValue(obj, obj[Object.keys(obj)[i]]).toLowerCase()
+            );
+            console.log(obj[Object.keys(obj)[i]]);
+          }
+        }
+        console.log(strArray);
+        return strArray;
+      }
+
+      //stringInArray
+      function stringInArray(str, arr) {
+        var flag = false;
+        for (let ele of arr) {
+          if (str.includes(ele)) {
+            flag = true;
+          }
+        }
+        return flag;
+      }
+
+      //specificStringInArray
+      function specificStringInArray(str, arr) {
+        var flag = false;
+        for (let ele of arr) {
+          if (str == ele) {
+            flag = true;
+          }
+        }
+        return flag;
+      }
     });
   });
 });
-
-
-
 
 // This sample uses the Autocomplete widget to help the user select a
 // place, then it retrieves the address components associated with that
@@ -3247,8 +3317,9 @@ function initAutocomplete() {
   // Create the autocomplete object, restricting the search predictions to
   // geographical location types.
   autocomplete = new google.maps.places.Autocomplete(
-    document.getElementById("autocomplete"), {
-      types: ["geocode"]
+    document.getElementById("autocomplete"),
+    {
+      types: ["geocode"],
     }
   );
   // Avoid paying for data that you don't need by restricting the set of
@@ -3296,4 +3367,53 @@ function geolocate() {
       autocomplete.setBounds(circle.getBounds());
     });
   }
+}
+//https://stackoverflow.com/questions/956719/number-of-elements-in-a-javascript-object
+function countProperties(obj) {
+  return Object.keys(obj).length;
+}
+
+//Edit of : https://stackoverflow.com/questions/15052702/count-unique-elements-in-array-without-sorting
+//countGroups - returns the number of groups in the selected nodes
+//! - will count parent nodes and child nodes from same parentGroup as two seperate groups
+function countGroups(d) {
+  var counts = {};
+  for (var i = 0; i < d.length; i++) {
+    counts[d[i]["group"]] = 1 + (counts[d[i]["group"]] || 0);
+  }
+  return countProperties(counts);
+}
+//countGroupsArray - returns an array of all the groups in the selected nodes
+function countGroupsArray(d) {
+  var counts = {};
+  for (var i = 0; i < d.length; i++) {
+    counts[d[i]["group"]] = 1 + (counts[d[i]["group"]] || 0);
+  }
+  return counts;
+}
+
+//countParentGroups - returns the number of parentGroups in the selected nodes
+function countParentGroups(d) {
+  var counts = {};
+  for (var i = 0; i < d.length; i++) {
+    counts[d[i]["parentGroup"]] = 1 + (counts[d[i]["parentGroup"]] || 0);
+  }
+
+  return countProperties(counts);
+}
+
+//simulateClick
+
+function simulateClick(el, etype) {
+  if (el.fireEvent) {
+    el.fireEvent("on" + etype);
+  } else {
+    var evObj = document.createEvent("Events");
+    evObj.initEvent(etype, true, false);
+    el.dispatchEvent(evObj);
+  }
+}
+
+function simulateKeyPress(character) {
+  jQuery.event.trigger({ type: "keypress", which: character.charCodeAt(0) });
 }

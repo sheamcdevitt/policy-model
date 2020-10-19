@@ -1,5 +1,5 @@
 function hideSVG() {
-  console.log(allModels);
+  // console.log(allModels);
   var pfgAchieved = countGroupsArray(modelData.nodes)[
       "Programme for Government Indicators"
     ],
@@ -7,8 +7,8 @@ function hideSVG() {
     allGroupsNos = groupNos(countGroupsArray(modelData.nodes)),
     allGroupsNames = groupNames(countGroupsArray(modelData.nodes));
 
-  console.log(allGroupsNos);
-  console.log(allGroupsNames);
+  // console.log(allGroupsNos);
+  // console.log(allGroupsNames);
   /*
   var ctxPFGAchieved = document
     .getElementById("insights-pfgAchieved")
@@ -1043,7 +1043,7 @@ function groupNames(obj) {
 }
 
 function pfgDistribution(pfg) {
-  console.log(allModels);
+  // console.log(allModels);
   var pfgNumber = 0,
     pfgDistribution;
   for (var key in allModels) {
@@ -1053,7 +1053,7 @@ function pfgDistribution(pfg) {
       }
     }
   }
-  console.log("pgfnumber", pfgNumber);
+  // console.log("pgfnumber", pfgNumber);
   pfgDistribution =
     allProjectsValue / (pfgNumber * countProperties(allModels) * 14) != Infinity
       ? allProjectsValue / (pfgNumber * countProperties(allModels) * 14)

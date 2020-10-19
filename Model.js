@@ -3,6 +3,8 @@ function setId(clicked_id) {
   simulateClick(document.getElementById("viewLoaded"), "click");
 }
 
+ var impEditor;
+
 window.indicatorData = [];
 //Empty JSON to populate
 var jsonToPass = {
@@ -144,14 +146,14 @@ $(document).ready(function () {
           value.description.search(expression) != -1 ||
           value.group.search(expression) != -1
         ) {
+          
+          // console.log(value);
           $("#result").append(
-            '<li class="list-group-item link-class result-li">' +
-              value.group +
-              ' | <span class="text-muted">' +
-              value.description +
-              '<style = "visibility:hidden;"> | *' +
-              value.id +
-              "  "
+            '<li class="list-group-item link-class result-li">' + value.parentGroup + ' | <span class="text-muted">' + value.description + '<style = "visibility:hidden;"> | *' + value.id +"  "
+
+
+              //child group
+
           );
         }
 
@@ -1922,8 +1924,22 @@ $(document).ready(function () {
           //console.log(indicatorData);
 
           tableData.push(element);
+
+
+
+        
           // }
         }
+
+
+        $('#CreateModel').click(function(){
+          
+        });
+
+
+  
+
+   
         /*
         //  window.onload = () => {
         document.getElementById("CreateTable").onclick = function () {

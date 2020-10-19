@@ -24,6 +24,7 @@ Editor::inst( $db, 'implementation' )
 		Field::inst( 'implementation.indicator' ),
 		Field::inst( 'implementation.action' ),
 		Field::inst( 'implementation.measurables' ),
+		Field::inst( 'implementation.value' ),
 		Field::inst( 'implementation.partners' ),
 		Field::inst( 'implementation.moreinfo' ),
 		Field::inst( 'implementation.project' )

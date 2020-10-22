@@ -18,7 +18,8 @@ Editor::inst( $db, 'projects' )
     ->fields(
         Field::inst( 'id' )->set( false ),
         Field::inst( 'projectName' )->validator( 'Validate::notEmpty' ),
-        Field::inst( 'modelData' )->validator( 'Validate::notEmpty' )
+        Field::inst( 'modelData' )->validator( 'Validate::notEmpty' ),
+        Field::inst( 'creationTime' )->validator( 'Validate::notEmpty' )
     )
     ->join(
         Mjoin::inst( 'implementation' )

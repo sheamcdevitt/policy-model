@@ -256,96 +256,115 @@
     </div>
 
 
- <!-- New sub menu UI -->
+    <!-- New sub menu UI -->
     <div class="container">
-        <ul id="">  <!-- result id goes here -->
+        <ul id="">
+            <!-- result id goes here -->
 
+
+            <style>
+            .container-1 {
+                position: relative;
+                height: 250px;
+            }
+
+            .container-2 {
+                max-height: 100%;
+                overflow: auto;
+            }
+            </style>
 
             <!--Parent item-->
-            <li href="#menupos1" class="list-group-item collapsed collapser">Parent Item<span class="float-right">
-                    <i class="fa"></i></span></li>
 
-                     <!--Sub Item-->
-                    <div class="collapse  sub-menu-bg" id="menupos1">
-                        <li class="list-group-item sub-item">Item</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                    </div>
+            <div class="">
+                <div class="">
+                    <li href="#menupos1" class="list-group-item collapsed collapser">Parent Item<span
+                            class="float-right">
 
-            <li href="#menupos1" class="list-group-item collapsed collapser">Parent Item<span class="float-right">
-                    <i class="fa"></i></span></li>
-
-                    <div class="collapse  sub-menu-bg" id="menupos2">
-                        <li class="list-group-item sub-item">Item</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                    </div>
+                            <!--Sub Item-->
+                            <div class="collapse  sub-menu-bg" id="menupos1">
+                    <li class="list-group-item sub-item">Item</li>
 
 
-            <li href="#menupos1" class="list-group-item collapsed collapser">Parent Item<span class="float-right">
-                    <i class="fa"></i></span></li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                </div>
 
-                    <div class="collapse sub-menu-bg" id="menupos2">
-                        <li class="list-group-item sub-item">Item</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                    </div>
+                <li href="#menupos1" class="list-group-item collapsed collapser">Parent Item<span class="float-right">
+                        <i class="fa"></i></span></li>
 
-            <li href="#menupos1" class="list-group-item collapsed collapser">Parent Item<span class="float-right">
-                    <i class="fa"></i></span></li>
+                <div class="collapse  sub-menu-bg" id="menupos2">
+                    <li class="list-group-item sub-item">Item</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                </div>
 
-                    <div class="collapse  sub-menu-bg" id="menupos2">
-                        <li class="list-group-item sub-item">Item</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                    </div>
 
-            <li href="#menupos1" class="list-group-item collapsed collapser">Parent Item<span class="float-right">
-                    <i class="fa"></i></span></li>
+                <li href="#menupos1" class="list-group-item collapsed collapser">Parent Item<span class="float-right">
+                        <i class="fa"></i></span></li>
 
-                    <div class="collapse  sub-menu-bg" id="menupos2">
-                        <li class="list-group-item sub-item">Item</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                    </div>
+                <div class="collapse sub-menu-bg" id="menupos2">
+                    <li class="list-group-item sub-item">Item</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                </div>
 
-            <li href="#menupos1" class="list-group-item collapsed collapser">Parent Item<span class="float-right">
-                    <i class="fa"></i></span></li>
+                <li href="#menupos1" class="list-group-item collapsed collapser">Parent Item<span class="float-right">
+                        <i class="fa"></i></span></li>
 
-                    <div class="collapse  sub-menu-bg" id="menupos2">
-                        <li class="list-group-item sub-item">Item</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                        <li href="#" class="list-group-item sub-item">SubItem</li>
-                    </div>
+                <div class="collapse  sub-menu-bg" id="menupos2">
+                    <li class="list-group-item sub-item">Item</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                </div>
 
-        </ul>
+                <li href="#menupos1" class="list-group-item collapsed collapser">Parent Item<span class="float-right">
+                        <i class="fa"></i></span></li>
+
+                <div class="collapse  sub-menu-bg" id="menupos2">
+                    <li class="list-group-item sub-item">Item</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                </div>
+
+                <li href="#menupos1" class="list-group-item collapsed collapser">Parent Item<span class="float-right">
+                        <i class="fa"></i></span></li>
+
+                <div class="collapse  sub-menu-bg" id="menupos2">
+                    <li class="list-group-item sub-item">Item</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                    <li href="#" class="list-group-item sub-item">SubItem</li>
+                </div>
+            </div>
+    </div>
+    </ul>
 
     </div>
     </div>
+
 
 
     <script>
-
-var subitem = $('.sub-item');
+    var subitem = $('.sub-item');
 
     $('.collapser').click(function() {
 
         // submenu.removeClass('show');
         // $('.sub-menu-bg').removeClass('.show');
 
-        
+
         $(this).next().collapse('toggle');
 
     });
@@ -1023,9 +1042,10 @@ var subitem = $('.sub-item');
                     Model</a></li>
             <li class="nav-item tab-link"><a class="nav-link btab" href="#b_tab" data-toggle="tab">2. Description</a>
             </li>
-            <li class="nav-item tab-link"><a class="nav-link btab" href="#c_tab" id="SaveIndicators" data-toggle="tab">3. Save Project</a>
+            <li class="nav-item tab-link"><a class="nav-link btab" href="#c_tab" id="SaveIndicators"
+                    data-toggle="tab">3. Save Project</a>
             </li>
-            <li class="nav-item tab-link"  id="refreshed" ><a class="nav-link ctab" href="#d_tab" data-toggle="tab">4.
+            <li class="nav-item tab-link" id="refreshed"><a class="nav-link ctab" href="#d_tab" data-toggle="tab">4.
                     Implementation
                     Table</a></li>
         </ul>
@@ -1051,62 +1071,72 @@ var subitem = $('.sub-item');
                                     <br>
 
                                     <div class="container">
-    <div class="row align-items-center">
-        <div class="col-md-6">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-6">
 
-            <form id="addform" action="" method="post">
-                <div class="form-group">
-                    <br>
-                    <label for="formGroupExampleInput">Project Name</label>
-                    <input type="text" class="form-control" id="projectname" name="projectName" placeholder="Enter Project Name"
-                        required />
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Value</label>
-
-
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="inputGroupSelect01"><b>£</b></label>
-                        </div>
-                        <input type="text" class="form-control" id="value" name="projectValue" placeholder="Enter Estimated Value"
-                            required />
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div id="locationField">
-                        <label for="formGroupExampleInput2">Project Location</label>
-                        <input class="form-control" value="" id="autocomplete" name="projectLocation" placeholder="Enter an address" type="text" required />
-                    </div>
-                </div>
+                                                <form id="addform" action="" method="post">
+                                                    <div class="form-group">
+                                                        <br>
+                                                        <label for="formGroupExampleInput">Project Name</label>
+                                                        <input type="text" class="form-control" id="projectname"
+                                                            name="projectName" placeholder="Enter Project Name"
+                                                            required />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="formGroupExampleInput2">Value</label>
 
 
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Project Delivery Date</label>
-                    <input type="text" class="form-control" id="datepicker" name="projectDeliveryDate" placeholder="Choose delivery date"
-                        required />
-                </div>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <label class="input-group-text"
+                                                                    for="inputGroupSelect01"><b>£</b></label>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="value"
+                                                                name="projectValue" placeholder="Enter Estimated Value"
+                                                                required />
+                                                        </div>
+                                                    </div>
 
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Project Delivery Partners <small
-                            class="manrope-font"><br>(Select from list, or type your
-                            own)</small></label><br>
-                    <select id="select-partners" name="projectDeliveryPartners" class="form-control" multiple="multiple" required>
-                        <option>Belfast City Council</option>
-                        <option>Public Health Agency</option>
-                        <option>Department for Infrastructure</option>
-                        <option>Department for Communities</option>
-                        <option>Department of Health</option>
-                    </select>
-                </div>
+                                                    <div class="form-group">
+                                                        <div id="locationField">
+                                                            <label for="formGroupExampleInput2">Project Location</label>
+                                                            <input class="form-control" value="" id="autocomplete"
+                                                                name="projectLocation" placeholder="Enter an address"
+                                                                type="text" required />
+                                                        </div>
+                                                    </div>
 
-                <div class="form-group d-none">
-                    <br>
 
-                    <input type="text" class="form-control" id="formGroupModelData" name="modelDataToSend" required />
-                </div>
-                <!--
+                                                    <div class="form-group">
+                                                        <label for="formGroupExampleInput2">Project Delivery
+                                                            Date</label>
+                                                        <input type="text" class="form-control" id="datepicker"
+                                                            name="projectDeliveryDate"
+                                                            placeholder="Choose delivery date" required />
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="formGroupExampleInput2">Project Delivery Partners
+                                                            <small class="manrope-font"><br>(Select from list, or type
+                                                                your
+                                                                own)</small></label><br>
+                                                        <select id="select-partners" name="projectDeliveryPartners"
+                                                            class="form-control" multiple="multiple" required>
+                                                            <option>Belfast City Council</option>
+                                                            <option>Public Health Agency</option>
+                                                            <option>Department for Infrastructure</option>
+                                                            <option>Department for Communities</option>
+                                                            <option>Department of Health</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group d-none">
+                                                        <br>
+
+                                                        <input type="text" class="form-control" id="formGroupModelData"
+                                                            name="modelDataToSend" required />
+                                                    </div>
+                                                    <!--
                 <div class="form-group">
                         <div class="input-group-prepend">
                             <label class="form-control" for="inputGroupSelect01"></label>
@@ -1116,57 +1146,60 @@ var subitem = $('.sub-item');
                             value="<?php echo htmlspecialchars($modelDataToSend) ?>"  required />
                     </div>
                 </div>--->
-                <input name="submit" type="submit" value="Save Project" class="btn btn-info mt-5 btn AddIndicators">
-            </form>
+                                                    <input name="submit" type="submit" value="Save Project"
+                                                        class="btn btn-info mt-5 btn AddIndicators">
+                                                </form>
 
-            <p id="message"></p>     
-
-
-
-
-            <script>
-            $(document).ready(function() {
-                $("#addform").submit(function(e) {
-                    e.preventDefault();
-                    // var projectname = $("#name").val();
-                    // var projectValue = $("#value").val();
-                    // var projectLocation = $("#autocomplete").val();
-                    // var projectDeliveryDate = $("#datepicker").val();
-                    // var projectDeliveryPartners = $("#select-partners").val();
-                    // var modelDataToSend = $("#formGroupModelData").val();
-                    $.ajax({
-                        url: 'add.php',
-                        method: 'POST',
-                        data: $("#addform").serialize(),
-                        dataType: "text",
-                        // data: {
-                        //     projectName: projectName,
-                        //     projectValue: projectValue,
-                        //     projectLocation: projectLocation,
-                        //     projectDeliveryDate: projectDeliveryDate,
-                        //     projectDeliveryPartners: projectDeliveryPartners,
-                        //     modelDataToSend: modelDataToSend
-                        // },
-                        success: function(strMessage) {
-                            $("#message").text(strMessage);
-                            $("#addform")[0].reset();
-                        }
-                    });
-                });
-            });
-            </script>
-
-
-        </div>
-        <div class="col-md-6 text-center"><img src="img/add.svg" width="400px" alt=""></div>
-    </div>
-</div>
+                                                <p id="message"></p>
 
 
 
-<script>
-document.getElementById("formGroupModelData").style.display = "none";
-</script>
+
+                                                <script>
+                                                $(document).ready(function() {
+                                                    $("#addform").submit(function(e) {
+                                                        e.preventDefault();
+                                                        // var projectname = $("#name").val();
+                                                        // var projectValue = $("#value").val();
+                                                        // var projectLocation = $("#autocomplete").val();
+                                                        // var projectDeliveryDate = $("#datepicker").val();
+                                                        // var projectDeliveryPartners = $("#select-partners").val();
+                                                        // var modelDataToSend = $("#formGroupModelData").val();
+                                                        $.ajax({
+                                                            url: 'add.php',
+                                                            method: 'POST',
+                                                            data: $("#addform").serialize(),
+                                                            dataType: "text",
+                                                            // data: {
+                                                            //     projectName: projectName,
+                                                            //     projectValue: projectValue,
+                                                            //     projectLocation: projectLocation,
+                                                            //     projectDeliveryDate: projectDeliveryDate,
+                                                            //     projectDeliveryPartners: projectDeliveryPartners,
+                                                            //     modelDataToSend: modelDataToSend
+                                                            // },
+                                                            success: function(strMessage) {
+                                                                $("#message").text(
+                                                                    strMessage);
+                                                                $("#addform")[0].reset();
+                                                            }
+                                                        });
+                                                    });
+                                                });
+                                                </script>
+
+
+                                            </div>
+                                            <div class="col-md-6 text-center"><img src="img/add.svg" width="400px"
+                                                    alt=""></div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <script>
+                                    document.getElementById("formGroupModelData").style.display = "none";
+                                    </script>
                 </section>
             </div>
 
@@ -1182,46 +1215,49 @@ document.getElementById("formGroupModelData").style.display = "none";
                                     table<br></h1>
                                     <!-- <button class="btn btn-success mb-4 mt-2" id="refresh"><span
                                                 aria-hidden="true"></span>Refresh Projects<i class="ml-2 fas fa-sync-alt"></i></button> -->
-                                  
-                                  <!-- <button id="refresh" class="btn btn-primary">Refresh Table</button> -->
+
+                                    <!-- <button id="refresh" class="btn btn-primary">Refresh Table</button> -->
                                     <table id="projectparent" class="table w-100 table-bordered table-striped display">
                                         <thead class="table-head">
                                             <tr>
                                                 <th>Project Name</th>
                                                 <th>No. of Actions</th>
                                                 <th>Model Data</th>
+                                                <th>Date</th>
                                             </tr>
                                         </thead>
                                     </table>
-                                    <button class="btn btn-primary" id="LoadImplementation">Load implementation table test</button>
+                                    <button class="btn btn-primary" id="LoadImplementation">Load implementation table
+                                        test</button>
 
 
-                                    <h3 style="text-align: left;"><br>2. View and Create Implementation Table</h1>
-                                        <!-- <button class="btn btn-info mb-4 mt-2" id="CreateData"> <span
+
+                                    <!-- <button class="btn btn-info mb-4 mt-2" id="CreateData"> <span
                                                 aria-hidden="true"></span>Load Current Model Indicators<i
                                                 class="fas fa-plus-circle fa-fw"></i></button> -->
 
-                                        <h3 id="projecttext" class="mt-5"></h3>
-                                        <hr>
+                                    <h3 id="projecttext" class="mt-5">Implementation Table</h3>
+                                    <hr>
 
 
-                                        <table id="implementationtable"
-                                            class="table w-100 table-bordered table-striped display">
-                                            <thead class="table-head">
-                                                <tr>
-                                                    <th>Indicators</th>
-                                                    <th>Action</th>
-                                                    <th>Measurables</th>
-                                                    <th>£ Value</th>
-                                                    <th>Partners</th>
-                                                    <th>More Info</th>
-                                                    <th>Project Name</th>
-                                                 
-                                                </tr>
-                                            </thead>
-                                        </table>
-                                        <button class="btn btn-primary" id="addnewrow">Add Row</button>
-                                       
+                                    <table id="implementationtable"
+                                        class="table w-100 table-bordered table-striped display">
+                                        <thead class="table-head">
+                                            <tr>
+                                                <th>Indicators</th>
+                                                <th>Action</th>
+                                                <th>Measurables</th>
+                                                <th>£ Value</th>
+                                                <th>Partners</th>
+                                                <th>More Info</th>
+                                                <th>Project Name</th>
+
+
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                    <button class="btn btn-primary" id="addnewrow">Add Row</button>
+
 
 
 
@@ -1355,16 +1391,7 @@ document.getElementById("formGroupModelData").style.display = "none";
 
 
 
-    <footer id="footer">
-        <div class="container">
-            <h3>USI Policy Tool</h3>
-            <div class="copyright">
-                Developed by Urban Scale Interventions
-            </div>
 
-
-        </div>
-    </footer>
     <!-- 
     <div class="container tab-section">
         <h4>Model Output</h4>
@@ -1471,7 +1498,6 @@ document.getElementById("formGroupModelData").style.display = "none";
 
 
 
-</body>
 
 
 
@@ -1814,6 +1840,7 @@ $(document).ready(function() {
 
 
     $('#projects').DataTable({
+        select: true,
         dom: "Bfrtip",
         ajax: "Editor-PHP-1.9.5/controllers/projects.php",
         columns: [{
@@ -1853,9 +1880,11 @@ $(document).ready(function() {
 
         ],
 
-        buttons: [
-
-        ]
+        buttons: [{
+            extend: "remove",
+            editor: editor1,
+            text: 'Remove Project'
+        }]
     });
 
 
@@ -1886,6 +1915,18 @@ $(document).ready(function() {
 
 
     var projectTable = $('#projectparent').DataTable({
+
+        //select most recent project on load
+        "initComplete": function(settings, json) {
+            projectTable.row(':eq(0)', {
+                page: 'current'
+            }).select();
+        },
+
+        "order": [
+            [3, "desc"]
+        ],
+        "pageLength": 5,
         dom: "Bfrtip",
         ajax: "Editor-PHP-1.9.5/controllers/projects-parent.php",
         columns: [{
@@ -1900,29 +1941,42 @@ $(document).ready(function() {
                 render: function(data) {
                     return data.length;
                 }
-            }
+            },
+            {
+                data: 'creationTime',
+                "visible": false
+            },
         ],
         select: {
             style: 'single'
         },
         buttons: []
+
+
     });
+
+
+
+
 
 
     // loading current project implementation table - this function could be attached to view model, load model buttons etc to load implementation table
-   $('#LoadImplementation').on('click', function () {
-        projectTable.rows( {search:'applied'} ).every(function(rowIdx, tableLoop, rowLoop){
-        if(projectTable.row( rowIdx ).data().projectName == 'Relink Belfast'){  //change Relink Belfast to currently loaded/created project name, which could be stored in a global variable or something
-             $(this.node()).addClass('selected');
-             $(projectTable.row(rowIdx).select().show().draw(false)); //select and display implementation table for project name 
-        }
-        });  
+    $('#LoadImplementation').on('click', function() {
+        projectTable.rows({
+            search: 'applied'
+        }).every(function(rowIdx, tableLoop, rowLoop) {
+            if (projectTable.row(rowIdx).data().projectName ==
+                'Relink Belfast') { //change Relink Belfast to currently loaded/created project name, which could be stored in a global variable or something
+                $(this.node()).addClass('selected');
+                $(projectTable.row(rowIdx).select().show().draw(
+                false)); //select and display implementation table based on project name 
+            }
+        });
     });
 
 
 
-
-    $('#refreshed').on('click', function () {
+    $('#refreshed').on('click', function() {
         projectTable.ajax.reload(null, false);
     });
 
@@ -1973,8 +2027,12 @@ $(document).ready(function() {
 
 
 
-//need to add this function after project load and creation
+
+
+    //need to add this function after project load and creation
     $(".AddIndicators").click(function() {
+
+        //   if()  
         impEditor.add({
             type: 'select',
             label: 'Select Indicators:',
@@ -1985,7 +2043,13 @@ $(document).ready(function() {
         });
     });
 
+
+
+
     var implementationTable = $('#implementationtable').DataTable({
+
+
+
         "language": {
             "emptyTable": "<b>Click on a project above to view and edit it's implementation table</b>"
         },
@@ -2007,17 +2071,17 @@ $(document).ready(function() {
                     $('#projecttext').text(d.projectName + " Implementation Table");
 
 
-    //add row button            
-    // $('#addnewrow').on('click', function(e) {
-    //     implementationTable.row.add( ["", "", "", "", "", "", d.ProjectName] ).draw( false );
-    // });
+                    //add row button            
+                    // $('#addnewrow').on('click', function(e) {
+                    //     implementationTable.row.add( ["", "", "", "", "", "", d.ProjectName] ).draw( false );
+                    // });
 
                 }
             }
         },
         columns: [{
                 data: 'implementation.indicator',
-                editField: "indicator"
+                editField: "implementation.indicator"
             },
             {
                 data: 'implementation.action',
@@ -2071,10 +2135,22 @@ $(document).ready(function() {
     });
 
 
-    $('#implementationtable').on('dblclick', 'tbody td', function(e) {
-        impEditor.bubble(this);
-    });
 
+
+    // $('#implementationtable').on('dblclick', 'tbody td', function(e) {
+    //     impEditor.bubble(this, {
+    //         submit: 'changed'
+    //     });
+    // });
+
+
+    //     $('#implementationtable').on( 'click', 'tbody tr', function () {
+    //         impEditor.bubble( this, {
+    //             submit: 'changed'        
+    //     } );
+
+    //         impEditor.field( 'implementation.indicator' ).clear();
+    // } );
     // $('#implementationtable').on( 'click', 'tbody td:not(:first-child)', function (e) {
     //     projectEditor.inline( this );
     // } );
@@ -2119,139 +2195,201 @@ $(document).ready(function() {
 </script>
 
 
+<style>
+.flex-center {
+    display: flex !important;
+    justify-content: center !important;
+}
 
+
+.canvas-center {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+</style>
 
 
 
 
 <hr>
-<section style="margin-right: 75px; margin-left: 75px; margin-top: 75px; margin-bottom: 75px;">
+<section class="mt-5">
     <div class="container-fluid">
+        <div class="container">
         <h1 style="text-align: left;" class="display-4">Insights</h1>
         <h3 style="font-size: 18px;">PFG Indicators hit across all projects per ... <br>
+        <br>
+      
+        <!-- Could be used for filtering -->
+            <div class="dropdown">
+                <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Filter
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </div>
+
+            </div>
             <br><br>
-            <div class="row mt-5 text-center" style="margin-bottom: 100px">
-                <div class="col-lg-4">
-                    <h2>
-                        PFG Target 1 Distribution
-                    </h2>
-                    <canvas id="insights-pfg1" width="200" height="200"></canvas>
-
-
-                </div>
-                <div class="col-lg-4 text-center">
-                    <h2>
-                        PFG Target 2 Distribution
-                    </h2>
-                    <canvas id="insights-pfg2" width="200" height="200"></canvas>
+            <!-- Grid of 6-6-2 -->
+            <div class="row mt-5 flex-center">
+                <div class="col-lg-2 text-center">
+                    <h5>
+                        PFG Target 1
+                    </h5>
+                    <canvas class="canvas-center" id="insights-pfg1" style="width: 230px;"></canvas>
 
                 </div>
-                <div class="col-lg-4 text-center">
-                    <h2>
-                        PFG Target 3 Distribution
-                    </h2>
-                    <canvas id="insights-pfg3" width="200" height="200"></canvas>
+                <div class="col-lg-2 text-center">
+                    <h5>
+                        PFG Target 2
+                    </h5>
+                    <canvas class="canvas-center" id="insights-pfg2" style="width: 230px;"></canvas>
 
                 </div>
+                <div class="col-lg-2 text-center">
+                    <h5>
+                        PFG Target 3
+                    </h5>
+                    <canvas class="canvas-center" id="insights-pfg3" style="width: 230px;"></canvas>
+
+                </div>
+
+                <div class="col-lg-2 text-center">
+                    <h5>
+                        PFG Target 4
+                    </h5>
+                    <canvas class="canvas-center" id="insights-pfg4" style="width: 230px;"></canvas>
+
+                </div>
+
+                <div class="col-lg-2 text-center">
+                    <h5>
+                        PFG Target 5
+                    </h5>
+                    <canvas class="canvas-center" id="insights-pfg5" style="width: 230px;"></canvas>
+
+                </div>
+
+                <div class="col-lg-2 text-center">
+                    <h5>
+                        PFG Target 6
+                    </h5>
+                    <canvas class="canvas-center" id="insights-pfg6" style="width: 230px;"></canvas>
+
+                </div>
+
+
             </div>
-            <div class="row mt-5" style="margin-bottom: 100px">
-                <div class="col-lg-4 text-center">
-                    <h2>
-                        PFG Target 4 Distribution
-                    </h2>
-                    <canvas id="insights-pfg4" width="200" height="200"></canvas>
+            <div class="row flex center text-center" style="justify-content: center; margin-top: 20px;">
+                <div class="col-lg-2">
+                    <h5>
+                        PFG Target 7
+                    </h5>
+                    <canvas class="canvas-center" id="insights-pfg7" style="width: 230px;"></canvas>
 
                 </div>
-                <div class="col-lg-4 text-center">
-                    <h2>
-                        PFG Target 5 Distribution
-                    </h2>
-                    <canvas id="insights-pfg5" width="200" height="200"></canvas>
+                <div class="col-lg-2 text-center">
+                    <h5>
+                        PFG Target 8
+                    </h5>
+                    <canvas class="canvas-center" id="insights-pfg8" style="width: 230px;"></canvas>
 
                 </div>
-                <div class="col-lg-4 text-center">
-                    <h2>
-                        PFG Target 6 Distribution
-                    </h2>
-                    <canvas id="insights-pfg6" width="200" height="200"></canvas>
+                <div class="col-lg-2 text-center">
+                    <h5>
+                        PFG Target 9
+                    </h5>
+                    <canvas class="canvas-center" id="insights-pfg9" style="width: 230px;"></canvas>
 
                 </div>
+
+                <div class="col-lg-2 text-center">
+                    <h5>
+                        PFG Target 10
+                    </h5>
+                    <canvas class="canvas-center" id="insights-pfg10" style="width: 230px;"></canvas>
+
+                </div>
+
+                <div class="col-lg-2 text-center">
+                    <h5>
+                        PFG Target 11
+                        <canvas class="canvas-center" id="insights-pfg11" style="width: 230px;"></canvas>
+
+                </div>
+
+                <div class="col-lg-2 text-center">
+                    <h5 class="text-center">
+                        PFG Target 12
+                    </h5>
+                    <canvas class="canvas-center" id="insights-pfg12" style="width: 230px;"></canvas>
+
+                </div>
+
+
             </div>
-            <div class="row mt-5" style="margin-bottom: 100px">
-                <div class="col-lg-4 text-center">
-                    <h2>
-                        PFG Target 7 Distribution
-                    </h2>
-                    <canvas id="insights-pfg7" width="200" height="200"></canvas>
+
+            <div class="row mt-5 mb-5 flex-center text-center">
+                <div class="col-lg-2">
+
 
                 </div>
-                <div class="col-lg-4 text-center">
-                    <h2>
-                        PFG Target 8 Distribution
-                    </h2>
-                    <canvas id="insights-pfg8" width="200" height="200"></canvas>
+                <div class="col-lg-2 text-center">
 
                 </div>
-                <div class="col-lg-4 text-center">
-                    <h2>
-                        PFG Target 9 Distribution
-                    </h2>
-                    <canvas id="insights-pfg9" width="200" height="200"></canvas>
+                <div class="col-lg-2 text-center">
+                    <h5>
+                        PFG Target 13
+                    </h5>
+                    <canvas class="canvas-center" id="insights-pfg13" style="width: 230px;"></canvas>
 
                 </div>
+
+                <div class="col-lg-2 text-center">
+                    <h5>
+                        PFG Target 14
+                    </h5>
+                    <canvas class="canvas-center" id="insights-pfg14" style="width: 230px;"></canvas>
+
+                </div>
+
+                <div class="col-lg-2 text-center">
+
+
+                </div>
+
+                <div class="col-lg-2 text-center">
+
+
+                </div>
+
+
             </div>
-            <div class="row mt-5" style="margin-bottom: 100px">
-                <div class="col-lg-4 text-center">
-                    <h2>
-                        PFG Target 10 Distribution
-                    </h2>
-                    <canvas id="insights-pfg10" width="200" height="200"></canvas>
 
-                </div>
-                <div class="col-lg-4 text-center">
-                    <h2>
-                        PFG Target 11 Distribution
-                    </h2>
-                    <canvas id="insights-pfg11" width="200" height="200"></canvas>
 
-                </div>
-                <div class="col-lg-4 text-center">
-                    <h2>
-                        PFG Target 12 Distribution
-                    </h2>
-                    <canvas id="insights-pfg12" width="200" height="200"></canvas>
 
-                </div>
-            </div>
-            <div class="row mt-5" style="margin-bottom: 100px">
-                <div class="col-lg-4 text-center">
-                    <h2>
-                        PFG Target 13 Distribution
-                    </h2>
-                    <canvas id="insights-pfg13" width="200" height="200"></canvas>
-
-                </div>
-                <div class="col-lg-4 text-center">
-                    <h2>
-                        PFG Target 14 Distribution
-                    </h2>
-                    <canvas id="insights-pfg14" width="200" height="200"></canvas>
-                </div>
-
-                <div class="col-lg-4 text-center">
-                    <h2>
-                        Heading
-                    </h2>
-                    <p>
-                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
-                        tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
-                        malesuada magna mollis euismod. Donec sed odio dui.
-                    </p>
-
-                </div>
-            </div>
+    </div>
     </div>
 
+    <footer id="footer">
+        <div class="container">
+            <h3>USI Policy Tool</h3>
+            <div class="copyright">
+                Developed by Urban Scale Interventions
+            </div>
+
+
+        </div>
+    </footer>
+
+    </body>
 
 
     <script src='Insights.js'></script>
